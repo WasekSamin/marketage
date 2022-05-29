@@ -1,0 +1,427 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+
+
+<head>
+
+  <!-- Required meta tags -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  
+
+  <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+  
+
+
+
+  <!--category wise view-->
+
+  
+
+
+
+  <!-- Iconify -->
+
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+
+
+  <style>
+
+    *{
+
+        font-family: 'poppins', sans-serif;
+
+    }
+
+    .sticky{
+
+        background: #fff;
+
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    }
+
+
+
+    .sticky ul li a{
+
+        color: #000 !important;
+
+    }
+
+    .sticky a{
+
+        color: #000 !important;
+
+    }
+
+
+
+    @media (max-width:990px){
+
+        .trustedByText{
+
+            display: none;
+
+        }
+
+    }
+
+    @media (max-width:380px){
+
+        .overlay-text h2{
+
+            margin-top: -50px;
+
+        }
+
+        .trusted{
+
+                width: 100%;
+
+                 margin-left: 0px;
+
+        }
+
+    }
+
+     @media (max-width:325px){
+
+        .overlay-text h2{
+
+            margin-top: -70px;
+
+        }
+
+    }
+
+  </style>
+
+
+
+  <title>Marketage</title>
+
+</head>
+
+
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-dark desktop__navbar">
+
+    <div class="container">
+
+      <a class="navbar-brand new_________nav______logo" href="{% url 'get_landing_page' %}">Marketage.</a>
+
+      <!-- {% for logo in main_logo %}
+
+      <a class="navbar-brand navbarNewIcon" href="{% url 'get_landing_page' %}"><img src="{{ logo.logo_img.url }}" alt=""></a>
+
+      {% endfor %} -->
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item new_____nav____link">
+
+            {% comment %}<a id="myBtn" class="nav-link" href="#">Reimble</a>{% endcomment %}
+
+
+
+            <!-- The Modal -->
+
+ {% comment %}<div id="myModal" class="modal ">
+
+
+
+    <!-- Modal content -->
+  
+    <div class="modal-content ">
+  
+      <span class="close">&times;</span>
+  
+      <img src="{% static 'images/coming-soon.jpg' %}">
+  
+    </div>
+  
+  
+  
+  </div>{% endcomment %}
+          </li>
+
+          <li class="nav-item new_____nav____link">
+
+            <a class="nav-link hire" href="#">Hire Us</a>
+
+          </li>
+
+          {% comment %} statement {% endcomment %}
+
+
+
+        {% if not request.session.user %}
+
+        
+
+          <li class="nav-item new_____nav____link">
+
+            <a class="nav-link hire"  href="#">Become a seller</a>
+
+            
+
+            
+
+
+
+
+
+          </li>
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          <li class="nav-item new_____nav____link">
+
+            <a class="nav-link" href="{% url 'user_login' %}">Sign In</a>
+
+          </li>
+
+          <a type="button" class="btn fw-bold btn-outline-light text-white join___button" href="{% url 'user_registration' %}">Join</a>
+
+          {% else %}
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="{% url 'buying_view' %}">Swtich To Buying View</a>
+
+          </li>
+
+          {% endif %}
+
+          {% comment %} statement {% endcomment %}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- Mobile navbar section starts -->
+
+  <nav class="mobile__navbar">
+
+    <div class="hamburger__menu">
+
+      <span class="iconify" data-icon="radix-icons:hamburger-menu" data-inline="false"></span>
+
+    </div>
+
+    <div class="logo__img">
+
+      <a class="new_________nav______logo__mobile" href="{% url 'get_landing_page' %}">Marketage.
+
+        <!--<img src="{% static 'images/marketage.png' %}" alt="">-->
+
+      </a>
+
+    </div>
+
+    <div class="signin__page">
+
+      <a href="{% url 'user_registration' %}">Join</a>
+
+    </div>
+
+
+
+    <!-- For fixed black background -->
+
+    <div class="bg__fixed"></div>
+
+    <div class="mobile__navLinks">
+
+      <div class="nav__close">
+
+            <span class="iconify" data-icon="carbon:close-outline" data-inline="false"></span>
+
+        </div>
+
+      <ul>
+
+        <div class="logo__img">
+
+          <a new_________nav href=""
+
+          style="    font-family: 'Lobster', cursive;
+
+    color: #000;
+
+    font-size: 26px;
+
+    font-weight: 700;"
+
+          >Marketage.
+
+            <!--<img src="{% static 'images/marketage.png' %}" alt="">-->
+
+          </a>
+
+        </div>
+
+        <li class="mb-4">
+
+          <a class="join__btn" href="{% url 'user_registration' %}">
+
+            Join Marketage
+
+          </a>
+
+        </li>
+
+        <li>
+
+          <a href="{% url 'user_login' %}">Sign In</a>
+
+        </li>
+
+        <li class="browse__categories">
+
+                          <button class="landing__collapsible text-muted">Browse Categories</button>
+
+                      <div class="content">
+                            {% for cat in cats %}
+                           <button class="landing__collapsible text-muted browse___button">{{ cat.title }}</button>
+                                {% if cat.subcategory.all|length > 0 %}
+                                <div class="content">
+                                    
+                                    <ul>
+                                        {% for subcat in cat.subcategory.all %}
+                                        <li><a href="{% url 'SubcategoryWiseOffer' subcat.slug %}">{{ subcat.sub_title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                 
+
+                                 
+
+                        </div>
+
+        </li>
+
+
+
+    
+
+      </ul>
+
+
+
+      <ul>
+
+        <li>
+
+          <p>General</p>
+
+          <hr>
+
+        </li>
+
+        <li>
+
+          <a href="{% url 'get_landing_page' %}">Home</a>
+
+        </li>
+
+        <!--<li class="browse__cat cat__alt">-->
+
+        <!--  <div>English <span class="iconify" data-icon="bi:globe" data-inline="false"></span></div>-->
+
+        <!--  <div><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></div>-->
+
+        <!--</li>-->
+
+        <!--<li class="browse__cat cat__alt">-->
+
+        <!--  <div>USD - $</div>-->
+
+        <!--  <div><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></div>-->
+
+        <!--</li>-->
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <!-- Mobile navbar section ends -->
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  <script src="{% static 'js/mobile_navbar.js' %}"></script>
+
+  

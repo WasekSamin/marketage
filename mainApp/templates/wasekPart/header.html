@@ -1,0 +1,572 @@
+{% load static %}
+
+
+
+<!--Jquery cdn-->
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+
+<!-- font awesome -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+
+<link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+
+
+<link rel="stylesheet" href="{% static 'css/wasek_header.css' %}" />
+
+
+
+
+
+
+<div class="nav__header msg__header">
+
+    <!-- Left header section starts -->
+
+
+
+    <div class="left__header">
+
+        <ul>
+
+            <a href="{% url 'buying_view' %}">
+
+                <li class="nav___new___logo1">Marketage.
+
+                    <!-- <img
+
+            class="header__img"
+
+            src="{% static 'images/marketage.png' %}"
+
+            alt=""
+
+          /> -->
+
+                </li>
+
+            </a>
+
+            <a href="{% url 'seller_dashboard' %}">
+
+                <li>Dashboard</li>
+
+            </a>
+
+            <a href="{% url 'inbox' %}">
+
+                <li><span class="d-flex align-items-center">{% if msg_seen_chatrooms|length > 0 %}<span class="iconify fs-4" data-icon="heroicons-outline:light-bulb" style="color: #f7bd0b; margin-top: -0.5rem;"></span>{% endif %}Messages</span></li>
+
+            </a>
+
+      <a href="{% url 'manage-order' %}">
+
+        <li class="d-flex align-items-center">{% if not seller_sees_order %}<span class="iconify fs-5" data-icon="akar-icons:shipping-box-v2" style="color: #d2a26e;"></span>{% endif %}Orders</li>
+
+      </a>
+
+      <a href="{% url 'manage-offers' %}">
+
+        <li>Offers</li>
+
+      </a>
+
+      {% if not request.user %}
+
+      <a href="{% url 'user_login' %}">
+
+        <li>Earnings</li>
+
+      </a>
+
+      {% else %}
+
+      <a href="{% url 'earnings' user.id %}">
+
+        <li>Earnings</li>
+
+      </a>
+
+      {% endif %}
+
+      <li
+
+        class="dropdown-toggle more__content d-flex align-items-center"
+
+        type="button"
+
+        id="more__option"
+
+        data-bs-toggle="dropdown"
+
+        aria-expanded="false"
+
+      >
+
+        {% if not post_seen %}<span class="iconify" data-icon="icomoon-free:notification" style="color: #f73e2f; margin-top: -0.2rem; margin-right: 0.15rem;"></span>{% endif %}More
+      </li>
+
+      <!-- User login icon show -->
+
+      <!-- User alternate options section starts -->
+
+      <ul
+
+        class="dropdown-menu user__options more__options"
+
+        aria-labelledby="more__option"
+
+      >
+
+        <li>
+
+          <a class="dropdown-item" href="{% url 'BuyeRequestView' %}"
+
+            >Buyer Requests</a
+
+          >
+
+        </li>
+
+        {% comment %}
+        <li>
+
+          <a class="dropdown-item disabled____btn" href="{% url 'my_contacts_page' %}">My Contacts</a>
+
+        </li>
+        {% endcomment %}
+
+      </ul>
+
+      <!-- User alternate options section ends -->
+
+    </ul>
+
+  </div>
+
+  <!-- Left header section ends -->
+
+
+
+  <!-- Right header section starts -->
+
+  <div class="right__header">
+
+    <ul>
+
+      <a href="{% url 'buying_view' %}">
+
+        <li>Switch to Buying</li>
+
+      </a>
+
+      <li class="avatar__img dropdown">
+
+        <!-- User profile image -->
+
+        <img
+
+          class="dropdown-toggle"
+
+          type="button"
+
+          id="user__alternateOption"
+
+          data-bs-toggle="dropdown"
+
+          aria-expanded="false"
+
+          src="{{ request.user.selleraccount.profile_picture.url }}"
+
+          alt=""
+
+        />
+
+        <!-- User login icon show -->
+
+        <div class="online__dot"></div>
+
+        <!-- User alternate options section starts -->
+
+        <ul
+
+          class="dropdown-menu user__options"
+
+          aria-labelledby="user__alternateOption"
+
+        >
+
+        {% if request.session.user %}
+
+          <li>
+
+            <a class="dropdown-item" href="{% url 'account' request.user.id request.user.username %}">Profile</a>
+
+          </li>
+
+
+
+        {% else %}
+
+        <li>
+
+          <a class="dropdown-item" href="{% url 'get_landing_page' %}">Profile</a>
+
+        </li>
+
+        {% endif %}
+
+          {% comment %}
+
+          <li>
+
+            <a class="dropdown-item" href="#">Refer &amp; Get up to $100</a>
+
+          </li>
+
+          {% endcomment %}
+
+          <li>
+
+            <hr class="dropdown-divider" />
+
+          </li>
+
+          <!-- <li>
+
+            <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+
+          </li> -->
+
+          <!-- <li>
+
+            <div>
+
+              English
+
+              <span
+
+                class="iconify"
+
+                data-icon="bi:globe"
+
+                data-inline="false"
+
+              ></span>
+
+    </div>
+
+    </li> -->
+
+    <!-- <li>
+
+            <div>USD - $</div>
+
+          </li> -->
+
+    <li>
+
+        <a class="dropdown-item" href="{% url 'helpSupport' %}">Help &amp; Support</a
+
+            >
+
+          </li>
+
+          <li>
+
+            <hr class="dropdown-divider" />
+
+          </li>
+
+          <li>
+
+              <a class="w-100" href="{% url 'logoutview' %}">
+
+                  <div>Logout</div>
+
+              </a>
+
+    </li>
+
+    </ul>
+
+    <!-- User alternate options section ends -->
+
+    </li>
+
+    </ul>
+
+</div>
+
+<!-- Right header section ends -->
+
+</div>
+
+
+
+<!-- Mobile navbar section starts -->
+
+<nav class="mobile__navbar wasek__mobileNavbar">
+
+    <div class="hamburger__menu">
+
+        <span class="iconify" data-icon="radix-icons:hamburger-menu" data-inline="false"></span>
+
+    </div>
+
+
+
+    <div class="logo__img">
+
+        <!-- marketage font logo -->
+
+        <a class="nav___new___logo" href="{% url 'buying_view' %}">Marketage.
+
+      <!-- <img src="{% static 'images/marketage.png' %}" alt="" /> -->
+
+    </a>
+
+    </div>
+
+
+
+    <div class="signin__page" style="visibility: hidden;">
+
+        <a href="{% url 'user_registration' %}">Join</a>
+
+    </div>
+
+
+
+    <!-- For fixed black background -->
+
+    <div class="bg__fixed"></div>
+
+
+
+    <div class="mobile__navLinks">
+
+        <div class="top__section">
+
+            <div class="nav__close mobile__navClose">
+
+                <span class="iconify" data-icon="carbon:close-outline" data-inline="false"></span>
+
+            </div>
+
+            <div class="user__profile">
+
+                <div class="mobile__userImg">
+
+                    <a href="{% url 'account' request.user.id request.user.username %}">
+
+                        <img src="{{ request.user.selleraccount.profile_picture.url }}" alt="" />
+
+                    </a>
+
+                </div>
+
+                <p>
+                    <a class="text-dark" href="{% url 'account' request.user.id request.user.username %}">
+                        {{ request.user }}
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="all__options">
+
+            <ul>
+
+                <li>
+
+                    <a href="{% url 'buying_view' %}">Home</a>
+
+                </li>
+
+
+
+
+
+                <li class="browse__categories">
+
+                    <button class="collapsible text-muted">Browse Categories</button>
+
+                    <div class="content">
+
+                        {% for cat in cats %}
+
+                        <button class="collapsible text-muted browse___button">{{ cat.title }}</button> {% if cat.subcategory.all|length > 0 %}
+
+                        <div class="content">
+
+
+
+                            <ul>
+
+                                {% for subcat in cat.subcategory.all %}
+
+                                <li>
+
+                                    <a href="{% url 'SubcategoryWiseOffer' subcat.slug %}">{{ subcat.sub_title }}</a>
+
+                                </li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                        </div>
+
+                        {% endif %} {% endfor %}
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+
+
+            <ul>
+
+                <li>
+
+                    <p class="fw-bold text-dark">Buying</p>
+
+                    <hr />
+
+                </li>
+
+                <li>
+
+                    <a href="{% url 'buying_view' %}">Switch To Buying</a>
+
+                </li>
+
+
+
+            </ul>
+
+
+
+            <ul>
+
+                <li>
+
+                    <p class="fw-bold text-dark">Selling</p>
+
+                    <hr />
+
+                </li>
+
+                <li>
+
+                    <a href="{% url 'seller_dashboard' %}">Seller Dashboard</a>
+
+                </li>
+
+                <li>
+                    {% if not request.user %}
+                    <a href="{% url 'user_login' %}">Earnings</a>
+                    {% else %}
+                    <a href="{% url 'earnings' user.id %}">Earnings</a>
+                    {% endif %}
+                </li>
+
+                <li>
+
+                    <a href="{% url 'inbox' %}">{% if msg_seen_chatrooms|length > 0 %}<span class="iconify fs-4" data-icon="heroicons-outline:light-bulb" style="color: #f7bd0b; margin-top: -0.5rem;"></span>{% endif %}Messages</a>
+
+                </li>
+
+                <li>
+
+                    <a href="{% url 'manage-order' %}" class="d-flex align-items-center">{% if not seller_sees_order %}<span class="iconify fs-5" data-icon="akar-icons:shipping-box-v2" style="color: #d2a26e;"></span>{% endif %} Orders</a>
+
+                </li>
+
+                <li>
+
+                    <a href="{% url 'manage-offers' %}">Offers</a>
+
+                </li>
+
+                <li class="browse__categories">
+
+                    <button class="collapsibleMore text-muted">{% if not post_seen %}<span class="iconify" data-icon="icomoon-free:notification" style="color: #f73e2f; margin-top: -0.2rem; margin-right: 0.15rem;"></span>{% endif %}More</button>
+
+
+
+                    <div class="content">
+
+                        <a href="{% url 'BuyeRequestView' %}" class="collapsibleMoreCatge buyer____nav___link text-muted">Buyer Requests</a><br>
+
+                        
+                        {% comment %}
+                        <a href="{% url 'my_contacts_page' %}" class="collapsibleMoreCatge buyer____nav___link text-muted disabled____btn" >My Contacts</a>
+                        {% endcomment %}
+                    </div>
+
+
+
+
+
+
+
+                </li>
+
+            </ul>
+
+
+
+            <ul>
+
+                <li>
+
+                    <p class="fw-bold text-dark">General</p>
+
+                    <hr />
+
+                </li>
+
+                <!-- <li>
+
+                    <a href="{% url 'settings' %}">Settings</a>
+
+                </li> -->
+
+                <li>
+
+                    <a href="{% url 'logoutview' %}">Logout</a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Mobile navbar section ends -->
+
+<input type="hidden" value="{{ post_seen }}" id="get__notified" />
+
+<audio id="get__notificationAudio" src="{% static 'music/notification_sound.wav' %}"></audio>
+
+
+<script src="{% static 'js/mobile_navbar.js' %}"></script>
+

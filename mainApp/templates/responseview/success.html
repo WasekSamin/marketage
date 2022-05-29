@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/success.css' %}">
+
+    <title>Transaction Success</title>
+  </head>
+  <body>
+
+       <div class="main-card-body">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body main-body">
+                            <h4 class="fw-bold text-center">Payment Successful!</h4>
+                            <div class="succes-icon d-flex justify-content-center">
+                                <i class="far fa-check-circle check-icon"></i>
+                            </div>
+                            {% comment %} <div class="payment-detail">
+                                <div class="main-detail">
+                                    <p class="text-muted">Payment Type</p>
+                                    <p>Not Banking</p>
+                                </div>
+                                <div class="main-detail">
+                                    <p class="text-muted">Bank</p>
+                                    <p>HDFC</p>
+                                </div>
+                                <div class="main-detail">
+                                    <p class="text-muted">Mobile</p>
+                                    <p>*******</p>
+                                </div>
+                                <div class="main-detail">
+                                    <p class="text-muted">Email</p>
+                                    <p>justiceforarko@gmail.com</p>
+                                </div>
+                                <div class="main-detail">
+                                    <p>Amount Paid</p>
+                                    <p>{{ order.grand_total }} USD</p>
+                                </div>
+                                <div class="main-detail">
+                                    <p class="text-muted">Transaction id</p>
+                                    <p>231h23</p>
+                                </div>
+                                
+                            </div> {% endcomment %}
+                            <div class="submit-button d-flex justify-content-center">
+                                <!--<a class="print-btn text-white text-center" href="#">Print</a>-->
+                                    <a class="home-btn text-white text-center" href="{% url 'BuyerOrders' %}">Go Home</a>
+                                </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+       </div>
+
+  </body>
+</html>

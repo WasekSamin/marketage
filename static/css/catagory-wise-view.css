@@ -1,0 +1,179 @@
+
+
+/* headline */
+#heading{
+    text-align: center;
+}
+#heading a{
+    text-decoration: none;
+}
+
+
+/* service-section */
+.catagory-list li i{
+    display: none;
+}
+.catagory-list{
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0;
+}
+.catagory-list li a{
+    text-decoration: none;
+    list-style: none;
+    font-size: 15px;
+    color: #525151;
+    font-weight: 500;
+}
+.catagory-list li a:hover{    
+    color: #000000;
+}
+.catagory-list li{
+    margin-bottom: 10px;
+}
+#service-section{
+    margin-top: 40px;
+}
+.catagory{
+    margin-bottom: 60px;
+}
+.catagory a{
+    text-decoration: none;
+    color: black;
+}
+.card-img-top{
+    width: 100%;
+    height: 100%;
+    max-height: 180px;
+    position: relative;
+}
+.card-img-top img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .9;
+    transition: .3s all;
+}
+.card-img-top img:hover{   
+    opacity: .5;
+}
+.overlay{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.line{
+    display: none;
+}
+/* For mobile view top banner  */
+
+
+.mob-view-banner{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #0000;
+    position: relative;
+}
+.mob-view-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    opacity: .7;
+    max-height: 500px;
+
+}
+.banner-overlay{
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    background-color: #000;
+    position: absolute;
+    object-fit: cover;
+}
+.banner-text{
+    position: absolute;
+    top: 43%;
+    color: ivory;
+    width: 100%;
+    text-align: center;
+}
+.banner-text h1{
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.banner-text p{
+    width: 100%;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+} 
+.line{
+    width: 100%;
+    background-color: rgb(211, 211, 211);
+    height: 1px;
+    margin: 10px 0px 15px 0px;
+}
+
+
+
+/* For mobile view responsive */
+
+
+@media screen and (max-width: 992px){
+    .left-service{
+        display: none;
+    }
+    .card-img-top{
+        width: 100%;
+        height: 100%;
+        max-height: 170px;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .mob-view-banner{
+        display: inherit;
+    }
+    .right-service{
+        display: none;
+    }
+    #heading{
+        display: none;
+    }
+    .left-service{
+        display: block;
+        width: 100%;
+    }
+    .catagory-list li i{
+        float: right;
+        display: inherit;
+    }
+    .line{
+        display: inherit;
+    }
+    .left-service h1{
+        margin: 20px 0px;
+    }
+
+}
+@media screen and (max-width: 405px){
+    .banner-text h1 {
+        font-size: 25px;
+    }
+    .banner-text p {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 299px){
+    .banner-text h1 {
+        font-size: 20px;
+    }
+    .banner-text p {
+        letter-spacing: 0;
+    }
+}

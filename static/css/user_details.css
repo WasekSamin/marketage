@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: "poppins", sans-serif;
+  }
+  body {
+    background-color: #f5f5f5 !important;
+    width: 100%;
+    margin-top: -25px;
+  }
+
+
+  .security___quote{
+      margin-top: 15px;
+  }
+  .shake___hand{
+      font-size: 44px;
+  }
+  /* security quote */
+  .new__qoute{
+      color: #428ad3;
+  }
+  .second__new__quote{
+      color: #2e57a5;
+      font-size: 15px;
+  }
+  .or-dev span{
+      margin-top: 20px;
+  }
+  .second__new__quote span{
+      color: red;
+  }
+  .security___quote p{
+      margin-block-end: 0;
+      margin-block-start: 0;
+  }
+
+  /* input */
+  .user__details__form input{
+      width: 100%;
+      height: 10vh;
+      border-radius: 5px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    margin-top: 12px;
+  }
+  .user__details__form{
+      margin-top: 70px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 4px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+.chat___submit__button{
+    margin-top: 14px;
+}
+
+.new__label label{
+    font-size: 18px;
+    color: #428ad3;
+    font-weight: 600;
+}
+
+
+body:before{
+    content:'';
+    height:100%;
+    display:inline-block;
+    vertical-align:middle;
+  }
+  .new__button{
+    background:#428ad3;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:50px;
+    font-size:1.6em;
+    padding:0 1.1em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-top: 15px;
+  }
+  .new__button:hover{
+    background:#fff;
+    color:#2e57a5;
+  }
+  .new__button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #428ad3;
+    transition:400ms ease all;
+  }
+  .new__button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .new__button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  .or-dev {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+.or-dev span {
+    display: inline-block;
+    background: #fff;
+    border: 1px #ddd solid;
+    border-radius: 30px;
+    padding: 5px 15px;
+    position: relative;
+    font-family: 'robotomedium';
+    color: #428ad3;
+    font-size: 15px;
+}
+.or-dev:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    transform: translate(0,-50%);
+}

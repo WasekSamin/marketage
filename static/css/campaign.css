@@ -1,0 +1,136 @@
+/* Campaign banner section starts */
+.campaign__banner .slick-track {
+    height: 60vh;
+}
+
+.campaign__banner .slick-arrow {
+    display: none !important;
+}
+
+.campaign__bannerImg {
+    width: 100%;
+    height: 60vh;
+}
+
+.campaign__bannerImg > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Campaign banner section ends */
+
+
+.campaign__header {
+    display: block;
+}
+
+.campaign__header > h4 {
+    text-align: center;
+    padding: 20px 0px;
+    overflow: hidden;
+}
+
+.campaign__header h4::before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.campaign__header > h4::before,
+.campaign__header > h4::after {
+    background-color: #619CEC;
+    content: "";
+    display: inline-block;
+    height: 4px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+    overflow: hidden;
+    bottom: 2px;
+}
+
+.campaign__header h4::after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+/* Campaign card content section starts */
+
+.campaign__cardContent > a > .card,
+.campaign__cardContent > div > .card {
+    position: relative;
+    width: 15rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.campaign__cardContent > div > .card {
+    position: relative;
+    cursor: not-allowed;
+}
+
+.campaign__cardContent > div .card > p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#campaign__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+.campaign__cardContent > a .card > p {
+    position: absolute;
+    top: 4%;
+    left: 4%;
+}
+
+.campaign__cardContentImg {
+    width: 100%;
+    height: 20rem;
+}
+
+.campaign__cardContentImg > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.msg__mobile__header {
+    display: none !important;
+}
+
+/* Campaign card content section ends */
+
+/*Responsive section*/
+@media (max-width: 991px) {
+    .nav__close {
+        margin-top: 0rem !important;
+        margin-right: 0rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .campaign__banner .slick-track {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 537px) {
+    .campaign__cardContent.d-flex {
+        display: grid !important;
+        grid-template-columns: 100%;
+    }
+    
+    .campaign__cardContent > a > .card {
+        width: 100%;
+    }
+}

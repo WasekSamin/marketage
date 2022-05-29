@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "poppins", sans-serif;
+  }
+
+  .manage__orderTable{
+    overflow: visible;
+  }
+
+  .table__status__dropdown{
+    border: 1px solid #777 !important;
+    outline: none !important;
+  }
+
+  .seller__chatIcon {
+    cursor: pointer;
+  }
+
+  .seller__chatIcon > .iconify {
+    font-size: 3rem;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border-color: rgb(105, 103, 103) !important;
+   
+  }
+  .contact__icon__link{
+    border: 1px solid #777;
+    padding: 8px;
+    border-radius:4px;
+  }
+  
+  
+  .buyer____post____number{
+      background: #495057;
+      color: #fff;
+      border-radius: 50%;
+      padding: 4px;
+  }
+  .buyer____post____number:hover{
+      background: #0d6efd;
+  }
+  
+  
+  
+  /*tab badge edit*/
+  .circle__badge___requ{
+    background-color:  #619CEC;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    line-height: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s;
+  }
+  .circle__badge___requ::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  
+  @media (max-width: 767px){
+    .manage__orderTable{
+      overflow-x: auto;
+    }
+  }

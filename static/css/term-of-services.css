@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@100&display=swap');
+*{  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    width: 100%;
+    background-color: #f5f5f5 !important;
+}
+.text_____align{
+    list-style-type: disc !important;
+}
+.new_____font{
+    font-family: 'Glory', sans-serif;
+}
+.text_____align{
+    text-align: justify !important;
+}
+/* main part */
+.main-part p{
+    font-size: 14px;
+}
+.main-part span{
+    font-size: 20px;
+}
+.main-part li{
+    font-size: 14px;
+}
+
+/* footer */
+.footer{
+    background-color: #272727;
+    width: 100%;
+    padding-top: 42px;
+    padding-bottom: 20px;
+}
+.topFooter a{
+    text-decoration: none;
+    color: #fff;
+}
+.active{
+    color: #717171;
+}
+.topFooter a p:hover{
+    color:#7a85eb;
+}
+.topFooter a i:hover{
+    color:#f266e7;
+}
+.topFooter a p{
+    font-size: 13px;
+}

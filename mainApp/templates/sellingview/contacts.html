@@ -1,0 +1,201 @@
+{% load static %}
+
+  <body></body>
+  {% include 'wasekPart/base.html' %}
+        <!-- contacts header -->
+        <br>
+        <div class="container">
+            <div class="order__headerSection">
+                <h2 class="mycontacts">My Contacts</h2>
+                <form method="get" class="order__searchForm">
+                  <input type="text" placeholder="Search My History..." />
+                  <span class="iconify" data-icon="bx:bx-search" data-inline="false"></span>
+              </form>
+            </div>
+        </div>
+        <br>
+
+        <!-- buyers and seller sectiion -->
+        <div class="container">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link tabButton active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">MY BUYERS</button>
+                  <button class="nav-link tabButton" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">MY SELLERS</button>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><br>
+
+                   <!-- Order table section starts -->
+    <div class="table-responsive manage__orderTable">
+      <table class="table table-hover bg-white">
+          <thead>
+              <tr>
+                  <th scope="col" colspan="2" class="text-muted ps-3">BUYER NAME</th>
+                  <th scope="col" class="text-muted">COMPLETED ORDERS</th>
+                  <th scope="col" class="text-muted">AMOUNT SPENT</th>
+                  <th scope="col" class="text-muted">lAST ORDER</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td class="ps-3" colspan="2">
+                    <div class="tableprofile">
+                      <img src="images/goku.jpg" alt="" class="rounded-circle">
+                      <div class="user-pro ps-2">
+                        <a href="#">Sakib Kotu</a>
+                        <a href="#">User Profile | History</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td>1</td>
+                  <td>$15</td>
+                  <td>Aug 05, 21 &emsp; <button type="button" class="btn msg-button text-muted"><i class="far fa-sticky-note"></i></button>
+                  <button type="button" class="btn sent-offer-button text-white">Send Offer</button></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+                  <!-- <div class="row mybuyerInner">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mybuyerscolumers">
+                      <div class="innertext">
+                        <i class="far fa-user buyericon text-muted"></i>
+                        <p class="fs-5">You have yet to receive any Gig orders ...</p>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                   <!-- Order table section starts -->
+    <div class="table-responsive manage__orderTable">
+      <table class="table table-hover bg-white">
+          <thead>
+              <tr>
+                  <th scope="col" colspan="2" class="text-muted ps-3">BUYER NAME</th>
+                  <th scope="col" class="text-muted">COMPLETED ORDERS</th>
+                  <th scope="col" class="text-muted">AMOUNT SPENT</th>
+                  <th scope="col" class="text-muted">lAST ORDER</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td class="ps-3" colspan="2">
+                    <div class="tableprofile">
+                      <img src="images/goku.jpg" alt="" class="rounded-circle">
+                      <div class="user-pro ps-2">
+                        <a href="#">Sakib Kotu</a>
+                        <a href="#">User Profile | History</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td>1</td>
+                  <td>$15</td>
+                  <td>Aug 05, 21 &emsp; <button type="button" class="btn msg-button text-muted"><i class="far fa-sticky-note"></i></button>
+                  <button type="button" class="btn sent-offer-button text-white">Send Offer</button></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+                  <!-- <div class="row mybuyerInner">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mybuyerscolumers">
+                      <div class="innertext">
+                        <i class="fas fa-shopping-bag buyericon text-muted"></i>
+                        <p class="fs-5">
+                          You have yet to order any Gigs ...</p>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+        </div>
+
+
+
+         <!-- footer -->
+
+    <section class="footer">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                  <div class="topFooter">
+                      <p class="active">
+                        Top Categories
+                      </p>
+                      <a href="#">
+                        <p>Write And Translation</p>
+                        <p>Graphic nd Design</p>
+                        <p>Digital Marketing</p>
+                        <p>Banquetes</p>
+                        <p>Video & Animation</p>
+                      </a>
+                    </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                  <div class="topFooter">
+                      <p class="active">
+                        Tools
+                      </p>
+                      <a href="#">
+                        <p>Software Development</p>
+                        <p> Music & Audio</p>
+                        <p>Business</p>
+                        <p>Legal Advice</p>
+                        <p>Programming & Tech</p>
+                      </a>
+                    </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                  <div class="topFooter">
+                      <p class="active">
+                        About
+                      </p>
+                      <a href="#">
+                        <p>About Us</p>
+                        <p>How It Works</p>
+                        <p>Privacy Policy</p>
+                        <p>Terms Of Service</p>
+                        <p>Press & News</p>
+                      </a>
+                    </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                  <div class="topFooter">
+                      <p class="active">
+                        Support
+                      </p>
+                      <a href="#">
+                        <p>Contact Us</p>
+                        <p>Trust & Safety</p>
+                        <p>FAQ</p>
+                      </a>
+                    </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                  <div class="topFooter">
+                      <p class="active">
+                        Follow Us
+                      </p>
+                      <a href="#">
+                        <i class="fab fa-facebook-f">&emsp;<i>Facebook</i></i><br>
+                        <i class="fab fa-twitter">&emsp;<i>Twitter</i></i><br>
+                        <i class="fab fa-instagram">&emsp;<i>Instagram</i></i><br>
+                        <i class="fab fa-linkedin-in">&emsp;<i>Linkedin</i></i>
+                      </a>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</body>
+
+
+
+
+
+
+
+

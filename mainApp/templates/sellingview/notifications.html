@@ -1,0 +1,107 @@
+{% load static %}
+{% include "wasekPart/base.html" %}
+
+ <section id="for-setting">
+        <div class="inner-setting container mt-5">
+            <div class="row">
+
+                <div class="col-md-2 left-menu-list">
+                    <ul>
+                        <li ><a href="{% url 'settings' %}">Account</a></li>
+                        <li><a href="{% url 'security_page' %}">Security</a></li>
+                        <li class="active-page"><a href="{% url 'notifications_page' %}">Notification</a></li>
+                        {% comment %} <li><a href="">Billing Information</a></li>
+                        <li><a href="">Balance</a></li>
+                        <li><a href="">Form W-9</a></li> {% endcomment %}
+                    </ul>
+                </div>
+
+
+
+                <div class="col-md-8 right-details-card">
+                   <div class="inner-details">
+
+                       <div class="notification">
+                           <h5>NOTIFICATIONS</h5>
+                           <p>For important updates</p>
+                           <p>regarding your Fiverr</p>
+                           <p>activity, certain notifications</p>
+                           <p>cannot be disabled.</p>
+                       </div>
+
+                       <div class="type">
+                            <h5>Type</h5>
+                            <p>Inbox Messages</p>
+                            <p>Order Messages</p>
+                            <p>Order Updates</p>
+                            <p>Buyer Requests</p>
+                            <p>My Gigs</p>
+                            <p>My Account</p>
+                            <p>To-dos</p>
+                       </div>
+
+                       <div class="email">
+                        <h5>Email</h5>
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                       </div>
+
+                       <div class="mobile">
+                        <h5>Mobile</h5>
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                        <input type="checkbox">
+                       </div>
+                   </div>
+<hr>
+
+                   <div class="notification">
+                        <div class="inner-notificaiton">
+
+                            <div class="main-title">
+                                <p>REAL-TIME NOTIFICATIONS</p>
+                            </div>
+
+                            <div class="inner-audio">
+                                <p>Enable/disable real-time notifications</p>
+
+                                <div class="form-check form-switch">
+                                    <audio id="audio" src="./Notification.mp3"></audio>
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="play()">
+                                    <a href="" class="hover"">Try me!</a>
+
+                                </div>
+                            </div>
+
+
+                            <div class="inner-audio">
+                                <p>Enable/disable sound</p>
+
+                                <div class="form-check form-switch">
+                                    <audio id="audio" src="./Notification.mp3"></audio>
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="play()">
+                                    <i class="fas fa-volume-up"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="save-changes mt-5">Save Changes</button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>

@@ -1,0 +1,152 @@
+
+
+{% load static %}
+
+{% include 'buyingview/header.html' %}
+
+ 
+
+<link rel="stylesheet" href="{% static 'css/catagory-wise-view.css' %}">
+
+
+
+<!-- For mobile view top banner  -->
+
+
+
+    {% comment %} <div class="mob-view-banner">
+
+        <div class="banner-overlay"></div>
+
+        <img src="{% static 'img/bg-4.jpg' %}" alt="">
+
+    <div class="banner-text">
+
+        <h1 class="h3">{{ sub_cats.parent_market }}</h1>
+
+        <p>Update and upgrade your business online</p>
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+<!-- For heading  -->
+
+    <div id="heading" class="container">
+
+        <h1>{{ sub_cats.parent_market }}</h1>
+
+        <p>Update and upgrade your business online</p>
+
+        <i class="fas fa-play-circle"></i>
+
+        <a href=""> How Marketage Works</a>
+
+    </div> {% endcomment %}
+
+
+
+<!-- service section -->
+
+
+
+<div id="service-section">
+
+    <div class="inner-service-section container">
+
+        <div class="row">
+
+
+
+            <div class="left-service col-md-3">
+
+                <h1 class="h6" >ALL CATEGORIES</h1>
+
+                <hr>
+
+                <ul class="catagory-list">
+
+                {% for c in cats %}
+
+                    <li>
+
+                        <a href="{% url 'category-wise' c.slug %}">{{ c.title }}</a>
+
+                        <i class="fas fa-chevron-right"></i>
+
+                        <div class="line"></div>
+
+                    </li>
+
+                    
+
+                {% endfor %}
+
+
+
+                </ul>
+
+            </div>
+
+
+
+
+
+
+
+            <div class="right-service col-lg-9">
+
+                <div class="row lab-view">
+
+
+
+                {% for c in cats %}
+
+                    <div class="col-4 catagory">
+
+                    <a href="{% url 'category-wise' c.slug %}">
+
+
+
+                        <div class="card-img-top">
+
+                            <div class="overlay"></div>
+
+                            <img src="{{ c.icon.url }}" alt="">
+
+                        </div>
+
+
+
+                        <h1 class="h6 mt-2">{{ c.title }}</h1>
+
+                    </a>
+
+                    </div>
+
+
+
+                {% endfor %}
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+{% include 'buyingview/buying_footer.html' %}
+

@@ -1,0 +1,120 @@
+*{box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+  }
+ body{
+     width: 100%;
+     background-color: #fff;
+ } 
+ 
+ /*go back link*/
+ .go____back a{
+     text-decoration: none;
+ }
+ .go____back a:hover{
+     color: blue;
+ }
+ .go____back{
+     padding: 35px;
+ }
+ 
+ 
+ /*main div*/
+ /*question div*/
+ .question____div h3{
+     text-align: center;
+     margin-bottom: 14px;
+ }
+ .question____div img{
+     width: 300px;
+     height: 300px;
+     object-fit: cover;
+ }
+ 
+ .question____div{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 30px;
+ }
+ .main___div{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+ 
+ 
+ /*mark input*/
+.mark input{
+    padding:5px 13px;
+    border-radius: 15px;
+} 
+ 
+ .mark{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: #f5f5f5 !important;
+ }
+ .dropdown____button{
+     border: 1px solid #000;
+     color: #000;
+     text-decoration: none;
+     padding: 10px;
+     border-radius: 15px;
+ }
+ .marks____status{
+      display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+ 
+ 
+ .save__button{
+      display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .save___new____button{
+     background: #3cd1e8;
+     padding: 7px 45px;
+     border-radius: 14px;
+     transition: .2s ease-in-out;
+     outline: none;
+     border: none;
+     color: #fff;
+ }
+ .save___new____button:hover{
+    background: #37b2c4;
+ }
+ 
+ 
+ /* Chrome, Safari, Edge, Opera */
+.mark input::-webkit-outer-spin-button,
+.mark input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.mark input[type=number] {
+  -moz-appearance: textfield;
+}
+ 
+ 
+ .mark{
+     background: transparent !important;
+ }
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,150 @@
+{% load static %}
+<!-- Sidebar -->
+<div class="bg-white" id="sidebar-wrapper">
+  <div>
+    <div
+      class="
+        sidebar-heading
+        text-center
+        py-4
+        primary-text
+        fs-4
+        fw-bold
+     
+        border-bottom
+        admin__panel__img
+      "
+    >
+      <a class="new_________nav______logo" href="{% url 'buying_view'%}">Marketage.
+          <!--<img src="{% static 'images/marketage.png' %}" alt="" />-->
+          </a>
+
+
+    </div>
+    <div class="list-group list-group-flush my-3">
+      <a
+        href="{% url 'AdminHome'%}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          active
+        "
+        ><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a
+      >
+      <a
+        href="{% url 'TransactionView'%}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-money-check-alt me-2"></i>Transactions &nbsp 
+        {% if completed_orders %}<span class="badge bg-danger" style="color: red; border-radius:50%; font-size:5px;">.</span>{% else %}{% endif %}
+        </a
+      >
+      <a
+        href="{% url 'WithdrawView'%}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-money-check-alt me-2"></i>Withdraw &nbsp 
+        {% if new_with %}
+            <span class="badge bg-danger" style="color: red; border-radius:50%; font-size:5px;">.</span>
+        {% else %}{% endif %}
+        </a
+      >
+      <a
+        href="{% url 'uploaded-offer'%}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-upload me-2"></i>Uploaded Offer &nbsp 
+        {% if recent_offers %}
+        <span class="badge bg-danger" style="color: red; border-radius:50%; font-size:5px;">.</span>
+        {% else %}{% endif %}
+        </a
+      >
+      <a
+        href="{% url 'all-users' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="far fa-user me-2"></i>All Users</a
+      >
+      <a
+        href="{% url 'all-orders' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-briefcase me-2"></i>All Orders &nbsp <span class="badge bg-primary">{{ count_unseen_order }}</span></a
+      >
+       <a
+        href="{% url 'EXAMROOM' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-diagnoses me-2"></i>Exam Model &nbsp <span class="badge bg-primary">{{ count_check_exm }}</span></a
+      >
+      <a
+        href="{% url 'notificationView' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="far fa-bell me-2"></i>Notifications &nbsp <span class="badge bg-primary">{{ nots }}</span></a
+      >
+      <a
+        href="{% url 'get_manual_transaction_page' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="far fa-bell me-2"></i>Manual Transactions</a
+      >
+      <a
+        href="{% url 'send_email_to_user' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="far fa-bell me-2"></i>Send Email To User</a
+      >
+      <a
+        href="{% url 'adminlogoutview' %}"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          text-danger
+          fw-bold
+        "
+        ><i class="fas fa-power-off me-2"></i>Logout</a
+      >
+    </div>
+  </div>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Navbar start -->

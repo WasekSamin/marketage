@@ -1,0 +1,52 @@
+
+{% extends 'wasekPart/base.html' %}
+
+{% load static %}
+
+
+
+
+<script src="{% static 'js/user_details.js' %}" defer></script>
+
+{% include 'buyingview/header.html' %}
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/user_details.css' %}">
+
+
+<div class="user_____details">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="security___quote">
+                <p class="text-center fs-3 new__qoute"><div class="or-dev">
+                    <span>"We have your back"</span>
+                </div></p> 
+                <p class="text-center"><span class="iconify shake___hand" data-icon="fa-regular:handshake" style="color: #428ad3;"></span></p>
+                <p class="second__new__quote text-center">"For added safety and your protection, keep payments and communications within <span>MARKETAGE</span>".</p>
+                </div>
+
+                <div class="user__details__form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group new__label">
+                            <label for="textformexample new__label">Enter Chat Name : </label>
+                            <input name="room_name" type="text" class="form-control" id="textformexample" placeholder="type chat name here.." required>
+                          </div>
+                        <div class="chat___submit__button d-flex justify-content-center">
+                            <button class="new__button" type="submit">START CHAT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2"></div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
+

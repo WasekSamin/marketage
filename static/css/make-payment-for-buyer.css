@@ -1,0 +1,105 @@
+
+#make-patment{
+    background-color: #fafafa;
+    padding: 40px 0px;
+}
+.order-details-for-payment{
+    background-color: #fff;
+    border: 1px solid rgb(230, 229, 229);
+    padding: 10px;
+}
+.make-payment-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.green{
+    color: rgba(1, 143, 13, 0.979);
+    font-weight: 500;
+}
+.make-payment-title-right p, .make-payment-title-right span{
+    font-size: 30px;
+}
+.last-row{
+    font-weight: 500;
+}
+.payment-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    background-color: #fff;
+    border: 1px solid rgb(241, 241, 241);
+    padding: 15px;
+}
+
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0px;
+    border-color: rgb(207, 207, 207) !important;
+
+}
+.for-select-option{
+    text-align: center;
+}
+
+
+
+.select{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    width: 80%;
+}
+.select:focus{    
+    border: 1px solid rgb(224, 223, 223);
+    outline: none;
+}
+.for-button{
+    margin-top: 20px;
+    width: 80%;
+}
+.for-button a {
+    text-decoration: none;
+}
+
+.for-button button{
+    margin: 5px 0px 20px 0px;
+    width: 100%;
+    border: none;
+    background-color: #2E57A5;
+    border: 1px solid #2E57A5;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 3px;
+    border-radius: 3px;
+    padding: 5px;
+}
+.for-button button:hover{
+    background-color: #426fc2;
+    border: 1px solid #000;
+}
+
+
+
+
+.paypal, .ammrpay, .sslcommerz, .razorpay, .stripe, .manualPayment {
+    display: none;
+}
+#paypal-button-container{
+    display: none;
+}
+
+
+@media screen and (max-width: 991px) {
+    .make-payment-title-left h1{
+        font-size: 25px;
+    }
+    .make-payment-title-right p, .make-payment-title-right span {
+        font-size: 25px;
+    }
+}

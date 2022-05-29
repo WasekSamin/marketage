@@ -1,0 +1,149 @@
+{% load static %}
+{% include "wasekPart/base.html" %}
+
+ <section id="for-setting">
+        <div class="inner-setting container mt-5">
+            <div class="row">
+
+              <div class="col-md-2 left-menu-list">
+                    <ul>
+                        <li><a href="{% url 'settings' %}">Account</a></li>
+                        <li class="active-page"><a class="active-page" href="{% url 'security_page' %}">Security</a></li>
+                        <li><a href="{% url 'notifications_page' %}">Notification</a></li>
+                        
+                    </ul>
+                </div>
+
+                <div class="col-md-8 right-details-card">
+
+                    <div class="naming-details">
+
+                        <div class="input-area">
+                            <p>SET PASSWORD</p>
+    
+                            <div class="input-design">
+                                <input class="input-style" type="Password" placeholder=" ">
+                                <label class="lable-for-top" for="">Password</label>
+                            </div>
+    
+                    </div>
+    
+    
+                    <div class="input-area mt-4">
+                        <p>Confirm Password</p>
+    
+                        <div class="input-design">
+                            <input class="input-style" type="password" placeholder=" ">
+                            <label class="lable-for-top" for="">Confirm Password </label>
+                            <p class="for-mob-design" >8 characters or longer. Combine upper and lowercase letters and numbers.</p>
+
+                        </div>
+    
+                    </div>
+
+                        <div class="button">
+                            <button class="save-changes">Delete Account</button>
+                        </div>
+
+
+
+<hr>
+
+
+                    <div class="verification">
+                        <p>PHONE VERIFICATION</p>
+                        <span>Your phone is verified with Fiverr. Click Edit to change your phone number</span>
+                        <button class="edit">Edit</button>
+
+                    </div>
+
+                    <div class="verification">
+                        <p>SECURITY QUESTION</p>
+                        <span>By creating a security question, you will add an additional layer of protection for your revenue withdrawals and for changing your password.</span>
+                        <button class="edit">Edit</button>
+
+                    </div>
+
+                    <!-- <div class="verification">
+                        <p>TWO FACTOR AUTHENTICATION</p>
+
+
+                        <div class=" checkbox-style">
+
+                        <div class="for-input form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        </div>
+
+                        <div class="for-lable">
+                            <label class="form-check-label">To help keep your account secure, we'll ask you to submit a code when using a new device to log in. We'll send the code via SMS, email, or Fiverr notification.</label>
+                        </div>
+
+                        </div>
+
+
+
+                    </div> -->
+<hr>
+
+                    <div class="">
+
+                    <div class="div">
+                        <p class="full-width mt-3">CONNECTED DEVICES</p>
+                    </div>
+
+
+                    <div class="card card-info">
+                        <div class="sign">
+                            <span class="iconify sign-out-icon" data-icon="ic:baseline-desktop-windows"></span>
+                            <div class="device">
+                                <h6>Chrome 92, Windows</h6>
+                                <h6 class="hidden">Last Activity Just Now•Dhaka, Bangladesh</h6>
+                            </div>
+                            <a class="f-left">Sign Out</a>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card card-info">
+                        <div class="sign">
+                            <span class="iconify sign-out-icon" data-icon="ic:baseline-desktop-windows"></span>
+                            <div class="device">
+                                <h6>Chrome 92, Windows</h6>
+                                <h6 class="hidden">Last Activity Just Now•Dhaka, Bangladesh</h6>
+                            </div>
+                            <a class="f-left">Sign Out</a>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card card-info">
+                        <div class="sign">
+                            <span class="iconify sign-out-icon" data-icon="emojione-v1:mobile-phone-with-arrow"></span>
+                            <div class="device">
+                                <h6>Chrome 92, Windows</h6>
+                                <h6 class="hidden">Last Activity Just Now•Dhaka, Bangladesh</h6>
+                            </div>
+                            <a class="f-left">Sign Out</a>
+
+                        </div>
+                    </div>
+
+                    </div>
+
+                <div class="sign-out">
+                    <a href="">Sign Out From All Devices</a>
+                </div>
+
+
+</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>

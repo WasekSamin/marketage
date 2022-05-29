@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}">
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+     <link rel="stylesheet" href="{% static 'css/exam_details.css' %}">
+    <title>Exam Details</title>
+</head>
+<body>
+    
+    <!--go back link-->
+    
+    <div class="go____back">
+        <a href="{% url 'EXAMROOM' %}"><span class="iconify" data-icon="akar-icons:arrow-back-thick"></span> Go Back</a>
+        </div>
+        
+        <!--go back link end-->
+    
+    <!--Question and submitted answer container-->
+    <div class="main___div">
+     
+        <div class="question____div">
+            <h3>Question</h3>
+            <img src="{{ exam_details.qustion.image.url }}">
+            </div>
+            
+            <div class="question____div">
+            <h3>Submitted Answer</h3>
+            <img src="{{ exam_details.attachement.url }}">
+            </div>
+        
+        </div>
+    
+    <div class="marks____status">
+   <form action="" method="POST">
+     {% csrf_token %}
+        <div class="mark fw-bold">
+            <label>Mark: <label><br><br>
+                <input type="number" name="total_number" placeholder="type marks here..." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "10" required>
+            </div>
+            <div class="mark fw-bold">
+            <label>Status: <label><br><br>
+                <div class="dropdown">
+  {% comment %} <a class="dropdown____button dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Status
+  </a> {% endcomment %}
+
+  <select class="form-select" name="status">
+  <option value="PENDING">PENDING</option>
+  <option value="DONE">DONE</option>
+    {% comment %} <li><a class="dropdown-item" href="#">a</a></li>
+    <li><a class="dropdown-item" href="#">aaa</a></li>
+    <li><a class="dropdown-item" href="#">aaaaa</a></li> {% endcomment %}
+  </select>
+</div>
+
+            </div>
+            
+        </div><br>
+        
+        <div class="save__button">
+            <button class="save___new____button" type="submit">Save</button>
+            </div><br><br>
+        </form>
+</body>
+</html>

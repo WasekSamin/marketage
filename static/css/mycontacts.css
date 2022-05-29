@@ -1,0 +1,152 @@
+*{box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+}
+body {
+    background-color: #F7F7F7;
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+/* searchbox */
+.order__headerSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.order__searchForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .order__searchForm input {
+    border: none;
+    background-color: transparent;
+    padding-right: 0.2rem;
+  }
+  
+  .order__searchForm input:focus {
+    outline: none;
+  }
+  
+  .order__searchForm .iconify {
+    font-size: 1.5rem;
+    color: #ccc;
+  }
+
+  /* buyer section table */
+  .priority__order.card {
+    border-radius: 0 !important;
+  }
+  
+  .priority__order p {
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  
+
+
+/* buyer and seller section */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: transparent;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/* my buyer icon */
+.mybuyerscolumers{
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
+}
+.innertext{
+    /* position: absolute;
+    top: 50%;
+    font-size: 62px;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin: 7rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Order table section starts */
+.tableprofile {
+    display: flex;
+}
+.tableprofile img{
+    width: 45px;
+    height: 45px;
+}
+.tableprofile a{
+    text-decoration: none;
+    color: #428ad3 !important;
+}
+.user-pro {
+    display: flex;
+    flex-direction: column;
+}
+    /* td button */
+.msg-button{
+    border: 1px solid #4c5b64;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+.sent-offer-button{
+    background-color: #428ad3 !important;
+}
+
+.manage__orderTable .table {
+    border: 1px solid #dfdfdf;
+    border-top: none;
+  }
+  .manage__orderTable thead th {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #dfdfdf !important;
+  }
+  
+  .manage__orderTable tbody td {
+    font-size: 0.9rem;
+  }
+  
+  .manage__orderTable tbody td:first-child {
+    max-width: 20rem;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 482px) {
+    .order__headerSection h2 {
+      margin-bottom: 1rem;
+    }
+  
+    .order__searchForm {
+      width: 100%;
+    }
+  
+    .order__searchForm input {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,18 @@
+
+    <input type="text" value="{{ request.user }}"><br>
+    
+    {{ qustion.qustion_title }}
+    <img src="{{ qustion.image.url }}">
+
+<br><br>
+<hr>
+<h3>Submit Answer</h3>
+<div class="answer__container" style="background: #f5f5f5;">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="attachement" class="upload___file"><br><br>
+        <button type="submit">SUBMIT ANSWER</button>
+    </form>
+</div>
+
+

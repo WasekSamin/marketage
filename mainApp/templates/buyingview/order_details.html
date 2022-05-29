@@ -1,0 +1,240 @@
+{% load static %}
+
+
+{% include 'buyingview/header.html' %}
+
+    <!-- For order details  -->
+    <script src="{% static 'js/order_details.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/make-payment-for-buyer.css' %}" />
+    
+    
+    <div id="make-patment">
+        <div class="inner-make-payment container mt-5">
+          <div class="row">
+            <div class="col-md-8 ordering">
+              <div class="order-details-for-payment">
+              <div class="make-payment-title">
+                  <div class="make-payment-title-left">
+                    <h1>Order#{{order.id}}</h1>
+                    <p>Buyer:<span class=""> {{ order.user }}</span> 
+                    |<span> date:</span>
+                    </p>
+                  </div>
+  
+                  <div class="make-payment-title-right">
+                    <p>USD. <span>{{order.grand_total  }}</span></p>
+                  </div>
+  
+              </div>
+  
+              <div class="order-list table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ITEM</th>
+                      <th scope="col">QUANTITY</th>
+                      <th scope="col">DURATION</th>
+                      <th scope="col">AMOUNT</th>
+                    </tr>
+                  </thead>
+  
+  
+                  <tbody>
+                    <tr>
+                      <td scope="row">{{ order.package }}</td>
+                      <td>{{ order.quantity }}</td>
+                      <td>NOT ADDED</td>
+                      <td>USD <span>{{order.price  }}</span></td>
+                    </tr>            
+                  </tbody>  
+  
+  
+  
+  
+  <!-- last total amount -->
+                  <tbody>
+                  <tr>
+                      <th scope="row"> </th>
+                      <td></td>
+                      <td class="last-row">Administration Fee's</td>
+                      <td class="last-row"><span> 5% </span></td>
+                    </tr>    
+                    <tr>
+                      <th scope="row"> </th>
+                      <td></td>
+                      <td class="last-row">Total</td>
+                      <td class="last-row">USD.<span> {{order.grand_total  }} </span></td>
+                    </tr>            
+                  </tbody>
+  
+  
+                  
+                       
+                
+  
+  
+  
+                </table>
+              </div>
+  
+            </div>
+          </div>
+            
+            <div class="col-md-4">
+  
+              <div class="payment-section">
+  
+                
+  
+                  <h4 class="text-center p-2">Make Your Payment Option</h4>
+  
+                
+  
+                <div class="for-select-option">
+  
+                <select class="select" name="" id="selectPaymentMethod">
+  
+  
+                  <option value="">select your payment option</option>
+  
+  
+                  <option value="paypal">PAYPAL</option>
+                  
+  
+                  <option value="AAMMR PAY">STRIPE</option>
+  
+  
+                  {% comment %}<option value="sslcommerz">SSLCOMMERZ</option>{% endcomment %}
+                  
+                  <option value="manual_payment">MANUAL PAYMENT</option>
+  
+  
+                  <!-- <option value="razorpay">RAZORPAY</option> -->
+
+                  <!-- <option value="stripe">STRIPE</option> -->
+  
+  
+  
+                </select>
+  
+              </div>
+          
+              <div class="for-button">
+                 <a href=""><button class="paypal">PAYPAL</button></a>
+                 <div id="paypal-button-container"></div>
+                <form action="" method="POST">
+                  {% csrf_token %}
+                  <input hidden type="text" class="ammarpay" name="ammarpay" value="AMMARPAY">
+                  <button class="ammrpay" name="ammarpay">STRIPE</button>
+                </form>
+                {% comment %}
+                <form action="" method="POST">
+                  {% csrf_token %}
+                    <button type="submit" class="sslcommerz" name="sslcommerz">SSLCOMMERZ</button>
+                    <input hidden type="text" class="sslcommerz" name="sslcommerz" value="SSLCOMMERZ">
+                </form>
+                {% endcomment %}
+                
+               
+                    <a href="{% url 'pay_manually' order.id %}" class="manualPayment btn btn-primary">Manual Payment</a>
+                  
+                 <a href=""><button class="paypal">PAYPAL</button></a>
+  
+                 <a href=""><button class="razorpay">RAZORPAY</button></a>
+
+                 <a href=""><button class="razorpay">STRIPE</button></a>
+              </div>  
+  
+  
+  
+  
+  
+            </div>
+  
+          </div>
+  
+          </div>
+  
+        </div>
+      </div>
+
+      {% comment %} paypal button {% endcomment %}
+  <div id="paypal-button-container"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=Ae8vrEP78u_BrmeiNY_nxLIt0QrUO6gf2Sq-yatJHbzZT8nYc7OWqpwuk3pRuoesyFlx2tALZp0ga_BH&currency=USD"></script>
+
+ <script>
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+
+
+
+        var orderId = "{{ order.id }}"
+        var total = "{{ order.grand_total }}"
+        var user = "{{ order.user }}"
+        var status = "{{ order.order_status }}"
+
+        var url = "{% url 'paypal_success' order.id %}"
+        
+        function paypalSuccess() {
+          console.log("SUCCESS");
+              fetch(url, {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json',
+                  'X-CSRFToken': csrftoken
+                },
+                body: JSON.stringify({'orderId': orderId })
+              })
+        }
+
+        
+
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: total
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    paypalSuccess()
+                    alert('ORDER IS '+ status + ': ' + orderId + '\n\nSee console for all available details');
+                    window.location.href = "/buyer_orders/"
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>

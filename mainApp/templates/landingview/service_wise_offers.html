@@ -1,0 +1,949 @@
+{% load static %}
+
+{% load custom_filter %}
+
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+
+
+    
+
+
+
+    <title>SERVICE WISE OFFERS</title>
+
+
+
+  <link rel="stylesheet" href="{% static 'css/services.css' %}">
+
+  <body>
+
+        {% include 'buyingview/header.html' %}
+
+        
+
+    <br>
+
+
+
+    <!-- section selection -->
+
+
+
+    <div class="container">
+
+      <div class="sectionSelection">
+
+        <p><a href="{% url 'get_landing_page' %}">Marketage <i class="fas fa-chevron-right"></i> {{ single_service.title }}  <i class="fas fa-chevron-right"></i></a></p>
+
+      </div>
+
+    </div>
+
+
+   <!-- Title -->
+
+    <div class="container">
+
+        <div class="title-wrapper">
+
+            <h1></h1>
+
+        </div>
+
+        <div class="explanation-video">
+
+            <!-- <p class="sc-subtitle">Stand out from the crowd with a logo that fits your brand personality.</p> -->
+
+            <!-- <button class="FKiIhUG _1x76oPA H69bvrM co-white btn-play without-border bg-co-green-700">
+
+                <span class="_1AB8XqH play-icon">
+
+                    <i class="fas fa-play"></i>
+
+                </span>"How Marketage Works"
+
+            </button> -->
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Select logo style -->
+
+    <section class="SelectLogoStyle">
+
+        <div class="container">
+
+            <div class="title">
+
+                <h6>Select Subcategories</h6>
+
+            </div><br>
+
+            {% if subcategory %}
+
+            <div class="row justify-content-center logoStyle">
+
+            
+
+            {% for sb in subcategory %}
+
+                <div class="logo-wrapper col-12 col-sm-6 col-md-3 col-lg-2 m-1 logoColumn">
+
+                   <div class="imgPara">
+
+                    <div class="logoImages">
+
+                        <img class="rounded-circle" src="{{ sb.imageURL }}" alt="flat">
+
+                        <p class="text-body-2 text-center"><a href="{% url 'SubcategoryWiseOffer' sb.slug %}">{{ sb.sub_title }}</a></p>
+
+                    </div>
+
+                   </div>
+
+                </div>
+
+            {% endfor %}
+
+            
+
+            </div>
+
+            {% else %}
+
+                <p class="alert alert-primary alert__update">NO SUBCATEGORIES FOUND</p>
+
+            {% endif %}
+
+        </div>
+
+    </section><br><br>
+
+
+
+    <!-- top  bar -->
+
+
+{% comment %} 
+      <div class="container">
+
+        <div class="drop-button-with-checkbox">
+
+          <div class="all-drop-button">
+
+
+
+            <div class="dropdown main-drop">
+
+              <button class="btn btn-sm drop-style dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                Logo Options
+
+              </button>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <li><button class="dropdown-item" href="#">Action</button></li>
+
+                <li><button class="dropdown-item" href="#">Another action</button></li>
+
+                <li><button class="dropdown-item" href="#">Something else here</button></li>
+
+              </ul>
+
+            </div>
+
+
+
+            <div class="dropdown main-drop">
+
+              <button class="btn btn-sm drop-style dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                Seller Details
+
+              </button>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <li><button class="dropdown-item" href="#">Action</button></li>
+
+                <li><button class="dropdown-item" href="#">Another action</button></li>
+
+                <li><button class="dropdown-item" href="#">Something else here</button></li>
+
+              </ul>
+
+            </div>
+
+            <div class="dropdown main-drop">
+
+              <button class="btn btn-sm drop-style dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                Budget
+
+              </button>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <li><button class="dropdown-item" href="#">Action</button></li>
+
+                <li><button class="dropdown-item" href="#">Another action</button></li>
+
+                <li><button class="dropdown-item" href="#">Something else here</button></li>
+
+              </ul>
+
+            </div>
+
+            <div class="dropdown main-drop">
+
+              <button class="btn btn-sm drop-style dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                Delivery Time
+
+              </button>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <li><button class="dropdown-item" href="#">Action</button></li>
+
+                <li><button class="dropdown-item" href="#">Another action</button></li>
+
+                <li><button class="dropdown-item" href="#">Something else here</button></li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+
+
+        <div class="all-checkbox">
+
+
+
+          <div class="form-check form-switch">
+
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheck">
+
+            <label class="form-check-label" for="flexSwitchCheck">Pro services</label>
+
+          </div>
+
+          <div class="form-check form-switch">
+
+            <input class="form-check-input" type="checkbox" id="subsServices">
+
+            <label class="form-check-label" for="subsServices">Subscription services</label>
+
+          </div>
+
+          <div class="form-check form-switch">
+
+            <input class="form-check-input" type="checkbox" id="onlineSeller">
+
+            <label class="form-check-label" for="onlineSeller">Online sellers</label>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+      </div>
+      {% endcomment %}
+
+
+
+
+    <!-- services available -->
+
+
+{% comment %}
+    <div class="container">
+
+        <div class="serviceslist">
+
+            <div class="services">
+
+                13,655 services available
+
+            </div>
+
+            <div class="servicesDropDown">
+
+                Sort by  <button class="btn dropdown-toggle servicesDropDownButton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <strong class="best__selling">Best Selling</strong>
+
+                  </button>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                    <li><button class="dropdown-item" href="#">Action</button></li>
+
+                    <li><button class="dropdown-item" href="#">Another action</button></li>
+
+                    <li><button class="dropdown-item" href="#">Something else here</button></li>
+
+                  </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    {% endcomment %}
+
+
+
+
+
+    <!-- main gigs section start (arko buying view card start) -->
+
+    <div class='container'>
+
+    <div class="row">
+    
+               
+
+    {% if all_offers|length > 0 %}
+
+    {% for co in all_offers %}
+
+    <div class="col-md-6 col-lg-3 mb-4 for-service-see-more">
+
+        <div class="card main-card-for-offer">
+
+        <div class= "for-card-inner-img-slider">
+            
+            <a href="{% url 'offer_details' co.id co.slug %}">
+
+                <div class="img-on-card-body">
+                    {% if co.image %}
+                    <img src= "{{ co.image.url }}" >                    
+                    {% endif %}
+                </div>
+
+            </a>
+            
+            {% if co.extra_images.all|length %}
+            {% for img in co.extra_images.all %}
+
+            <a href="{% url 'offer_details' co.id co.slug %}">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ img.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+            {% endif %}
+
+           
+
+               
+
+        </div>
+
+            
+
+           
+
+
+
+
+
+            <div class="card-body">
+                <div class="seller-in-details d-flex align-items-center">
+                    <div class="seller-profile-pix">
+                          <a href="{% url 'account' co.user.id co.user.username %}">
+                            <img src="{{ co.user.selleraccount.profile_picture.url }}" alt="">
+                          </a>
+                          
+                    </div>
+                      
+                      
+                      
+                    <div class="seller-profile-name">
+                      <a href="{% url 'account' co.user.id co.user.username %}"> 
+                        <p class="seler-name text-dark" style="margin-bottom: 0px;">{{ co.user }}</p>  
+                        </a>
+                    </div>
+                </div>
+            <a href="{% url 'offer_details' co.id co.slug %}"> 
+
+                <h5 class="card-title">{{ co.offer_title }}</h5>  
+
+            </a>
+
+
+
+            <div class="category-tag">
+
+
+
+                <p>{{ co.service.title }}</p>
+
+
+
+                <div class="category-for-right">                  
+
+                    <div class= "click-on-offer">
+
+                        <p class="badge bg-dark">{{ co.click }}</p>
+
+                        <span class="badge bg-dark">Clicks</span>                           
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <!--<div class= "for-seller-level-star">-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star black-star"></i>-->
+
+            <!--</div>-->
+
+            <hr>
+
+
+
+            <div class="offer-price">
+
+                <p>Starting At</p>
+
+                <p>$ <span>{{ co.offermanager_set.all|offer_price_start }}</span> </p>
+
+            </div>
+
+            
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+
+        <p class="alert alert-warning">NO OFFER FOUND!</p>
+
+    {% endif %}
+    
+    
+    
+    
+    
+
+
+
+        
+
+    <!-- <div class="col-md-6 col-lg-3 mb-4">
+
+        <div class="card main-card-for-offer">
+
+            
+
+            
+
+        <div class= "for-card-inner-img-slider">
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{% static 'images/bg-5.jpg' %}" >                    
+
+                </div>
+
+            </a>
+
+
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{% static 'images/bg-2.jpg' %}" >                    
+
+                </div>
+
+            </a>
+
+
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{% static 'images/bg-6.jpg' %}" >                    
+
+                </div>
+
+            </a>
+
+               
+
+        </div>
+
+            
+
+           
+
+
+
+
+
+            <div class="card-body">
+
+            <a href=""> 
+
+                <h5 class="card-title">I will convert psd to html responsive website</h5>  
+
+            </a>
+
+
+
+            <div class="category-tag">
+
+
+
+                <p>Web Design</p>
+
+
+
+                <div class="category-for-right">                  
+
+                    <div class= "click-on-offer">
+
+                        <p class="badge bg-dark">2,584</p>
+
+                        <span class="badge bg-dark">Clicks</span>                           
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class= "for-seller-level-star">
+
+                <i class="fas fa-star yellow-star"></i>
+
+                <i class="fas fa-star yellow-star"></i>
+
+                <i class="fas fa-star yellow-star"></i>
+
+                <i class="fas fa-star yellow-star"></i>
+
+                <i class="fas fa-star black-star"></i>
+
+            </div>
+
+            <hr>
+
+
+
+            <div class="offer-price">
+
+                <p>Starting At</p>
+
+                <p>$ <span>15748</span> </p>
+
+            </div>
+
+            
+
+            </div>
+
+        </div>
+
+    </div> -->
+
+ 
+
+
+
+    </div>
+
+        
+
+    </div>
+
+
+
+   <!-- main gigs section start (arko buying view card end) -->
+
+
+    {% if all_offers|length > 20 %}
+    <div class="see-more-offer service-see-more container text-center">
+            <button class="service-see-more-button">See More</button>
+        </div>
+    {% endif %}
+
+
+
+
+
+
+
+
+    <div class="container">
+
+        <hr>
+
+    </div>
+
+
+
+    <!-- explore more logo design services -->
+
+
+
+    <!-- <section class="exploreMore">
+
+        <div class="container">
+
+            <div class="exploreText text-center">
+
+                <h2>Explore More Logo Design Services</h2>
+
+            </div><br>
+
+            <div class="row justify-content-center exploreRow">
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Logo maker</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">3D Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Minimalist Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Hand-Drawn Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Mascot Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Freestyle Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Vintage Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Signature Logo Design</a>
+
+                </div>
+
+                <div class="col-sm-6 col-4 col-lg-2">
+
+                    <a class="related-link text-center" href="#">Watercolor Logo Design</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <div class="container">
+
+        <hr>
+
+    </div> -->
+
+
+
+    <!-- logo design FAQs -->
+
+
+
+    <!-- <section class="faq">
+
+        <div class="container">
+
+            <div class="fqatitle text-center">
+
+                <h2>Logo Design FAQs</h2>
+
+            </div><br><br>
+
+            <div class="row justify-content-between">
+
+                <div class="col-sm-12 col-md-12 col-lg-6 faqColumn">
+
+                    <div class="totalfaqs">
+
+                        <h6>What is logo design?</h6>
+
+                    <p>Logo design is the art of creating a visually stunning mark for a brand or company. A logo usually consists of a symbol, brandmark, or image that represents or symbolizes the company. a logo should stand out and be easily recognized.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 faqColumn">
+
+                   <div class="totalfaqs">
+
+                    <h6>What makes a good logo?</h6>
+
+                    <p>A good logo should be visually appealing, distinctive, memorable, simple in form, and stand out from the crowd. It should match the brand's aesthetics and message. and above all, a great logo should have exceptional conceptualization and execution.</p>
+
+                   </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 faqColumn">
+
+                    <div class="totalfaqs">
+
+                        <h6>How to hire top logo designers?</h6>
+
+                    <p>Once you’ve identified a pool of logo designers based on style and availability, evaluate your candidates in terms of their level and type of experience, especially in your niche or field. also, browse through their offer gallery and portfolio for specific examples of prior work.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 faqColumn">
+
+                   <div class="totalfaqs">
+
+                    <h6>How much does logo design cost?</h6>
+
+                    <p>The cost of a professional logo design can vary depending on expertise, experience and other factors. designing a great logo involves much more than a simple sketch; it also comprises market research, artistic skill & technical knowledge, brand design, and revisions.</p>
+
+                   </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 faqColumn">
+
+                    <div class="totalfaqs">
+
+                        <h6>Do I need to prepare anything for my logo design?</h6>
+
+                    <p>It's always a good idea to have a few things prepared beforehand. as a business, you should know your brand identity, your company's message, and aesthetics. It's also best to set a budget and write a detailed logo design brief in advance. this will help your logo designer create the perfect logo for you!</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 faqColumn">
+
+                    <div class="totalfaqs">
+
+                        <h6>What qualities should I look for in a logo designer?</h6>
+
+                    <p>When looking for a professional logo designer, you should choose someone who will best fit your business. a professional logo designer should exhibit personality, passion, and professionalism. You want someone who has experience in your niche, research skills, flexibility, responds quickly, provides outstanding examples, and shares the design process with you.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <div class="container">
+
+        <hr>
+
+    </div><br> -->
+
+
+
+    <!-- logo designn related guide -->
+
+
+
+    <!-- <section class="logoRelatedGuide">
+
+        <div class="container">
+
+            <div class="guidetext">
+
+                <h2>Logo Design Related Guides</h2>
+
+            </div>
+
+            <div class="seeMoreGuide">
+
+                <a href="#">See more guides <i class="fas fa-chevron-right"></i></a>
+
+            </div>
+
+            <div class="row justify-content-center guideRow">
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+
+                    <div class="logoGuideImg">
+
+                        <a href="#"><img src="images/logoguide1.jpg" alt="" class="img-fluid"></a><br><br>
+
+                    <h6>How to design a logo: 11 steps to getting a logo made for your business</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+
+                    <div class="logoGuideImg">
+
+                        <a href="#"><img src="images/logoguide2.jpg" alt="" class="img-fluid" ></a><br><br>
+
+                    <h6>Style guide: what it is and how to create one for your brand</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+
+                    <div class="logoGuideImg">
+
+                        <a href="#"><img src="images/logoguide3.jpg" alt="" class="img-fluid"></a><br><br>
+
+                    <h6>The what, why, and how of branding</h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><br> -->
+
+
+
+    
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+
+
+
+    <script src="{% static 'js/services.js' %}">
+
+
+
+    </script>
+
+    {% include 'buyingview/buying_footer.html' %}
+
+  </body>
+
+</html>
+
+
+

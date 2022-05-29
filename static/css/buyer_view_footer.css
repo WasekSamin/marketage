@@ -1,0 +1,31 @@
+.footer{
+    background-color: #272727;
+    width: 100%;
+    padding-top: 42px;
+    padding-bottom: 20px;
+}
+.topFooter a{
+    text-decoration: none;
+    color: #fff;
+}
+.active{
+    color: #717171;
+}
+
+
+.topFooter a i{
+    font-size: 20px;
+}
+.topFooter a i:hover{
+    color:#f266e7;
+}
+.topFooter a p{
+    font-size: 13px;
+}
+.topFooter a p:hover{
+    color:#7a85eb;
+}
+.topFooter a:hover{
+    color: #fff;
+    text-decoration: none;
+}

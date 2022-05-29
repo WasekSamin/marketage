@@ -1,0 +1,63 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+     <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/testModel.css' %}" />
+    <script src="{% static 'js/seller-submit.js' %}" defer></script>
+    <title>Test Model</title>
+  </head>
+  <body>
+    <div class="main___________test______model________div">
+      <div class="test_________model">
+        {% if camp_quest.files %}
+            <img src="{{ camp_quest.files.url }}" />
+        {% endif %}
+        <p>{{ camp_quest.title_of_qustion }}</p>
+        
+        
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="upload_____answer">
+                <label for="formUpload">Upload Your File</label>
+                        <input id="formUpload" name="uploads" type="file" onchange="forupload(this)">
+                        
+                        <p id="for-upload-name"></p>
+                <button type="submit" class="test________btn" id="submit-button" >SUBMIT</button>
+             </div>
+            </form>
+            
+             <!--for loading animation-->
+
+    <div class="main-loader-start">
+     <div class="main-loader">
+          <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+    </div>
+     </div>
+     </div>
+        
+
+        <!-- <button class="button-55" role="button">SUBMIT</button> -->
+      </div>
+    </div>
+  </body>
+</html>

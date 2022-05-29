@@ -1,0 +1,21 @@
+{% extends 'accountview/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/email_sent.css' %}"/>
+
+<div class="email___main__div">
+    <div class="container">
+        <div class="check___email__notifications">
+            <p class="text-center"><span class="iconify success______icon" data-icon="clarity:success-standard-solid" style="color: #428ad3;"></span></p>
+            <h3 class="text-center p-5">Email Sent! Please Check your Email now!!</h3>
+        </div>
+    </div>
+</div>
+
+
+{% include 'buyingview/buying_footer.html'%}
+
+{% endblock %}

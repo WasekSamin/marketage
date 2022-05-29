@@ -1,0 +1,65 @@
+{% extends "accountview/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+  
+
+<!--<div class="top_pop">-->
+<!--            <div class="logo d-flex justify-content-center mainlogo">-->
+<!--                <a href="#"><img src="{% static 'images/logo.png' %}" alt="imgages"></a>-->
+<!--            </div>-->
+<!--        </div>-->
+{% block content %}
+
+
+    <div class="total-reg">
+            <!--<div class="forBackground">-->
+            <!--    <div class="main-registration">-->
+                
+                        <div class="inner-registration">
+                            <div class="ui reg-ui">
+                                <div class="">
+        
+                                    <h5 class="create text-center">Create Your Account</h5>
+                                    <!--<div class="socialIcon">-->
+                                    <!--    <button type="button" class="btn btn-primary btn-lg form-control"><i class="fab fa-facebook-f"></i> Continue with Facebook</button><br><br>-->
+        
+                                    <!--<button type="button" class="btn btn-primary btn-lg form-control"><i class="fab fa-google googleButton"></i> Continue with Google</button>-->
+                                    <!--</div><br><br>-->
+                                    <!--<div class="or-dev">-->
+                                    <!--    <span>OR</span>-->
+                                    <!--</div>-->
+                                    <div class="row">
+                                    <form action="" method="POST" class="">
+                                     {% csrf_token %}
+                                        {{form|crispy}}
+        
+                                    </div>
+        
+                                    <button type="submit" class="btn btn-primary btn-lg form-control signupbtn">Sign Up</button>
+                                    <hr>
+                                    <p class="text-center">Alreday have an account? <a href="{% url 'user_login' %}">Login</a></p>
+                                </form>
+                            </div><br>
+                        </div>
+        
+                        
+                <!--    </div>-->
+               
+                <!--</div></br>-->
+                </div>
+            </div><br>
+            
+        
+            <!--<div class="container bg-light col-lg-3">-->
+            <!--    <form class="form-control">-->
+            <!--        {% csrf_token %}-->
+            <!--        {{form|crispy}}-->
+            <!--        <button type="submit" class="btn btn-success col-lg-3">Register</button>-->
+            <!--    </form>-->
+            <!--</div>-->
+        
+           </div>
+</div>
+
+    {% endblock %}

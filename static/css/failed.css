@@ -1,0 +1,43 @@
+*{box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    width: 100%;
+    background-color: #f5f5f5;
+}
+.main-body{
+    padding: 35px;
+}
+.main-body h4{
+    color: #eb4034;
+}
+/* payment icon */
+.check-icon{
+    font-size: 45px;
+    color: #eb4034 !important;
+}
+
+/* PAYMENT BUTTON */
+.home-btn, .print-btn{
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #1dbf73;
+}
+.print-btn, .home-btn{
+    margin: 10px;
+    width: 100%;
+}
+.submit-button{
+    margin-top: 20px;
+}
+.main-card-body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

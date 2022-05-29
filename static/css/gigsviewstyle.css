@@ -1,0 +1,600 @@
+
+/* ================================================
+                Header - menu
+================================================ */
+
+.nav-link{
+    color:#7A7D85 !important;
+    font-weight: 500;
+    margin-right: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.nav-link::after{
+    content: "";
+    position: absolute;
+    background-color: #1DBF73;
+    bottom: 1px;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    transition: all .3s ease-in-out;
+}
+.nav-link:hover::after{
+    left: 0;
+}
+
+.right-item{
+    color: black;
+    font-size: 30px;
+}
+.menu-logo{
+    font-size: 15px;
+    border: 1px solid #dddee2;
+    padding: 2px 8px;
+    margin-left: 8px;
+}
+.menu-logo a{
+    color: #7A7D85;
+    text-decoration: none;
+}
+.contact{
+    display: block;
+}
+
+/* ================================================
+                gigs-slider-menu
+================================================ */
+
+
+/* gigs title  */
+
+#gigs-slider{
+    margin-top: 20px;
+}
+.gigs-title{
+    margin-bottom: 20px;
+}
+.gigs-name{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.gigs-sellers-img{
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.seller-name{
+    display: inline-block;
+    font-size: 18px;
+    margin: 0px 10px;
+    color: #000;
+    font-weight: 500;
+}
+.seller-name:hover{
+    color: #1DBF73;
+}
+
+
+.seller-level{
+    position: relative;
+    margin-right: 12px;
+}
+.seller-level::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 70%;
+    top: 15%;
+    left: 110%;
+    background-color: rgb(190, 190, 190);
+}
+
+/* Slider */
+.for-thumbs-slider-size{
+    height: 100% !important;
+}
+.resizeing{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper-container {
+    width: 100%;
+    /*height: 300px;*/
+    margin: 5px auto;
+}
+
+.swiper-slide-container {
+text-align: center;
+font-size: 18px;
+background: #fff;
+height: 450px;
+width: 100%;
+margin:auto;
+position: absolute;
+}
+.badge{
+ position: absolute;
+ right: 0px;
+}
+.badge img{
+    width: 140px;
+}
+
+
+.swiper-slide-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-slide-container-thumbs {
+text-align: center;
+font-size: 18px;
+background: #fff;
+height: 100px !important;
+width: 100%;
+margin:auto;
+}
+
+.swiper-slide-container-thumbs img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.cover{
+    transform: scale(1);
+    transition: all .5s;
+    height: 100% !important;
+}
+.cover:hover{
+    transform: scale(1.1);
+}
+
+
+
+.swiper-slide-container img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.gallery-top {
+    height: 430px;
+    width: 100%;
+    overflow: hidden;
+}
+.gallery-thumbs {
+    /*height: 20%;*/
+    box-sizing: border-box;
+    padding: 0px 0;
+    overflow: hidden;
+}
+.gallery-thumbs .swiper-slide {
+    /*width: 20%;*/
+    height: 100%;
+    opacity: 0.6;
+}
+.gallery-thumbs .swiper-slide-active {
+    opacity: 1;
+}
+
+.table-size{
+    width: 20% !important;
+}
+/* Slider Button */
+
+  .swiper-button-next,
+  .swiper-button-prev {
+      background-color: white;
+      background-color: rgb(255, 255, 255);
+      right:2px;
+      padding: 22px;
+      color: #000 !important;
+      fill: black !important;
+      stroke: black !important;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 1, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+
+  .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {
+    content: '\276F';
+    font-size: 25px;
+
+}
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+    content: '\276E';
+    font-size: 25px;
+}
+.swiper-button-prev{
+    left: 2px !important;
+}
+.toping{
+    padding: 15px;
+    width: 15px;
+    height: 15px;
+}
+.toping::after{
+    font-size: 15px;
+}
+
+
+/* section resizing  */
+.offer-video-section{
+    margin-bottom: 120px;
+}
+
+.inner-gigs-slider{
+    width: 100%;
+}
+.left-section{
+    width: 60% !important;
+    /*height: 650px;*/
+}
+.right-section{
+    width: 40%;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 5%;
+}
+/*video section start*/
+
+.inner-video-section{
+    width: 100%;
+    height: 400px;
+    /*margin-top: -30px;*/
+}
+.inner-video-section video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*video section end*/
+.gallery-thumbs .swiper-slider{
+    height: 45% !important;
+}
+
+
+/*important note*/
+
+.doc-icon-for-showing{
+    width: 50px;
+    height: 50px;
+    color: #c32a2a;
+}
+.the-doc{
+    padding: 10px 15px;
+    background: #ededed;
+    border-radius: 10px;
+}
+
+/* Right side section */
+
+.contact-btn{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    width: 60%;
+}
+.for-des{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #FAFAFA;
+
+}
+.for-des a{
+    border: 1px solid rgb(204, 204, 204);
+    width: 33.33%;
+    text-align: center;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+}
+.for-des a:focus{
+    background-color: blanchedalmond;
+}
+
+
+
+ /* About gigs section      */
+
+.justify{
+    text-align: justify;
+}
+.seller-knowledge{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+.stng{
+    display: block;
+}
+.inner-knowledge{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+
+
+
+/* About The Seller section */
+
+.about-seller-upper{
+    background-color: #fff;
+    padding: 40px;
+    border: 1px solid rgba(0,0,0,.125);
+} 
+.about-seller-upper{
+    margin-top: 30px;
+    width: 100%;
+}
+.about-seller-upper h2{
+    margin-bottom: 35px;
+}
+.about-seller{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+.inner-seller{
+    width: 35%;
+    height:100%;
+    max-height: 200px;
+}
+.inner-seller img{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.seller-bio{
+    width: 65%;
+    justify-self: center;
+    align-self: center;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.seller-bio strong{
+    font-size: 25px;
+}
+.seller-bio p{
+    font-size: 22px;
+}
+.seller-bio i{
+    font-size: 22px;
+}
+.contact{
+    width: 40%;
+    margin-top: 20px;
+    border: 1px solid #428ad3 ;
+    padding: 10px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: transparent ;
+    transition: all .3s ease-in-out;
+    color: #fff;
+}
+.contact:hover{
+    background-color: #7A7D85;
+    color: #fff;
+    border: 1px solid rgb(160, 159, 159);
+}
+
+
+.recommended h3{
+    padding: 30px 0px;
+}
+
+/* Seller description section */
+.for-des{
+    display: flex;
+    flex-direction: column;
+}
+.inner-des{
+    padding: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-left, .card-right{
+    width: 50%;
+}
+.card-right{
+    width: 50%;
+}
+.description{
+    margin-top: 60px;
+}
+.inner-card-left{
+    display: flex;
+    flex-direction: column;
+}
+.inner-card-right{
+    display: flex;
+    flex-direction: column;
+}
+.seller-des{
+    padding: 40px;
+}
+.seller-des p{
+    text-align: justify;
+}
+.for-line{
+    margin: 0px 40px;
+}
+
+/* Compare Package table */
+
+
+.fa-check{
+    text-align: center;
+    color: #19A463;
+    width: 100%;
+}
+
+.compare-packages{
+    margin-top: 60px;
+}
+.total-cost{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.total-cost span{
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 18px;
+}
+.button{
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px 15px;
+    background-color: #428ad3 !important;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+}
+.res-design{
+    font-size: 18px;
+}
+/* Tab view  */
+
+
+/* slider */
+.slick-dots{
+    display: none !important;
+}
+.slick-slide {
+    margin-right: 20px;
+}
+.slick-slide{
+    padding: 0px 10px 0px 10px !important;
+}
+
+.warpper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgb(202, 202, 202);
+    margin-top: 90px;
+  }
+  .tabs{
+      width: 100%;
+      text-align: center;
+      margin-top: 0px;
+  }
+  .tab{
+    cursor: pointer;
+    padding: 12px 5px;
+    background:#0B5ED7;
+    display:inline-block;
+    color:#fff;
+    width: 32.5%;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .panels{
+    background:#fffffff6;
+    min-height:200px;
+    width:100%;
+    border-radius:3px;
+    overflow:hidden;
+    padding:20px;
+  }
+  .panel{
+    display:none;
+    animation: fadein .8s;
+  }
+
+
+
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  .panel-title{
+    font-weight:bold
+  }
+  .panel-title span{
+    float: right;
+    font-size: 20px;
+  }
+  .panel-title h3{
+    display: inline-block;
+    font-weight:bold;
+    font-size: 20px;
+  }
+  .radio{
+    display:none;
+  }
+  #one:checked ~ .panels #one-panel,
+  #two:checked ~ .panels #two-panel,
+  #three:checked ~ .panels #three-panel{
+    display:block
+  }
+  #one:checked ~ .tabs #one-tab,
+  #two:checked ~ .tabs #two-tab,
+  #three:checked ~ .tabs #three-tab{
+    background:#eeededf6;
+    border-bottom: 2px solid #1DBF73;
+    color: #1DBF73;
+  }
+  .pannel-service-list li{
+    list-style: none;
+    margin: 15px;
+  }
+  .pannel-service-button{
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      background-color: #428ad3 !important;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      border-radius: 8px;
+      transition:  all .3s ease-in-out;
+  }
+  .pannel-service-button:hover{
+      background-color: #2e57a5 !important;
+
+  }
+  .pannel-service-button-lower{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fdfdfd;
+    color: #428ad3 !important;
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+/* azim new color change */
+#one:checked ~ .tabs #one-tab, #two:checked ~ .tabs #two-tab, #three:checked ~ .tabs #three-tab {
+    background: #eeededf6;
+    border-bottom: 2px solid #428ad3 !important;
+    color: #428ad3 !important;
+}

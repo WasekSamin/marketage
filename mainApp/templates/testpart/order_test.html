@@ -1,0 +1,5 @@
+<ul>
+    {% for o in orders %}
+        <li>{{ o.id }} Buyer: {{ o.user }} seller: {{ o.seller }} {{ o.package.package.title }} <a href="{% url 'ReviewSeller' o.seller.username %}">Review Seller</a></li>
+    {% endfor %}
+</ul>

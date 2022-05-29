@@ -1,0 +1,69 @@
+.main-req-ref{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.refund-req{
+    margin-top: 30px;
+    width:80%;
+    height: 60%;
+    background-color: #fff;
+    border: 1px solid rgb(238, 238, 238);
+}
+.order-id{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.order-id h6{
+    width: 40%;
+    font-size: 20px;
+}
+.order-id span{
+    width: 60%
+}
+.order-id textarea{
+    height: 180px !important;
+    padding: 10px !important;
+}
+.refund-title{
+    margin: 40px 0px;
+}
+.button{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.submit{
+    width: 100%;
+    background-color: #428ad3 ;
+    transition: .2s all ease-in-out ;
+    color: #fff ;
+    right: 0;
+    padding: 10px 0px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    outline: none !important;
+    transition: .3s;
+    border-radius: 5px;
+}
+.submit:hover{
+    background-color: #2e57a5;
+}
+
+@media (max-width: 580px){
+    .order-id h6 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 450px){
+    .order-id h6 {
+        font-size: 18px;
+    }
+}

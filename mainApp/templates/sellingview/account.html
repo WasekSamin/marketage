@@ -1,0 +1,488 @@
+{% extends 'wasekPart/base.html' %}
+
+{% load static %}
+
+{% load custom_filter %}
+
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/account.css' %}" />
+
+
+<div class="container">
+
+    <div class="row">
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+
+            <div class="left__colum">
+
+              <div class="user__profile__details">
+
+                <p class="show__online text-center">online<p>
+
+                    
+
+                    <div class="{% if user_details == request.user %}for-profile-pix{% endif %}">
+
+                        <div class="hover-bg"></div>
+
+                            <img class="rounded-circle" src="{{ user_details.selleraccount.profile_picture.url }}">
+                            
+                            {% if user_details == request.user %}
+                            <div class="for-hover-coming">
+
+                                <span class="change-pro" style="text-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5)">Change profile</span>
+
+                            </div>
+                            {% endif %}
+                    </div>
+
+                    
+
+                    
+
+        
+
+                    
+
+                   
+
+                <p class="fw-bold seller__name">Seller Name: {{ user_details.username }}</p>
+
+                
+
+                
+
+                
+
+                
+
+                <!--<p id="designation" class="text-muted desig">Web and Application Developer -->
+
+                <!--  <button class="profile__degignation__edit" id="edit__icon__js" onclick="myFunction()"><span class="iconify" data-icon="bx:bxs-edit-alt"></span></button></p>-->
+
+                <!-- <button class="public__mode">
+
+                    Preview Public Mode</button> -->
+
+                </div>
+
+                <div id="changingEffect" class="after__click__edit">
+
+                    <input id="userInput" class="mx-auto d-block w-100" type="text" maxlength="70" placeholder="type here.." autocomplete="off" value="Web and Application Developer">
+
+                   <div class="cancel__update">
+
+                    <button id="cancelButton" onclick="mySecondFunction()">Cancel</button>
+
+                    <button id="updateButton" onclick="newFun()">Update</button>
+
+                   </div>
+
+                </div>
+
+
+
+                <hr>
+
+
+
+                <div class="user__profile__restdetails">
+
+                <div class="first__user">
+
+                    <p><span class="iconify" data-icon="ps:facebook-places"></span> From</p>
+
+                <p class="fw-bold">{{ user_details.selleraccount.country }}</p>
+
+                </div>
+
+                <div class="first__user">
+
+                    <p><span class="iconify" data-icon="ant-design:user-outlined"></span> Joined</p>
+
+                <p class="fw-bold">{{ user_details.selleraccount.joined_at }}</p>
+
+                </div>
+
+                <div class="first__user">
+
+                  <p><span class="iconify" data-icon="bx:bx-time-five"></span>  Avg. Response Time</p>
+
+                <p class="fw-bold">N/A</p>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+
+
+                <div class="colum__footer__part">
+
+                    <p><span class="iconify" data-icon="uil:calender"></span> Status</p>
+
+                    <p class="badge bg-success">ACTIVE</p>
+
+                </div>
+
+            </div><br>
+
+
+
+                </div>
+
+
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-8 right__colum">
+
+
+
+                <ul class="nav nav-pills new__nav__pill mb-3" id="pills-tab" role="tablist">
+
+                    <li class="nav-item" role="presentation">
+
+                      <button class="nav-link new__nav__link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Active Offers</button>
+
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+
+                      <button class="nav-link new__nav__link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pending</button>
+
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+
+                      <button class="nav-link new__nav__link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Paused</button>
+
+                    </li>
+
+                  </ul>
+
+                  <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                      
+
+                      <div class="tab__view__card">
+
+
+
+                        <!-- Loop Start Here -->
+                        {% if offers|length > 0 %}
+                        {% for offer in offers %}
+                            {% if offer.offer_status == "ACTIVE" %}
+                            
+                        <a  href="{% url 'offer_details' offer.id offer.slug %}">
+                            <div class="mx-1 tab___card__new">
+    
+                              <img src="{{ offer.image.url }}" class="card-img-top" alt="...">
+
+                        </a>  
+
+                          <div class="tab___card___body">
+
+                            <p class="text-center"><a href="{% url 'offer_details' offer.id offer.slug %}">{{ offer.offer_title|truncatechars:20 }}</a></p>
+
+                            <p class="text-center offer__tag">STARTING AT <span class="fw-bold fs-6">USD. {{ offer.offermanager_set.all|offer_price_start }}<span></p>
+
+                          </div>
+
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                        <!-- Loop Ends Here -->
+
+                        
+                        {% if user_details == request.user %}
+                        <div class="mx-1 tab___card__new1">
+
+                            <p><a href="{% url 'manage-offers' %}"><span class="iconify create___icon" data-icon="akar-icons:circle-plus" style="color: #428ad3;"></span></a></p>
+
+                            <p>Create New Offer</p>
+
+                        </div>
+                        {% endif %}
+                        
+
+                        
+
+                      </div>
+
+  
+
+                     </div>
+
+
+
+
+
+                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+
+
+                      <div class="tab__view__card">
+
+                        <!-- Loop Start Here -->
+                        {% if offers|length > 0 %}
+                        {% for offer in offers %}
+                            {% if offer.offer_status == "PENDING APPROVAL" %}
+                            
+                        <a  href="{% url 'EditOffer' offer.id offer.slug %}">
+                            <div class="mx-1 tab___card__new">
+    
+                              <img src="{{ offer.image.url }}" class="card-img-top" alt="...">
+
+                        </a>  
+
+                          <div class="tab___card___body">
+
+                            <p class="text-center"><a href="{% url 'EditOffer' offer.id offer.slug %}">{{ offer.offer_title|truncatechars:20 }}</a></p>
+
+                            <p class="text-center offer__tag">STARTING AT <span class="fw-bold fs-6">USD. {{ offer.offermanager_set.all|offer_price_start }}<span></p>
+
+                          </div>
+
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                        <!-- Loop Ends Here -->
+
+                      </div>
+
+
+
+                     </div>
+
+                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+
+
+                      <div class="tab__view__card">
+
+                         <!-- Loop Start Here -->
+                        {% if offers|length > 0 %}
+                        {% for offer in offers %}
+                            {% if offer.offer_status == "PAUSED" %}
+                            
+                        <a  href="{% url 'EditOffer' offer.id offer.slug %}">
+                            <div class="mx-1 tab___card__new">
+    
+                              <img src="{{ offer.image.url }}" class="card-img-top" alt="...">
+
+                        </a>  
+
+                          <div class="tab___card___body">
+
+                            <p class="text-center"><a href="{% url 'EditOffer' offer.id offer.slug %}">{{ offer.offer_title|truncatechars:20 }}</a></p>
+
+                            <p class="text-center offer__tag">STARTING AT <span class="fw-bold fs-6">USD. {{ offer.offermanager_set.all|offer_price_start }}<span></p>
+
+                          </div>
+
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                        <!-- Loop Ends Here -->
+
+                     </div>
+
+
+
+                   </div>
+
+                    </div>
+
+                  </div>
+
+            </div>
+
+            
+
+            
+
+            
+
+           <!--for modal -->
+
+      
+
+      
+
+      
+
+                                
+
+<div class="">
+
+        
+
+    <div class="overlay"></div>
+
+    <div class="for-modal">
+
+    
+
+    <div class="col-md-6 ">
+
+        <div class="card">
+
+            <div class="card-header d-flex justify-content-between">
+
+                <h5>File Upload</h5>
+
+                <h4 class="close-button"><span class="iconify" data-icon="gridicons:cross"></span></h4>
+
+            </div>
+
+            <form class="card-block" method="POST" enctype='multipart/form-data'>
+
+                {% csrf_token %}
+
+                <div class="text-center m-t-20 for-uploading-area">
+
+                    
+
+                        
+
+                        <label for="main-image" class="for-file-upload mt-3">
+
+                                <span class="iconify for-img-icon" data-icon="bi:image"></span>
+
+                                 <p>Click Here For</p>
+
+                                 <p>Upload Your Profile Picture</p>
+
+                            </label>
+
+                            
+
+                            
+
+                            <span id="uploaded-image-name"></span>
+
+                            <input id="main-image" name="profile_image" onchange="forprofile()";  style="visibility: hidden;"  type="file" accept="image/*" required />
+
+                            
+
+                            
+
+                            <button class="submit-button-for-pix" type="submit">SUBMIT</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- review container -->
+{% if reviews %}
+{% for rv in reviews %}
+<div class="container">
+  <div class="main_____review__div">
+
+    <div class="seller___review____section">
+        
+        <div class="buyer______details">
+          <img src="{{ rv.client.selleraccount.profile_picture.url }}" class="rounded-circle">
+          <div>
+            <p>{{ rv.client }}</p>
+            {%if rv.rate_seller.rate_amount == 5%}
+            <p>RATING  {{ rv.rate_seller }}&nbsp;<span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+             <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+              <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+              <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+              <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span></p>
+              {% elif rv.rate_seller.rate_amount == 4 %}
+              <p>RATING  {{ rv.rate_seller }}&nbsp;
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span> <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                {% elif rv.rate_seller.rate_amount == 3 %}
+                <p>RATING  {{ rv.rate_seller }}&nbsp;
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                {% elif rv.rate_seller.rate_amount == 2 %}
+                <p>RATING  {{ rv.rate_seller }}&nbsp;
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                {% elif rv.rate_seller.rate_amount == 1 %}
+                <p>RATING  {{ rv.rate_seller }}&nbsp;
+                <span class="iconify" data-icon="akar-icons:star" style="color: gold;"></span>
+                {% else %}
+              {% endif %}
+          </div>
+        </div>
+        
+        {% comment %}
+        <div class="popover____work">
+           
+          <!-- Default dropstart button -->
+          <div class="dropdown">
+            <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="iconify bar____icon" data-icon="entypo:dots-three-vertical"></span>
+            </a>
+            <ul class="dropdown-menu new____drop__menu" aria-labelledby="dropdownMenu2">
+              <li><button class="dropdown-item new____item" type="button">Hide</button></li>
+              <hr>
+              <li><button class="dropdown-item new____item" type="button">Delete</button></li>
+            </ul>
+
+          </div>
+
+           
+        </div>
+        {% endcomment %}
+
+    </div>
+
+    <div class="review____textbox">
+      <p>
+        {{ rv.text|safe }}
+      </p>
+    </div>
+
+  </div>
+</div><br>
+{% endfor %}
+{% else %}
+<h3 style="text-align: center;" class="text-primary">NO REVIEWS YET</h3>
+{% endif %}
+
+         
+</div>
+
+            <script src="{% static 'js/account.js' %}">
+
+              </script>
+
+{% include 'buyingview/buying_footer.html' %}
+{% endblock %}
+

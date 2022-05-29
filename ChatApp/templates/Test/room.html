@@ -1,0 +1,7 @@
+{% include 'Test/base.html' %}
+CHAT ROOM {{ request.user }}
+{% for m in room %}
+    chat room: {{ m.id }}<a href="{% url 'continueChat' m.id %}">Continue Chatting</a>
+{% endfor %}
+
+

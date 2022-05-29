@@ -1,0 +1,281 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- google font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+    <!-- css file link -->
+
+    <link rel="stylesheet" href="{% static 'css/trust-satefy.css' %}">
+
+
+
+    <title>Trust And Safety</title>
+
+  </head>
+
+  <body>
+
+    
+
+    {% include 'buyingview/header.html' %}
+
+      
+
+    <div class="main-background-image">
+
+        <img src="{% static 'images/cup.jpeg' %}" alt="trust">
+
+        <div class="img-overlay">
+
+            <h1 class="text-white">Trust Matters Most</h1>
+
+            <p class="text-white">Millions of Offer's. Millions of users.</p>
+
+            <p class="text-white">But your trust & safety is our #1 priority.</p>
+
+            <a href="{% url 'user_registration' %}" class="join-marketage text-white">Join Marketage</a>
+
+        </div>
+
+        <div class="w-100 body-lorem">
+
+            <div class="container col-12 col-sm-12 col-md-12 col-lg-7">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <div class="seller-is-easy">
+
+                            <h3 class="fw-bold">Getting To Know Your Sellers Is Easy</h3>
+
+                            <p class="text-muted">Feedback and reputation are essential to the Marketage marketplace.</p>
+
+                            <p class="text-muted">With seller ratings, levels and buyer feedback, we've made it</p>
+
+                            <p class="text-muted">simple to review, compare and purchase the services you need.</p>
+
+                            <img src="{% static 'images/book.jpg' %}" alt="">
+
+
+
+                            <!-- seller buying rating -->
+
+
+
+                            <div class="seller-buyer-rating">
+
+                                <div class="seller-rating">
+
+                                    <span class="fw-bold">Seller Ratings</span>
+
+                                    <p class="text-muted">After a seller completes a Offer, <br> buyers can rate their experience <br> based on criteria all made visible <br> to you.</p>
+
+                                </div>
+
+                                <div class="buyer-feedback">
+
+                                    <span class="fw-bold">Buyer Feedback</span>
+
+                                    <p class="text-muted">Full transparency. Buyers can leave <br> feedback on their interaction with <br> sellers, and share their order for all <br> to see.</p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- seller level section -->
+
+
+
+                            <div class="seller-level">
+
+                                <img src="{% static 'images/black_friday.jpg' %}" alt="trust1">
+
+                                <div class="seller-level-overlay">
+
+                                    <h4 class="text-white fw-bold">Seller Levels</h4>
+
+                                    <p class="text-white">Sellers who deliver high quality work</p>
+
+                                    <p class="text-white">and maintain strong ratings can earn</p>
+
+                                    <p class="text-white">new levels of status that provide</p>
+
+                                    <p class="text-white">additional benefits. <a href="#" class="fw-bold">Learn more about</a></p>
+
+                                    <p class="text-white"><a href="#" class="fw-bold">the level system</a></p>
+
+                                </div>
+
+                                
+
+                                <!-- level bedge images -->
+
+
+
+                                <div class="level-badge">
+
+                                    <ul>
+
+                                        <li class="top-img"><img class="rounded-circle" src="{% static 'images/top rated main.jpeg' %}" alt="top"></li>
+
+                                        <li class="level-img"><img class="rounded-circle" src="{% static 'images/level two main.jpeg' %}" alt="two"></li>
+
+                                        <li class="level-img"><img class="rounded-circle" src="{% static 'images/level one main.jpeg' %}" alt="one"></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- buy and sell section -->
+
+
+
+                            <div class="buy-sell">
+
+                                <h4 class="fw-bold">Buy And Sell, Worry Free</h4>
+
+                                <p class="text-muted">With millions of orders taking place, marketage uses the latest high</p>
+
+                                <p class="text-muted">tech anti-fraud and data security measures to keep your</p>
+
+                                <p class="text-muted">transactions and data safe.</p>
+
+                            </div>
+
+
+
+                            <!-- personal details, safe payment, secure communication -->
+
+
+
+                            <div class="personal-safe-secure">
+
+                                <div class="colums">
+
+                                    <img src="{% static 'images/personal.png' %}" alt=""><br>
+
+                                    <p class="fw-bold">Personal Details</p>
+
+                                    <p class="text-muted">marketage values your privacy. Your data is <br> secure at all times and we'll never <br> share your personal information with <br> third parties.</p>
+
+                                </div>
+
+                                <div class="colums">
+
+                                    <img src="{% static 'images/safe.png' %}" alt=""><br>
+
+                                    <p class="fw-bold">Safe Payments</p>
+
+                                    <p class="text-muted">All transactions are conducted on the <br> marketage platform. Whether a buyer uses <br> a credit card, PayPal or other form of <br> payment, we handle everything, and <br> ensure the security of your personal.</p>
+
+                                </div>
+
+                                <div class="colums">
+
+                                    <img src="{% static 'images/secure.png' %}" alt=""><br>
+
+                                    <p class="fw-bold">Secure Communications</p>
+
+                                    <p class="text-muted">You can safely communicate and <br> exchange files with any Seller on  <br> marketage through our secure messaging <br> system.</p>
+
+                                </div>
+
+                            </div><br>
+
+
+
+                        </div>
+
+                    </div>
+
+                  </div>
+
+            </div>
+
+
+
+            <div class="help-line">
+
+                <div class="help__line___paragraph">
+
+                     <p class="text-white">We're here to help with any issues you may have, with a</p>
+
+                     <p class="text-white">friendly customer support team at your service 24/7.</p>
+
+                    </div>
+
+                <div class="help-line-image">
+
+                    <img class="rounded-circle" src="{% static 'images/24-7 services.jpeg' %}" alt="">
+
+                </div>
+
+            </div><br><br>
+
+             <!-- footer -->
+
+             {% include 'buyingview/buying_footer.html' %}
+
+        </div>
+
+    </div>
+
+
+
+
+
+   
+
+    
+
+   
+
+
+
+    
+
+    <!-- body card section -->
+
+   
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

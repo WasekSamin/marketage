@@ -1,0 +1,57 @@
+{% include 'Test/base.html' %}
+</br>
+</br>
+</br>
+<div class="container">
+    <h3>Visiting as or buyer name: {{ request.user }}</h3>
+
+</div>
+
+        <div class="container bg-light p-3">
+            <ul>
+            {% for user in all_users %}
+                <li>Seller Name: {{ user.username }}</li><span>
+                    <a class="btn btn-primary" href="{% url 'user_details' user.id %}">View Profile</a>
+                </span>
+            {% endfor %}
+            </ul>
+        </div>
+        <br>
+        <br>
+        {% comment %} <div class="container bg-light p-3">
+            <ul>
+            {% for ct in chatroom %}
+                <li>{{ ct.chatroom }}</li><span>
+                    <a class="btn btn-primary" href="{% url 'continueChat' ct.id %}">View Profile</a>
+                </span>
+            {% endfor %}
+            </ul>
+        </div> {% endcomment %}
+
+        <br><br><br>
+
+
+        <div class="container">
+        <h2>NOTIFICATIONS</h2>
+        <ul>
+            {% for c in ct_room %}
+            <li>{{ c.room_name }}</li><a href="{% url 'chatroom' c.id %}" class="btn btn-dark">GO</a>
+            {% endfor %}
+        </ul>
+        </div>
+
+        <div class="container">
+        <h2>BUYER NOTIFICATIONS</h2>
+        <ul>
+            {% for c in for_buyer %}
+            <li>{{ c.room_name }}
+            <a href="{% url 'chatroom' c.id %}" class="btn btn-dark">GO</a>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+
+
+        <script src="" async defer></script>
+    </body>
+</html>

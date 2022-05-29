@@ -1,0 +1,6 @@
+
+
+{%for o in offs%}
+    {{ o.user }}<a href="{% url 'levelFunction' o.id %}">Details</a>
+
+{% endfor %}

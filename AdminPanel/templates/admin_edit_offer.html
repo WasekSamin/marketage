@@ -1,0 +1,815 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Edit Offer</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/market_fav.png' %}">
+
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+    
+    <script src="https://cdn.ckeditor.com/4.16.2/basic/ckeditor.js"></script>
+
+
+    <!-- add to document <head> -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" /><link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"/>
+    
+    
+    <link rel="stylesheet" href="{% static 'css/create_offer.css' %}">
+
+</head>
+<body>
+    {% include 'wasekPart/base.html' %}
+<!-- oveview -->
+<div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="create-a-gig">
+        <div class="inner-create-gig container mt-5">
+
+<!-- for overview -->
+            <div class="row for-overview">
+                <div class="col-md-9 hover-function">
+                    <h5 class="text-transform mt-2" style="font-weight: 500">*Option status</h5>
+                    <select class="form-select mb-3" name="admin_post_status" aria-label="Default select example" required>
+                        <option value="{{ offer.offer_status }}">{{ offer.offer_status }}</option>
+                {% if offer.offer_status != "ACTIVE" %}
+                  <option value="ACTIVE">ACTIVE</option>
+                 {% endif %}
+                 {% if offer.offer_status != "PENDING APPROVAL" %}
+                  <option value="PENDING APPROVAL">PENDING APPROVAL</option>
+                  {% endif %}
+                  {% if offer.offer_status != "REQUIRED MODIFICATION" %}
+                  <option value="REQUIRED MODIFICATION">REQUIRED MODIFICATION</option>
+                  {% endif %}
+                  {% if offer.offer_status != "DENIED" %}
+                  <option value="DENIED">DENIED</option>
+                  {% endif %}
+                  {% if offer.offer_status != "PAUSED" %}
+                  <option value="PAUSED">PAUSED</option>
+                  {% endif %}
+                </select>
+
+                    <!-- gig title -->
+                    <div class="gig-card">
+
+                        <div class="gig-title mb-4">
+                            <p>OFFER TITLE</p>
+                            <textarea name="offer_title" placeholder="I will" onkeyup="count_up(this);" maxlength="80" required>{{ offer.offer_title }}</textarea>
+                        </div>
+                        <div class="counter"><p class="text-muted"><span id="counter">0</span>/80 MAX</p></div>
+
+
+
+                    <!-- seo title     -->
+                        <div class="seo-title mb-4">
+                            <p>SEO TITLE</p>
+                            <textarea name="seo_title" onkeyup="countUp(this);" maxlength="60" required>{{ offer.seo_title }}</textarea>
+                        </div>
+                         <div class="counter__seo"><p class="text-muted"><span id="counter-seo">0</span>/60 MAX</p></div>
+                        
+
+                    <!-- category -->
+                        <div class="category mb-4">
+                            
+                            <div class="category-title">
+                                <p>Category</p>
+                            </div>
+
+                            <div class="select-area">
+                                <div>
+                            <select onchange="admineditSelectedCategory(this)" class="for-size" name="category" id="" required>
+                                <option value="{{ offer.category.title }}">{{ offer.category.title }}</option>
+                                {% for category in categories %}
+                                <option value="{{ category.title }}">{{ category.title }}</option>
+                                {% endfor %}
+                            </select>
+                                </div>                            
+                            
+                            </div>
+                        </div>
+
+
+                    <!-- service type-->
+                       
+                        <div class="service-type mb-4">
+                            
+                        <div class="service-title">
+                            <p>SERVICE TYPE</p>
+                        </div>
+
+                        <div class="select-area">
+                            <select class="select-input" name="service" id="" required>
+                                <option value="{{ offer.service.title }}">{{ offer.service.title }}</option>
+                                {% for service in services %}
+                                    <option value="{{service.title}}">{{service.title}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="col-md-3 right-div">
+
+                <!--fixed div -->
+                    <div class="defining-gig">
+                        <div class="inner-defining-gig">
+                            
+                            <div class="icon">
+                                <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                            </div>
+                            
+                            <h5 class="text-center">Start Defining Your offer</h5>
+                            <ul>
+
+                                <li>Make a title that will capture people's attention.</li>
+
+                                <li>Select a category that best describes your offer.</li>
+
+                                <li>Add meta data to your offer to help customers learn more about it.</li>
+
+                                <li>Select a category that best describes your offer.    
+                                </li>                            
+                                
+                            </ul>
+                            
+                            
+                            
+                        </div>
+                    </div>
+                
+
+                <!-- gig title -->
+                    <div class="discribe-gig">
+                        <h4 class="text-center">Describe Your offer</h4>
+                        <p>This is your offer title. CHoose wisely, this will be helping for rank your offer</p>
+                    </div>
+
+
+                <!-- seo title -->
+                    <div class="seo-title-hover">
+                        <h4 class="text-center">SEO Titile</h4>
+                        <p>The most crucial on-page SEO component to handle on any web page is the Title Tag. Well-written page titles can HELP your pages rank higher in Search Engine Results Pages </p>
+                        <h6>For example</h6>
+                        <ul>
+                            <li>I will design an exclusive Business Card</li>
+                            <li>I will draw you one RORSCHACH-like ink blot</li>
+                            <li>I will design a modern business logo</li>
+                        </ul>
+                    </div>
+
+
+                <!-- category  -->
+                    <div class="category-hover">
+                        <h5 class="text-center">Where will your offer end up?</h5>
+                        <p>Please choose the category and sub-category most suitable for your offer.</p>
+                    </div>
+
+                    <!-- service type -->
+                    <div class="service-type-hover">
+                        <h5 class="text-center">Buyers search by service types</h5>
+                        <p>Choose a service type to ensure you appear in their search results, and get the right pricing features for your offer.</p>
+                    </div>
+
+
+                <!-- search-taq -->
+                    <div class="search-tag-hover">
+                        <h5>Let Buyers Know How to find offer</h5>
+                        <p>Enter search terms, which you feel buyers will use when looking for your service.</p>
+                        <p>The terms you enter here are very important and will have an impact on your overrall exposure on Marketage.When adding your search terms, please keep in mind the following:</p>
+                        <ul>
+                            <li>Spectal character and duplicated terms will be ignored</li>
+                            <li>It doesnot matter if you use upper case, lower case letters, or plural forms of words.</li>
+                        </ul>
+                    </div>
+                
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+
+
+<!-- scope and pricing  -->
+
+        <section id="#scope_&_price">
+            <div class="inner-priceandscope container mt-4">
+                
+            <div class="title">
+                <div class="inner-title">
+                    <h3>Scope & Pricing</h3>
+                </div>
+
+                <div class="info-box">
+                    <p> <span class="iconify" data-icon="akar-icons:check" style="color: #428ad3;" data-width="32" data-height="32"></span> You can now offer buyers delivery options for up to 90 days. Go ahead and update your offer!</p>
+                </div>
+            </div>
+                <hr>
+
+            <div class="package">
+                <h5>Packages</h5>
+
+                <div class="main__table table-responsive">
+                    <div class="package-table">
+                    
+                    
+                        <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col" class="text-center">BASIC</th>
+                                <th scope="col" class="text-center">STANDARD</th>
+                                <th scope="col" class="text-center">PREMIUM</th>
+                              </tr>
+                            </thead>
+    
+                            <tbody>                                   
+    
+                              <tr>
+                                <td scope="row"></td>
+    
+                                <td class="col-3 input-padding">
+                                    
+                                      <input type="text" class="input-for-details" name="basic_shortDesc" placeholder="You can use maximum 100 char" value="{{ basic_package.package_desc }}" required>
+                                                                   
+                                </td>
+    
+                                <td class="col-3 input-padding">
+                                    
+                                      <input type="text" class="input-for-details" name="standard_shortDesc"  placeholder="You can use maximum 100 char" value="{{ standard_package.package_desc }}" required>
+                                                                   
+                                </td>
+    
+                                <td class="col-3 input-padding">
+                                    
+                                      <input type="text" class="input-for-details" name="premium_shortDesc"  placeholder="You can use maximum 100 char" value="{{ premium_package.package_desc }}" required>
+                                                                   
+                                </td>
+    
+                              </tr>
+                                    
+                              
+    
+    
+                              <tr class="table table-for-row">
+                                
+                                <td scope="row" class="align-middle">Delivery Time</td>
+                                
+                                <td scope="row">
+                                    <select name="delivery_time_basic" id="" required>
+                                        <option value="{{basic_package.delivery_time.title}}">{{ basic_package.delivery_time.title }}</option>
+                                        {% for delivery in basic_deliveries %}
+                                            <option value="{{delivery.title}}">{{ delivery.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+    
+                                <td scope="row">
+                                    <select name="delivery_time_standard" id="" required>
+                                        <option value="{{standard_package.delivery_time.title}}">{{ standard_package.delivery_time.title }}</option>
+                                        {% for delivery in standard_deliveries %}
+                                            <option value="{{delivery.title}}">{{ delivery.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+    
+                                <td scope="row">
+                                    <select name="delivery_time_premium" id="" required>
+                                        <option value="{{premium_package.delivery_time.title}}">{{ premium_package.delivery_time.title }}</option>
+                                        {% for delivery in premium_deliveries %}
+                                            <option value="{{delivery.title}}">{{ delivery.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+                              </tr>
+                                   
+    <!-- number of pages -->
+                              <tr class="table table-for-row edit__pageRow">
+    
+                                <td scope="row" class="for-padding align-middle">Number of Pages</td>
+    
+                                
+                                <td scope="row">
+                                    <select name="num_pages_basic" id="">
+                                        <option value="{{ basic_package.num_of_pages_for_basic.title }}">{{basic_package.num_of_pages_for_basic.title}}</option>
+                                        {% for page in basic_num_pages %}
+                                            <option value="{{page.title}}">{{ page.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+                                <td scope="row">
+                                    <select name="num_pages_standard" id="">
+                                        <option value="{{ standard_package.num_of_pages_for_standard.title }}">{{standard_package.num_of_pages_for_standard.title}}</option>
+                                        {% for page in standard_num_pages %}
+                                            <option value="{{page.title}}">{{ page.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+                                <td scope="row">
+                                    <select name="num_pages_premium" id="">
+                                        <option value="{{ premium_package.num_of_pages_for_premium.title }}">{{premium_package.num_of_pages_for_premium.title}}</option>
+                                        {% for page in premium_num_pages %}
+                                            <option value="{{page.title}}">{{ page.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td> 
+    
+                              </tr>
+    
+    <!-- responsive design        -->
+                              <tr class="for-table-data-center edit__responsiveDesign">
+                                <td scope="row" class="align-middle">Responsive Design</td>
+    
+                                <td class="col-3 align-middle">
+                                    {% if basic_package.is_responsive_basic %}
+                                        <input type="checkbox" class="text-center w-100" align-self-center value="on" checked name="is_responsive_basic" id="res1" onchange="checkResponsive1()">
+                                    {% else %}
+                                        <input type="checkbox" class="text-center w-100" align-self-center value="off" name="is_responsive_basic" id="res1" onchange="checkResponsive1()">
+                                    {% endif %}
+                                </td>
+                                
+                                <td class="col-3 align-middle">
+                                    {% if standard_package.is_responsive_standard %}
+                                        <input type="checkbox" class="text-center w-100" align-self-center value="on" checked name="is_responsive_standard" id="res2" onchange="checkResponsive2()">
+                                    {% else %}
+                                        <input type="checkbox" class="text-center w-100" align-self-center value="off" name="is_responsive_standard" id="res2" onchange="checkResponsive2()">
+                                    {% endif %}
+                                </td>
+                                
+                                <td class="col-3 align-middle p-3">
+                                    {% if premium_package.is_responsive_premium %}
+                                        <input type="checkbox" class="text-center w-100" align-self-center value="on" checked name="is_responsive_premium" id="res3" onchange="checkResponsive3()">
+                                    {% else %}
+                                        <input type="checkbox" class="text-center w-100" align-self-center value="off" name="is_responsive_premium" id="res3" onchange="checkResponsive3()">
+                                    {% endif %}
+                                </td>
+    
+                                
+                              </tr>
+    <!-- for revision -->
+                            <tr class="table table-for-row">
+                                                        
+                                <td scope="row" class="for-padding align-middle">Revisions</td>
+    
+                                
+                                <td scope="row">
+                                    <select name="revision_basic" id="" required>
+                                        <option value="{{ basic_package.revision_basic.title }}">{{ basic_package.revision_basic.title }}</option>
+                                        {% for revision in basic_revisions %}
+                                            <option value="{{revision.title}}">{{ revision.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+                                <td scope="row">
+                                    <select name="revision_standard" id="" required>
+                                        <option value="{{ standard_package.revision_standard.title }}">{{ standard_package.revision_standard.title }}</option>
+                                        {% for revision in standard_revisions %}
+                                            <option value="{{revision.title}}">{{ revision.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
+                                
+                                <td scope="row">
+                                    <select name="revision_premimum" id="" required>
+                                        <option value="{{ premium_package.revision_premium.title }}">{{ premium_package.revision_premium.title }}</option>
+                                        {% for revision in premium_revisions %}
+                                            <option value="{{revision.title}}">{{ revision.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td> 
+    
+                            </tr>
+    
+                            
+    <!-- price  -->
+                              <tr class="for-table-data-center">
+    
+                                <td scope="row">Price</td>
+    
+                                <td class="col-3 align-middle for-price">
+                                    
+                                    <input type="number"
+                                    class="input-for-price" name="price_basic" value="{{ basic_price }}" id="" aria-describedby="helpId" placeholder="Price" required>$
+    
+                                </td>
+    
+                                <td class="col-3 align-middle for-price">
+                                    
+                                    <input type="number"
+                                    class="input-for-price" name="price_standard" value="{{ standard_price }}" id="" aria-describedby="helpId" placeholder="Price" required>$
+    
+                                </td>
+                                
+                                <td class="col-3 align-middle for-price">
+                                    
+                                    <input type="number"
+                                    class="input-for-price" name="price_premium" id="" value="{{ premium_price }}" aria-describedby="helpId" placeholder="Price" required>$
+                                </td>     
+                              </tr>    
+                            </tbody>
+                          </table>   
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>   
+
+
+
+<!-- for description -->
+
+        <section id="description-for" class="container mt-4">
+            <div class="row">
+            <div class="inner-des col-md-9">
+
+                <div class="des-title">
+                    <h3>Description</h3>
+                </div>
+<hr>
+
+                <p>Briefly Describe Your offer</p>
+
+                <div class="for-textarea">
+                    <textarea name="content" id="" cols="30" rows="10" required>{{ offer.description }}</textarea>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 for-hiding">
+
+                <div class="right-div-for-description">                 
+                    <div class="icon">
+                        <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                    </div>
+                    <h5>Write Your Description & FAQ
+                    </h5>
+                    
+
+                    <ul>
+                        <li>Include the most important information for your offer.</li>
+                        <li>Add frequently asked questions and answers to the most commonly asked questions.</li>
+                    </ul>
+                </div>
+<!-- description hover div -->
+                <div class="description-hover-div">
+                    <div class="icon">
+                        <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                    </div>
+                    <h5>This is your chance to be creative. Explain your offer</h5>
+                    
+
+                    <ul>
+                        <li>Include the most important information for your offer.</li>
+                        <li>Add frequently asked questions and answers to the most commonly asked questions.</li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        </section>
+
+
+<!-- Gallery -->
+
+        <section class="for-gallery container mt-4">
+        <div class="row">
+        <div class="col-md-9 inner-gallery">
+
+            
+                <div class="gallery-title">
+                    <h3>Showcase Your Services In A Offer Gallery</h3>
+                    <p>Encourage buyers to choose your Offer by featuring a variety of your work.</p>
+                </div>
+                <div class="gallery-info">
+                    <span class="iconify" data-icon="akar-icons:check" style="color: #428ad3;" data-width="38" data-height="38"></span>
+                    <p>To comply with Marketage’s terms of service, make sure to upload only content you either own or you have the permission or license to use.</p>
+                </div>
+<hr>
+
+<div class="gallery-img mt-5">
+    <h4>Offer Main Image</h4>
+    <p>Get noticed by the right buyers with visual examples of your services.</p>
+
+    <div class="offer__img__grid">
+
+        {% if offer.image %}
+            <div class="gig__first__img m-3">
+                <img src="{{ offer.image.url }}" alt="">
+                <input type="hidden" class="main_image_id" name="main_image_id" value="" />
+                <button class="gig__edit__icon edit__icon" onclick="mainImageDelete({{ offer.id }})">
+                    <span class="iconify" data-icon="fluent:delete-28-regular"></span>
+                </button>
+            </div>
+        {% else %}
+            <div class="gig__first__img1 m-3">
+                <p class="text-muted">Drag & Drop a photo or</p>
+                <div class="text-center">
+                    <label class="form-label choose__file text-center w-100 mx-auto d-block" for="main-image">Browse</label>
+                    <input id="main-image" name="offer_main_image" style="visibility: hidden;" accept="image/*" type="file" required />   
+                </div>
+                <p> <span class="iconify drag__icon" data-icon="bi:image"></span></p>
+            </div>
+        {% endif %}
+      
+    </div>
+
+
+</div>
+
+        <div class="gallery-img extra-img mt-5">
+            <h4>Images (up to 3)</h4>
+            <p>Get noticed by the right buyers with visual examples of your services.</p>
+
+            <div class="offer__img__grid">
+                    {% if offer.extra_images.all|length > 0 %}
+                        {% if offer_first_img %}
+                            <div class="gig__first__img m-3">
+                                <img src="/media/{{ offer_first_img }}" alt="">
+                                <input type="hidden" class="extra_image_id1" name="extra_image_id1" value="" />
+                                <button class="gig__edit__icon edit__icon offer_extra_image_button1">
+                                    <span class="iconify" data-icon="fluent:delete-28-regular"></span>
+                                </button>
+                            </div>
+                        {% endif %}
+                        {% if offer_second_img %}
+                            <div class="gig__first__img m-3">
+                                <img src="/media/{{ offer_second_img }}" alt="">
+                                <input type="hidden" class="extra_image_id2" name="extra_image_id2" value="" />
+                                <button class="gig__edit__icon edit__icon offer_extra_image_button2">
+                                    <span class="iconify" data-icon="fluent:delete-28-regular"></span>
+                                </button>
+                            </div>
+                        {% endif %}
+                        {% if offer_third_img %}
+                            <div class="gig__first__img m-3">
+                                <img src="/media/{{ offer_third_img }}" alt="">
+                                <input type="hidden" class="extra_image_id3" name="extra_image_id3" value="" />
+                                <button class="gig__edit__icon edit__icon offer_extra_image_button3">
+                                    <span class="iconify" data-icon="fluent:delete-28-regular"></span>
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                
+                    {% if offer.extra_images.all|length < 3 %}
+                    <div class="gig__first__img1 m-3">
+                        <p class="text-muted">Drag & Drop a photo or</p>
+                        <div class="text-center">
+                            <label class="form-label choose__file text-center w-100 mx-auto d-block" for="extra-images">Browse</label>
+                        <input type="file" name="offer_extraImages" style="visibility: hidden;"  class="form-control" id="extra-images" accept="image/*" multiple/>
+                        </div>
+                       <p> <span class="iconify drag__icon" data-icon="bi:image"></span></p>
+                    </div>
+                    {% endif %}
+              
+            </div>
+
+
+        </div>
+<hr>
+
+
+        <div class="for-video mt-5">
+            <h4>Video (one only)</h4>
+            <p>Capture buyers' attention with a video that showcases your service.</p>
+            <p class="text-muted">Please choose a video shorter than 75 seconds and smaller than 50MB</p>
+        
+
+       <div class="video__one offer__img__grid">
+        {% if offer.offer_video %}
+        <div class="video__upload__option">
+            <!-- upload video here.... -->
+            <input type="hidden" class="offer_video_id" name="offer_video_id" value="" />
+            <video controls>
+                <source src="{{ offer.offer_video.url }}" type="">
+                Your browser does not support the video.
+              </video>
+              
+            <div class="video__edit__icon">
+                <button class="edit__icon" onclick="offerVideoDelete({{ offer.id }})"><span class="iconify video__icon" data-icon="fluent:delete-28-regular"></span></button>
+                <a href="#"><span class="iconify video__icon" data-icon="akar-icons:edit"></span></a>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="gig__first__img1 m-3">
+            <p class="text-muted">Drag & Drop a video or</p>
+            <div class="text-center">
+                <label class="form-label choose__file text-center w-100 mx-auto d-block" for="videoFile">Browse</label>
+            <input type="file" name="offer_video" style="visibility: hidden;"  class="form-control" id="videoFile" accept="video/mp4,video/x-m4v,video/*"/>
+            </div>
+           <p> <span class="iconify drag__icon" data-icon="bi:image"></span></p>
+        </div>
+        {% endif %}
+       </div>
+
+        </div>
+<hr>
+
+
+
+        <div class="for-doc mt-5">
+            <h4>Document</h4>
+            <p>Show some of the best work you created in a document (PDFs only).</p>
+        
+            <div class="document___total__upload">
+                {% if offer.document %}
+               <div class="docu__up__delete mx-auto">
+                <input type="hidden" class="offer_document_id" name="offer_document_id" value="" />
+                <div class="document__upload__delete m-3">
+                    <span class="iconify" data-icon="icon-park-outline:file-pdf-one" style="color: red;"></span>
+                </div>
+                <div class="document___name">
+                   <div class="document__para">
+                        <p class="pdf__name">{{ document }}</p>
+                        <small class="text-muted">PDF only</small>
+                   </div>
+                    <div class="document___icon">
+                        <button class="document__edit__icon edit__icon" onclick="offerDocumentDelete({{ offer.id }})">
+                            <span class="iconify" data-icon="fluent:delete-28-regular"></span>
+                        </button>
+                    </div>
+                </div>
+               </div>
+
+                {% else %}
+                <div class="gig__first__img1 m-3 mx-auto d-flex justify-content-center">
+                    <p class="text-muted">Drag & Drop a video or</p>
+                    <div class="text-center">
+                        <label class="form-label choose__file text-center w-100 mx-auto d-block" for="pdfFile">Browse</label>
+                    <input type="file" name="offer_document" style="visibility: hidden;"  class="form-control" id="pdfFile" accept="application/pdf,application/vnd.ms-excel"/>
+                    </div>
+                   <p> <span class="iconify drag__icon" data-icon="bi:image"></span></p>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+
+
+
+
+
+        </div>
+
+        <div class="col-md-3 for-hiding">
+            <div class="showcase-talent">                 
+                <div class="icon">
+                    <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                </div>
+                <h5 class="text-center">Showcase Your Talent</h5>
+                
+
+                <ul>
+                    <li>Add images, an introduction video, or PDF files that best represent your service</li>
+                </ul>
+
+                
+
+            </div>
+<!-- image section -->
+
+            <div class="for-image-hover">
+                <div class="inner-img-hover">                 
+                    <div class="icon">
+                        <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                    </div>
+                    <h5 class="text-center">Images</h5>
+                    
+                    <p>Upload images in JPEG, JPG, PNG and ensure they’re at least 550 pixels width x 370 pixels height.</p>
+
+                    <p>We suggest uploading them in landscape format to make better use of the space.</p>
+
+                    <p>Lastly, put your best foot forward! Stand out on Marketage with your favorite images.</p>
+
+                    <p>Need help? Check out Marketage’s expert photoshop talent</p>
+
+                    
+    
+                </div>
+            </div>
+
+
+<!-- video section -->
+
+            <div class="for-video-hover">
+                <div class="inner-video-hover">
+                    <div class="icon">
+                        <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                    </div>
+                    <h5 class="text-center">Video</h5>
+                    
+                    <p>Videos can increase user engagement by 40%..</p>
+
+                    <p>Ensure the production quality is representative of your deliveries.</p>
+
+                    <p>Need help with your video? Check out our Marketage expert audio/video talent here.</p>
+
+                   
+                </div>
+            </div>
+
+<!-- for document section -->
+            <div class="for-document">
+                <div class="inner-doc">
+                    <div class="inner-doc-hover">
+                        <div class="icon">
+                            <i><span class="iconify bulb-icon" data-icon="mdi-light:lightbulb"></span></i>
+                        </div>
+                        <h5 class="text-center">Documents</h5>
+                        
+                        <p>The quality of the content in your PDFs will influence potential customers.</p>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        </div>
+        </section>
+
+
+        <!-- save button -->
+
+        <section class="for-button-lowwer container mt-4">
+            <div class="row">
+                <div class="col-md-9 for-button">
+                    <button class="button-cancle" type="button" onclick="cancel_offer()">Cancel</button>
+                    <button class="button-save" type="submit">Save</button>
+                </div>
+            </div>
+            </section>
+
+
+        </form>
+            <div>
+
+
+    <script src="{% static 'js/ckeditor.js' %}"></script>
+
+
+    <script>
+        CKEDITOR.replace('content');
+    </script>
+    
+    
+    
+    <!-- multi selector -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    
+    <script>
+        if (`{{ offer.category.title }}` === "Programming & Tech") {
+            document.querySelector(".edit__pageRow").style.display = "inherit";
+            document.querySelector(".edit__responsiveDesign").style.display = "inherit";
+        } else {
+            document.querySelector(".edit__pageRow").style.display = "none";
+            document.querySelector(".edit__responsiveDesign").style.display = "none";
+        }
+    </script>
+
+    <script src="{% static 'js/create_offer.js' %}"></script>
+    <script src="{% static 'js/edit_offer.js' %}"></script>
+
+</body>
+</html>

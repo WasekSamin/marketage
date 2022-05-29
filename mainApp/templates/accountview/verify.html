@@ -1,0 +1,126 @@
+{% load static %}
+{% autoescape off %}
+
+<link rel="stylesheet" href=  "{% static 'css/email.css' %}" />
+
+
+{% comment %}
+
+    <div class="container">
+        <div class="main-card">
+
+            <div class="col-md-8 m-auto d-block email-template p-4">
+                <div class="email-template">
+
+                    <div class="logo-area text-center">
+                        <h2>Marketage</h2>
+                    </div>
+                    
+                    <div class="confirm-email">
+                        <h2>Email Verification</h2>
+                        <span>Hi {{ user.username }}</span>
+                        <p>Thanks for registration on our website. You will have to verify your email.
+                        To Verify your email click on this link below </p>
+                    </div>
+
+                    <div class="verify-email">
+                        <a href="http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}">Verify Email Address</a>
+                    
+                    </div>
+
+                    <div class="support-area">
+                        <div class="address">
+                            <h6 class="text-center mt-5">Address:</h6>
+                            <p> <span>United Kingdom Office:</span> IGL located at 2 Frederick Street, Kings Cross, London, United Kingdom, WC1X 0ND </p>
+                            <p> <span> Bangladesh Office:</span>  Itna Global Limited, House 24, Road,1, Nikunja2, Dhaka 1229, Khilkhet, </p>
+                        </div>
+                    </div>
+
+                    <div class="copy-right">
+                        <p>Copyright © 2021 Itna Global Ltd. All rights reserved.</p>
+                    </div>
+
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+{% endcomment %}
+    
+    
+    
+<body style="background-color: #f3f3f3;">
+
+    <div class="container">
+        <div class="main-card">
+
+            <div class="col-md-8 m-auto d-block email-template p-4" style="background-color: #fff;">
+                <div class="email-template">
+
+                    <div class="logo-area text-center">
+                        <h2 style="font-family: 'Lobster', cursive;
+                        margin-bottom: 30px;">Marketage</h2>
+                    </div>
+
+                    <div class="email-banner" style="width: 100%;
+                    height: 300px;">
+                        <!--<img src="img/Capture.PNG" alt="" style="width: 100%;-->
+                        <!--height: 100%;-->
+                        <!--object-fit: cover;-->
+                        <!--border-radius: 10px;">-->
+                    </div>
+
+                    <div class="confirm-email" style="text-align: center;
+                    margin-top: 40px;">
+                        <h2 style="
+                        letter-spacing: 5px;
+                        font-family: 'Abril Fatface', cursive;">Email Verification</h2>
+                        <span style="font-weight: 500;">Hi {{ user.username }}</span>
+                        <p>Thanks for registration on our website. You will have to verify your email.
+                        To Verify your email click on this link below </p>
+                    </div>
+
+                    <div class="verify-email" style="text-align: center;">
+                        <a href="http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}" style="background-color: #6e6562;
+                        border: none;
+                        border-radius: 10px;
+                        padding: 5px 35px;
+                        color: #fff;
+                        font-weight: 500;
+                        margin: 30px 0px;
+                        transition: all .3s ease-in-out;
+                        text-decoration: none;">Verify Email Address</a>
+                    
+                    </div>
+
+                    <div class="support-area" style="text-align: left;">
+
+                        <div class="address" style="text-align: left;">
+                            <h6 class="text-center mt-5" style="font-size: 25px;
+                            font-weight: 500;
+                            margin-bottom: 15px;">Address:</h6>
+                            <p> <span style="font-size: 15px;
+                                font-weight: 500;">United Kingdom Office:</span> IGL located at 2 Frederick Street, Kings Cross, London, United Kingdom, WC1X 0ND </p>
+                            <p> <span> Bangladesh Office:</span>  Itna Global Limited, House 24, Road,1, Nikunja2, Dhaka 1229, Khilkhet, </p>
+                        </div>
+                    </div>
+
+                    <div class="copy-right" style="text-align: center;">
+                        <p style="font-size: 12px;
+                        font-weight: 500;">Copyright © 2021 Itna Global Ltd. All rights reserved.</p>
+                    </div>
+
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+</body>
+
+    
+{% endautoescape %}

@@ -1,0 +1,118 @@
+{% load static %}
+{% include "wasekPart/base.html" %}
+
+
+    <section id="for-setting">
+        <div class="inner-setting container mt-5">
+            <div class="row">
+
+               <div class="col-md-2 left-menu-list">
+                    <ul>
+                        <li class="active-page"><a href="{% url 'settings' %}">Account</a></li>
+                        <li><a href="{% url 'security_page' %}">Security</a></li>
+                        <li><a href="{% url 'notifications_page' %}">Notification</a></li>
+                    </ul>
+                </div>
+
+
+
+                <div class="col-md-8 right-details-card">
+                    <div class="upper-letter">
+                        <p>Need to update your public profile? <a href="">Go to My Profile</a></p>
+                    </div>
+<hr>
+                    
+
+            <div class="naming-details">
+                <div class="input-area">
+                        <p>FULL NAME</p>
+
+                        <div class="input-design">
+                            <input class="input-style" type="text" placeholder=" ">
+                            <label class="lable-for-top" for="">Full Name</label>
+                        </div>
+
+                </div>
+
+
+                <div class="input-area mt-4">
+                    <p>EMAIL</p>
+
+                    <div class="input-design">
+                        <input class="input-style" type="email" placeholder=" ">
+                        <label class="lable-for-top" for="">Your Email</label>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+                <div class="button">
+                    <button class="save-changes">Save Changes</button>
+                </div>
+                    <br>
+                    <br>
+            <hr>
+            <br>
+            
+                    <div class="account-deactivation">
+                        <div class="left-tag">
+                            <p>ACCOUNT DEACTIVATION</p>
+                        </div>
+                        <div class="question">
+                            <p>What happens when you deactivate your account?</p>
+                            <ul class="for-list-style">
+                                <li>Your profile and Gigs won't be shown on Fiverr anymore.</li>
+
+                                <li>Active orders will be cancelled. </li>
+                                <li>You won't be able to re-activate your Gigs.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="leaving">
+                        <div class="left-tag">
+                            <p>I'm leaving because...</p>
+                        </div>
+                        <div class="question">
+                            <select>
+                                <option value="">Choose a reason</option>
+                                <optgroup label="Account">
+                                    <option value="">Unsubscribe from fivourr emails</option>
+                                    <option value="">i want to change my username</option>
+                                    <option value="">i have another fivourr account</option>
+                                </optgroup>
+
+                                <optgroup label="Selling">
+                                    <option value="">Not getting enough orders</option>
+                                    <option value="">Negative experience with buyers/s</option>
+                                    <option value="">I get too many orders</option>
+                                    <option value="">Fivourr is complicated or hard to use</option>
+                                    <option value="">i'm unhappy with Fivourrr's polocies</option>
+                                    <option value="">Other</option>
+                                </optgroup>
+
+                                <optgroup label="buying">
+                                    <option value="">I can't find what i need on Fivourr</option>
+                                    <option value="">Fivourr is complicated or hard to use</option>
+                                    <option value="">Negative experience with seller/s</option>
+                                    <option value="">Fivourr is complicated or hard to use</option>
+                                    <option value="">i'm unhappy with Fivourrr's polocies</option>
+                                    <option value="">Other</option>
+                                </optgroup>
+                                <option value="">Other</option>
+                                
+                              </select>
+                        </div>
+
+                        <button class="save-changes mt-5">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+

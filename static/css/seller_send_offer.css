@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: "poppins", sans-serif;
+  }
+  body{
+      width: 100%;
+      background-color: #f5f5f5 !important;
+  }
+.account__header{
+    position: static !important;
+}
+
+
+  .seller___send___offer{
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      height: 100vh;
+  }
+
+  .send__offer__title{
+      background-color: #fff;
+      padding: 22px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+.offer___form{
+    padding: 12px;
+}
+.new__label{
+    margin-bottom: -7px;
+}
+.sending__offer__title{
+    margin-top: 25px;
+}
+  .offer__button{
+      border: none;
+      outline: none;
+      background-color: #428ad3;
+      transition: .2s ease-in-out;
+      color: #fff;
+      padding: 7px 12px;
+      border-radius: 4px;
+  }
+  .offer__button:hover{
+    background-color: #2e57a5;
+  }
+  .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_ne, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se {
+    display: none !important;
+}
+.ck.ck-dropdown .ck-dropdown__arrow {
+    display: none !important;
+}
+.ck.ck-editor__main>.ck-editor__editable {
+ height: 18vh !important;
+}
+.ck.ck-button.ck-button_with-text, a.ck.ck-button.ck-button_with-text {
+    display: none;
+}
+.ck-toolbar__separator{
+    display: none !important;
+}
+.ck-file-dialog-button{
+    display: none !important;
+}
+.ck-toolbar__grouped-dropdown{
+    display: none !important;
+}
+.ck .ck-dropdown{
+    display: none !important;
+}
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
+    flex-wrap:wrap;
+}

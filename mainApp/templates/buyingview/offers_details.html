@@ -1,0 +1,756 @@
+{% load static %} 
+{% load template_helpers %}
+{% include 'buyingview/header.html' %}
+
+
+<!-- ===============================================
+                    links    starr
+=============================================== -->
+
+<!-- For gigs details  -->
+<script src="{% static 'js/main-gigs-details.js' %}" defer></script>
+
+
+
+<!--main css for gigs details -->
+<link rel="stylesheet" href=" {% static 'css/gigsviewstyle.css' %}">
+
+<link rel="stylesheet" href=" {% static 'css/responsiveGigsviewArko.css' %}">
+
+
+<!-- ===============================================
+                    links end    
+=============================================== -->
+
+
+
+
+<style>
+    .view__cartBtn {
+        text-decoration: none !important;
+    }
+    
+    .for-slider-active img {
+        height: 200px !important;
+        max-height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .mini-menu-area li a {
+        font-size: 12px;
+    }
+    
+    .Catagorybar ul li:nth-last-child(4)>.hidden .under-category {
+        right: -460px!important;
+    }
+</style>
+
+<div id="header">
+    <div class="container">
+        <nav class="navbar">
+        </nav>
+    </div>
+
+
+</div>
+
+
+
+<!-- Slider main container -->
+
+<section id="gigs-slider">
+    <div class="container inner-gigs-slider">
+
+        <div class="row changing-order">
+
+            <div class="col-md-8 left-section">
+
+                <!-- Slider upper text (GIGs title) -->
+                <div class="gigs-title">
+                    <h1 class="gigs-name">{{ offer.gig_title }}</h1>
+                    
+                    <a href="{% url 'account' offer.user.id offer.user.username %}">
+                    <img class="gigs-sellers-img" src="{{ offer.user.selleraccount.profile_picture.url }}" alt="">
+                    </a>
+
+
+
+
+                    <a href="{% url 'account' offer.user.id offer.user.username %}">
+                        <p class="seller-name">{{ offer.user }}</p>
+                    </a>
+                    <span class="seller-level">Seller level: {{ offer.user.selleraccount.level }}</span>
+
+
+                    <span class="seller-star">
+                    {% comment %} <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i> {% endcomment %}
+                    {% comment %} <strong>Clicks: {{ sellers.user.selleraccount.rating }}</strong> {% endcomment %}
+                    {% comment %} <strong>({{ offer.click }})</strong> {% endcomment %}
+
+                </span>
+                </div>
+
+
+
+                <!-- Slider with img (GIGs img slider) -->
+
+                <div class="swiper-container gallery-top">
+
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            {% if offer.image %}
+
+                            <div class="swiper-slide-container">
+                                <img class="cover" src="{{ offer.image.url }}" alt="">
+                            </div>
+                            {% endif %}
+                            
+                            {% if offer.is_premium %}
+                            <div class="badge">
+                                <img src="{% static 'images/Marketage_Premium-Seller.png' %}" alt="" />
+                            </div>
+                            {% endif %}
+
+                        </div>
+                        
+                        {% if offer.extra_images.all|length > 0 %}
+                        {% for image in offer.extra_images.all %}
+
+
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-container">
+                                <img class="cover" src="/media/{{ image }}" alt="">
+
+                            </div>
+                            {% if offer.is_premium %}
+                            <div class="badge">
+                                <img src="{% static 'images/Marketage_Premium-Seller.png' %}" alt="" />
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <!-- Slider lower img (GIGs thumb img) -->
+
+                <div class="swiper-container gallery-thumbs">
+
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-container-thumbs">
+                                {% if offer.image %}
+                                <img class="" src="{{ offer.image.url }}" alt="">
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        {% if offer.extra_images.all|length > 0 %}
+                        {% for image in offer.extra_images.all %}
+
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-container-thumbs for-thumbs-slider-size">
+                                <img class="resizeing" src="/media/{{ image }}" alt="">
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <!--offer video section-->
+                
+                {% if offer.offer_video %}
+                <div class="offer-video-section mt-5">
+                    <div class="inner-video-section">
+                        
+                        
+                        <h2 class="mb-4">Offer Video</h2>
+                        
+                        <video controls/> 
+                            <!--<source src="{{ offer.offer_video }}" type="video/mp4"> -->
+                        
+                            <!--<source src="{{ offer.offer_video }}" type="video/ogg/video/mp4/webm" /><!-- Firefox / Opera / Chrome10 -->-->
+                            
+                            <source src="{{ offer.offer_video.url }}" type="video/mp4">
+                            <source src="{{ offer.offer_video.url }}" type="video/ogg">
+                        </video>
+                        
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+
+
+            <div class="col-md-4 right-section">
+
+                <div class="warpper">
+
+                    <input class="radio" id="one" name="group" type="radio" checked>
+                    <input class="radio" id="two" name="group" type="radio">
+                    <input class="radio" id="three" name="group" type="radio">
+
+
+                    <div class="tabs">
+
+
+                        <!-- click button for basic-->
+                        <label class="tab" id="one-tab" for="one">Basic</label>
+                        <!-- click button for standard-->
+                        <label class="tab" id="two-tab" for="two">Standard</label>
+                        <!-- click button for premium-->
+                        <label class="tab" id="three-tab" for="three">Premium</label>
+
+                    </div>
+
+
+
+                    <div class="panels">
+                        {% for manager in offer.offermanager_set.all %} {% if manager.package.title == "Basic" %}
+                        <div class="panel" id="one-panel">
+                            <div class="panel-title">
+                                <h3>{{ manager.package.title }}</h3>
+                                <span>USD {{ manager.price }}</span>
+                                <p>{{ manager.package.package_desc }}</p>
+                            </div>
+
+                            <div class="inner-panel">
+
+                                <i class="far fa-clock"> {{ manager.package.delivery_time }} Delivery
+                            </i> {% comment %} <i class="fas fa-redo-alt"> 1 Day Delivery
+                            </i> {% endcomment %}
+                                <br>
+
+
+                                <ul class="pannel-service-list">
+                                    {% if manager.package.num_of_pages_for_basic %} <li> <i class="fas fa-check-double"></i> {{ manager.package.num_of_pages_for_basic }} Page</li> {% endif %}
+                                    {% if manager.package.is_responsive_basic %}
+                                    <li> <i class="fas fa-check-double"></i> Responsive Design</li>
+                                    {% endif %}
+                                    {% if manager.package.will_deploy %}
+                                    <li> <i class="fas fa-check-double"></i> Upload To Live Server</li>
+                                    {% endif %} {% if manager.package.is_compitable %}
+                                    <li> <i class="fas fa-check-double"></i> Browser Compatibility</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+                            {% if request.user %} {% if not request.session.cart %}
+                            <form action="{% url 'add_to_cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ manager.id }}" name="package_id">
+                                {% if offer.user != request.user %}
+                                <button class="pannel-service-button">Continue({{ manager.price }} USD.)</button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <a class="view__cartBtn" href="{% url 'cartView' %}">
+                                <button class="pannel-service-button">View Cart</button>
+                            </a>
+                            {% endif %} {% else %}
+                            <a href="{% url 'user_login' %}" class="btn btn-success col-lg-12">Select</a> {% endif %}
+
+
+                        </div>
+                        {% elif manager.package.title == "Standard" %}
+                        <div class="panel" id="two-panel">
+                            <div class="panel-title">
+                                <h3>{{ manager.package.title }}</h3>
+                                <span>USD {{ manager.price }}</span>
+                                <p>{{ manager.package.package_desc }}</p>
+                            </div>
+
+                            <div class="inner-panel">
+
+                                <i class="far fa-clock"> {{ manager.package.delivery_time }} Delivery
+                            </i>
+
+
+
+
+                                <ul class="pannel-service-list">
+                                    {% if manager.package.num_of_pages_for_standard %}<li> <i class="fas fa-check-double"></i> {{ manager.package.num_of_pages_for_standard }} Page</li> {% endif %}
+                                    {% if manager.package.is_responsive_standard %}
+                                    <li> <i class="fas fa-check-double"></i> Responsive Design</li>
+                                    {% endif %} {% if manager.package.will_deploy %}
+                                    <li> <i class="fas fa-check-double"></i> Upload To Live Server</li>
+                                    {% endif %} {% if manager.package.is_compitable %}
+                                    <li> <i class="fas fa-check-double"></i> Browser Compatibility</li>
+                                    {% endif %} {% if manager.package.provide_vector %}
+                                    <li> <i class="fas fa-check-double"></i> YES</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+
+                            {% comment %} {% if request.user %} {% if cart_session is None %}
+                            <form action="{% url 'add_to_cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ manager.id }}" name="package_id">
+                                <input type="hidden" value="{{ manager.offer.id }}" name="seller_id">
+                                {% if offer.user != request.user %}
+                                <button class="pannel-service-button">Continue({{ manager.price }} USD.)</button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <a class="view__cartBtn" href="{% url 'cartView' %}">
+                                <button class="pannel-service-button">View Cart</button>
+                                <input type="hidden" value="{{ manager.offer.id }}" name="seller_id">
+                            </a>
+                            {% endif %} {% else %}
+                            <a href="{% url 'user_login' %}" class="btn btn-success col-lg-12">Select</a> {% endif %} {% endcomment %} {% if request.user %} {% if not request.session.cart %}
+                            <form action="{% url 'add_to_cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ manager.id }}" name="package_id">
+                                {% if offer.user != request.user %}
+                                <button class="pannel-service-button">Continue({{ manager.price }} USD)</button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <a class="view__cartBtn" href="{% url 'cartView' %}">
+                                <button class="pannel-service-button">View Cart</button>
+                            </a>
+                            {% endif %} {% else %}
+                            <a href="{% url 'user_login' %}" class="btn btn-success col-lg-12">Select</a> {% endif %}
+
+                            <!-- <button class="pannel-service-button-lower">Compare Packages</button> -->
+                        </div>
+                        {% elif manager.package.title == "Premium" %}
+                        <div class="panel" id="three-panel">
+                            <div class="panel-title">
+                                <h3>{{ manager.package.title }}</h3>
+                                <span>USD {{ manager.price }}</span>
+                                <p>{{ manager.package.package_desc }}</p>
+                            </div>
+
+                            <div class="inner-panel">
+
+                                <i class="far fa-clock"> {{ manager.package.delivery_time }} Delivery
+                            </i>
+
+                                {% comment %}<i class="fas fa-redo-alt"> 1 Day Delivery
+                            </i>{% endcomment %}
+
+
+                                <ul class="pannel-service-list">
+                                    {% if manager.package.num_of_pages_for_premium %}
+                                    <li> <i class="fas fa-check-double"></i> {{ manager.package.num_of_pages_for_premium }} Page</li>
+                                    {% endif %} {% if manager.package.is_responsive_premium %}
+                                    <li> <i class="fas fa-check-double"></i> Responsive Design</li>
+                                    {% endif %} {% if manager.package.will_deploy %}
+                                    <li> <i class="fas fa-check-double"></i> Upload To Live Server</li>
+                                    {% endif %} {% if manager.package.is_compitable %}
+                                    <li> <i class="fas fa-check-double"></i> Browser Compatibility</li>
+                                    {% endif %} {% if manager.package.provide_vector %}
+                                    <li> <i class="fas fa-check-double"></i> YES</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+
+                            {% comment %} {% if request.user %} {% if cart_session is None %}
+                            <form action="{% url 'add_to_cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ manager.id }}" name="package_id">
+                                {% if offer.user != request.user %}
+                                <button class="pannel-service-button">Continue({{ manager.price }} USD.)</button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <a class="view__cartBtn" href="{% url 'cartView' %}">
+                                <button class="pannel-service-button">View Cart</button>
+                            </a>
+                            {% endif %} {% else %}
+                            <a href="{% url 'user_login' %}" class="btn btn-success col-lg-12">Select</a> {% endif %} {% endcomment %} {% if request.user %} {% if not request.session.cart %}
+                            <form action="{% url 'add_to_cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ manager.id }}" name="package_id">
+                                {% if offer.user != request.user %}
+                                <button class="pannel-service-button">Continue({{ manager.price }} USD)</button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <a class="view__cartBtn" href="{% url 'cartView' %}">
+                                <button class="pannel-service-button">View Cart</button>
+                            </a>
+                            {% endif %} {% else %}
+                            <a href="{% url 'user_login' %}" class="btn btn-success col-lg-12">Select</a> {% endif %}
+                            <!-- <button class="pannel-service-button-lower">Compare Packages</button> -->
+                        </div>
+                        {% endif %} {% endfor %}
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-md-7 left-section {% if not offer.offer_video %}mt-5{% endif %}">
+                <!-- About gigs section -->
+                <div class="about-gigs">
+                    <h2 class="pb-3">About this Offer</h2>
+                    <p class="justify">
+                        {{ offer.description|safe }}
+                    </p>
+                </div>
+
+
+
+                <div class="seller-knowledge">
+                    <div class="language">
+                        <p class="inner-knowledge">Category</p>
+                        <span>{{ offer.category.title }}</span>
+                    </div>
+
+                    <div class="Expertise">
+                        <p class="inner-knowledge">Service Type</p>
+                        <span class="stng">{{ offer.service.title }}</span>
+                    </div>
+                </div>
+
+
+
+                <!-- About The Seller section -->
+                <div class="about-seller-upper">
+                    <h2 class="">About The Seller</h2>
+                    <div class="about-seller">
+
+
+
+                        <div class="inner-seller">
+                            <img class="round" src="{{ offer.user.selleraccount.profile_picture.url }}" alt="">
+                        </div>
+
+                        <div class="seller-bio">
+                            <strong>Seller name: {{ offer.user }}</strong>
+                            <p>{{ offer.short_desc|safe }}</p>
+                            <div class="star d-flex align-items-center">
+                                <i class="fas fa-star text-warning"></i>
+                                <p class="ms-1 fw-bold" style="margin-block-start: 0 !important; margin-block-end: 0 !important">{{ review_sellers }}</p>
+                                {% comment %}
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                {% endcomment %}
+                            </div>
+                            <br> {% if request.user != offer.user %}
+                            <a class="btn btn-primary contact-btn col-lg-6" href="{% url 'user_details' offer.user.id %}">Contact Me</a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Seller description section -->
+                <div class="description">
+                    <div class="card for-des">
+                        <div class="inner-des">
+                            <div class="card-left">
+                                <div class="inner-card-left">
+                                    <span>From</span>
+                                    <strong>{{ offer.user.selleraccount.country }}</strong> {% comment %} <span class="mt-4">Avg. response time</span>
+                                    <strong>1 hour</strong> {% endcomment %}
+                                </div>
+                            </div>
+
+
+                            <div class="card-right">
+                                <div class="inner-card-right">
+                                    <span>Member since</span>
+                                    <strong>{{ offer.user.selleraccount.joined_at }}</strong> {% comment %} <span class="mt-4">Last delivery</span>
+                                    <strong>1 day</strong> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="for-line"></div>
+
+                        <div class="seller-des">
+                            <p>{{ offer.description|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Compare-Packages section -->
+                <div class="compare-packages">
+                    <div class="inner-compare">
+
+                        <table class="table table-responsive table-bordered table-hover ">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="align-middle ">
+                                        <p class="">package</p>
+
+                                    </th>
+
+                                    {% for manager in offer.offermanager_set.all %}
+                                    <th scope="col" class="table-size">
+                                        <span class="align-middle text-center">USD {{ manager.price }}</span>
+                                        <strong class="d-block col text-left">{{ manager.package.title }}</strong>
+                                        <!--<strong class="d-block text-left">Single Page</strong>-->
+                                        <p class="text-left">{{ manager.offer.short_desc|truncatechars:100 }}</p>
+                                    </th>
+                                    {% endfor %}
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="res-design align-middle text-left" scope="row">Responsive Design</td>
+
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.is_responsive_basic %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.is_responsive_standard %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.is_responsive_premium %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                </tr>
+                                
+                                {% comment %}<tr>
+                                    
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                </tr>{% endcomment %}
+
+
+
+
+
+
+                                <tr>
+                                    <td class="res-design align-middle text-left" scope="row">Browser Compatibility</td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td class="res-design align-middle text-left" scope="row">Revisions</td>
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.revision_basic %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.revision_standard %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.revision_premium %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td class="res-design align-middle text-left" scope="row">Delivery Time</td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                    <td class="align-middle"><i class="fas fa-check"></i></td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td class="res-design align-middle text-left" scope="row">Number of Pages</td>
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.num_of_pages_for_basic %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.num_of_pages_for_standard %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                    <td class="align-middle">
+                                        {% for manager in offer.offermanager_set.all %} {% if manager.package.num_of_pages_for_premium %}
+                                        <i class="fas fa-check"></i> {% endif %} {% endfor %}
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="res-design align-middle text-center" scope="row">Total</td>
+                                    {% for manager in offer.offermanager_set.all %}
+                                    <td>
+                                        {% if request.user %}
+                                        <form action="{% url 'add_to_cart' %}" method="POST">
+                                            {% csrf_token %}
+                                            <i class="total-cost">
+                                            <span>{{ manager.price }} USD</span>
+                                            <input type="hidden" value="{{ manager.id }}" name="package_id">
+                                            {% if offer.user != request.user %}
+                                            <button class="button">Select</button>
+                                            {% endif %}
+                                        </i>
+                                        </form>
+                                        {% else %}
+                                        <a href="{% url 'user_login' %}" class="btn btn-success col-lg-12">Select</a> {% endif %}
+                                    </td>
+                                    {% endfor %}
+
+
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                
+                
+                <!--important note  -->
+                {% if offer.document %}
+                <div class="important-note mt-4">
+                    
+                    <h2 class="mb-3">Important Note</h2>
+                    
+                    <div class="the-doc">
+                        
+                        
+                        <a href="{{ offer.document.url }}" download="{{ offer.document.url }}">
+                            <span class="iconify doc-icon-for-showing" data-icon="fluent:document-arrow-right-20-filled"></span>
+                            {{ offer.document.url|split:"/"|last }}
+                            
+                        </a>
+                    </div>
+                    
+                </div>
+                {% endif %}
+
+
+                <!-- recommended slider section -->
+                <div class="recommended">
+                    <h3>Recommended For You</h3>
+                    <div class="row">
+
+                        <div class="for-slider">
+
+                            {% for rg in related_offers %}
+                            <div class="col-7">
+                                <a href="{% url 'offer_details' rg.id rg.slug %}">
+
+                                    <div class="card for-slider-active">
+                                        <img src="{{ rg.image.url }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-dark">{{ rg.user }}</h5>
+
+                                            <p class="card-text">{{ rg.gig_title }}</p>
+
+                                            <div class="level">
+                                                <i class="fas fa-star text-dark"></i>
+                                                <strong class="text-dark">4.5</strong>
+
+                                                <span class="for-right text-dark">Marketage level {{ rg.user.selleraccount.level }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <i class="fas fa-bars p-1 text-dark"></i>
+                                            <i class="fas fa-heart text-dark"></i>
+                                            <span class="for-right text-dark">Starting At</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</section>
+</br>
+
+
+
+
+
+
+<!-- ===============================================
+                    links    
+=============================================== -->
+
+<!-- Slick slider -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+<!-- Slick slider -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+<!-- Swiper slider -->
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+
+{% include 'buyingview/buying_footer.html' %}

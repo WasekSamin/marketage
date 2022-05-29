@@ -1,0 +1,43 @@
+{% load static %}
+
+{% include 'buyingview/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/refund-req.css' %}" />
+
+
+<script src="{% static 'js/reviewSeller.js' %}"></script>
+
+
+
+<div class="container">
+
+    <div class="main-req-ref">
+    
+    <div class="refund-req">
+
+        <div class="refund-title text-center">
+            <div class="h1">REFUND REQUEST</div>
+        </div>
+
+        <div class="refund-req-reason">
+
+            <div class="order-id">
+                <h6>Order ID:<h6>
+                <span>#FSDABWQER54687</span>
+            </div>
+
+            <div class="order-id">
+                <h6>Reason<h6>
+                <textarea class="form-control" name="" id="" rows="`" placeholder="For what reason you want to refund..." required></textarea>
+                
+            </div>
+
+            <div class="button">
+                <button class="submit">SUBMIT</button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</div>

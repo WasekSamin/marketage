@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    width: 100%;
+}
+
+.new_________nav______logo{
+    font-weight: 700 !important;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 2px;
+    font-size: 29px;
+}
+
+
+
+.navBar img{
+    width: 154px;
+    height: 88px;
+}
+.new_nav{
+    height: 95px !important;
+    padding-top: 0 !important;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: .5rem;
+}
+.nav-element a{
+    color: #000 !important;
+}
+.nav-element a:hover{
+    color: #808080 !important;
+}
+.tog-icon{
+    outline: none !important;
+    color: #fff !important;
+}
+.search-box{
+    padding-left: 120px;
+}
+.search-box input{
+    position: relative;
+    width: 100%;
+}
+.search-bar{
+    border: 2px solid #2e57a5 !important;
+    outline: none !important;
+    border-radius: 15px;
+}
+.search-box i{
+    position: absolute;
+    top: 35%;
+    left: 37%;
+    outline: none;
+    color: #2e57a5;
+}
+.main-nav{
+    background-color: #fff;
+}
+
+@media (max-width:1400px){
+    .search-box i{
+        left: 43%;
+    }
+}
+@media (max-width:1200px){
+    .search-box i{
+        left: 52%;
+    }
+}
+@media (max-width:991px){
+    .nav____mobile___view{
+        z-index:1;
+        background: #f5f5f5 !important;
+    }
+}
+
+@media (max-width: 990px){
+    .search-box{
+        padding-left: 0px;
+    }
+    .search-box i{
+        display: none;
+    }
+}
+@media (max-width:600px){
+    .search-box{
+        padding-left: 0px;
+    }
+}

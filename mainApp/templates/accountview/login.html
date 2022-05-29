@@ -1,0 +1,117 @@
+{% extends "accountview/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <div class="total-login">
+        <div class="forBackground">
+          <!--<div class="top_pop">-->
+          <!--    <div class="logo d-flex justify-content-center">-->
+          <!--<a href="#"><img src="{% static 'images/logo.png' %}"></a>-->
+          <!--    </div>-->
+          <!--</div>-->
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3"></div>
+  
+              <div class="col-lg-6 main-colum">
+                <div class="ui first-ui">
+                  <form action="" method="POST">
+                    {% csrf_token %}
+                    <h5 class="create">Log In</h5>
+                    <!--<div class="socialIcon">-->
+                    <!--  <button-->
+                    <!--    type="button"-->
+                    <!--    class="btn btn-primary btn-lg form-control"-->
+                    <!--  >-->
+                    <!--    <i class="fab fa-facebook-f"></i> Continue with Facebook</button-->
+                    <!--  ><br /><br />-->
+  
+                    <!--  <button-->
+                    <!--    type="button"-->
+                    <!--    class="btn btn-primary btn-lg form-control"-->
+                    <!--  >-->
+                    <!--    <i class="fab fa-google googleButton"></i> Continue with-->
+                    <!--    Google-->
+                    <!--  </button>-->
+                    <!--</div>-->
+                    <!--<br /><br />-->
+                    <!--<div class="or-dev">-->
+                    <!--  <span>OR</span>-->
+                    <!--</div>-->
+                    <div class="row">
+                      <div class="col-lg-12 inputColumn">
+                        <input
+                            autofocus=true
+                          type="text"
+                          placeholder="Username"
+                          class="form-control"
+                          name="username"
+                          required
+                        />
+                      </div>
+                      <br /><br />
+                      <!--<div class="col-lg-6">-->
+                      <!--    <input type="text" placeholder="Last name" class="form-control">-->
+                      <!--</div><br><br>-->
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3"></div>
+                      <!--<div class="col-lg-12"><input type="email" placeholder="Email Address" class="form-control"></div>-->
+                      <div class="col-lg-3"></div>
+                    </div>
+                    <br />
+                    <div class="row passwordColumn">
+                      <div class="col-lg-12">
+                        <input
+                          type="password"
+                          placeholder="Password"
+                          class="form-control"
+                          name="password"
+                          required
+                        />
+                      </div>
+                      <br /><br />
+                      <!--<div class="col-lg-6">-->
+                      <!--    <input type="password" placeholder="Confirm Password" class="form-control">-->
+                      <!--</div>-->
+                    </div>
+                    <!--<div class="checkBox">-->
+                    <!--    <form>-->
+                    <!--        <input type="checkbox" name="remember" value="1">-->
+                    <!--        <label for="remember">Remember Me</label>-->
+                    <!--        <label class="fotgot" for="forgot"><a href="#">Forgot Password?</a></label>-->
+                    <!--    </form>-->
+                    <!--</div>-->
+                    {% for message in messages %}
+                    <p id="form__Errormessages" class="bg-success">{{message}}</p>
+                    {% endfor %}
+  
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg form-control signupbtn"
+                    >
+                      Log In
+                    </button>
+                    <hr />
+                    <div class="logInFooter">
+                      <p class="log____footer">
+                        Don't have an account?
+                        <a class="sign___up___link" href="{% url 'user_registration' %}">Sign Up</a><br>
+                        <a class="forget___link" href="{% url 'reset_password' %}">Forget password?</a>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+  
+              <div class="col-lg-3"></div>
+            </div>
+          </div>
+        </br>
+        </div>
+
+    </div>
+{% endblock %}

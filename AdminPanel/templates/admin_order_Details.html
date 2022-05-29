@@ -1,0 +1,110 @@
+
+
+{% load static %}
+{% include 'base.html' %}
+      
+
+<link rel="stylesheet" href="{% static 'css/adminpanel.css' %}">
+
+
+<style>
+    body{
+        background-color: #f5f5f5;
+    }
+    .go-back-button{
+        background: none;
+        border: none;
+        color: rgb(95, 95, 252);;
+    }
+    .go-back-button:hover{
+     
+    }
+</style>
+
+
+
+   <!-- Modal -->
+    <div class="container">
+
+        
+
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            
+        <div class="modal-content">
+        <div class="modal-body">
+     
+    <div class="main__content container">
+
+        <a href="{% url 'AdminHome' %}"><button class="go-back-button mb-2 btn btn-dark"> << Go Back </button></a>
+
+
+        <div class="order____details">
+          <div class="order__first__colum">
+            
+            <p><span class="order__info fw-bold">Order #{{order_details.id}}
+
+            <!-- </span> view gig</p> -->
+              <p>Buyer:  <span class="badge bg-dark"> {{order_details.user}}</span><br>{{order_details.created_at}}</p>
+          </div>
+          <div class="order__second__colum">
+            <p class="erned____amount">USD {{order_details.total}}</p>
+            <p><span class="badge bg-success">{{order_details.order_status}} Order</span><p>
+        </div>
+      </div>
+      <hr>
+
+      <div class="order___description">
+        <p></p>
+        <hr>
+      </div>
+
+      <!-- order table -->
+
+      <div class="order___table table-responsive">
+        <table class="table">
+          <thead class="bg-light">
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p>{{ order_details.package.package.title }}</p>
+                {% comment %} <p><span class="iconify" data-icon="akar-icons:check" style="color: #1dde7d;"></span> 20 Revisions</p> {% endcomment %}
+              </td>
+              <td>{{ order_details.quantity }}</td>
+              <td>{{ duration }}</td>
+              <td>USD {{ order_details.total }}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Total</td>
+              <td></td>
+              <td></td>
+              <td class="fw-bold">USD {{ order_details.total }}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Grand Total<span class="include__service">(included service fee)</span></td>
+              <td></td>
+              <td></td>
+            <td class="fw-bold">USD {{ order_details.grand_total }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>
+            {% if order_details.paid == False %}
+                <p class="badge bg-danger">Not Paid</p>
+            {% else %}
+            
+             <p class="badge bg-success">Paid</p>
+             {% endif %}
+            </h4>
+      </div>
+      </div>
+
+      </div>
+    </div>
+   </div>
+      </div>

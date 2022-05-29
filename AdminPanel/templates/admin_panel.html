@@ -1,0 +1,215 @@
+{% load static %}
+{% include 'base.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://johannburkard.de/resources/Johann/jquery.highlight-4.js"></script>
+
+    <div class="d-flex" id="wrapper">
+        {% include 'sidebar.html' %}
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            {% include 'nav.html' %}
+
+            <div class="container-fluid px-4">
+                <div class="row g-3 my-2 new__admin__middle">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded ">
+                            <div>
+                                <h3 class="fs-2">{{ count_offers }}</h3>
+                                <p class="fs-5"><a href="{% url 'uploaded-offer' %}">Offers</a></p>
+                            </div>
+                            <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">{{ count_order }}</h3>
+                                <p class="fs-5"><a href="{% url 'all-orders' %}">ORDERS</a></p>
+                            </div>
+                            <i
+                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">{{ nots }}</h3>
+                                <p class="fs-5"><a href="{% url 'notificationView' %}">Notifications</a></p>
+                            </div>
+                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">{{ increase }}%</h3>
+                                <p class="fs-5"><a href="#">Increase</a></p>
+                            </div>
+                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row my-5">
+
+                   <div class="search__bar__container">
+                    <form class="main__search__bar">
+                        
+                        
+                        
+                        <div class="mb-3 search-main">
+                            
+                            
+                          <input id="searchBar" name="searchQuery"  type="search" class="form-control" placeholder=" Search ID here.." aria-describedby="emailHelp" required>
+                          
+                         
+                          
+                        </div>
+                    </form>
+
+                  
+                   </div>
+
+                    <h3 class="fs-4 mb-3">Recent Offers</h3>
+                    <div class="col table-responsive">
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Buyer Name</th>
+                                    <th scope="col">Seller Name</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Offer Title</th>
+                                    <th scope="col" class="text-center">Order Status</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for order in orders_obj %}
+                                <tr>
+                                    <th class="monitor">
+                                    {% if order.is_checked == False %}
+                                        <span class="new_____span">New</span>
+                                    {% endif %}
+                                     {{ order.id }}</th>
+                                    <td>{{ order.user }}</td>
+                                    <td>{{ order.seller }}</td>
+                                    <td>{{ order.creater_at }}</td>
+                                    <th>{{ order.package }}</th>
+                                    <td class="text-center">
+                                        <span class="badge bg-secondary ms-auto">
+                                        {{ order.order_status }}
+                                        </span>
+                                        </td>
+                                    
+                          <td><a href="{% url 'order_details' order.id %}">View</a></td>
+                                    <td>USD {{ order.grand_total }}</td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+
+                            
+
+
+
+
+                        </table>
+
+                        <!-- PAGINATOR SECTION -->
+<!-- 
+                        <tfoot>
+                            <tr>
+
+                              <div class="pagination">
+                                  <span class="step-links">
+                                      {% if orders_obj.has_previous %}
+                                          <a href="?page=1">&laquo; first</a>
+                                          <a href="?page={{ orders_obj.previous_page_number }}">previous</a>
+                                      {% endif %}
+
+                                      <span class="current">
+                                          Page {{ orders_obj.number }} of {{ orders_obj.paginator.num_pages }}.
+                                      </span>
+
+                                      {% if orders_obj.has_next %}
+                                          <a href="?page={{ orders_obj.next_page_number }}">next</a>
+                                          <a href="?page={{ orders_obj.paginator.num_pages }}">last &raquo;</a>
+                                      {% endif %}
+                                  </span>
+                              </div>
+
+                            </tr>
+                          </tfoot> -->
+                         <!-- PAGINATOR SECTION END  --> 
+
+
+                        
+
+<!-- bootstrap pagination start    -->
+                <div class="pagination__container d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+
+                          <li class="page-item">
+                        
+                        {% if orders_obj.has_previous %}                            
+                            <a class="page-link" href="?page={{ orders_obj.previous_page_number }}"> &laquo; previous</a>
+                        {% endif %}
+
+
+                          </li>                          
+                          
+                        <li class="page-item">
+                        {% if orders_obj.has_next %}
+                            <a class="page-link" href="?page={{ orders_obj.next_page_number }}">next</a>
+                        </li>
+        
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ orders_obj.paginator.num_pages }}">last &raquo;</a>
+                        </li>
+                        {% endif %}
+
+<!-- bootstrap pagination end    -->
+
+
+
+                           
+
+                        
+                        </ul>
+                      </nav>
+                </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+    
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+        
+    </script>
+    
+    <script src="{% static 'js/adminpannel.js' %}"></script>
+    

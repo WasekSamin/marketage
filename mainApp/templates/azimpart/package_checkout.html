@@ -1,0 +1,416 @@
+
+
+{% load static %}
+
+{% load custom_filter %}
+
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+    <title>checkout</title>
+
+  </head>
+
+  <!-- <style>
+
+
+
+    .address{
+
+      height: 100px;
+
+    }
+
+  </style> -->
+
+  <body>
+
+    <!-- for mobile view -->
+
+    <div class="container mobileImg">
+
+      <div class="mobileViewImg d-flex justify-content-center">
+
+        <a class="nav___new___logo1" href="{% url 'buying_view' %}">Marketage.</a>
+
+      </div>
+
+    </div>
+
+
+
+
+
+     <!-- header part -->
+
+     <!-- <header class="container">
+
+        <div class="headerLogo">
+
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+
+            <span class="orderText1"><a href="{% url 'cartView' %}"><strong>Order Details</strong></a> <i class="fas fa-chevron-right"></i></span>
+
+            <span class="orderText1"> <a href="{% url 'checkout' %}"><strong> Confirm  & pay</strong></a> <i class="fas fa-chevron-right"></i></span>
+
+            <span class="orderText"> <strong>  Submit Requirements</strong></span>
+
+        </div>
+
+    </header> -->
+
+
+
+    <header class="container">
+
+      <div class="headerLogo">
+
+      <a class="nav___new___logo1" href="{% url 'seller_dashboard' %}">Marketage.
+
+      </a>
+
+          <span class="orderText1"><a href="{% url 'cartView' %}"><strong>Order Details</strong></a> <i class="fas fa-chevron-right"></i></span>
+
+
+
+          <span class="orderText"> <a href="{% url 'checkout' %}"><strong>Confirm  & pay</strong></a> <i class="fas fa-chevron-right"></i></span>
+
+
+
+          <span class="orderText"> <strong>Submit Requirements</strong></span>
+
+      </div>
+
+  </header>
+
+
+
+
+
+        <hr>
+
+
+
+    <!-- main content -->
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 mainContentCard">
+
+                <div class="card maincard">
+
+                    <div class="card-body">
+
+                
+
+                      <div class="row secondrow">
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+                        <form method="POST" action="">
+
+                        {% csrf_token %}
+
+                          <div class="inputDetails toalinput">
+
+                            <label for="text" class="fw-bold">First Name</label><br><br>
+
+                            <input required id="f_name" class="form-control password cardnumber" type="text" placeholder="Enter First Name.." name="first_name">
+
+                          </div>
+                          <div class="inputDetails toalinput">
+                            {% if off %}
+                            <label for="text" class="fw-bold">SELECT YOUR OFFER TO BOOST</label><br><br>
+
+                            <select name="offer_id" class="w-100 form-select">
+                                <option class="px-3" value="">SELECT OFFER</option>
+                                {% for o in off %}
+                                    <option class="px-3" value="{{ o.id }}">{{ o.offer_title }}</option>
+                                {% endfor %}
+                            </select>
+                            {% else %}Please Add Offer{% endif %}
+                          </div>
+
+                        </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+                            <div class="inputDetails toalinput">
+
+                              <label for="text" class="fw-bold">Address</label><br><br>
+
+                              <textarea required id="address" class="form-control address" type="text" placeholder="Enter Address..." name="addresss"></textarea>
+
+                            </div>
+
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+                            {% comment %} <div class="inputDetails toalinput">
+
+                              <label for="text" class="fw-bold">Select Date</label><br><br>
+
+                              <input required id="l_name" class="form-control  carddate" type="date" name="due_date">
+
+                            </div> {% endcomment %}
+
+                          </div>
+
+                          
+
+                     </div>
+
+
+
+                     <div class="lastCheckBox">
+
+                      <div class="form-check">
+
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+
+                        <label class="form-check-label" for="flexCheckDefault">
+
+                          I agree to the <a class="terms_____condition" href="{% url 'payment-term' %}">terms & condition.</a></label>
+
+                        </label>
+
+                      </div>
+
+                     </div>
+
+
+
+                     <div class="paypalCheck">
+
+                      <div class="form-check paymentOption">
+
+                        <h6 class="fw-bold fs-7 paypaltext"><i class="pay">Pay</i><span><i>pal</i></span></h6>
+
+                      </div>
+
+                      <div class="form-check paymentOption">
+
+                      <h6 class="fw-bold fs-7 paypaltext1">stripe</h6>
+
+                      </div>
+
+                      <!-- <div class="form-check paymentOption">
+
+                        <a class="paymentLink" href=""><h6 class="fw-bold fs-7 paypaltext2"><i>Razor Pay</i></h6></h6></a>
+
+                      </div> -->
+
+                      <!--<div class="form-check paymentOption">-->
+
+                      <!--  <h6 class="fw-bold fs-7 text-white paypaltext3">SSLCOMMERZ</h6></h6>-->
+
+                      <!--</div>-->
+
+                      <!-- <div class="form-check paymentOption">
+
+                        <a class="paymentLink" href=""><h6 class="fw-bold fs-7 paypaltext4">aamar<span>Pay</span></h6></h6></a>
+
+                      </div> -->
+
+                     </div>
+
+                    </div>
+
+                  </div>
+
+            </div>
+
+
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 offset-lg-1">
+
+              <div class="card">
+
+                <div class="card-body">
+
+                {% for cp in premium_packages %}
+
+                  {% if request.session.premium_cart %}
+
+                    <div class="gigimg">
+
+                      {% comment %} <img src="{{ cp..image.url }}" alt="gig"> {% endcomment %}
+
+                      <span class="fw-bold" style="font-size: 14px;">
+
+                        {{ cp.pkg_title }}
+
+                        <p style="font-size: 13px; color: grey;">{{ cp.gig.gig_title }}</p>
+
+                        <p>For {{ cp.duration }} Days</p>
+                        <hr>
+                        <p>PRICE: {{ cp.price }}</p>
+
+                      </span>
+
+                      
+
+                      
+
+                    </div>
+
+                  {% else %}
+
+                  <p class="badge bg-dark">EMPTY CART</p>
+
+                  {% endif %}
+
+                  {% endfor %}
+
+                  <hr>
+
+                  <div class="gigDetails">
+
+                    <span class="fw-bold">Services</span>
+
+                    
+
+                    {% comment %} <div class="gigDetalIocn">
+
+                      <i class="fas fa-check"></i>2 Revisions <br>
+
+                      <i class="fas fa-check"></i>2 Initial Concepts Included <br>
+
+                      <i class="fas fa-check"></i>Logo Transparency <br>
+
+                      <i class="fas fa-check"></i>Printable Resotution File <br>
+
+                    </div> {% endcomment %}
+
+                  </div>
+
+                  <div class="promoCode">
+
+                    <!--<div class="input-group mb-3">-->
+
+                    <!--  <input type="text" class="form-control" placeholder="Promo code goes here" aria-label="Recipient's username" aria-describedby="button-addon2">-->
+
+                      <!-- <button class="btn btn-outline-secondary promoButton" type="button" id="button-addon2">Apply</button> -->
+
+                    <!--</div>-->
+
+
+
+                  </div>
+
+                  {% comment %} <div class="services">
+
+                    <span>Administration Fee's <span class="badge bg-secondary newbadge">?</span></span>
+
+                    <p>5%</p>
+
+                  </div> {% endcomment %}
+
+                  <hr>
+
+                  <!--<div class="totalDetails">-->
+
+                  <!--  <p class="fw-bold ttt">Total</p>-->
+
+                  <!--  {% if request.session.cart %}-->
+
+                  <!--  <p class="fw-bold ddd">BDT  {{ cart_products|total_with_service_fee:request.session.cart }}</p><br>-->
+
+
+
+                  <!--  {% else %}-->
+
+
+
+                  <!--  {% endif %}-->
+
+
+
+                  <!--</div>-->
+
+                  <div class="totalDetails">
+
+                    <p class="fw-bold ttt">GRAND TOTAL USD</p>
+
+                        
+
+
+
+                  </div>
+
+                  <div class="d-flex justify-content-center confirmButton">
+
+                    <button type="submit" id="confirm_button" class="w-100 confirm">Confirm & Pay</button>
+
+                  </div>
+
+                  </form>
+
+                  <div class="secondCardFooter text-center">
+
+                    <i class="fas fa-lock"></i> SSL Secure Paayment
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+        </div>
+
+    </div><br><br><br>
+
+    <hr>
+
+
+
+    <div class="container">
+
+      <div class="footerText">
+
+        <span class="co-grey">Payments are processed by Marketage International Ltd., marketage Limited, and marketage Inc. See</span>
+
+        <a href="{% url 'payment-term' %}">Payment Terms</a>
+
+      </div>
+
+    </div><br>
+
+    <script src="{% static 'js/checkout.js' %}"></script>
+
+  </body>
+
+</html>

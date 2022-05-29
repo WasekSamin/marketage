@@ -1,0 +1,160 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+  <!-- css link file -->
+  <link rel="stylesheet" href="{% static 'css/mycontacts.css' %}">
+
+  <title>My Contacts</title>
+</head>
+
+<body>
+
+    {% include 'wasekPart/base.html' %}
+  <!-- contacts header -->
+  <br>
+  <div class="container">
+    <div class="order__headerSection">
+      <h2 class="mycontacts">My Contacts</h2>
+      <form method="get" class="order__searchForm">
+        <input type="text" placeholder="Search My History..." />
+        <a href="#"><span class="iconify" data-icon="bx:bx-search" data-inline="false"></span></a>
+      </form>
+    </div>
+  </div>
+  <br>
+
+  <!-- buyers and seller sectiion -->
+  <div class="container">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link tabButton active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+          type="button" role="tab" aria-controls="nav-home" aria-selected="true">MY BUYERS</button>
+        <button class="nav-link tabButton" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+          type="button" role="tab" aria-controls="nav-profile" aria-selected="false">MY SELLERS</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><br>
+
+        <!-- Order header section starts -->
+        <div class="card priority__order py-3 px-2 mt-4">
+          <p class="table__orderText">BUYERS WHO HAVE PURCHASED Offers FROM YOU</p>
+        </div>
+
+        <!-- Order table section starts -->
+        <div class="table-responsive manage__orderTable">
+          <table class="table table-hover bg-white">
+            <thead>
+              <tr>
+                <th scope="col" colspan="2" class="text-muted ps-3">BUYER NAME</th>
+                <th scope="col" class="text-muted">COMPLETED ORDERS</th>
+                <th scope="col" class="text-muted">AMOUNT SPENT</th>
+                <th scope="col" class="text-muted">lAST ORDER</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ps-3" colspan="2">
+                  <div class="tableprofile">
+                    <img src="{% static 'images/goku.png' %}" alt="" class="rounded-circle">
+                    <div class="user-pro ps-2">
+                      <a href="#">Sakib Kotu</a>
+                      <a href="#">User Profile | History</a>
+                    </div>
+                  </div>
+                </td>
+                <td>1</td>
+                <td>BDT 15</td>
+                <td class="new___td">Aug 05, 21 &emsp;<a class="msg-button text-muted m-2" href="#"><span class="iconify" data-icon="bx:bx-message"></span></a>
+                  <button type="button" class="btn sent-offer-button text-white">Send Offer</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+        <!-- <div class="row mybuyerInner">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mybuyerscolumers">
+                      <div class="innertext">
+                        <i class="far fa-user buyericon text-muted"></i>
+                        <p class="fs-5">You have yet to receive any Offer orders ...</p>
+                      </div>
+                    </div>
+                  </div> -->
+      </div><br>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+        <!-- Order header section starts -->
+        <div class="card priority__order py-3 px-2 mt-4">
+          <p class="table__orderText">BUYERS WHO HAVE PURCHASED Offers FROM YOU</p>
+        </div>
+
+        <!-- Order table section starts -->
+        <div class="table-responsive manage__orderTable">
+          <table class="table table-hover bg-white">
+            <thead>
+              <tr>
+                <th scope="col" colspan="2" class="text-muted ps-3">BUYER NAME</th>
+                <th scope="col" class="text-muted">COMPLETED ORDERS</th>
+                <th scope="col" class="text-muted">AMOUNT SPENT</th>
+                <th scope="col" class="text-muted">lAST ORDER</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ps-3" colspan="2">
+                  <div class="tableprofile">
+                    <img src="{% static 'images/goku.png' %}" alt="" class="rounded-circle">
+                    <div class="user-pro ps-2">
+                      <a href="#">Sakib Kotu</a>
+                      <a href="#">User Profile | History</a>
+                    </div>
+                  </div>
+                </td>
+                <td>1</td>
+                <td>BDT 15</td>
+                <td>Aug 05, 21 &emsp; <button type="button" class="btn msg-button text-muted"><span class="iconify" data-icon="bx:bx-message"></span></button>
+                  <button type="button" class="btn sent-offer-button text-white">Send Offer</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="row mybuyerInner">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 mybuyerscolumers">
+            <div class="innertext">
+                <span class="iconify" data-icon="akar-icons:shopping-bag"></span>
+              <p class="fs-5">
+                You have yet to order any Offers ...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  {% include 'buyingview/buying_footer.html' %}
+</body>
+
+</html>

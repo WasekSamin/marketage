@@ -1,0 +1,268 @@
+
+.new-noti{
+    border: 1px solid #0d6efd !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 8px !important;
+}
+
+
+
+
+.manage__order {
+  margin-top: 3rem;
+}
+
+/* Order header section starts */
+.order__headerSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manage__orderTable tbody td:nth-child(2) {
+  max-width: 20rem;
+  min-width: 20rem;
+}
+
+.manage__orderTable tbody td:nth-child(2) > a {
+  color: #333;
+  transition: color 0.2s ease-in-out;
+}
+
+.manage__orderTable tbody td:nth-child(2) > a:hover {
+  color: #619CEC;
+}
+
+.order__searchForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.order__searchForm input {
+  border: none;
+  background-color: transparent;
+  padding-right: 0.2rem;
+}
+
+.order__searchForm input:focus {
+  outline: none;
+}
+
+.order__searchForm .iconify {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.order__status {
+  text-align: center;
+}
+
+.order__status > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  background-color: #69c0e2 !important;
+  color: #fff;
+  padding: 10px 5px;
+}
+
+.order__submitBtn {
+  display: flex;
+  justify-content: center;
+}
+
+/* Order header section ends */
+
+/* Order link section starts */
+.order__links ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0 !important;
+  border-bottom: 1px solid #dadbdd;
+}
+
+.order__links ul button {
+  padding-right: 1rem;
+  color: #9ba2aa;
+  font-size: 1.1rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.order__links ul button.active__link {
+  color: #000;
+}
+
+.order__links ul button:last-child {
+  padding-right: 0;
+}
+
+.order__links ul button.active__link li::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #dadbdd;
+  border-style: solid;
+  border-width: 1px 0 0 1px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: calc(50% - 6px);
+  bottom: -0.9rem;
+  background-color: #f5f5f5;
+}
+
+/* Circle badge section starts */
+.circle__badge {
+  color: #fff;
+  background-color: #bbb;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  /* Alignment */
+  line-height: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  /* Adjust as required: */
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.circle__badge::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+/* Circle badge section ends */
+
+.ordered__btn {
+  transition: color 0.3s;
+}
+
+.ordered__btn.active__link .circle__badge {
+  background-color: #619CEC;
+}
+
+.ordered__btn:hover {
+  color: #619CEC;
+}
+
+.ordered__btn:hover .circle__badge {
+  background-color: #619CEC;
+}
+/* Order link section ends */
+
+/* Order priority section starts */
+.priority__order.card {
+  border-radius: 0 !important;
+}
+
+.priority__order p {
+  font-weight: bold;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.gigs__dropdown button {
+  border: 1px solid #bbb;
+  text-transform: uppercase;
+}
+
+.gigs__dropdown .dropdown-menu .dropdown-item {
+  text-transform: uppercase;
+}
+/* Order priority section ends */
+
+/* Order table section starts */
+.manage__orderTable > .table {
+  display: none;
+}
+
+.manage__orderTable > .show__activeTable {
+  display: table;
+  border: 1px solid #dfdfdf;
+  border-top: none;
+}
+
+.manage__orderTable thead th {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #dfdfdf !important;
+}
+
+.manage__orderTable tbody td {
+  font-size: 0.82rem;
+  font-weight: bold;
+}
+
+.manage__orderTable tbody td:first-child {
+  max-width: 20rem;
+}
+
+/* Order table section ends */
+
+/* Responsive section */
+@media (max-width: 991px) {
+  .order__links ul button.active__link li:after {
+    display: none;
+  }
+
+  .manage__orderTable tbody td:first-child {
+    max-width: 0;
+    min-width: 20rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .order__links ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .order__links ul button {
+    padding-right: 0;
+  }
+
+  .order__links ul button:nth-child(odd) li {
+    text-align: left;
+  }
+
+  .order__links ul button:nth-child(even) li {
+    text-align: right;
+  }
+}
+
+@media (max-width: 482px) {
+  .order__headerSection h1 {
+    margin-bottom: 1rem;
+  }
+
+  .order__searchForm {
+    width: 100%;
+  }
+
+  .order__searchForm input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 310px) {
+  .order__links ul button {
+    font-size: 0.9rem;
+  }
+
+  
+  .manage__orderTable tbody td {
+    font-size: 0.8rem;
+  }
+}

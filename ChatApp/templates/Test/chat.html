@@ -1,0 +1,35 @@
+{% include 'Test/base.html' %}
+{% comment %} {{ msgs.welcome_msg }} {% endcomment %}
+<div class="container bg-light p-5">
+    <div class="container p-5">
+        <div class="bg-gradient">{{ msgs.sender }}: {{ msgs.welcome_msg }} </div>
+
+        <br>
+        
+        {% for miaw in rec %}
+        <div class="container p-5">
+        <p class="bg-light">MESSAGE: {{ miaw.messages }}</p>
+        {% endfor %}
+        </div>
+
+
+        {% comment %} {% for m2 in sen %}
+
+        {{ m2.sender }}{{ m2.messages }}<br><hr>
+
+        {% endfor %} {% endcomment %}
+    {% comment %} <div class="container bg-warning">
+        {% for m2 in msg2 %}
+            RECEIVER:{{ m2.user }} {{ m2.messages }}<br>
+        {% endfor %}
+    </div> {% endcomment %}
+
+    </div>
+
+    <form action="" method="POST">
+    {% csrf_token %}
+        <br>
+        <textarea name="messages" class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-secondary">Send</button>
+    </form>
+</div>

@@ -1,0 +1,62 @@
+
+{% extends "accountview/base.html" %} 
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/extendedForm.css' %}">
+
+<script src="{% static 'js/extened-user.js' %}" defer></script>
+
+
+<div class="main-extended-form">
+
+<div id="login">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      <h1>Extended User</h1>
+
+    <div class="username">
+      <input type="text" placeholder="" value="{{ request.user }}" readonly required>
+    </div>
+
+    <div class="profile-pix">
+        <input id="profile-pix" name="profile_picture" accept="image/png, image/jpg, image/jpeg" class="for-profile" onchange="onFileUpload()" type="file" style="visibility: hidden; display: none;" required>
+        <label for="profile-pix">Upload profile picture</label>
+        <span class="for-preview"></span>
+    </div>
+
+    <div class="contact">
+      <input type="number" name="contact_no" placeholder="Contact no" value="" required>
+    </div>
+
+    <div class="contry">
+        <select name="country" id="" required>
+            <option value="">Choose your country</option>
+            {% for country in countries %}
+                <option value="{{country.id}}">{{country.title}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="submit-btn">
+        <button type="submit">Confirm</button>
+    </div>
+
+
+    </form>
+  </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/manual_payment.css' %}">
+
+    <title>Manual Payment</title>
+  </head>
+  <body>
+
+
+    <!--<div class="full____main____class">-->
+    <!--<div class="main______class">-->
+    <!--     <img src="{% static 'images/bkash.png' %}">-->
+    <!--     <img src="{% static 'images/nagad.png' %}">-->
+    <!--</div>-->
+    
+    
+    <!--<div class="payment_____card">-->
+    <!--    <p class="send__money">Send Money To This Number</p>-->
+    <!--    <p><span class="iconify" data-icon="akar-icons:arrow-down"></span></p>-->
+    <!--    <p class="payment___number">+8801713429001</p>-->
+    <!--</div>-->
+    
+    <!--<form method="POST" action="">-->
+    <!--    {% csrf_token %}-->
+    <!--<div class="payment____form">-->
+    <!--     <label>Trax ID: </label>-->
+    <!--     <input name="trx_number" class="transaction____input" type="text" placeholder="Type Transaction ID here.." required>-->
+    <!--     <label>Phone Number: </label>-->
+    <!--     <input name="phone_number" class="transaction____input" type="text" placeholder="Type Phone Number here.." required>-->
+    <!--     <button class="submit___btn" type="submit">SUBMIT</button>-->
+    <!--</div>-->
+    <!--</form>-->
+    
+    <!--    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#dc106b" fill-opacity="1" d="M0,0L40,21.3C80,43,160,85,240,117.3C320,149,400,171,480,165.3C560,160,640,128,720,101.3C800,75,880,53,960,74.7C1040,96,1120,160,1200,165.3C1280,171,1360,117,1400,90.7L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>-->
+    <!--</div><br>-->
+
+
+
+
+    <div class="full____main____class">
+    
+    
+
+    
+     <form method="POST" action="">
+        {% csrf_token %}
+    <div class="payment____form">
+
+        <div class="main______class">
+           <img src="{% static 'images/bkash.png' %}">
+         <img src="{% static 'images/nagad.png' %}">
+       </div>
+
+       <div class="payment_____card">
+        <p class="send__money">Send Money To This Number</p>
+        <p><span class="iconify" data-icon="akar-icons:arrow-down"></span></p>
+        <p class="payment___number">+8801713429001</p>
+        </div>
+
+
+         <label>Trax ID: </label>
+         <input name="trx_number" class="transaction____input" type="text" placeholder="Type Transaction ID here.." required>
+         <label>Phone Number: </label>
+         <input name="phone_number" class="transaction____input" type="text" placeholder="Type Phone Number here.." required>
+         <button class="submit___btn" type="submit">SUBMIT</button>
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,320L7.5,309.3C15,299,30,277,45,266.7C60,256,75,256,90,240C105,224,120,192,135,181.3C150,171,165,181,180,160C195,139,210,85,225,106.7C240,128,255,224,270,229.3C285,235,300,149,315,144C330,139,345,213,360,224C375,235,390,181,405,154.7C420,128,435,128,450,122.7C465,117,480,107,495,106.7C510,107,525,117,540,144C555,171,570,213,585,240C600,267,615,277,630,266.7C645,256,660,224,675,202.7C690,181,705,171,720,170.7C735,171,750,181,765,192C780,203,795,213,810,202.7C825,192,840,160,855,165.3C870,171,885,213,900,229.3C915,245,930,235,945,218.7C960,203,975,181,990,176C1005,171,1020,181,1035,176C1050,171,1065,149,1080,138.7C1095,128,1110,128,1125,122.7C1140,117,1155,107,1170,122.7C1185,139,1200,181,1215,186.7C1230,192,1245,160,1260,160C1275,160,1290,192,1305,192C1320,192,1335,160,1350,144C1365,128,1380,128,1395,160C1410,192,1425,256,1433,288L1440,320L1440,320L1432.5,320C1425,320,1410,320,1395,320C1380,320,1365,320,1350,320C1335,320,1320,320,1305,320C1290,320,1275,320,1260,320C1245,320,1230,320,1215,320C1200,320,1185,320,1170,320C1155,320,1140,320,1125,320C1110,320,1095,320,1080,320C1065,320,1050,320,1035,320C1020,320,1005,320,990,320C975,320,960,320,945,320C930,320,915,320,900,320C885,320,870,320,855,320C840,320,825,320,810,320C795,320,780,320,765,320C750,320,735,320,720,320C705,320,690,320,675,320C660,320,645,320,630,320C615,320,600,320,585,320C570,320,555,320,540,320C525,320,510,320,495,320C480,320,465,320,450,320C435,320,420,320,405,320C390,320,375,320,360,320C345,320,330,320,315,320C300,320,285,320,270,320C255,320,240,320,225,320C210,320,195,320,180,320C165,320,150,320,135,320C120,320,105,320,90,320C75,320,60,320,45,320C30,320,15,320,8,320L0,320Z"></path></svg>
+    </div>
+    
+    </form>
+    
+     
+    </div><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

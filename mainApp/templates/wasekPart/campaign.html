@@ -1,0 +1,145 @@
+{% extends "wasekPart/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/campaign.css' %}">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+{% comment %}Jquery CDN{% endcomment %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="{% static 'js/campaign.js' %}" defer></script>
+
+<!--seller_dashboard1.jpeg-->
+
+{% include "buyingview/header.html" %}
+
+
+<style>
+    .msg__header,
+    .wasek__mobileNavbar {
+        display: none !important;
+    }
+</style>
+
+<div>
+    {% comment %}Campaign banner section starts{% endcomment %}
+    <div class="campaign__banner">
+        <div class="campaign__bannerImg">
+            <img src={% static 'images/seller_dashboard1.jpeg' %} />
+        </div>
+        <div class="campaign__bannerImg">
+            <img src={% static 'images/seller_dashboard1.jpeg' %} />
+        </div>
+        <div class="campaign__bannerImg">
+            <img src={% static 'images/seller_dashboard1.jpeg' %} />
+        </div>
+        <div class="campaign__bannerImg">
+            <img src={% static 'images/seller_dashboard1.jpeg' %} />
+        </div>
+        <div class="campaign__bannerImg">
+            <img src={% static 'images/seller_dashboard1.jpeg' %} />
+        </div>
+    </div>
+    {% comment %}Campaign banner section ends{% endcomment %}
+    
+    <div class="campaign__content my-5">
+        <div class="campaign__header mb-4">
+            <h4 class="fw-bold text-center">All Campaigns</h4>
+        </div>
+        
+        {% comment %}Campaign card content section starts{% endcomment %}
+        <div class="campaign__cardContent container d-flex flex-wrap">
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            
+            {% comment %}Extra{% endcomment %}
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <div class="campaign__cardContentImg">
+                        <img src="{% static 'images/seller_dashboard1.jpeg' %}" />
+                    </div>
+                    <p class="fw-bold text-white">Campaign Title</p>
+                </div>
+            </a>
+            
+        </div>
+        {% comment %}Campaign card content section ends{% endcomment %}
+    </div>
+    
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</div>
+{% include 'buyingview/buying_footer.html' %}
+
+{% endblock %}

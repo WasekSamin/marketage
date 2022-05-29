@@ -1,0 +1,160 @@
+
+{% load static %}
+{% include 'base.html' %}
+
+
+
+    <div class="d-flex" id="wrapper">
+        {% include 'sidebar.html' %}
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            {% include 'nav.html' %}
+
+            <div class="container-fluid px-4">
+                <div class="row g-3 my-2 new__admin__middle">
+                    
+                </div>
+
+
+
+                <div class="row my-5">
+
+                   <div class="search__bar__container">
+                    <form class="main__search__bar">
+                        <div class="mb-3">
+                          <input id="notification____search" name="searchQuery" type="search" class="form-control" placeholder=" Search ID here.." aria-describedby="emailHelp" required>
+                        </div>
+                    </form>
+
+                   </div>
+
+                    <h3 class="fs-4 mb-3">Recent Offers</h3>
+                    <div class="col table-responsive">
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Notification ID</th>
+                                    <th scope="col">Receiver</th>
+                                    <th scope="col">Content</th>
+                                    
+                                    <th scope="col">Action</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if notifications %}
+                                    {% for n in notifications %}
+                                        <tr>
+                                            <th class="monitor">
+                                            {{ n.id }}
+                                            {% if n.has_checked == False %}
+                                                <span class="new_____span">New</span>
+                                            {% else %}{% endif %}
+                                            </th>
+                                            <td>{{ n.user }}</td>
+                                            <td>{{ n.content }}</td>
+                                            
+                                            
+                                        <td><a href="{% url 'NotificationDetails' n.id %}">View</a></td>
+                                           
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                <p class="alert alert-warning">No Orders Found!</p>
+                                {% endif %}
+                                
+                            </tbody>
+
+                            
+
+
+
+
+                        </table>
+
+                        <!-- PAGINATOR SECTION -->
+<!-- 
+                        <tfoot>
+                            <tr>
+
+                              <div class="pagination">
+                                  <span class="step-links">
+                                      {% if orders_obj.has_previous %}
+                                          <a href="?page=1">&laquo; first</a>
+                                          <a href="?page={{ orders_obj.previous_page_number }}">previous</a>
+                                      {% endif %}
+
+                                      <span class="current">
+                                          Page {{ orders_obj.number }} of {{ orders_obj.paginator.num_pages }}.
+                                      </span>
+
+                                      {% if orders_obj.has_next %}
+                                          <a href="?page={{ orders_obj.next_page_number }}">next</a>
+                                          <a href="?page={{ orders_obj.paginator.num_pages }}">last &raquo;</a>
+                                      {% endif %}
+                                  </span>
+                              </div>
+
+                            </tr>
+                          </tfoot> -->
+                         <!-- PAGINATOR SECTION END  --> 
+
+
+                        
+
+<!-- bootstrap pagination start    -->
+                <div class="pagination__container d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+
+                          <li class="page-item">
+                        
+                        {% if orders_obj.has_previous %}                            
+                            <a class="page-link" href="?page={{ orders_obj.previous_page_number }}"> &laquo; previous</a>
+                        {% endif %}
+
+
+                          </li>                          
+                          
+                        <li class="page-item">
+                        {% if orders_obj.has_next %}
+                            <a class="page-link" href="?page={{ orders_obj.next_page_number }}">next</a>
+                        </li>
+        
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ orders_obj.paginator.num_pages }}">last &raquo;</a>
+                        </li>
+                        {% endif %}
+
+<!-- bootstrap pagination end    -->
+
+
+
+                           
+
+                        
+                        </ul>
+                      </nav>
+                </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+    
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
+    <script src="{% static 'js/adminpannel.js' %}"></script>

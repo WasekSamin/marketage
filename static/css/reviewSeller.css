@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+body{
+  background-color: #F7F7F7;
+}
+
+
+.tab-view p{
+  margin-right: 20px;
+  font-weight: 500;
+}
+.place-order, .ongoing-project{
+  cursor: pointer;
+  padding: 8px 15px;
+}
+.place-order:hover, .ongoing-project:hover{
+  color: #264fc2;
+}
+.place-order{
+  color: #264fc2;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #000;
+}
+.ongoing-project{
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #F7F7F7;
+}
+
+.button{
+    width: 100%;
+}
+.button button{
+    border: none;
+    padding: 8px;
+    background-color: #2176e6;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 5px;
+}
+.review-button{
+  background-color: rgb(0, 138, 18) !important;
+}
+.button button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 100%;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .1);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: all .5s ease-in-out;
+}
+
+.title{
+    font-size: 15px;
+    font-weight: 500;
+}
+.button button:hover:after{
+    left: 0;
+    z-index: -1;
+}
+.button button:hover{
+    left: 0;
+    z-index: 2;
+}
+.for-align{
+  display: flex;
+  align-items: center;
+}
+.for-width{
+  width: 20rem;
+}
+.for-name{
+  width: 10rem;
+}
+.for-ongoing{
+  display: none;
+}
+.for-placed-order{
+  display: block;
+}
+.view{
+  padding: 5px 22px !important; 
+}
+
+
+@media screen and (max-width: 768px) {
+    .button{
+        padding-left: 0px;
+        width: 120%;
+    }
+}
+

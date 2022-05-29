@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+}
+
+.second__buyer__gigform{
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    
+}
+.second__buyer__gigform form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.second__buyer__gigform form h2{
+    border-bottom: 2px solid #000;
+}
+.second__buyer__gigform form select{
+    margin-top: 10px;
+    padding: 7px 15px;
+    border-radius: 4px;
+}
+.second__buyer__gigform form button{
+    margin-top: 10px;
+    padding: 6px 14px;
+    border-radius: 4px;
+
+}
+.gig__form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

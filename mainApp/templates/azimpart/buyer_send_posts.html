@@ -1,0 +1,409 @@
+{% load static %}
+{% load template_helpers %} 
+{% include 'buyingview/header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/buyer_send_posts.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/buyerrequest.css' %}" />
+    <script src="{% static 'js/buyerrequest.js' %}" defer></script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="{% static 'images/market_fav.png' %}" />
+
+    <style>
+      * {
+        font-family: "Poppins", sans-serif !important;
+        box-sizing: border-box !important;
+        text-decoration: none !important;
+        list-style-type: none !important;
+      }
+
+      body {
+        background-color: #f7f7f7;
+      }
+    </style>
+  </head>
+<body>
+  <!-- buyer request section -->
+<br />
+<div class="container">
+  <div class="buyerRequ mb-4">
+    <h1>Buyer Posts</h1>
+    <br />
+    {% comment %} <div class="order__links">
+           <ul class="nav nav-tabs" id="myTab" role="tablist">
+               <button class="ordered__btn active__btn active__link nav-link active" id="active-tab" data-bs-toggle="tab" data-bs-target="#active" type="button" role="tab" aria-controls="active" aria-selected="true">
+                   <li class="nav-item" role="presentation">ACTIVE</li>
+               </button>
+               <button class="ordered__btn pending__btn">
+                   <li>SENT OFFERS</li>
+               </button>
+               <li class="create__newGig">
+                   0 offers  left today
+               </li>
+           </ul>
+       </div> {% endcomment %}
+  </div>
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link fw-bold text-uppercase active"
+        id="pro-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#pro"
+        type="button"
+        role="tab"
+        aria-controls="pro"
+        aria-selected="false"
+      >
+        Requested Post <span class="circle__badge___requ">
+
+                        <span>{{ active_buyer_posts }}</span>
+
+                    </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link fw-bold text-uppercase"
+        id="active-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#active"
+        type="button"
+        role="tab"
+        aria-controls="active"
+        aria-selected="true"
+      >
+        Requested Offer   <span class="circle__badge___requ">{{ requested_offer_posts }}</span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link fw-bold text-uppercase"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        Reserved Request <span class="circle__badge___requ">{{ reserved_buyer_posts }}</span>
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade active show"
+      id="pro"
+      role="tabpanel"
+      aria-labelledby="pro-tab"
+    >
+      <div class="table-responsive manage__orderTable">
+        <table class="table table-hover bg-white">
+          <thead>
+            <tr>
+              <th scope="col" class="text-muted ps-4">Created At</th>
+              <th scope="col" class="text-muted">Description</th>
+              <th scope="col" class="text-muted">Category</th>
+              <th scope="col" class="text-muted">Delivery Time</th>
+              <th scope="col" class="text-muted">Budget</th>
+              <th scope="col" class="text-muted">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% if buyer_requested_posts|length > 0 %}
+            {% for post in buyer_requested_posts %}
+            {% if post.post_status == "ACTIVE" %}
+            <tr>
+              <td class="fw-bold text__details post__description">
+                {{ post.created_at }}
+              </td>
+              <td class="fw-bold post__description">
+                <div>
+                  <h5 class="fw-bold">{{ post.postrequest_title }}</h5>
+                </div>
+                <div class="my-2">
+                  <small
+                    class="text-muted post__descriptionText"
+                    id="activepost{{ post.id }}"
+                  >
+                    {{ post.description|safe }}
+                  </small>
+                  <div
+                    class="text-primary fw-bold mt-1 post__viewMoreBtn"
+                    id="view__more{{ post.id }}"
+                    onclick="clickedPost({{post.id}})"
+                  >
+                    View More
+                  </div>
+                </div>
+                {% if post.attachment %}
+                <div class="download__postRequests">
+                    <a href="{{ post.attachment.url }}" download="{{ post.attachment.url }}">
+                        <span class="iconify fs-5" data-icon="mdi:download"></span>
+                        {% for item in post.attachment.url|split:"/"|last %}
+                            {{item}}
+                        {% endfor %}
+                    </a>
+                </div>
+                {% endif %}
+              </td>
+              <td class="fw-bold post__description">
+                {{ post.category.title }}
+              </td>
+              <td class="fw-bold text__details">
+                {{ post.delivery_time.title }}
+              </td>
+              <td class="fw-bold text__details">
+                USD. {{ post.budget }}
+              </td>
+              <td>
+                <div class="dropdown">
+                      <a
+                    class="btn table__status__dropdown btn-sm dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Active
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      
+                    <li>
+                        <form method="POST" action="{% url 'reserved-buyer-post' post.id %}">
+                        {% csrf_token %}
+                        <button class="dropdown-item btn-sm" type="submit">Reserved</button>
+                      </form>
+                    </li>
+                    <li>
+                    <form method="POST" action="{% url 'delete-buyer-post' post.id %}">
+                      {% csrf_token %}
+                        <button class="dropdown-item btn-sm" type="submit">Delete</button>
+                    </form>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %} 
+            {% else %}
+            <tr>
+              <td colspan="6" class="post__description fw-bold text-danger">
+                No requested posts to show!
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div
+      class="tab-pane fade"
+      id="active"
+      role="tabpanel"
+      aria-labelledby="active-tab"
+    >
+      <div class="table-responsive manage__orderTable">
+        <table class="table table-hover bg-white">
+          <thead>
+            <tr>
+              <th scope="col-2" class="text-muted ps-4">Requested Post</th>
+              <th scope="col" class="text-muted">Seller</th>
+              <th scope="col" class="text-muted">Description</th>
+              <th scope="col" class="text-muted">Duration</th>
+              <th scope="col" class="text-muted">Budget</th>
+              <th scope="col" class="text-muted">Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if send_offers|length > 0 %} 
+            {% for post in send_offers %}
+            {% if post.buyer_post_request.post_status != "RESERVED" %}
+            <tr>
+              <td class="fw-bold text__details">
+                {{ post.buyer_post_request }}
+              </td>
+              <td class="fw-bold text__details">{{ post.seller }}</td>
+              <td class="fw-bold post__description">
+                <div>
+                  <h5 class="fw-bold">{{ post.postrequest_title }}</h5>
+                </div>
+                <div class="my-2">
+                  <small
+                    class="text-muted post__descriptionText"
+                    id="sellerpost{{ post.id }}"
+                  >
+                    {{ post.offer_letter|safe }}
+                  </small>
+                  <div
+                    class="text-primary fw-bold mt-1 post__viewMoreBtn"
+                    id="seller__viewMore{{ post.id }}"
+                    onclick="clickedSendOffer({{post.id}})"
+                  >
+                    View More
+                  </div>
+                </div>
+              </td>
+              <td class="fw-bold text__details">{{ post.delivery_time }}</td>
+              <td class="fw-bold text__details">
+                USD. {{ post.offered_price }}
+              </td>
+              <td class="text_details seller__chatIcon align-middle">
+                <a href="{% url 'user_details' post.seller.id %}" class="text-dark text-center contact__icon__link">
+                  <span class="iconify contact__icon" data-icon="bi:chat-right"></span>
+                </a>
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %} 
+            {% else %}
+            <tr>
+              <td colspan="6" class="post__description fw-bold text-danger">
+                No requested offer to show!
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div
+      class="tab-pane fade"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+    >
+      <div class="table-responsive manage__orderTable">
+        <table class="table table-hover bg-white">
+          <thead>
+            <tr>
+              <th scope="col" class="text-muted ps-4">Requested Post</th>
+              <th scope="col" class="text-muted">Description</th>
+              <th scope="col" class="text-muted">Category</th>
+              <th scope="col" class="text-muted">Duration</th>
+              <th scope="col" class="text-muted">Budget</th>
+              <th scope="col" class="text-muted">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if buyer_requested_posts|length > 0 %}
+            {% for post in buyer_requested_posts %}
+            {% if post.post_status == "RESERVED" %}
+            <tr>
+              <td class="fw-bold text__details post__description">
+                {{ post.postrequest_title }}
+              </td>
+              <td class="fw-bold post__description">
+                <div>
+                  <small
+                    class="text-muted post__descriptionText mb-1"
+                    id="reservedpost{{ post.id }}"
+                  >
+                    {{ post.description|safe }}
+                  </small>
+                  <div
+                    class="text-primary fw-bold mt-1 post__viewMoreBtn"
+                    id="reserved__viewMore{{ post.id }}"
+                    onclick="reservedClickedPost({{post.id}})"
+                  >
+                    View More
+                  </div>
+                </div>
+                {% if post.attachment %}
+                <div class="download__postRequests mt-1">
+                    <a href="{{ post.attachment.url }}" download="{{ post.attachment.url }}">
+                        <span class="iconify fs-5" data-icon="mdi:download"></span>
+                        {% for item in post.attachment.url|split:"/"|last %}
+                            {{item}}
+                        {% endfor %}
+                    </a>
+                </div>
+                {% endif %}
+              </td>
+              <td class="fw-bold post__description">
+                {{ post.category.title }}
+              </td>
+              <td class="fw-bold text__details">
+                {{ post.delivery_time.title }}
+              </td>
+              <td class="fw-bold text__details">
+                USD. {{ post.budget }}
+              </td>
+              <td>
+                <div class="dropdown">
+                  <a
+                    class="btn table__status__dropdown btn-sm dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Reserved
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li>
+                        <form method="POST" action="{% url 'active-buyer-post' post.id %}">
+                        {% csrf_token %}
+                        <button class="dropdown-item btn-sm" type="submit">Active</button>
+                      </form>
+                    </li>
+                    <li>
+                    <form method="POST" action="{% url 'delete-buyer-post' post.id %}">
+                        {% csrf_token %}
+                        <button class="dropdown-item btn-sm" type="submit">Delete</button>
+                    </form>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <tr>
+              <td colspan="6" class="post__description fw-bold text-danger">
+                No reserved post to show!
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

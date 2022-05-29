@@ -1,0 +1,934 @@
+{% extends "wasekPart/base.html" %}
+
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+<script
+
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+
+  crossorigin="anonymous"
+
+></script>
+
+
+
+<link rel="stylesheet" href="{% static 'css/manage_order.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/manage_offers.css' %}">
+
+
+
+<script src="{% static 'js/manage_offers.js' %}" defer></script>
+
+
+
+<div class="manage__order container">
+    <!-- Order header section starts -->
+
+    <div class="order__headerSection mb-4">
+
+        <h1>Offers</h1>
+
+
+{% comment %}
+        <div class="form-check form-switch gigs__acceptCustomer">
+
+            <label class="form-check-label gigs__headerText" for="flexSwitchCheckDefault">Accepting Customer
+
+                Orders</label>
+
+            <input class="form-check-input gigs__radioButton" type="checkbox" id="flexSwitchCheckDefault" checked>
+
+        </div>
+        {% endcomment %}
+
+    </div>
+
+    <!-- Order header section ends -->
+
+
+
+    <!-- Order links section starts  -->
+
+    <div class="order__links">
+
+        <ul class="d-flex justify-content-between flex-wrap align-items-center">
+            <div class="d-flex align-items-center flex-wrap">
+            <button class= "ordered__btn active__btn active__link">
+
+                <li>Active <span class="circle__badge">
+
+                        <span>{{ active_offers|length }}</span>
+
+                    </span></li>
+
+            </button>
+
+            <button class="ordered__btn pending__btn">
+
+                <li>Pending Approval <span class="circle__badge">
+
+                        <span>{{ pending_approvals|length }}</span>
+
+                    </span></li>
+
+            </button>
+
+            <button class="ordered__btn modification__btn">
+
+                <li>Required Modification <span class="circle__badge">
+
+                        <span>{{ required_modifications|length }}</span>
+
+                    </span></li>
+
+            </button>
+
+            <button class="ordered__btn denied__btn">
+
+                <li>Denied <span class="circle__badge">
+
+                        <span>{{ denieds|length }}</span>
+
+                    </span></li>
+
+            </button>
+
+            
+            <button class="ordered__btn paused__btn">
+                <li>Paused <span class="circle__badge">
+                        <span>{{ pauseds|length }}</span>
+                    </span></li>
+            </button>
+        </div>
+        <div>
+            <li style="margin-top: -1rem;">
+                <a href="{% url 'PremiumOfferPackageView' %}" class="animated-button victoria-one desktop__makeOfferBtn">MAKE YOUR OFFER PREMIUM</a>
+            </li>
+        </div>
+        </ul>
+       
+
+    </div>
+
+    {% if offers|length < 8 %}
+    <div class="create-a-offer d-flex flex-wrap justify-content-between align-items-center">
+        <a href="{% url 'PremiumOfferPackageView' %}" class="animated-button victoria-one mobile__makeOfferBtn">MAKE YOUR OFFER PREMIUM</a>
+        <a href="{% url 'create-offer' %}">
+            <button>Create an offer</button>
+        </a>
+    </div>
+    {% endif %}
+
+
+
+    <div class="dropdown mobile__orderLinks">
+
+        <!-- <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+
+            aria-expanded="false">
+
+            Offers Status
+
+        </button>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+            <li><button class="dropdown-item active__btn active__link">Active <span class="circle__badge">
+
+                        <span>{{ active_offers|length }}</span>
+
+                    </span></button></li>
+
+            <li><button class="dropdown-item pending__btn">Pending approval <span class="circle__badge">
+
+                        <span>{{ pending_approvals|length }}</span>
+
+                    </span></button></li>
+
+            <li><button class="dropdown-item modification__btn">Required Modification <span class="circle__badge">
+
+                        <span>{{ required_modifications|length }}</span>
+
+                    </span></button></li>
+
+            <li><button class="dropdown-item denied__btn">Denied <span class="circle__badge">
+
+                        <span>{{ denieds|length }}</span>
+
+                    </span></button></li>
+
+            <li><button class="dropdown-item paused__btn">Paused <span class="circle__badge">
+
+                        <span>{{ pauseds|length }}</span>
+
+                    </span></button></li>
+
+        </ul> -->
+
+    </div>
+
+    <div class="border__line"></div>
+    <!-- Order links section ends  -->
+
+
+
+    <!-- Order priority section starts -->
+
+    <div class="card priority__order gigs__order py-3 px-2 mt-1">
+
+        <p class="table__gigsText">active offers</p>
+
+        {% comment %}
+        <div class="dropdown">
+
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+
+                aria-expanded="false">
+
+                last 30 days
+
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <li><a class="dropdown-item" href="#">last 7 days</a></li>
+
+                <li><a class="dropdown-item" href="#">last 14 days</a></li>
+
+                <li><a class="dropdown-item" href="#">last 30 days</a></li>
+
+                <li><a class="dropdown-item" href="#">last 2 months</a></li>
+
+                <li><a class="dropdown-item" href="#">last 3 months</a></li>
+
+                <li><a class="dropdown-item" href="#">last 6 months</a></li>
+
+            </ul>
+
+        </div>
+        {% endcomment %}
+
+    </div>
+
+    <!-- Order priority section ends -->
+
+
+
+    <!-- Order table section starts -->
+
+    <div class="table-responsive manage__orderTable">
+
+        <!-- Active table section starts -->
+
+        <table class="table table-hover bg-white activated__table show__activeTable">
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col" colspan="2" class="text-muted ps-3">offer</th>
+
+                    <th scope="col" class="text-muted">impressions</th>
+
+                    <th scope="col" class="text-muted">clicks</th>
+
+                    <th scope="col" class="text-muted">orders</th>
+
+                    <th scope="col" class="text-muted">cancellations</th>
+
+                    <th scope="col"></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% if active_offers|length > 0 %}
+
+                    {% for offer in active_offers %}
+
+                        <tr class="offer{{offer.id}}">
+
+                            <td class="ps-3" colspan="2">
+
+                                <a href="{% url 'EditOffer' offer.id offer.slug %}">
+
+                                    {% if offer.image %}
+
+                                        <img src="{{ offer.image.url }}" />
+
+                                    {% endif %}
+
+                                    {{ offer.offer_title }}
+
+                                </a>
+
+                            </td>
+
+                            <td class="fw-bold">{{ offer.impressions }}</td>
+
+                            <td class="fw-bold">{{ offer.click }}</td>
+
+                            <td class="fw-bold">{{ offer.order_count }}</td>
+
+                            <td class="fw-bold">{{ offer.cancellation }}</td>
+
+                            <td class="gigs__tableDropdown">
+
+                                <div class="dropdown">
+
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                        <!--<li><a class="dropdown-item" href="#">Preview</a></li>-->
+
+                                        <li><a class="dropdown-item" href="{% url 'EditOffer' offer.id offer.slug %}">Edit</a></li>
+
+                                        <form method="POST" action="{% url 'pausedOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{ offer.id }}" name="offer_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1" type="submit">Paused</button></li>
+
+                                        </form>
+
+                                            <!--<li><a class="dropdown-item" href="#">Share</a></li>-->
+
+                                        <form method="POST" action="{% url 'deleteOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{ offer.id }}" name="delete_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1">Delete</button></li>
+
+                                        </form>
+
+                                        <!--<li><a class="dropdown-item" href="#">Edit Video</a></li>-->
+
+                                        <!--<li>-->
+
+                                        <!--    <div class="form-check">-->
+
+                                        <!--        <input class="form-check-input gigs__optionCheck" type="checkbox" value=""-->
+
+                                        <!--            id="flexCheckChecked" checked>-->
+
+                                        <!--        <label class="form-check-label" for="flexCheckChecked">-->
+
+                                        <!--            Live portfolio-->
+
+                                        <!--        </label>-->
+
+                                        <!--    </div>-->
+
+                                        <!--</li>-->
+
+                                    </ul>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td class="ps-3" colspan="7">
+
+                            <h6 class="fw-bold text-danger">No offers to show!</h6>
+
+                        </td>
+
+                    </tr>
+
+                {% endif %}
+
+            </tbody>
+
+        </table>
+
+        <!-- Active table section ends -->
+
+
+
+        <!-- Pending approval table section starts -->
+
+        <table class="table table-hover bg-white pending__table">
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col" colspan="2" class="text-muted ps-3">offer</th>
+
+                    <th scope="col" class="text-muted">impressions</th>
+
+                    <th scope="col" class="text-muted">clicks</th>
+
+                    <th scope="col" class="text-muted">orders</th>
+
+                    <th scope="col" class="text-muted">cancellations</th>
+
+                    <th scope="col"></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% if pending_approvals|length > 0 %}
+
+                    {% for offer in pending_approvals %}
+
+                        <tr>
+
+                            <td class="ps-3" colspan="2">
+
+                                <a href="{% url 'EditOffer' offer.id offer.slug %}">
+
+                                    {% if offer.image %}
+
+                                    <img src="{{ offer.image.url }}" />
+
+                                    {% endif %}
+
+                                    {{ offer.offer_title }}
+
+                                </a>
+
+                            </td>
+
+                            <td class="fw-bold">{{ offer.impressions }}</td>
+
+                            <td class="fw-bold">{{ offer.click }}</td>
+
+                            <td class="fw-bold">{{ offer.order_count }}</td>
+
+                            <td class="fw-bold">{{ offer.cancellation }}</td>
+
+                            <td class="gigs__tableDropdown">
+
+                                <div class="dropdown">
+
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                        <!--<li><a class="dropdown-item" href="#">Preview</a></li>-->
+
+                                        <li><a class="dropdown-item" href="{% url 'EditOffer' offer.id offer.slug %}">Edit</a></li>
+
+                                        <form method="POST" action="{% url 'pausedOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{offer.id}}" name="offer_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1" type="submit">Paused</button></li>
+
+                                        </form>
+
+                                        <!--<li><a class="dropdown-item" href="#">Share</a></li>-->
+
+                                        <form method="POST" action="{% url 'deleteOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{ offer.id }}" name="delete_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1">Delete</button></li>
+
+                                        </form>
+
+                                        <!--<li><a class="dropdown-item" href="#">Edit Video</a></li>-->
+
+                                        <!--<li>-->
+
+                                        <!--    <div class="form-check">-->
+
+                                        <!--        <input class="form-check-input gigs__optionCheck" type="checkbox" value=""-->
+
+                                        <!--            id="flexCheckChecked" checked>-->
+
+                                        <!--        <label class="form-check-label" for="flexCheckChecked">-->
+
+                                        <!--            Live portfolio-->
+
+                                        <!--        </label>-->
+
+                                        <!--    </div>-->
+
+                                        <!--</li>-->
+
+                                    </ul>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td class="ps-3" colspan="7">
+
+                            <h6 class="fw-bold text-danger">No offers to show!</h6>
+
+                        </td>
+
+                    </tr>   
+
+                {% endif %}
+
+            </tbody>
+
+        </table>
+
+        <!-- Pending approval table section starts -->
+
+
+
+        <!-- Required modification table section starts -->
+
+        <table class="table table-hover bg-white required__table">
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col" colspan="2" class="text-muted ps-3">offer</th>
+
+                    <th scope="col" class="text-muted">impressions</th>
+
+                    <th scope="col" class="text-muted">clicks</th>
+
+                    <th scope="col" class="text-muted">orders</th>
+
+                    <th scope="col" class="text-muted">cancellations</th>
+
+                    <th scope="col"></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% if required_modifications|length > 0 %}
+
+                    {% for offer in required_modifications %}
+
+                        <tr>
+
+                            <td class="ps-3" colspan="2">
+
+                                <a href="{% url 'EditOffer' offer.id offer.slug %}">
+
+                                    {% if offer.image %}
+
+                                    <img src="{{ offer.image.url }}" />
+
+                                    {% endif %}
+
+                                    {{ offer.offer_title }}
+
+                                </a>
+
+                            </td>
+
+                            <td class="fw-bold">{{ offer.impressions }}</td>
+
+                            <td class="fw-bold">{{ offer.click }}</td>
+
+                            <td class="fw-bold">{{ offer.order_count }}</td>
+
+                            <td class="fw-bold">{{ offer.cancellation }}</td>
+
+                            <td class="gigs__tableDropdown">
+
+                                <div class="dropdown">
+
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                        <!--<li><a class="dropdown-item" href="#">Preview</a></li>-->
+
+                                        <!--<li><a class="dropdown-item" href="#">Share</a></li>-->
+
+                                        <form method="POST" action="{% url 'deleteOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{ offer.id }}" name="delete_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1">Delete</button></li>
+
+                                        </form>
+
+                                        <!--<li><a class="dropdown-item" href="#">Edit Video</a></li>-->
+
+                                        <!--<li>-->
+
+                                        <!--    <div class="form-check">-->
+
+                                        <!--        <input class="form-check-input gigs__optionCheck" type="checkbox" value=""-->
+
+                                        <!--            id="flexCheckChecked" checked>-->
+
+                                        <!--        <label class="form-check-label" for="flexCheckChecked">-->
+
+                                        <!--            Live portfolio-->
+
+                                        <!--        </label>-->
+
+                                        <!--    </div>-->
+
+                                        <!--</li>-->
+
+                                    </ul>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td class="ps-3" colspan="7">
+
+                            <h6 class="fw-bold text-danger">No offers to show!</h6>
+
+                        </td>
+
+                    </tr>   
+
+                {% endif %}
+
+            </tbody>
+
+        </table>
+
+        <!-- Required modification table section ends -->
+
+
+
+        <!-- Denied table section starts -->
+
+        <table class="table table-hover bg-white denied__table">
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col" colspan="2" class="text-muted ps-3">offer</th>
+
+                    <th scope="col" class="text-muted">impressions</th>
+
+                    <th scope="col" class="text-muted">clicks</th>
+
+                    <th scope="col" class="text-muted">orders</th>
+
+                    <th scope="col" class="text-muted">cancellations</th>
+
+                    <th scope="col"></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% if denieds|length > 0 %}
+
+                    {% for offer in denieds %}
+
+                        <tr>
+
+                            <td class="ps-3" colspan="2">
+
+                                <a href="{% url 'EditOffer' offer.id offer.slug %}">
+
+                                    {% if offer.image %}
+
+                                    <img src="{{ offer.image.url }}" />
+
+                                    {% endif %}
+
+                                    {{ offer.offer_title }}
+
+                                </a>
+
+                            </td>
+
+                            <td class="fw-bold">{{ offer.impressions }}</td>
+
+                            <td class="fw-bold">{{ offer.click }}</td>
+
+                            <td class="fw-bold">{{ offer.order_count }}</td>
+
+                            <td class="fw-bold">{{ offer.cancellation }}</td>
+
+                            <td class="gigs__tableDropdown">
+
+                                <div class="dropdown">
+
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                        <!--<li><a class="dropdown-item" href="#">Preview</a></li>-->
+
+                                        <!--<li><a class="dropdown-item" href="#">Share</a></li>-->
+
+                                        <form method="POST" action="{% url 'deleteOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{ offer.id }}" name="delete_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1">Delete</button></li>
+
+                                        </form>
+
+                                        <!--<li><a class="dropdown-item" href="#">Edit Video</a></li>-->
+
+                                        <!--<li>-->
+
+                                        <!--    <div class="form-check">-->
+
+                                        <!--        <input class="form-check-input gigs__optionCheck" type="checkbox" value=""-->
+
+                                        <!--            id="flexCheckChecked" checked>-->
+
+                                        <!--        <label class="form-check-label" for="flexCheckChecked">-->
+
+                                        <!--            Live portfolio-->
+
+                                        <!--        </label>-->
+
+                                        <!--    </div>-->
+
+                                        <!--</li>-->
+
+                                    </ul>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td class="ps-3" colspan="7">
+
+                            <h6 class="fw-bold text-danger">No offers to show!</h6>
+
+                        </td>
+
+                    </tr>   
+
+                {% endif %}
+
+            </tbody>
+
+        </table>
+
+        <!-- Denied table section ends -->
+
+
+
+        <!-- Paused table section starts -->
+
+        <table class="table table-hover bg-white paused__table">
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col" colspan="2" class="text-muted ps-3">offer</th>
+
+                    <th scope="col" class="text-muted">impressions</th>
+
+                    <th scope="col" class="text-muted">clicks</th>
+
+                    <th scope="col" class="text-muted">orders</th>
+
+                    <th scope="col" class="text-muted">cancellations</th>
+
+                    <th scope="col"></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% if pauseds|length > 0 %}
+
+                    {% for offer in pauseds %}
+
+                        <tr class="paused_offer">
+
+                            <td class="ps-3" colspan="2">
+
+                                <a href="{% url 'EditOffer' offer.id offer.slug %}">
+
+                                    {% if offer.image %}
+
+                                    <img src="{{ offer.image.url }}" />
+
+                                    {% endif %}
+
+                                    {{ offer.offer_title }}
+
+                                </a>
+
+                            </td>
+
+                            <td class="fw-bold">{{ offer.impressions }}</td>
+
+                            <td class="fw-bold">{{ offer.click }}</td>
+
+                            <td class="fw-bold">{{ offer.order_count }}</td>
+
+                            <td class="fw-bold">{{ offer.cancellation }}</td>
+
+                            <td class="gigs__tableDropdown">
+
+                                <div class="dropdown">
+
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                        <!--<li><a class="dropdown-item" href="#">Preview</a></li>-->
+
+                                        <li><a class="dropdown-item" href="{% url 'EditOffer' offer.id offer.slug %}">Edit</a></li>
+
+                                        <!--<li><a class="dropdown-item" href="#">Share</a></li>-->
+
+                                        <form method="POST" action="{% url 'deleteOffer' offer.id %}">
+
+                                            {% csrf_token %}
+
+                                            <input type="hidden" value="{{ offer.id }}" name="delete_id" />
+
+                                            <li><button class="dropdown-item ps-3 py-1">Delete</button></li>
+
+                                        </form>
+
+                                        <!--<li><a class="dropdown-item" href="#">Edit Video</a></li>-->
+
+                                        <!--<li>-->
+
+                                        <!--    <div class="form-check">-->
+
+                                        <!--        <input class="form-check-input gigs__optionCheck" type="checkbox" value=""-->
+
+                                        <!--            id="flexCheckChecked" checked>-->
+
+                                        <!--        <label class="form-check-label" for="flexCheckChecked">-->
+
+                                        <!--            Live portfolio-->
+
+                                        <!--        </label>-->
+
+                                        <!--    </div>-->
+
+                                        <!--</li>-->
+
+                                    </ul>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td class="ps-3" colspan="7">
+
+                            <h6 class="fw-bold text-danger">No offers to show!</h6>
+
+                        </td>
+
+                    </tr>   
+
+                {% endif %}
+
+            </tbody>
+
+        </table>
+
+        <!-- Paused table section ends -->
+
+    </div>
+
+    <!-- Order table section ends -->
+
+</div>
+
+
+
+{% include 'buyingview/buying_footer.html' %}
+
+{% endblock %}

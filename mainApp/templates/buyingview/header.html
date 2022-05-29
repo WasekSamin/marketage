@@ -1,0 +1,299 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    {% comment %}<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>{% endcomment %}
+
+      <!-- Bootstrap -->
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Slick slider -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+
+
+    
+
+    <!-- swiper slider -->
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+
+    <!-- font awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}">
+
+
+
+
+
+    <link rel="stylesheet" href="{% static 'css/buyer-stylesheet.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/buyer-style-responsive.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/rafsun.css' %}">
+    
+    
+    <script src="{% static 'js/arko-header.js' %}" defer></script>
+    
+    
+    
+
+
+
+    <title>Marketage</title>
+
+</head>
+
+<body>
+    <div id="main-header-start">
+      <div class="innermain-header container">
+        <div class="inner-header-details">
+          <div class="header-logo-content">
+            <a href="/">
+                <h1>Marketage</h1>
+            </a>
+          </div>
+
+          <div class="header-list-content">
+            <h6 class="header-list-for-link">
+              <a href="{% url 'BuyerChat' %}">Messages</a>
+            </h6>
+
+            <h6 class="header-list-for-link">
+              <a href="{% url 'buyer-posts' %}">Buyer Post</a>
+            </h6>
+
+            <h6 class="header-list-for-link">
+              <a href="{% url 'BuyerOrders' %}">Orders</a>
+            </h6>
+
+            <h6 class="header-list-for-link">
+              <a href="{% url 'seller_dashboard' %}">Switch to Selling</a>
+            </h6>
+          </div>
+
+          <div class="header-search-bar">
+              
+               <div class="Searchbar">
+
+                        <form method="GET" action="{% url 'search' %}" class="example header-search-bar-input" autocomplete="off">
+                                
+                        <!--for search suggestion start-->
+                   
+                        <template id="resultstemplate">
+                                {% for offer in offers %}
+                                    <option>{{ offer.seo_title }}</option>
+                                {% endfor %}
+                        </template>
+                                        
+                                        
+                        <input type="text" name="search" id="search"  placeholder="Search Categories" list="searchresults" autocomplete="off" />
+                        
+                        <div class="header-search-bar-icon">
+                            <button type="submit">
+                                <span class="iconify" data-icon="octicon:search-16"></span>
+                            </button>
+            </div>
+        
+        
+                        <datalist id="searchresults"></datalist>  
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- mobile version header -->
+    <div id="mobile-version-header">
+      <div class="overlay-background"></div>
+
+      <div class="inner-mob-version">
+        <div class="for-mob-version-logo">
+        <a href="/" class="text-white">
+          <h6>Marketage</h6>
+        </a>
+        </div>
+
+        <div class="for-mob-hamburger-menu">
+          <span class="iconify" data-icon="dashicons:menu-alt"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-version-side-bar">
+      <div class="inner-slide-bar-content">
+        <div class="close-button-on-slider-bar">
+          <span class="iconify" data-icon="ant-design:close-outlined"></span>
+        </div>
+
+        <div class="slide-bar-profile-content">
+          <a href="{% url 'account' request.user.id request.user.username %}"><img src="{{ request.user.selleraccount.profile_picture.url }}" alt="" /></a>
+          <a href="{% url 'account' request.user.id request.user.username %}"><h6>{{ request.user }}</h6></a>
+        </div>
+
+        <div class="side-bar-content-list">
+          <a href="/">Home</a>
+
+          <!-- browser category start -->
+
+          <li class="browse__categories">
+            <button class="buyer__collapsible text-muted pe-3">
+              Browse Categories
+            </button>
+            
+            <div class="content">
+            {% for cat in cats %}
+              <button class="buyer__collapsible text-muted browse___button">
+                {{ cat.title }}
+              </button>
+             
+             {% if cat.subcategory.all|length > 0 %}
+              <div class="content">
+                <ul>
+                 {% for subcat in cat.subcategory.all %}
+                  <li>
+                    <a href="{% url 'SubcategoryWiseOffer' subcat.slug %}">{{ subcat.sub_title }}
+                    </a>
+                  </li>
+                 {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </li>
+
+          <!-- browse category end -->
+
+          <h6>Buying</h6>
+          <a href="{% url 'buyer-posts' %}">Buyer Post</a>
+          <a href="{% url 'post_a_request' %}">Post a Requset</a>
+          <a href="{% url 'BuyerChat' %}">Message</a>
+          <a href="{% url 'BuyerOrders' %}">Buyer Orders</a>
+
+          <h6>Selling</h6>
+          <a href="{% url 'seller_dashboard' %}">Switch To Selling</a>
+
+          <h6>General</h6>
+          <a href="{% url 'logoutview' %}">Logout</a>
+        </div>
+      </div>
+    </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+<header class="header_____mega_______menu">
+ 	<div class="container____mega___menu">
+ 		<div class="megarow v-center">
+ 		
+ 			<!-- menu start here -->
+ 			<div class="header___item____menu    ">
+ 				<div class="menu______overlay_______menu">
+ 				</div>
+ 				<nav class="mega________menu">
+ 					<!-- <div class="mobile-menu-head">
+ 						<div class="go-back"><i class="fa fa-angle-left"></i></div>
+ 						<div class="current-menu-title"></div>
+ 						<div class="mobile-menu-close">&times;</div>
+ 					</div> -->
+ 					
+ 					<ul class="menu-main">
+ 					    {% for cat in cats %}
+ 						<li class="menu-item-has-children">
+ 							<a href="{% url 'category-wise' cat.slug %}">{{ cat.title }} <span class="iconify" data-icon="akar-icons:chevron-down"></span></a>
+ 							{% if cat.subcategory.all|length > 0 %}
+							 <div class="sub-menu mega-menu mega-menu-column-4">
+							     {% for subcat in cat.subcategory.all %}
+								<div class="list_____item_____menu">
+									  <h4 class="title"><a href="{% url 'SubcategoryWiseOffer' subcat.slug %}">{{ subcat.sub_title }}</a></h4>
+									  {% if subcat.child_subcategory.all|length > 0 %}
+									  <ul>
+									      {% for child_cat in subcat.child_subcategory.all %}
+										   <li><a href="{% url 'ChildWiseOffers' child_cat.id child_cat.child_slug %}">{{ child_cat.child_title }}</a></li>
+										   {% endfor %}
+										   
+									  </ul>
+									  {% endif %}
+									  
+								</div>
+								{% endfor %}
+								
+						    </div>
+							{% endif %}
+ 						</li>
+ 						{% endfor %}
+ 					</ul>
+ 				</nav>
+ 			</div>
+ 		</div>
+ 	</div>
+ </header>
+
+    </header>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <!--<script src="{% static 'js/arko-header.js' %}"></script>-->
+    
+</body>
+</html>

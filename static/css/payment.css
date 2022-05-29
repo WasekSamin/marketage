@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@100&display=swap');
+*{box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+}
+body {
+    background-color: #f5f5f5 !important;
+    width: 100%;
+}
+
+.payment____text{
+    text-align: justify;
+}
+.payment____text{
+    list-style: disc !important;
+}
+.new_____font{
+    font-family: 'Glory', sans-serif;
+}
+
+
+/*inner payment div*/
+.main____payment___div{
+    width: 55%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 23px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    
+}
+
+/*main payment div*/
+.main___payment__terms__div{
+    width: 100%;
+}
+
+@media (max-width: 1024px){
+    .main____payment___div{
+        width: 80%;
+    }
+}
+@media (max-width: 730px){
+    .main____payment___div{
+        width: 100%;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,375 @@
+{% extends "wasekPart/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/userdashboard.css' %}">
+
+      <!-- main content -->
+
+  <!-- rating part -->
+  </br>
+  <section class="mainContent">
+    <div class="container">
+      <div class="row main________row">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3 sideColumn">
+          <div class="firstColumn">
+            <div class="imageRate">
+              <div class="imageRateInner">
+                <span>Online</span>
+                <img src="{{ user.selleraccount.profile_picture.url }}" class="rounded-circle">
+                <strong class="seller____user___name">&nbsp;{{ request.user }}</strong>
+              </div>
+              <div class="rateIcon">
+                <span class="iconify" data-icon="akar-icons:star" style="color: yellow;"></span> {{ review_count }}
+              </div>
+            </div>
+            <hr>
+            <div class="rateStatus">
+              <div class="rateStatusAll">
+                <p>Completed Orders</p>
+                <div class="statusBar">
+                  <progress id="file" value="100">100%</progress> &nbsp;&nbsp;{{ completed_orders|length }}
+                </div>
+              </div>
+              <div class="rateStatusAll">
+                <p>Active Offers</p>
+                <div class="statusBar">
+                  <progress id="file" value="100">100%</progress><strong> &nbsp;&nbsp;{{ active_offers|length }}</strong>
+                </div>
+              </div>
+              <div class="rateStatusAll">
+                <p>Pending Offers</p>
+                <div class="statusBar">
+                  <progress id="file" value="100">100%</progress> &nbsp;&nbsp;{{ pending_offers|length }}
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="earned">
+              <p class="earnMonth">Total Earned</p>
+              <p class="dollar badge bg-primary"><strong>{{ user.selleraccount.wallet }} USD.</strong></p>
+            </div>
+            <div class="earned">
+              <p class="earnMonth">TAKE TEST</p>
+              <a class="dollar badge bg-primary" href="{% url 'select_subject_form' %}">START TEST</a>
+            </div>
+          </div><br>
+
+          <!-- inbox -->
+            
+          <div class="inbox">
+            <div class="secondColumn">
+              <ul style="padding-left: 0;">
+                <li class="fw-bold">Inbox</li>
+                <li><a href="{% url 'inbox' %}">View All</a></li>
+              </ul>
+            </div>
+            <hr>
+            {% comment %} all users chat inbox {% endcomment %}
+            {% for ct in chatrooms %}
+            <a href="{% url 'chatroom' ct.id ct.slug %}">
+            <div class="inbox-details">
+              <div class="inbox-user-detail">
+              
+                <img src="{{ ct.buyer.selleraccount.profile_picture.url }}" class="rounded-circle">
+                <div>
+                  <p class="fw-bold" style="font-size: 13px;">{{ ct.user }}</p>
+                  <p style="font-size: 13px;">Room: {{ ct.room_name|truncatechars:20 }}</p>
+                </div>
+              </div>
+              <div class="user-active-time">
+                <p style="font-size: 13px;">{{ ct.user.last_login }}</p>
+              </div>
+            </div>
+            <hr>
+            </a>
+            {% endfor %}
+            
+          </div>
+          <br>
+          
+
+          <!-- social netiwork link -->
+
+          <!--<div class="thirdColumn">-->
+          <!--  <div class="socialNetwork">-->
+          <!--    <p>Link your social networks <span class="badge bg-secondary rounded-circle">?</span></p>-->
+          <!--  </div>-->
+          <!--  <div class="socialIcon">-->
+          <!--    <div class="socialIcon1">-->
+          <!--      <button type="button" class="icon-button">-->
+          <!--        <span class="fontIcon">-->
+          <!--          <span class="iconify" data-icon="bx:bxs-basketball" style="color: #caeded;"></span>-->
+          <!--        </span>-->
+          <!--        <span class="icon-button__bagde">-->
+          <!--          <strong>+</strong>-->
+          <!--        </span>-->
+          <!--      </button>-->
+          <!--    </div>-->
+          <!--    <div class="socialIcon1">-->
+          <!--      <button type="button" class="icon-button">-->
+          <!--        <span class="fontIcon">-->
+          <!--          <span class="iconify" data-icon="akar-icons:github-fill" style="color: #caeded;"></span>-->
+          <!--        </span>-->
+          <!--        <span class="icon-button__bagde">-->
+          <!--          <strong>+</strong>-->
+          <!--        </span>-->
+          <!--      </button>-->
+          <!--    </div>-->
+          <!--    <div class="socialIcon1">-->
+          <!--      <button type="button" class="icon-button">-->
+          <!--        <span class="fontIcon">-->
+          <!--          <span class="iconify" data-icon="akar-icons:stack-overflow-fill" style="color: #caeded;"></span>-->
+          <!--        </span>-->
+          <!--        <span class="icon-button__bagde">-->
+          <!--          <strong>+</strong>-->
+          <!--        </span>-->
+          <!--      </button>-->
+          <!--    </div>-->
+          <!--    <div class="socialIcon1">-->
+          <!--      <button type="button" class="icon-button">-->
+          <!--        <span class="fontIcon">-->
+          <!--          <span class="iconify" data-icon="akar-icons:facebook-fill" style="color: #caeded;"></span>-->
+          <!--        </span>-->
+          <!--        <span class="icon-button__bagde">-->
+          <!--          <strong>+</strong>-->
+          <!--        </span>-->
+          <!--      </button>-->
+          <!--    </div>-->
+          <!--    <div class="socialIcon1">-->
+          <!--      <button type="button" class="icon-button">-->
+          <!--        <span class="fontIcon">-->
+          <!--          <span class="iconify" data-icon="akar-icons:twitter-fill" style="color: #caeded;"></span>-->
+          <!--        </span>-->
+          <!--        <span class="icon-button__bagde">-->
+          <!--          <strong>+</strong>-->
+          <!--        </span>-->
+          <!--      </button>-->
+          <!--    </div>-->
+          <!--    <div class="socialIcon1">-->
+          <!--      <button type="button" class="icon-button">-->
+          <!--        <span class="fontIcon">-->
+          <!--          <span class="iconify" data-icon="akar-icons:vimeo-fill" style="color: #caeded;"></span>-->
+          <!--        </span>-->
+          <!--        <span class="icon-button__bagde">-->
+          <!--          <strong>+</strong>-->
+          <!--        </span>-->
+          <!--      </button>-->
+          <!--    </div>-->
+          <!--  </div>-->
+          <!--</div><br>-->
+        </div><br>
+
+
+        <!-- active order container -->
+
+        <div class="col-12 col-sm-12 col-md-8 col-lg-9 mainColumn">
+          <div class="activeOrders">
+            <ul>
+              <li>
+                <h6 id="active_text">Active Orders 
+                  <!-- - {{ count_active }} -->
+                </h6>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <button class="btn active-dropdown dropdown-toggle activeBtn" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="true">
+                    Active orders ({{active_orders|length}})
+                  </button>
+                  <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+                    <li id="activeOrder"><a class="dropdown-item" href="#">Active Orders ({{active_orders|length}})</a></li>
+                    <hr>
+                    <li id="completed"><a class="dropdown-item" href="#">Completed ({{completed_orders|length}})</a></li>
+                    <hr>
+                    <li id="canceled"><a class="dropdown-item" href="#">Cancelled ({{cancelled_orders|length}})</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div><br>
+
+          <!-- active order display -->
+          <div id="active_order_show" class="complete__order__table table-responsive">
+            {% if active_orders|length > 0 %}
+            <table class="table bg-white">
+              <tbody>
+                {% for order in active_orders %}
+                <tr>
+                  <td scope="row">
+                    <div class="seller-name">
+                      <img src="{{ order.package.offer.image.url }}" alt="" class="rounded-circle">
+                      <p class="ms-2">{{ order.user }}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="price">
+                      <p class="text-muted">Price</p>
+                      <p>USD {{ order.total }}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="status">
+                      <p class="text-muted">Status</p>
+                      <p><span class="badge bg-secondary">Active</span></p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="view">
+                      <p><a href="{% url 'SellerOrderDetails' order.id %}">View</a></p>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+              <p class="bg-white p-3 text-center text-danger fw-bold">No order to show!</p>
+            {% endif %}
+          </div>
+
+          <!-- complete order section -->
+          <div id="complete_order_show" class="complete__order__table table-responsive">
+              {% if completed_orders|length > 0 %}
+              <table class="table bg-white">
+                <tbody>
+                  {% for order in completed_orders %}
+                  <tr>
+                    <td scope="row">
+                      <div class="seller-name">
+                        <img src="{{ order.package.offer.image.url }}" alt="" class="rounded-circle">
+                        <p class="ms-2">{{ order.user }}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="price">
+                        <p class="text-muted">Price</p>
+                        <p>USD {{ order.total }}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="status">
+                        <p class="text-muted">Status</p>
+                        <p><span class="badge bg-secondary">Completed</span></p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="view">
+                        <p><a href="{% url 'SellerOrderDetails' order.id %}">View</a></p>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+                <p class="bg-white p-3 text-center text-danger fw-bold">No order to show!</p>
+              {% endif %}
+            </div>
+
+            <!-- cancel order options -->
+            <div id="cancel_order" class="complete__order__table table-responsive">
+              {% if cancelled_orders|length > 0 %}
+              <table class="table bg-white">
+                <tbody>
+                  {% for order in cancelled_orders %}
+                  <tr>
+                    <td scope="row">
+                      <div class="seller-name">
+                        <img src="{{ order.package.offer.image.url }}" alt="" class="rounded-circle">
+                        <p class="ms-2">{{ order.user }}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="price">
+                        <p class="text-muted">Price</p>
+                        <p>USD {{ order.total }}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="status">
+                        <p class="text-muted">Status</p>
+                        <p><span class="badge bg-secondary">cancelled</span></p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="view">
+                        <p><a href="{% url 'SellerOrderDetails' order.id %}">View</a></p>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+                <p class="bg-white p-3 text-center text-danger fw-bold">No order to show!</p>
+              {% endif %}
+            </div>
+          <br><br><br>
+
+          <div id="upgrade_text" class="upgradeText">
+            <h6>Upgrade your Business</h6>
+            <hr>
+          </div>
+          <div class="container">
+            <div id="upgrade_business" class="row upgradeBusiness">
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="secondUpgradeText">
+                  <h5>How to build your success on Marketage in 3 steps</h5>
+                  <p>The key to your success on Marketage is the brand you build for yourself through <br> your marketage
+                    reputation. We gathered some tips and resources to help you <br> become a leading seller on marketage.
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="upgradeImg">
+                  <img src="{% static 'images/upgrade.png' %}" alt="business" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div><br>
+
+
+    <div class="container">
+    <div id="slider_row" class="row slider-row">
+      <div class="col top-slider">
+        <div class="main-top-slider">
+          <img src="{% static 'images/seller_dashboard111.png' %}" alt="">
+          <h2 class="text-white">The magic of photoshop</h2>
+          <p class="text-white">Learn how to craft jaw-dropping images with this course.</p>
+        </div>
+
+
+        <div class="main-top-slider">
+          <img src="{% static 'images/seller_dashboard2.jpeg' %}" alt="">
+          <h2 class="text-white">Data storytelling course</h2>
+          <p class="text-white">Transform valuable data into impactful stories that sell. </p>
+        </div>
+
+
+        <div class="main-top-slider">
+          <img src="{% static 'images/seller_dashboard3.jpeg' %}" alt="">
+          <h2 class="text-white">Blog content strategy course  </h2>
+          <p class="text-white">Learn a winning formula that gets results every time.</p>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- slider part -->
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+
+  <script src="{% static 'js/sellerdashboard.js' %}"></script>
+
+
+  {% include 'buyingview/buying_footer.html' %}
+
+{% endblock %}

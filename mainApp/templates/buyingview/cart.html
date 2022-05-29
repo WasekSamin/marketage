@@ -1,0 +1,354 @@
+{% load static %}
+
+{% load custom_filter %}
+
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Iconify -->
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+    
+
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+    
+
+    <link rel="stylesheet" href="{% static 'css/cartdesign.css' %}">
+
+
+
+    <title>Cart</title>
+
+  </head>
+
+  <body>
+
+
+
+
+
+    <!-- header part -->
+
+    <header class="container">
+
+        <div class="headerLogo">
+
+        <a class="nav___new___logo1" href="{% url 'seller_dashboard' %}">
+
+            Marketage.
+
+        </a>
+
+            <span class="orderText1"><a href="{% url 'cartView' %}"><strong>Order Details</strong></a> <i class="fas fa-chevron-right"></i></span>
+
+            <span class="orderText"> <a href="{% url 'checkout' %}"><strong>Confirm  & pay</strong></a> <i class="fas fa-chevron-right"></i></span>
+
+            <span class="orderText"> <strong>Submit Requirements</strong></span>
+
+        </div>
+
+    </header>
+
+
+
+    <div class="container-fluid">
+
+        <hr>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- cart empty part -->
+
+  
+  {% if not request.session.cart %}
+
+    <div class="container">
+
+        <div class="main___empty___cart justify-content-center">
+            <img src="{% static 'images/empty_cart.png' %}">
+        </div>
+        <div class="empty___cart___title">
+          <h4>Opps! Your Cart Is Empty</h4>
+          <p>Looks like you haven't added <br> anything to your cart yet!</p>
+        </div>
+        
+    </div>
+
+
+    <!-- main part   -->
+{% else %}
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+
+                <div class="gigText">
+
+                    <h3>Customize Your Package</h3>
+
+                </div><br>
+
+                {% for c in cart_products %}
+
+                <div class="giggig">
+
+                  <div class="gig___contained">
+
+                    <div class="gigImg">
+
+                        <img src="{{ c.offer.image.url }}" alt="">
+
+                    </div>
+
+                    <div class="gigdetails">
+
+                        <span class="gigtitle"> <a href="#">{{ c.package.title }} Package</a></span>
+
+                      <div class="cart___icon">
+
+                        <!--<i class="fas fa-star"></i>-->
+
+                        <!--<i class="fas fa-star"></i>-->
+
+                        <!--<i class="fas fa-star"></i>-->
+
+                        <!--<i class="fas fa-star"></i>-->
+
+                        <!--<i class="fas fa-star"></i>-->
+
+                        <!--<span class="rating"> <strong> {{ c.gig.gig_rating }}</strong> ({{ c.gig.click }} Clicks)</span>-->
+
+                      </div>
+
+                      
+
+                        <!--<div class="view" onclick="myFunction()"><a href="#">View what's included <i class="fas fa-chevron-down"></i></a></div>-->
+
+                        <!--<div id="myDIV">-->
+
+                        <!--    <h5 class="fw-bold">Basic</h5>-->
+
+                        <!--    <p>0-600</p>-->
+
+                        <!--    <div class="total__view__detail"> -->
+
+                        <!--        <div class="view___detail__show1">-->
+
+                        <!--            <p class="text-muted"><i class="fas fa-check"></i> 1 Day Delivery</p>-->
+
+                        <!--            <p class="text-muted"><i class="fas fa-check"></i> Unlimited Revision</p>-->
+
+                        <!--            <p class="text-muted"><i class="fas fa-check"></i> Up To 600 Words</p>-->
+
+                        <!--          </div>-->
+
+                        <!--          <div class="view___detail__show2">-->
+
+                        <!--            <p class="text-muted"><i class="fas fa-check"></i> Proofreading</p>-->
+
+                        <!--            <p class="text-muted"><i class="fas fa-check"></i> Document Formating</p>-->
+
+                        <!--          </div>-->
+
+                        <!--    </div>-->
+
+                        <!--</div>-->
+
+                    </div>
+
+                  </div>
+
+                  <div class="quantity___button">
+
+                        <span>QTY &nbsp;</span> <span class="quantity__amount">{{ c|cart_quantity:request.session.cart }}</span>
+
+                        <form class="delete__gig" method="POST">
+
+                            {% csrf_token %}
+
+                           <button type="submit">
+
+                               <span class="iconify" data-icon="bi:trash"></span>
+
+                           </button>
+
+                        </form>
+
+                  </div>
+
+                        
+
+
+
+                   
+
+
+
+                     <!-- <div class="quantity">
+
+                        <span> QTY &nbsp;</span> -->
+
+                        <!-- <button class="btn minus-btn disabled" type="button">-</button> -->
+
+                        <!-- <input type="text" id="quantity" value="{{ c|cart_quantity:request.session.cart }}"> -->
+
+                        <!-- <button class="btn plus-btn" type="button">+</button> -->
+
+                     <!-- </div> -->
+
+                     <!-- <div class="totalPrice">
+
+                        <span id="price"> <strong> BDT  {{ c.price }}</strong></span>
+
+                     </div> -->
+
+                     
+
+                 </div>
+
+                 {% endfor %}
+
+                <hr>
+
+               
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+
+                    <div class="card m-4 checkCard">
+
+                        <div class="card-body checkoutCard">
+
+                            <h4>Summary</h4>
+
+                            <div class="cardBodyDetails">
+
+                                <p class="details">Subtotal</p>
+
+                                <p class="amount">USD {{ cart_products|get_subtotal_cart_total:request.session.cart }}</p><br>
+
+                                <p class="details">Administration Fee's</p>
+
+                                <p class="amount">5%</p><br>
+
+                                <hr>
+
+                                <p class="details">Total</p>
+
+                                <p class="amount">USD {{ cart_products|total_with_service_fee:request.session.cart }}</p><br>
+
+                                <!--<p class="details">Delivery Time</p>-->
+
+                                <!--<p class="amount">{{ request.session.cart }}</p><br>-->
+
+                                <div class="button conti__button d-flex justify-content-center">
+
+                                    <a href="{% url 'checkout' %}" type="button" class="continue col-lg-12 text-center">
+
+                                        Continue to Checkout
+
+                                    </a>
+
+                                    </br>
+
+
+
+                                </div><br>
+
+                                <p class="text-center footertext">You won't be charged yet</p>
+
+                            </div>
+
+                        </div>
+
+                      </div>
+
+                      <br>
+
+                      <div class="cardFooterText">
+
+                        <p class="text-center">SSL SECURED PAYMENT</p>
+
+                        <p class="text-center">Your information is protected by 256-bit SSL <br> encryption</p>
+
+                      </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+
+         <!-- Optional JavaScript; choose one of the two! -->
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        var x = document.getElementById("myDIV");
+
+        x.style.display ="none"
+
+        function myFunction() {
+
+          
+
+          
+
+          if (x.style.display === "none") {
+
+            x.style.display = "block";
+
+          } else {
+
+            x.style.display = "none";
+
+          }
+
+        }
+
+        </script>
+
+        <script src="{% static 'js/mobile_navbar.js' %}"></script>
+
+  </body>
+
+</html>

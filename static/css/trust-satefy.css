@@ -1,0 +1,616 @@
+*{box-sizing: border-box;
+
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+
+    font-family: 'poppins', sans-serif;
+
+}
+
+body{
+
+    width: 100%;
+
+    background-color: #f5f5f5 !important;
+
+}
+
+
+
+/* main background image */
+
+.main-background-image{
+
+    position: relative;
+
+}
+
+.img-overlay h1, .img-overlay p{
+
+    text-shadow: 4px 2px 2px rgba(206,184,198,0.75);
+
+}
+
+.img-overlay p{
+
+    font-size: 21px !important;
+
+}
+
+.img-overlay{
+
+    position: absolute;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    top: 15%;
+
+    left: 38%;
+
+}
+
+.main-background-image img{
+
+    width: 100%;
+
+    height: 330px;
+
+    margin-top: -12px;
+
+}
+
+/* join marketage button */
+
+.join-marketage{
+
+    border: none;
+
+    background-color: #428ad3;
+
+    padding: 15px;
+
+    border-radius: 6px;
+
+    transition: .2s ease-in-out;
+
+}
+
+.join-marketage:hover{
+
+    background-color: #365899;
+
+    transition: .2s all ease;
+
+}
+
+
+
+
+
+/* card body secion */
+
+.body-lorem{
+
+    position: absolute;
+
+    top: 89%;
+
+    display: block;
+
+    margin: auto;
+
+}
+
+.seller-is-easy p{
+
+    margin-block-start: 0;
+
+    margin-block-end: 0;
+
+}
+
+.seller-is-easy{
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.seller-is-easy img{
+
+    width: 100%;
+
+    height: 408px;
+
+    margin-top: 30px;
+
+}
+
+.seller-buyer-rating{
+
+    margin-top: 40px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+}
+
+.seller-rating, .buyer-feedback{
+
+    padding: 15px;
+
+}
+
+
+
+/* seller levels */
+
+.seller-level{
+
+    position: relative;
+
+}
+
+.seller-level-overlay{
+
+    position: absolute;
+
+    top: 17%;
+
+    left: 5%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.seller-level-overlay a{
+
+    color: #fff;
+
+}
+
+
+
+/* 
+
+images bedge */
+
+.level-badge ul{
+
+    position: absolute !important;
+
+    top: 80% !important ;
+
+    display: flex !important;
+
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+
+}
+
+.level-badge ul li{
+
+    padding: 3px !important;
+
+}
+
+.top-img img{
+
+    width: 100px !important;
+
+    height: 100px !important;
+
+}
+
+.level-img img{
+
+    width: 53px !important;
+
+    height: 53px !important;
+
+}
+
+
+
+/* buy and sell section */
+
+.buy-sell{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 55px;
+
+}
+
+
+
+/* personal-secure-safe */
+
+.colums img{
+
+    width: 110px;
+
+    height: 100px;
+
+}
+
+.personal-safe-secure{
+
+    display: flex;
+
+    margin-top: 40px;
+
+}
+
+.colums{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    flex-direction: column;
+
+    padding: 10px;
+
+}
+
+
+
+
+
+/* help line 24/7 */
+
+.help-line{
+
+    position: relative;
+
+    margin-top: -10px;
+
+    background-color: #353537;
+
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    height: 32vh;
+
+}
+
+
+
+.help-line p{
+
+    margin-block-end: 0;
+
+    margin-block-start: 0;
+
+    font-size: 20px;
+
+}
+
+.help-line-image img{
+
+    position: absolute;
+
+    width: 116px;
+
+    height: 105px;
+
+    top: -15%;
+
+}
+
+
+
+.help__line___paragraph{
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 100vh;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* main background image media  */
+
+
+
+@media (max-width:955px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 35% !important;
+
+    }
+
+}
+
+@media (max-width:805px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 26% !important;
+
+    }
+
+}
+
+@media (max-width:670px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 21% !important;
+
+    }
+
+    .personal-safe-secure{
+
+        flex-wrap: wrap;
+
+        display: flex;
+
+        justify-content:center;
+
+        align-items: center;
+
+    }
+
+    .colums{
+
+     display: flex;
+
+    flex-wrap: wrap;
+
+    flex-direction: column;
+
+     align-items: center; 
+
+    padding: 10px;
+
+    }
+
+}
+
+@media (max-width:575px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 15% !important;
+
+    }
+
+}
+
+@media (max-width:496px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 14% !important;
+
+    }
+
+    .img-overlay p{
+
+        font-size: 17px !important;
+
+    }
+
+}
+
+@media (max-width:410px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 12% !important;
+
+    }
+
+    .img-overlay p{
+
+        font-size: 17px !important;
+
+    }
+
+}
+
+@media (max-width:385px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 12% !important;
+
+    }
+
+    .img-overlay p{
+
+        font-size: 15px !important;
+
+    }
+    .help__line___paragraph p{
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width:340px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 10% !important;
+
+    }
+
+    .img-overlay p{
+
+        font-size: 15px !important;
+
+    }
+
+}
+
+@media (max-width:295px){
+
+    .img-overlay{
+
+        top: 16% !important;
+
+        left: 7% !important;
+
+    }
+
+    .img-overlay p{
+
+        font-size: 15px !important;
+
+    }
+
+}
+
+
+
+/* badge level images */
+
+@media (max-width: 320px){
+
+    .top-img img{
+
+        width: 80px !important;
+
+        height: 80px !important;
+
+    }
+
+    .level-img img{
+
+        width: 48px !important;
+
+        height: 48px !important;
+
+    }
+
+    .level-badge ul {
+
+        position: absolute !important;
+
+        top: 80% !important;
+
+        display: flex !important;
+
+        flex-wrap: wrap !important;
+
+        align-items: center !important;
+
+    }
+
+}
+
+@media (max-width: 290px){
+
+    .top-img img{
+
+        width: 70px !important;
+
+        height: 70px !important;
+
+    }
+
+    .level-img img{
+
+        width: 40px !important;
+
+        height: 40px !important;
+
+    }
+
+    .level-badge ul {
+
+        position: absolute !important;
+
+        top: 81% !important;
+
+        display: flex !important;
+
+        flex-wrap: wrap !important;
+
+        align-items: center !important;
+
+    }
+
+}
+
+@media (max-width: 670px){
+
+    .help-line-image img{
+
+        display: none;
+
+    }
+
+}

@@ -1,0 +1,78 @@
+{% load static %}
+{% include 'base.html' %}
+
+
+<div class="d-flex" id="wrapper">
+    {% include 'sidebar.html' %}
+
+    <div id="page-content-wrapper">
+        {% include 'nav.html' %}
+        
+
+        <div class="container-fluid px-4">
+                <div class="row my-5">
+
+
+                    <h3 class="fs-4 mb-3">Notification Details</h3>
+                    <p class="fw-bold">Notification ID: <span>100001</span></p>
+                    <div class="col table-responsive">
+                        <table class="table bg-white rounded shadow-sm  table-hover  new_____table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Buyer Name</th>
+                                    <th scope="col">Seller Name</th>
+                                     <th scope="col">Total</th>
+                                     <th scope="col">Grand Total</th>
+                                    <th scope="col">Transaction ID</th>
+                                    <th scope="col">Buyer Amount</th>
+                                    <th scope="col">Seller Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="new___row">
+                                <td>11012</td>
+                                <td>Choto Fahad</td>
+                                <td>Fahad</td>
+                                <td>100000 USD</td>
+                                <td>10000000 USD</td>
+                                <td>HGY675GH4FF4</td>
+                                <td>10000 USD</td>
+                                <td>10000 USD</td>
+                                
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+    
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
+    <script src="{% static 'js/adminpannel.js' %}"></script>
+
+<!-- {{ notification_details.id }}
+
+<br>
+{{ notification_details.content|safe }} <br>
+Buyer: {{ notification_details.orderId.user }}
+Seller: {{ notification_details.orderId.seller }}
+Totaltransaction: {{ notification_details.orderId.grand_total }} -->

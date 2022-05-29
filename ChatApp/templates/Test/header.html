@@ -1,0 +1,257 @@
+{% load static %}
+
+<!-- font awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+
+<link rel="shortcut icon" href="{% static 'images/market_fav.png' %}" />
+
+<link rel="stylesheet" href="{% static 'css/wasek_header.css' %}" />
+
+<div class="nav__header">
+  <!-- Left header section starts -->
+
+  <div class="left__header">
+    <ul>
+      <a href="{% url 'buying_view' %}">
+        <li>
+          <img
+            class="header__img"
+            src="{% static 'images/marketage.png' %}"
+            alt=""
+          />
+        </li>
+      </a>
+      <a href="{% url 'seller_dashboard' %}">
+        <li>Dashboard</li>
+      </a>
+      <a href="{% url 'inbox' %}">
+        <li>Messages</li>
+      </a>
+      <a href="{% url 'manage-order' %}">
+        <li>Orders</li>
+      </a>
+      <a href="{% url 'manage-offers' %}">
+        <li>Offers</li>
+      </a>
+      <a href="#">
+        <li>Analytics</li>
+      </a>
+      <a href="#">
+        <li>Earnings</li>
+      </a>
+      <a href="#">
+        <li>Community</li>
+      </a>
+      <li
+        class="dropdown-toggle more__content"
+        type="button"
+        id="more__option"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        More
+      </li>
+      <!-- User login icon show -->
+      <!-- User alternate options section starts -->
+      <ul
+        class="dropdown-menu user__options more__options"
+        aria-labelledby="more__option"
+      >
+        <li>
+          <a class="dropdown-item" href="{% url 'BuyeRequestView' %}"
+            >Buyer Requests</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" href="{% url 'my_contacts_page' %}"
+            >My Contacts</a
+          >
+        </li>
+      </ul>
+      <!-- User alternate options section ends -->
+    </ul>
+  </div>
+  <!-- Left header section ends -->
+
+  <!-- Right header section starts -->
+  <div class="right__header">
+    <ul>
+      <a href="{% url 'buying_view' %}">
+        <li>Switch to Buying</li>
+      </a>
+      <li class="avatar__img dropdown">
+        <!-- User profile image -->
+        <img
+          class="dropdown-toggle"
+          type="button"
+          id="user__alternateOption"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          src="{{ request.user.selleraccount.profile_picture.url }}"
+          alt=""
+        />
+        <!-- User login icon show -->
+        <div class="online__dot"></div>
+        <!-- User alternate options section starts -->
+        <ul
+          class="dropdown-menu user__options"
+          aria-labelledby="user__alternateOption"
+        >
+          <li>
+            <a class="dropdown-item" href="{% url 'account' %}">Profile</a>
+          </li>
+          {% comment %}
+          <li>
+            <a class="dropdown-item" href="#">Refer &amp; Get up to $100</a>
+          </li>
+          {% endcomment %}
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+          </li>
+          <li>
+            <div>
+              English
+              <span
+                class="iconify"
+                data-icon="bi:globe"
+                data-inline="false"
+              ></span>
+            </div>
+          </li>
+          <li>
+            <div>USD - $</div>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url 'support' %}"
+              >Help &amp; Support</a
+            >
+          </li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <div>
+              <a href="{% url 'logoutview' %}">Logout</a>
+            </div>
+          </li>
+        </ul>
+        <!-- User alternate options section ends -->
+      </li>
+    </ul>
+  </div>
+  <!-- Right header section ends -->
+</div>
+
+<!-- Mobile navbar section starts -->
+<nav class="mobile__navbar">
+  <div class="hamburger__menu">
+    <span
+      class="iconify"
+      data-icon="radix-icons:hamburger-menu"
+      data-inline="false"
+    ></span>
+  </div>
+  <div class="logo__img">
+    <a href="{% url 'buying_view' %}">
+      <img src="{% static 'images/marketage.png' %}" alt="" />
+    </a>
+  </div>
+  <div class="signin__page">
+    <a href="{% url 'user_registration' %}">Join</a>
+  </div>
+
+  <!-- For fixed black background -->
+  <div class="bg__fixed"></div>
+
+  <div class="mobile__navLinks">
+    <div class="top__section">
+      <div class="nav__close">
+        <span
+          class="iconify"
+          data-icon="carbon:close-outline"
+          data-inline="false"
+        ></span>
+      </div>
+      <div class="user__profile">
+        <div class="mobile__userImg">
+          <a href="#">
+            <img src="{% static 'images/user_img.jpg' %}" alt="" />
+          </a>
+        </div>
+        <p>{{ request.user }}</p>
+      </div>
+    </div>
+    <div class="all__options">
+      <ul>
+        <li>
+          <a href="{% url 'buying_view' %}">Home</a>
+        </li>
+        <li>
+          <a href="#">Inbox</a>
+        </li>
+
+        <li class="browse__cat">
+          <div>Browse Categories</div>
+          <div>
+            <span
+              class="iconify"
+              data-icon="dashicons:arrow-down-alt2"
+              data-inline="false"
+            ></span>
+          </div>
+        </li>
+        <li class="fivourr__pro">
+          <a href="#" class="text-uppercase">Marketage Pro</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <p class="fw-bold text-dark">Buying</p>
+          <hr />
+        </li>
+        <li>
+          <a href="{% url 'buyer-dashboard' %}">Buyer Dashboard</a>
+        </li>
+        <li>
+          <a href="{% url 'post_a_request' %}">Post a Request</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <p class="fw-bold text-dark">Selling</p>
+          <hr />
+        </li>
+        <li>
+          <a href="{% url 'seller_dashboard' %}">Seller Dashboard</a>
+        </li>
+        <li>
+          <a href="#">Earnings</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <p class="fw-bold text-dark">General</p>
+          <hr />
+        </li>
+        <li>
+          <a href="{% url 'settings' %}">Settings</a>
+        </li>
+        <li>
+          <a href="{% url 'logoutview' %}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Mobile navbar section ends -->
+
+<script src="{% static 'js/mobile_navbar.js' %}"></script>

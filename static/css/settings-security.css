@@ -1,0 +1,238 @@
+body{
+    background-color: #F7F7F7;
+}
+.inner-setting{
+    margin-bottom: 100px;
+}
+.left-menu-list ul{
+    margin: 0;
+    padding: 0;
+}
+.left-menu-list ul li{
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+.left-menu-list ul li a{
+    text-decoration: none;
+    list-style: none;
+    color: rgb(138, 137, 137);
+    font-weight: 500;
+}
+.left-menu-list ul li a:hover{
+    color: rgb(37, 37, 37);
+}
+.upper-letter p{
+    text-align: right;
+}
+.upper-letter p a{
+    text-decoration: none;
+    color: #40CA89;
+    font-weight: 500;
+}
+.upper-letter p a:hover{
+    text-decoration: underline;
+}
+.active-page a{
+    color: #000 !important;
+    font-weight: 800 !important;
+}
+.right-details-card{
+    border: 1px solid rgb(221, 221, 221);
+    padding: 40px;
+    background-color: #fff;
+}
+.naming-details p{
+    display: inline-block;
+    width: 40%;
+    margin-bottom: 40px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.naming-details input{
+    width: 100%;
+    outline: none;
+    border: 1px solid rgb(177, 177, 177);
+    padding-left: 10px;
+}
+
+
+
+.question{
+    width: 100%;
+    display: inline-block;
+}
+.question p{
+    margin-top: 5px;
+    width: 64.5%;
+    float: right;
+    font-weight: 400;
+    margin-bottom: 0px !important;
+}
+.button{
+    width: 100%;
+    display: inline-block;
+
+}
+.save-changes{
+    float: right;
+    background-color: #1DBF73;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid #1DBF73;
+    margin-top: 30px;
+}
+.save-changes:hover{
+    border: 1px solid rgb(124, 124, 124);
+}
+
+.verification{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+.verification p{
+    width: 35%;
+}
+.verification span{
+    width: 22rem;
+    padding: 0px 10px;
+}
+.verification button{
+  
+}
+.edit{
+    height: 30px;
+    float: right;
+    background-color: #428ad3 !important;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid #428ad3 !important;
+    padding: 0px 10px;
+}
+
+.checkbox-style{
+    width: 65%;
+    display: block;
+}
+.for-input{
+    width: 100%;
+    display: inline-block;
+}
+.sign{
+    display: flex;
+    align-items: center;
+}
+.sign-out-icon{
+    width: 10%;
+    font-size: 22px;
+}
+.sign span{
+    width: 10%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+.device{
+    width: 80%;
+    padding: 15px 0px;
+}
+
+.f-left{
+    width: 20%;
+    align-self: center;
+    color: #000;
+    text-decoration: none;
+}
+.f-left:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #000;
+}
+.for-decrease-btm{
+    margin-bottom: 0px !important;
+}
+.sign-out{
+    width: 100%;
+    text-align: right;
+    color: #000;
+    margin-top: 40px;
+    
+}
+.sign-out a{
+    color: #000;
+    text-decoration: none;
+}
+.sign-out a:hover{
+    text-decoration: underline;
+}
+.for-mob-design{    
+    margin-top: 45px !important;
+    width: 100% !important;
+}
+/* responsive  */
+
+@media screen and (max-width: 991px) {
+    .naming-details input {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 518px) {
+    .naming-details p {
+        width: 34%;       
+    }
+    .naming-details select {
+        width: 41%;
+    }
+    .naming-details span {
+        width: 34%;
+    }
+    .upper-letter p{
+        font-size: 12px;
+    }
+    .left-tag p {
+        font-size: 14px;
+    }
+    .for-mob-design{
+        width: 65% !important;
+    }
+    .verification span{
+        width: 52%;
+        text-align: justify;
+    }
+    .verification p{
+        width: 40%;
+    }
+    .edit{
+        margin-left: 15px;
+        align-self: center;
+    }
+    .f-left{
+        width: 15%;
+        font-size: 12px;
+    }
+
+}
+@media screen and (max-width: 400px) {
+    .verification p{
+        font-size: 12px;
+    }
+    .device h6{
+        font-size: 12px;
+        margin-left: 15px;
+    }
+    .sign i{
+        margin-left: 15px;
+    }
+    .f-left{
+        width: 21%;
+    }
+}

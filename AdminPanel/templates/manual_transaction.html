@@ -1,0 +1,95 @@
+{% load static %}
+{% load mathfilters %}
+{% include 'base.html' %}
+
+    <div class="d-flex" id="wrapper">
+        {% include 'sidebar.html' %}
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            {% include 'nav.html' %}
+            
+            <div class="container-fluid px-4">
+                <div class="row my-5">
+
+                   <div class="search__bar__container">
+                    <form class="main__search__bar">
+                        <div class="mb-3">
+                          <input id="all____order____search" name="searchQuery" type="search" class="form-control" placeholder=" Search ID here.." aria-describedby="emailHelp" required>
+                        </div>
+                    </form>
+
+                   </div>
+
+                    <h3 class="fs-4 mb-3">All Offers</h3>
+                    <div class="col table-responsive">
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">SENDER</th>
+                                    <th scope="col">TRX NUMBER</th>
+                                    <th scope="col">PHONE NUMBER</th>
+                                    <th scope="col">GRAND TOTAL (USD)</th>
+                                    <th scope="col">GRAND TOTAL (BDT)</th>
+                                    <th scope="col">RECIEVED</th>
+                                    <th scope="col">STATUS</th>
+                                    <th scope="col">ACTION</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for order in mans %}
+                                <tr>
+                                    <!--<th class="monitor">{{ order.id }} -->
+                                    <!--{% if order.is_checked == False %}-->
+                                    <!--    <span class="new_____span">New</span>-->
+                                    <!--{% else %}{% endif %}-->
+                                    <!-- </th>-->
+                                    <td>{{ order.created_at }}</td>
+                                    <td>{{ order.orderId.user }}</td>
+                                    <td>{{ order.trx_number }}</td>
+                                    <td>{{ order.phone_number }}</td>
+                                    <td>{{ order.orderId.grand_total }}</td>
+                                    <td>{{ order.orderId.grand_total|mul:86 }}</td>
+                                    <td>{{ order.rec }}</td>
+                                    <td class="badge bg-warning">{{ order.status }}</td>
+                                    <td><a href="{% url 'update_manual_payment' order.id %}" class="btn btn-primary">UPDATE</a></a></td>
+                                    <!--<td>{{ order.order_status }}</td>-->
+                                    <!--<td><a href="{% url 'order_details' order.id %}">View</a></td>-->
+
+                                    <!--<td>BDT 422</td>-->
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+                
+
+
+                <div class="pagination__container d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+
+
+
+            </div>
+        </div>

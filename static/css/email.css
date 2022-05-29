@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+body{
+    background-color: #F3F3F3;
+}
+.email-template{
+    background-color: #fff;
+}
+.logo-area h2{
+    font-family: 'Lobster', cursive;
+    margin-bottom: 30px;
+}
+
+.email-banner{
+    width: 100%;
+    height: 300px;
+}
+.email-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.confirm-email{
+    text-align: center;
+    margin-top: 40px;
+}
+.confirm-email span{
+    font-weight: 500;
+
+}
+.confirm-email h2{
+    letter-spacing: 5px;
+    font-family: 'Abril Fatface', cursive;
+}
+
+
+.verify-email {
+    text-align: center;
+}
+.verify-email a{
+    background-color: #FF7A5A;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 35px;
+    color: #fff;
+    font-weight: 500;
+    margin: 30px 0px;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+}
+.verify-email a:hover{
+    background-color: #ff6139;
+}
+.support-area{
+    text-align: left;
+}
+.address{
+    text-align: left;
+}
+.address h6{
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.address span{
+    font-size: 15px;
+    font-weight: 500;
+}
+.copy-right{
+    text-align: center;
+}
+.copy-right p{
+    font-size: 12px;
+    font-weight: 500;
+}

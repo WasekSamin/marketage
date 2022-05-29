@@ -1,0 +1,350 @@
+{% load static %}
+
+{% load custom_filter %}
+
+{% include 'buyingview/header.html' %}
+
+<script src="{% static 'js/main-buyer-view.js' %}" defer></script>
+
+
+
+<link rel="stylesheet" href="{% static 'css/search-box-result.css' %}">
+
+<style>
+
+    .see-more-button-for-search button{
+        background: #fff;
+        border: 1px solid #428ad3;
+        width: 28%;
+        margin: 30px 0px;
+        border-radius: 5px;
+        transition: all .3s ease-in-out;
+        padding: 0px;
+    }
+    
+    .see-more-button-for-search button:hover{
+        background: #428ad3;
+        color: #fff;
+    }
+    
+</style>
+
+
+
+<!-- not found services container -->
+
+
+
+
+{% if not results %}
+<div class="container">
+
+    <div class="not___found___main____div">
+
+        <div class="not___found___image d-flex justify-content-center">
+
+
+
+            <img src="{% static 'images/not_found.png' %}">
+
+            
+
+        </div>
+
+        <div class="invalid___search">
+
+            <h2 class="text-center">Not Found Any Services</h2>
+
+            <h5 class="text-center text-muted">Try a new search or get a free quote for your project</h5>
+
+            <h5 class="text-center text-muted">from our community of freelancers.</h5>
+
+        </div>
+
+        
+    
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- mobile search box -->
+
+  <div class="container"> 
+
+    <div class="all___search___div">
+
+        <div class="main_____Searchbar ">
+
+            <div class="mobile___Search__bar">
+
+                <form>
+
+                    <input type="text" placeholder="search here.." required>
+
+                </form>
+
+            </div>
+
+            <div class="search______icon">
+
+                <p><a href="#"><span class="iconify" data-icon="fa-solid:search" style="color: #2195ea;"></span></a></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  </div><br>
+
+
+
+  <!-- mobile search resutls -->
+
+  <div class="container">
+
+    <div class="mobile____________show_________resutls d-flex justify-content-center">
+
+        {% comment %} <p>
+
+            Showing 1-48 of 4835 results for <span class="fw-bold">RESULTS</span>
+
+        </p> {% endcomment %}
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- valid search result content -->
+
+
+
+  <!-- fliter and sort button for  mobile view -->
+  <!-- Subscription checkbox -->
+
+  <div class="container subscripton-checkbox">
+
+    <div class="form-check form-switch">
+
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+
+      <label class="form-check-label" for="flexSwitchCheckDefault">Subscription Services </label>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- show result gigs -->
+  {% comment %} ELSE  {% endcomment %}
+ {% else %}
+
+  <div class="container show-result-gigs">
+
+    <h2>Results for "{{ search }}"</h2><br>
+
+
+<br>
+
+<div class="container">
+
+    <div class="row">
+
+{% for r in results %}
+ 
+
+    <div class="col-md-6 col-lg-3 mb-4 premium-card" data-aos="fade-up">
+
+    <div class="card main-card-for-offer">
+
+        
+    {% if r.is_premium == True %}
+        <div class="premium-logo">
+
+                <img src= "{% static 'images/Marketage_Premium-Seller.png' %}" >            
+
+            </div>
+    {% else %}{% endif %}
+
+    <div class= "for-card-inner-img-slider">
+        <a href="{% url 'offer_details' r.id r.slug %}">
+
+                <div class="img-on-card-body">
+                    {% if r.image %}
+                    <img src= "{{ r.image.url }}" >                    
+                    {% endif %}
+                </div>
+
+            </a>
+            
+    {% for img in r.extra_images.all %}
+        <a href="{% url 'offer_details' r.id r.slug %}">
+
+            <div class="img-on-card-body">
+
+                <img src= "{{ img.image.url }}" >              
+
+            </div>
+
+        </a>
+    {% endfor %}
+    </div>
+        <div class="card-body">
+
+        
+                            <div class="seller-in-details d-flex align-items-center">
+                                <div class="seller-profile-pix">
+                                      <a href="{% url 'account' r.user.id r.user.username %}">
+                                        <img src="{{ r.user.selleraccount.profile_picture.url }}" alt="">
+                                      </a>
+                                      
+                                </div>
+                      
+                      
+                                  
+                                <div class="seller-profile-name">
+                                  <a href="{% url 'account' r.user.id r.user.username %}"> 
+                                    <p class="seler-name text-dark" style="margin-bottom: 0px;">{{ r.user }}</p>  
+                                    </a>
+                                </div>
+                            </div> 
+                            
+                            
+                            <a href="{% url 'offer_details' r.id r.slug %}"> 
+
+                                <h5 class="card-title">{{ r.offer_title }}</h5>  
+
+                             </a>
+
+
+
+
+
+
+        <div class="category-tag">
+
+
+
+            <p>{{ r.category }}</p>
+
+
+
+            <div class="category-for-right">                  
+
+                <div class= "click-on-offer">
+
+                    <p class="badge bg-dark text-white">{{ r.click }}</p>
+
+                    <p class="badge bg-dark text-white">Clicks</p>                        
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!--<div class= "for-seller-level-star">-->
+
+        <!--    <i class="fas fa-star yellow-star"></i>-->
+
+        <!--    <i class="fas fa-star yellow-star"></i>-->
+
+        <!--    <i class="fas fa-star yellow-star"></i>-->
+
+        <!--    <i class="fas fa-star yellow-star"></i>-->
+
+        <!--    <i class="fas fa-star black-star"></i>-->
+
+        <!--</div>-->
+
+        <hr>
+
+
+
+        <div class="offer-price">
+
+            <p>Starting At</p>
+
+            <p>USD <span>{{ r.offermanager_set.all|offer_price_start }}</span> </p>
+
+        </div>
+
+        
+
+        </div>
+
+    </div>
+
+</div> 
+{% endfor %}
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+        {% if results|length > 20 %}
+        <div class="see-more-button-for-search container text-center">
+            
+            <button>See More</button>
+
+        </div>
+        {% endif %}
+
+
+{% endif %}
+</div>
+
+
+
+
+{% include 'buyingview/buying_footer.html' %}
+
+
+
+
+
+
+
+
+

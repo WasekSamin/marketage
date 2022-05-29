@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+
+
+body{
+
+  background-color: #F7F7F7;
+
+}
+/* notification*/
+.circle__badge___requ {
+    background-color: #619CEC;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    line-height: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    transition: background-color 0.3s;
+}
+
+
+.order-details-for-payment{
+
+  background-color: #fff;
+
+  border: 1px solid rgb(221, 220, 220);
+
+  padding: 30px;
+
+}
+
+
+
+.tab-view p{
+
+  margin-right: 20px;
+
+  font-weight: 500;
+
+}
+
+.place-order, .ongoing-project, .premium-order{
+
+  cursor: pointer;
+
+  padding: 8px 15px;
+
+}
+
+.place-order:hover, .ongoing-project:hover, .premium-order:hover{
+
+  color: #264fc2;
+
+}
+
+.place-order{
+
+  color: #264fc2;
+
+  border-bottom-width: 2px;
+
+  border-bottom-style: solid;
+
+  border-color: #000;
+
+}
+
+.ongoing-project{
+
+  border-bottom-width: 2px;
+
+  border-bottom-style: solid;
+
+  border-color: #F7F7F7;
+
+
+}
+
+/* for premium orfer */
+
+.for-premium{
+
+    display: none;
+
+}
+
+.premium-order{
+
+    border-bottom-width: 2px;
+
+    border-bottom-style: solid;
+
+    border-color: #F7F7F7;
+
+}
+
+
+
+
+
+.button{
+
+    width: 100%;
+
+}
+
+.button button{
+
+    display: block;
+
+    border: none;
+
+    padding: 5px !important;
+
+    background-color: #2176e6;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    border-radius: 3px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center !important;
+
+    border-radius: 5px;
+    
+    width: 100%;
+
+}
+
+.button span{
+    display: block;
+    border: none;
+
+    padding: 4px !important;
+
+    background-color: #2176e6;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    border-radius: 3px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center !important;
+
+    border-radius: 5px;
+
+    user-select: none;
+
+}
+
+
+
+.review-button{
+
+  background-color: rgb(0, 138, 18) !important;
+
+}
+
+
+
+.review__btnPrimary {
+
+  background-color: #2176e6 !important;
+
+}
+
+
+
+.button button::after{
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    height: 100%;
+
+    left: 100%;
+
+    width: 100%;
+
+    border: none;
+
+    padding: 10px;
+
+    background-color: rgba(255, 255, 255, .1);
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    border-radius: 3px;
+
+    transition: all .5s ease-in-out;
+
+}
+
+
+
+
+
+.title{
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+.button button:hover:after{
+
+    left: 0;
+
+    z-index: -1;
+
+}
+
+.button button:hover{
+
+    left: 0;
+
+    z-index: 2;
+
+}
+
+.for-align{
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+
+
+
+.taka-sign{
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+}
+
+.for-ongoing{
+
+  display: none;
+
+}
+
+.for-placed-order{
+
+  display: block;
+
+}
+
+.view{
+
+  padding: 5px 22px !important; 
+
+}
+
+
+
+.review-seller{
+    display: block;
+    border: none;
+
+    padding: 5px !important;
+
+    background-color: #2176e6;
+
+    color: #fff;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    border-radius: 3px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center !important;
+
+    border-radius: 5px;
+    
+    margin-top: 5px;
+}
+.review-seller:after{
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    height: 100%;
+
+    left: 100%;
+
+    width: 100%;
+
+    border: none;
+
+    padding: 10px;
+
+    background-color: rgba(255, 255, 255, .1);
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    border-radius: 3px;
+
+    transition: all .5s ease-in-out;
+
+}
+
+
+.review-seller:hover {
+    color: #fff;
+}
+
+.first-item{
+    display: flex;
+}
+.for-new-notification{
+    border: 1px solid #0d6efd!important;
+    background: #fff;
+    color: #000;
+    font-size: 8px;
+    display: flex;
+}
+.paid-button{
+    display: block;
+    padding: 7px;
+    font-size: 12px;
+}
+.offer-title p{
+    margin-bottom: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.review-seller{
+    
+}
+@media screen and (min-width: 991px) {
+
+  .order-list{
+
+    overflow-x: hidden;
+
+  }
+
+}

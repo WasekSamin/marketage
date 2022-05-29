@@ -1,0 +1,53 @@
+{% load static %}
+{% include "wasekPart/base.html" %}
+
+{% block content %}
+<link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+<link rel="stylesheet" href="{% static 'css/buyer-gigForm.css' %}">
+
+<div class="buyer__gigform__details">
+   
+    <div class="gig__form">
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4 second__buyer__gigform">
+                        <form method="POST">
+                        {% csrf_token %}
+                            <h2 class="text-center fw-bold">Download Offers</h2>
+                            <a href="{{ seller_submit.file_field.url }}" download="{{ seller_submit.file_field.url }}">
+                                Download
+                            </a>
+                            <select name="order_status">
+                                <option value="complete">Complete</option>
+                                <option value="cancel">Cancel</option>
+                                <option value="review">Review</option>
+                            </select>
+                            <button class="btn btn-primary" type="submit">Save</button>
+                    </form>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
+        </div>
+        
+{% comment %} 
+        <!-- {% csrf_token %}
+            <a href="{{ seller_submit.file_field.url }}" download="{{ seller_submit.file_field.url }}">
+                Download
+            </a>
+    
+        <select name="order_status">
+            <option value="complete">Complete</option>
+            <option value="cancel">Cancel</option>
+            <option value="review">Review</option>
+        </select>
+    
+        <button type="submit">Save</button> --> {% endcomment %}
+   
+</div>
+
+{% endblock %}

@@ -1,0 +1,324 @@
+{% extends "wasekPart/base.html" %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/manage_order.css' %}" />
+
+<script src="{% static 'js/manage_order.js' %}" defer></script>
+
+<div class="manage__order container">
+  <!-- Order header section starts -->
+  <div class="order__headerSection mb-4">
+    <h1>Manage Orders</h1>
+
+    {% comment %}
+    <form method="get" class="order__searchForm">
+      <input type="text" placeholder="Search My History..." />
+      <span class="iconify" data-icon="bx:bx-search" data-inline="false"></span>
+    </form>
+    {% endcomment %}
+  </div>
+  <!-- Order header section ends -->
+
+  <!-- Order links section starts  -->
+  <div class="order__links">
+    <ul>
+      <button class="ordered__btn active__btn active__link">
+        <li>
+          Active
+          <span class="circle__badge">
+            <span>{{ active_orders|length }}</span>
+          </span>
+        </li>
+      </button>
+      <button class="ordered__btn late__btn">
+        <li>
+          Late
+          <span class="circle__badge"
+            ><span>{{ late_orders|length }}</span>
+          </span>
+        </li>
+      </button>
+      <button class="ordered__btn delivered__btn">
+        <li>
+          Delivered
+          <span class="circle__badge">
+            <span>{{ delivered_orders|length }}</span>
+          </span>
+        </li>
+      </button>
+      <button class="ordered__btn ordered__btn completed__btn">
+        <li>
+          Completed
+          <span class="circle__badge">
+            <span>{{ completed_orders|length }}</span>
+          </span>
+        </li>
+      </button>
+      <button class="ordered__btn cancelled__btn">
+        <li>
+          Cancelled
+          <span class="circle__badge">
+            <span>{{ cancelled_orders|length }}</span>
+          </span>
+        </li>
+      </button>
+      <button class="ordered__btn review__btn">
+        <li>
+          On Review
+          <span class="circle__badge">
+            <span>{{ review_orders|length }}</span>
+          </span>
+        </li>
+      </button>
+    </ul>
+  </div>
+  <!-- Order links section ends  -->
+
+  <!-- Order header section starts -->
+  <div class="card active__order py-3 px-2 mt-4">
+    <p class="table__orderText text-uppercase">Active orders</p>
+  </div>
+  <!-- Order header section ends -->
+
+  <!-- Order table section starts -->
+  <div class="table-responsive manage__orderTable">
+    <!-- Active table section starts -->
+    <table
+      class="table table-hover bg-white activated__table show__activeTable"
+    >
+      <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-muted ps-3">buyer</th>
+          <th scope="col" class="text-muted">offer</th>
+          <th scope="col" class="text-muted">due on</th>
+          <th scope="col" class="text-muted">total</th>
+          <th scope="col" class="text-muted">status</th>
+          <th scope="col" class="text-muted text-center">order submission</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if active_orders|length > 0 %} {% for order in active_orders %}
+        <tr>
+            <td class="ps-3 align-middle" colspan="2">
+            {% if not order.is_checked == True %}
+              <span class="badge new-noti">New</span>
+              {% else %}{% endif %}
+              {{order.user}}
+              
+            </td>
+            
+          <td class="align-middle">
+            <a href="{% url 'seller-submit' order.id order.slug %}">{{ order.package.offer.offer_title }}</a>
+          </td>
+          <td class="align-middle">{{ order.due_date }}</td>
+          <td class="align-middle">{{ order.total }}</td>
+          <td class="order__status align-middle">
+            <p>{{ order.order_status|title }}</p>
+          </td>
+          <td class="order__submitBtn align-middle">
+            <a href="{% url 'seller-submit' order.id order.slug %}">
+              <button class="btn btn-primary">Submit</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+          <td class="ps-3 align-middle" colspan="7">
+            <h6 class="fw-bold text-danger">No orders to show!</h6>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Active table section ends -->
+
+    <!-- Late table section starts -->
+    <table class="table table-hover bg-white late__table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-muted ps-3">buyer</th>
+          <th scope="col" class="text-muted">offer</th>
+          <th scope="col" class="text-muted">due on</th>
+          <th scope="col" class="text-muted">total</th>
+          <th scope="col" class="text-muted">status</th>
+          <th scope="col" class="text-muted text-center">order submission</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if late_orders|length > 0 %} {% for order in late_orders %}
+        <tr>
+          <td class="ps-3" colspan="2">{{order.user}}</td>
+          <td>
+            <a href="{% url 'seller-submit' order.id order.slug %}">{{ order.package.offer.offer_title }}</a>
+          </td>
+          <td>{{ order.due_date }}</td>
+          <td>{{ order.total }}</td>
+          <td class="order__status">
+            <p>{{ order.order_status|title }}</p>
+          </td>
+          <td class="order__submitBtn align-middle">
+            <a href="{% url 'seller-submit' order.id order.slug %}">
+              <button class="btn btn-primary">Submit</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+          <td class="ps-3" colspan="7">
+            <h6 class="fw-bold text-danger">No orders to show!</h6>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Late table section ends -->
+
+    <!-- Delivered table section starts -->
+    <table class="table table-hover bg-white delivered__table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-muted ps-3">buyer</th>
+          <th scope="col" class="text-muted">offer</th>
+          <th scope="col" class="text-muted">due on</th>
+          <th scope="col" class="text-muted">total</th>
+          <th scope="col" class="text-muted">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if delivered_orders|length > 0 %} {% for order in delivered_orders %}
+        <tr>
+          <td class="ps-3" colspan="2">{{order.user}}</td>
+          <td>
+            <a href="#">{{ order.package.offer.offer_title }}</a>
+          </td>
+          <td>{{ order.due_date }}</td>
+          <td>{{ order.total }}</td>
+          <td class="order__status">
+            <p>{{ order.order_status|title }}</p>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+          <td class="ps-3" colspan="7">
+            <h6 class="fw-bold text-danger">No orders to show!</h6>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Delivered table section ends -->
+
+    <!-- Completed table section starts -->
+    <table class="table table-hover bg-white completed__table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-muted ps-3">buyer</th>
+          <th scope="col" class="text-muted">offer</th>
+          <th scope="col" class="text-muted">due on</th>
+          <th scope="col" class="text-muted">total</th>
+          <th scope="col" class="text-muted">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if completed_orders|length > 0 %} {% for order in completed_orders %}
+        <tr>
+          <td class="ps-3" colspan="2">{{order.user}}</td>
+          <td>
+            <a href="#">{{ order.package.offer.offer_title }}</a>
+          </td>
+          <td>{{ order.due_date }}</td>
+          <td>{{ order.total }}</td>
+          <td class="order__status">
+            <p>Completed</p>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+          <td class="ps-3" colspan="7">
+            <h6 class="fw-bold text-danger">No orders to show!</h6>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Completed table section ends -->
+
+    <!-- Cancelled table section starts -->
+    <table class="table table-hover bg-white cancelled__table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-muted ps-3">buyer</th>
+          <th scope="col" class="text-muted">offer</th>
+          <th scope="col" class="text-muted">due on</th>
+          <th scope="col" class="text-muted">total</th>
+          <th scope="col" class="text-muted">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if cancelled_orders|length > 0 %} {% for order in cancelled_orders %}
+        <tr>
+          <td class="ps-3" colspan="2">{{order.user}}</td>
+          <td>
+            <a href="#">{{ order.package.offer.offer_title }}</a>
+          </td>
+          <td>{{ order.due_date }}</td>
+          <td>{{ order.total }}</td>
+          <td class="order__status">
+            <p>{{ order.order_status|title }}</p>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+          <td class="ps-3" colspan="7">
+            <h6 class="fw-bold text-danger">No orders to show!</h6>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Cancelled table section ends -->
+
+    <!-- Review table section starts -->
+    <table class="table table-hover bg-white review__table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-muted ps-3">buyer</th>
+          <th scope="col" class="text-muted">offer</th>
+          <th scope="col" class="text-muted">due on</th>
+          <th scope="col" class="text-muted">total</th>
+          <th scope="col" class="text-muted">status</th>
+          <th scope="col" class="text-muted text-center">review submission</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if review_orders|length > 0 %} {% for order in review_orders %}
+        <tr>
+          <td class="ps-3" colspan="2">{{order.user}}</td>
+          <td>
+            <a href="{% url 'seller-submit' order.id order.slug %}">{{ order.package.offer.offer_title }}</a>
+          </td>
+          <td>{{ order.due_date }}</td>
+          <td>{{ order.total }}</td>
+          <td class="order__status">
+            <p>{{ order.order_status|title }}</p>
+          </td>
+          <td class="order__submitBtn">
+            <a href="{% url 'seller-submit' order.id order.slug %}">
+              <button class="btn btn-primary">Reupload</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+          <td class="ps-3" colspan="7">
+            <h6 class="fw-bold text-danger">No orders to show!</h6>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Review table section ends -->
+  </div>
+  <!-- Order table section ends -->
+</div>
+{% include 'buyingview/buying_footer.html' %}
+{% endblock %}

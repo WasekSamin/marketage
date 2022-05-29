@@ -1,0 +1,189 @@
+{% load static %}
+{% include 'base.html' %}
+    <div class="d-flex" id="wrapper">
+        {% include 'sidebar.html' %}
+
+        <div id="page-content-wrapper">
+            {% include 'nav.html' %}
+            <div class="container-fluid px-4">
+                <div class="row my-5">
+
+
+                    
+                     
+
+                     <div class="for-withdraw-form">
+
+                        <h3 class="width-title">Widthdraw Details</h3>
+                         <!-- form start -->
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        <div class="for-input mb-5 d-flex justify-content-between" placeholder="" >
+                            <span>Method</span>
+                            <input class="mx-5" type="text" value="{{ clear_wd.method }} " readonly="readonly">
+                        </div>
+                        
+                        <div class="for-input mb-5 d-flex justify-content-between" placeholder="" >
+                            <span>Phone Number</span>
+                            <input class="mx-5" type="text" value="{{ clear_wd.number }}" readonly="readonly">
+                        </div>
+                        
+                        
+                        <div class="for-input mb-5 d-flex justify-content-between" placeholder="" >
+                            <span>User</span>
+                            <input class="mx-5" type="text" value="{{ clear_wd.user }}" readonly="readonly">
+
+                        </div>
+                        
+                        
+                        <div class="for-input mb-5 d-flex justify-content-between" placeholder="" >
+                            <span>Amount Requested</span>
+                            <input class="mx-5" type="number" value="{{ clear_wd.amount }}" readonly="readonly">
+
+                        </div>
+                        <div class="for-input mb-5 d-flex justify-content-between" placeholder="" >
+                            <span>Update status</span>
+                            
+                            <select name="stat" id="" class="mx-5 w-50">
+                                <option value="{{ clear_wd.stat }}">{{ clear_wd.stat }}</option>
+                                <option value="ON REVIEW">ON REVIEW</option>
+                                <option value="CLEARED">CLEARED</option>
+                                <option value="REJECTED">REJECTED</option>
+                            </select>
+                        </div>
+
+                
+
+                        <div class="submit-btn mt-5 mb-5 w-100 text-center">
+                            <button type="submit">UPDATE</button>
+                        </div>
+
+
+                     </form>
+                        <!-- form end -->
+                    </div>
+                     <div class="row my-5">
+
+                        <div class="search__bar__container">
+                         <form class="main__search__bar">
+                             <div class="mb-3">
+                               <input type="search" class="form-control" placeholder=" Search ID here.." aria-describedby="emailHelp" required>
+                             </div>
+                         </form>
+     
+                       <div class="drop__search__container__button">
+                         <div class="dropdown drop__search__1">
+                             <a class="drop__button1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                               Filter
+                             </a>
+                           
+                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                               <li><a class="dropdown-item" href="#">Action</a></li>
+                               <li><a class="dropdown-item" href="#">Another action</a></li>
+                               <li><a class="dropdown-item" href="#">Something else here</a></li>
+                             </ul>
+     
+                           </div>
+                           
+                           <div class="dropdown drop__search__2">
+                             <a class="drop__button2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                               Sort
+                             </a>
+                           
+                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                               <li><a class="dropdown-item" href="#">Action</a></li>
+                               <li><a class="dropdown-item" href="#">Another action</a></li>
+                               <li><a class="dropdown-item" href="#">Something else here</a></li>
+                             </ul>
+                           </div>
+                       </div>
+                        </div>
+     
+     
+                         
+                         <div class="col table-responsive">
+                             <table class="table bg-white rounded shadow-sm  table-hover">
+                                 <thead>
+                                     <tr>
+                                         <th scope="col">Order ID</th>
+                                         <th scope="col">Buyer Name</th>
+                                         <th scope="col">Seller Name</th>
+                                         <th scope="col">Duration</th>
+                                         <th scope="col">Offer Title</th>
+                                         <th scope="col">Order Status</th>
+                                         <!--<th scope="col">Action</th>-->
+                                         <th scope="col">Total</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     {% for o in order_by_seller %}
+                                             <tr>
+                                                 <th>{{ o.id }}</th>
+                                                 <td>{{ o.user }}</td>
+                                                 <td>{{ o.seller }}</td>
+                                                 <td>3 DAYS</td>
+                                                 <td>{{ o.package.offer.offer_title }}</td>
+                                                 <td>{{ o.order_status }}</td>
+                                                 <!--<td>Rabbith Arko</td>-->
+                                                 <td>{{ o.total }}</td>
+                                             </tr>
+                                    {% endfor %}
+                                     <p class="alert alert-warning">No Orders Found!</p>
+                           
+                                     
+                                 </tbody>
+     
+                                 
+     
+     
+     
+     
+                             </table>
+     
+     
+     
+                             
+
+     
+                             
+                         </div>
+                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 </div>
+ 
+            </div>
+
+
+        </div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    var el = document.getElementById("wrapper");
+    var toggleButton = document.getElementById("menu-toggle");
+
+    toggleButton.onclick = function () {
+        el.classList.toggle("toggled");
+    };
+</script>

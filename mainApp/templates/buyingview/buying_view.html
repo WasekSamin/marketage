@@ -1,0 +1,1435 @@
+{% load static %}
+
+{% load custom_filter %}
+
+
+
+{% include 'buyingview/header.html' %}
+
+
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js" defer></script>-->
+
+
+
+
+
+
+    <!--main css for buyer-view -->
+
+    <link rel="stylesheet" href=  "{% static 'css/buyer-stylesheet.css' %}" />
+
+    <link rel="stylesheet" href=  "{% static 'css/buyer-style-responsive.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/rafsun.css' %}">
+
+
+
+    <!-- main js for buying view -->
+
+    <script src="{% static 'js/main-buyer-view.js' %}" defer></script>
+
+
+
+
+
+
+
+<!-- For buyer view  -->
+
+
+
+
+
+<section class="profile-action container">
+
+        <div class="inner-profile row">
+
+            <div class="col-md-3 full-width">
+
+                <div class="card inner-card">
+
+                    <div class="card-detail">
+
+                        <h1>Hi ({{ request.user }})</h1>
+
+                        <p style="margin-block-start: 0 !important;">Get offers from sellers for your project</p>
+
+                        <a href="{% url 'post_a_request' %}" class="btn profile-button">Post a request</a>
+
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+        <div class="col-md-9 inner-right">
+
+
+
+
+
+
+
+            <div class="with-bg">
+
+
+
+                <div class="bg-img">
+
+
+
+                    <img src= "{% static 'images/action-banner-buyer-view.png' %}" alt="">
+
+
+
+                </div>
+
+
+
+                <div class="left-post">
+
+                    <span>{{ request.user }},</span>
+
+                    <p>Here's what you need for brand packaging</p>
+
+                </div>
+
+
+
+
+
+                <div class="right-slider">
+
+
+
+
+
+
+
+                    <div class="responsive">
+
+                        {% for cat in cats %}
+
+
+
+                        {% if cat %}
+
+                        <!--category slider div starts Here-->
+
+                        <div>
+
+                            <a href="{% url 'category-wise' cat.slug %}">
+
+                            <div class="class">
+
+                                <!--<i class="fab fa-500px"></i>-->
+
+                                <img src="{{ cat.icon.url }}" style="height: 80px; margin: 0 auto;">
+
+                                <h5>{{ cat.title }}</h5>
+
+                            </div>
+
+                            </a>
+
+                        </div>
+
+
+
+                        {% else %}
+
+
+
+                        <h4>No Category Found!</h4>
+
+
+
+                        {% endif %}
+
+                        {% endfor %}
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</section>
+
+<!--
+
+=============================================================================
+
+                            Continue Browsing section
+
+============================================================================= -->
+
+
+
+{% comment %}
+
+<section id="continue-browsing">
+
+    <div class="innerbrowsing container">
+
+
+
+        <div class="headline">
+
+        <h1>Continue Browsing</h1>
+
+        </div>
+
+
+
+    <div class="service-card">
+
+    <div class="row inner-service-card">
+
+
+
+{% for g in offers %}
+
+
+
+        <div class="col-md-3">
+
+            <div class="card">
+
+                <a href="{% url 'offer_details' g.id g.slug %}">
+
+                    <img src="{{ g.image.url }}" class="card-img-top" alt="...">
+
+                </a>
+
+                <div class="card-body">
+
+
+
+                    <a class="for-card-hover" href="">
+
+                    <h5 class="card-title">{{ g.offer_title }}</h5>
+
+                    </a>
+
+
+
+                    <p class="card-text">{{ g.short_desc|truncatechars:50 }}</p>
+
+
+
+                    <div class="level">
+
+                        <i class="fas fa-star"></i>
+
+                        <strong>{{ g.gig_rating }}</strong>
+
+
+
+                        <span class="for-right">{{ g.user.extendeduser.level }}</span>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <i class="fas fa-bars"></i>
+
+                    <i class="fas fa-heart"></i>
+
+                    <span class="for-right">Starting at 
+
+USD {{ g.offermanager_set.all|offer_price_start }}</span>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+</section>
+
+{% endcomment %}
+
+
+
+
+
+<!--
+
+=============================================================================
+
+                            For Mobile view (576 px screen)
+
+============================================================================= -->
+
+
+
+
+
+<!-- top-slider -->
+
+<div id="top-slider">
+
+    <form class="d-flex input-group collapse navbar-expand-md  mb-4" id="navbarSupportedContent">
+
+
+
+                    <i class="fas fa-search"></i>
+
+                    <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
+
+
+
+    </form>
+
+
+
+    <div class="inner-top-slider ">
+
+
+
+        <div class="main-top container-fluid">
+
+
+
+
+
+                <div class="main-top-slider">
+
+                    <img src="{% static 'images/bg-5.jpg' %}" alt="">
+
+                    <h1>Build a better band</h1>
+
+                    <p>Create a band that demands attention with these guide</p>
+
+                </div>
+
+
+
+
+
+               <div class="main-top-slider">
+
+                    <img src="{% static 'images/bg-2.jpg' %}" alt="">
+
+                    <h1>Your first project awaits</h1>
+
+                    <p>You started with these recommended seller</p>
+
+                </div>
+
+
+
+
+
+                <div class="main-top-slider">
+
+                    <img src="{% static 'images/bg-6.jpg' %}" alt="">
+
+                    <h1>Holiday success start here</h1>
+
+                    <p>Head to our holiday HUB for a head start</p>
+
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- Catagory box -->
+
+
+
+<div class="card-box container">
+
+
+
+    <div class="card innr-card-box">
+
+
+
+        <div class="card-box-icon">
+
+            <i class="fas fa-pencil-ruler"></i>
+
+        </div>
+
+
+
+        <div class="card-box-text">
+
+            <h2>Graphics & Design</h2>
+
+            <p>
+
+                Logo Design, Brand Style Guide</p>
+
+        </div>
+
+    </div>
+
+    <div class="card innr-card-box">
+
+
+
+        <div class="card-box-icon">
+
+            <i class="fas fa-pencil-ruler"></i>
+
+        </div>
+
+
+
+        <div class="card-box-text">
+
+            <h2>Digital Marketing</h2>
+
+            <p>Social Media Advertising, social media marketing</p>
+
+        </div>
+
+    </div>
+
+    <div class="card innr-card-box">
+
+
+
+        <div class="card-box-icon">
+
+            <i class="fas fa-pencil-ruler"></i>
+
+        </div>
+
+
+
+        <div class="card-box-text">
+
+            <h2>Writing & Translation</h2>
+
+            <p>Articles & blog Posts, resume Writing</p>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+=============================================================================
+
+                            premium Offer section
+
+============================================================================= -->
+
+
+
+<!--new card design -->
+
+
+
+<div class="premium-section pb-5">
+
+    <h2 class="my-5 d-flex justify-content-center align-items-center">Premium Offers</h2>
+<div class="for-popular-section container mt-5"> 
+
+    <div class="container new-card premium-offer">
+
+    </div>
+
+    <div class="row">
+            <!--Loop-->
+            
+            {% if all_premium_offers %}
+                {% for po in all_premium_offers %}
+                <div class="col-md-6 col-lg-3 mb-4 premium-card premium-see-more" data-aos="fade-up">
+                    <div class="card main-card-for-offer">
+                        
+                        <div class="premium-logo">
+                                <img src= "{% static 'images/Marketage_Premium-Seller.png' %}" >
+                            </div>
+                    <div class="expand__offerSection">
+                        <div class= "for-card-inner-img-slider">
+                            <a href="{% url 'offer_details' po.id po.slug %}">
+                                {% if po.image %}
+                                <div class="img-on-card-body">
+                                    <img src= "{{ po.image.url }}" >
+                                </div>
+                                {% endif %}
+                            </a>
+                            {% for img in po.extra_images.all %}
+                                <a href="{% url 'offer_details' po.id po.slug %}">
+                                    <div class="img-on-card-body">
+                                        <img src= "{{ img.image.url }}" >
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="expend__premiumOffer mb-2 expand__premiumOfferIcon{{ po.id }}" onclick="expendPremiumOffer({{ po.id }})">
+                                    <span class="iconify" data-icon="carbon:add" style="color: white;"></span>
+                        </div>
+                    </div>
+                        
+                    
+        
+        
+                        <div class="card-body">
+                           <div class="get__expandOffer{{ po.id }} hide__expandOffer">
+                                <div class="seller-in-details d-flex align-items-center">
+                                    <div class="seller-profile-pix">
+                                          <a href="{% url 'account' po.user.id po.user.username %}">
+                                            <img src="{{ po.user.selleraccount.profile_picture.url }}" alt="">
+                                          </a>
+                                          
+                                    </div>
+                          
+                          
+                                      
+                                    <div class="seller-profile-name">
+                                      <a href="{% url 'account' po.user.id po.user.username %}">
+                                        <p class="seler-name text-dark" style="margin-bottom: 0px;">{{ po.user }}</p>  
+                                        </a>
+                                    </div>
+                                </div>  
+                                
+                                <a href="{% url 'offer_details' po.id po.slug %}"> 
+    
+                                    <h5 class="card-title">{{ po.offer_title }}</h5>
+                                </a>
+                               
+                               
+            
+                            <div class="category-tag">
+                                <p>{{ po.category }}</p>
+                            </div>
+                        </div>
+        
+                        <hr>
+        
+                        <div class="offer-price d-flex justify-content-between align-items-center">
+                            <div class="d-flex flex-column align-items-center">
+                                <p style="margin-top: 0.07rem; font-size: 0.85rem;" class="text-muted">Clicks</p>
+                                <p class="fw-bold">{{ po.click }}</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <p style="font-size: 0.85rem;" class="text-muted ">Starting Price</p>
+                                <p class="fw-bold">${{ po.offermanager_set.all|offer_price_start }}</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+        
+        
+                <span class="text-center d-block"> 
+                    <h3 class="no-offer text-danger">NO PREMIUM OFFER TO SHOW!</h3>
+                </span>
+
+            {% endif %}
+            </div>
+
+{% if all_premium_offers|length > 20 %}
+<div class="see-more-offer premium-see-more-button container text-center">
+    <button class="see-more-button">See More</button>
+</div>
+{% endif %}
+   
+
+
+    </div>
+   
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
+<!--
+
+=============================================================================
+
+                            Popular Offer section
+
+============================================================================= -->
+
+
+
+<section class="for-popular-section container mt-5"> 
+
+<!-- new card design -->
+
+<div class="container new-card mt-3">
+
+    <div class="popular-gig-title">
+
+        <h2>All Offers</h2>
+
+    </div>
+
+<div class="row ">
+
+
+{% if offers|length > 0 %}
+{% for offer in offers %}
+
+    {% if offer.offer_status != "PAUSED" %}
+
+    <div class="col-md-6 col-lg-3 mb-4 for-see-more">
+
+        <div class="card main-card-for-offer ">
+
+        <div class= "for-card-inner-img-slider">
+
+            <a href="{% url 'offer_details' offer.id offer.slug %}">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ offer.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+            {% for img in offer.extra_images.all %}
+
+            <a href="{% url 'offer_details' offer.id offer.slug %}">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ img.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+
+
+             {% comment %} <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ offer.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ offer.image.url }}" >            
+
+                </div>
+
+            </a>  {% endcomment %}
+
+               
+
+        </div>
+
+            
+
+            <div class="card-body">
+                   
+                 <div class="seller-in-details d-flex align-items-center">
+                    <div class="seller-profile-pix">
+                          <a href="{% url 'account' offer.user.id offer.user.username %}">
+                            <img src="{{ offer.user.selleraccount.profile_picture.url }}" alt="">
+                          </a>
+                          
+                    </div>
+                      
+                      
+                      
+                    <div class="seller-profile-name">
+                        <a href="{% url 'account' offer.user.id offer.user.username %}"> 
+                            <p class="seler-name text-dark" style="margin-bottom: 0px;">{{ offer.user }}</p>  
+                        </a>
+                    </div>
+                </div>  
+
+                
+
+
+
+            <a href="{% url 'offer_details' offer.id offer.slug %}"> 
+
+                <h5 class="card-title">{{ offer.offer_title }}</h5>  
+
+            </a>
+
+
+
+            <div class="category-tag">
+
+
+
+                <p>{{ offer.service }}</p>
+
+
+
+                <div class="category-for-right">                  
+
+                    <div class= "click-on-offer">
+
+
+
+                        <p class="badge bg-dark">{{ offer.click }}</p>
+
+                        <span class="badge bg-dark">Clicks</span>                     
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <!--<div class= "for-seller-level-star">-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star black-star"></i>-->
+
+            <!--</div>-->
+
+            <hr>
+
+        
+
+            <div class="offer-price">
+
+                <p>Starting At</p>
+
+                <p>USD <span>{{ offer.offermanager_set.all|offer_price_start }}</span> </p>
+
+            </div>
+
+        
+
+            </div>
+
+        </div>
+
+    </div>
+    
+        {% endif %}
+
+{% endfor %}
+{% endif %}
+
+
+{% if offers|length > 20 %}
+<div class="see-more-offer container text-center">
+    <button class="see-more-button">See More</button>
+</div>
+{% endif %}
+
+
+
+    {% comment %}
+
+    <div class="col-md-6 col-lg-3 mb-4 ">
+
+        <div class="card main-card-for-offer">
+
+            
+
+            
+
+        <div class= "for-card-inner-img-slider">
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{% static 'images/bg-5.jpg' %}" >                    
+
+                </div>
+
+            </a>
+
+
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{% static 'images/bg-2.jpg' %}" >                    
+
+                </div>
+
+            </a>
+
+
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{% static 'images/bg-6.jpg' %}" >                    
+
+                </div>
+
+            </a>
+
+               
+
+        </div>
+
+            
+
+           
+
+
+
+
+
+            <div class="card-body">
+
+            <a href=""> 
+
+                <h5 class="card-title">I will convert psd to html responsive website</h5>  
+
+            </a>
+
+
+
+            <div class="category-tag">
+
+
+
+                <p>Web Design</p>
+
+
+
+                <div class="category-for-right">                  
+
+                    <div class= "click-on-offer">
+
+                        <p>2,595</p>
+
+                        <p>Clicks</p>                        
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <!--<div class= "for-seller-level-star">-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star black-star"></i>-->
+
+            <!--</div>-->
+
+            <hr>
+
+
+
+            <div class="offer-price">
+
+                <p>Starting At</p>
+
+                <p>BDT <span>15748</span> </p>
+
+            </div>
+
+            
+
+            </div>
+
+        </div>
+
+    </div> 
+    
+    {% endcomment %}
+
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!--
+
+=============================================================================
+
+                            Verified Pro services in Web Programming
+
+============================================================================= -->
+
+
+
+
+
+<section id="verified-service" class="container">
+
+
+
+<!-- new card design -->
+
+<div class="container new-card mt-3">
+
+    <div class="popular-gig-title">
+
+        <h2>Verified Pro services</h2>
+
+        <!--<p>Hand-vetted talent for all your professional needs.</p>-->
+
+    </div>
+
+    <div class="row">
+
+
+    {% for offer in pop_web_offers %}
+
+    {% if offer.offer_status != "PAUSED" %}
+
+    <div class="col-md-6 col-lg-3 mb-4">
+
+        <div class="card main-card-for-offer verified-service-see-more">
+
+            
+
+            
+
+         <div class= "for-card-inner-img-slider">
+
+            <a href="{% url 'offer_details' offer.id offer.slug %}">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ offer.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+            {% for img in offer.extra_images.all %}
+
+            <a href="{% url 'offer_details' offer.id offer.slug %}">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ img.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+
+
+             {% comment %} 
+             <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ offer.image.url }}" >                    
+
+                </div>
+
+            </a>
+
+
+
+            <a href="">
+
+                <div class="img-on-card-body">
+
+                    <img src= "{{ offer.image.url }}" >            
+
+                </div>
+
+            </a>
+            {% endcomment %}
+
+               
+
+        </div>
+
+            
+
+            <div class="card-body">
+                
+                 
+                 <div class="seller-in-details d-flex align-items-center">
+                    <div class="seller-profile-pix">
+                          <a href="{% url 'account' offer.user.id offer.user.username %}">
+                            <img src="{{ offer.user.selleraccount.profile_picture.url }}" alt="">
+                          </a>
+                          
+                    </div>
+                      
+                      
+                      
+                    <div class="seller-profile-name">
+                      <a href="{% url 'account' offer.user.id offer.user.username %}"> 
+                        <p class="seler-name text-dark" style="margin-bottom: 0px;">{{ offer.user }}</p>  
+                        </a>
+                    </div>
+                </div>  
+
+                
+
+
+
+            <a href="{% url 'offer_details' offer.id offer.slug %}"> 
+
+                <h5 class="card-title">{{ offer.offer_title }}</h5>  
+
+            </a>
+
+
+
+            <div class="category-tag">
+
+
+
+                <p>{{ offer.service }}</p>
+
+
+
+                <div class="category-for-right">                  
+
+                    <div class= "click-on-offer">
+
+
+
+                        <p class="badge bg-dark">{{ offer.click }}</p>
+
+                        <span class="badge bg-dark">Clicks</span>                     
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <!--<div class= "for-seller-level-star">-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star yellow-star"></i>-->
+
+            <!--    <i class="fas fa-star black-star"></i>-->
+
+            <!--</div>-->
+
+            <hr>
+
+        
+
+            <div class="offer-price">
+
+                <p>Starting At</p>
+
+                <p>USD <span>{{ offer.offermanager_set.all|offer_price_start }}</span> </p>
+
+            </div>
+
+        
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+{% endfor %}
+
+
+
+
+{% if pop_web_offers|length > 20 %}
+<div class="see-more-offer container text-center mb-5 verified-service-see-more-button">
+    <button class="see-more-button">See More</button>
+</div>
+{% endif %}
+ 
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+=============================================================================
+
+                            Middle slider
+
+============================================================================= -->
+
+
+
+{% comment %}
+
+
+
+<section id="middle-slider">
+
+    <div class="container">
+
+
+
+        <div class="slidermoron">
+
+
+
+        <div>
+
+            <div class="class">
+
+                <i class="fas fa-allergies boro"></i>
+
+                <h5>Work hard, focus your goal</h5>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="class">
+
+                <i class="fas fa-allergies boro"></i>
+
+                <h5>Work hard, focus your goal</h5>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="class">
+
+                <i class="fas fa-allergies boro"></i>
+
+                <h5>Work hard, focus your goal</h5>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="class">
+
+                <i class="fas fa-allergies boro"></i>
+
+                <h5>Work hard, focus your goal</h5>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="class">
+
+                <i class="fas fa-allergies boro"></i>
+
+                <h5>Work hard, focus your goal</h5>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+</section>
+
+
+
+{% endcomment %}
+
+
+
+
+
+
+
+<!-- ===============================================
+
+                    links    starr
+
+=============================================== -->
+
+
+
+
+
+    <!-- Slick slider -->
+
+    <script
+
+    src="https://code.jquery.com/jquery-3.6.0.js"
+
+    integrity="sha256-+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+
+    crossorigin="anonymous"></script>
+
+
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+
+
+
+        <!-- Slick slider -->
+
+       
+
+        <script
+
+        src="https://code.jquery.com/jquery-3.6.0.js"
+
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+
+        crossorigin="anonymous"></script>
+
+
+
+  
+
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+
+  
+
+      <!-- Swiper slider -->
+
+      <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+      <!-- Bootstrap -->
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    
+
+    
+
+    
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> 
+
+   <script> AOS.init({ duration: 1000, }); 
+
+   </script>
+
+
+
+
+
+<!-- ===============================================
+
+                    links end    
+
+=============================================== -->
+
+
+
+
+
+{% include 'buyingview/buying_footer.html' %}

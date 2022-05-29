@@ -1,0 +1,323 @@
+{% include 'wasekPart/base.html' %}
+
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/earnings.css' %}"/>
+
+
+
+<div class="container">
+
+    <div class="earnings___header">
+
+        <p class="earning">Earnings</p>
+
+        <p>Total earnings : <span class="fw-bold badge bg-primary">{{ seller_details.selleraccount.wallet }} USD</span></p>
+
+    </div>
+
+
+
+    <div class="net__income__status">
+
+        <!-- net income part -->
+
+        <div class="net__income">
+
+            <p class="text-muted">Net Income</p>
+
+            <p class="amount">{{ seller_details.selleraccount.wallet }} USD</p>
+
+        </div>
+
+
+
+        <!-- withdraw -->
+
+        <div class="net__income">
+
+            <a href="#">
+
+            <p class="text-muted">withdrawn</p>
+
+            <p class="amount">{{ total_withdraw_amount }} USD</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- used for purchases -->
+
+        <div class="net__income">
+
+            <a href="#">
+
+            <p class="text-muted">Used For Purchases</p>
+
+            <p class="amount">0 USD</p>
+
+            </a>
+
+        </div>
+
+        
+
+        <!-- pending clearence -->
+
+        <div class="net__income">
+
+            <a href="#">
+
+            <p class="text-muted">Pending Clearance</p>
+
+            <p class="amount">0 USD</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- available for withdrawal -->
+
+        <div class="net__income">
+
+            <p class="text-muted">Available for Withdrawal</p>
+
+            <p class="amount">{{ availabel_withdraw_amount }} USD</p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="withdraw__option">
+
+        <!--<p class="mx-1">WITHDRAW</p>-->
+
+        <!-- <p class="mx-1"><a href="#">
+
+            <span class="iconify" data-icon="bi:paypal" style="color: #428ad3;"></span> Paypal
+
+        </a></p> -->
+
+        <p class="ssl____commerz mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="#">Withdraw</a></p>    
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-body">
+
+        <form action="" method="POST">
+
+         {% csrf_token %}
+
+          <div class="text-center"><h4>Withdraw From Here</h4></div>
+
+          <div class="main__content">
+
+          <div class="dropdown payment___drop">
+
+            <label>Payment: </label>
+
+            <select id="selectBox" onchange="changeFunc(this)" class="form-select amount__input__style1" aria-label="Default select example" name="method">
+
+              <option value="withdraw" selected>Select Withdraw Method</option>
+             
+              <option value="paypal">PAYPAL</option>
+              <option value="bkash">BKASH</option>
+              <option value="nagad">NAGAD</option>
+              
+              
+
+             {% comment %} {% for wm in withdraw_methods %}
+
+                <option value="{{ wm.method_name }}">{{ wm.method_name }}</option>
+
+              {% endfor %}
+              {% endcomment %}
+
+            </select>
+
+          </div>
+          
+            <div id="bkash____div" class="mb-2 amount__input">
+            <label>Bkash: </label>
+            <input type="number" name="bkash_number" class="form-control bkash___number" placeholder="Enter Your Bkash Number" 
+            
+            ><br>
+          </div>
+          
+           <div id="paypal____div" class="mb-2 amount__input">
+            <label>PayPal: </label>
+            <input type="number" name="paypal_number" class="form-control paypal___number" placeholder="Enter Your PayPal Account Number" 
+            
+            ><br>
+          </div>
+          
+           <div id="nagad____div" class="mb-2 amount__input">
+            <label>Nagad: </label>
+            <input type="number" name="nagad_number" class="form-control nagad___number" placeholder="Enter Your Nagad Number" 
+            ><br>
+          </div>
+         
+
+          <div class="mb-2 amount__input">
+
+            <label>Amount: </label>
+
+            <!--<input type="number" id="inputnew" onkeyup="amountNew()" name='amount' class="form-control amount__input__style" placeholder="type amount here.." -->
+
+            <!--type = "number"-->
+            <!--maxlength = "1000"-->
+
+            <!--required>-->
+            
+            
+            <input type="number" id="inputnew1" name="amount" class="form-control amount__input__style" placeholder="Minimum 5 USD" onkeyup="hello(this)" required>
+            <br>
+
+            
+
+          </div>
+
+          <div id="div1" class="text-center"></div>
+
+        </div>
+
+          <div class="payment__submit__button d-flex justify-content-center" >
+
+            <button type="submit" class="btn btn-primary" id="amount_submit_btn">Submit</button>
+
+          </div>
+
+         
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>    
+
+    </div><br>
+
+
+
+    <!-- transaction table -->
+
+      <div class="table-responsive manage__orderTable">
+
+        <table class="table table-hover bg-white">
+
+          <thead>
+
+            <tr>
+
+              <th scope="col" class="text-muted ps-3">DATE</th>
+
+              <th scope="col" class="text-muted ps-3">BUYER NAME</th>
+
+              <th scope="col" class="text-muted">ORDER STATUS</th>
+
+              <th scope="col" class="text-muted">AMOUNT SPENT</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            {% if orders_by_seller %}
+
+              {% for order in orders_by_seller %}
+
+              <tr>
+
+                <td>{{ order.due_date }}</td>
+
+                <td>{{ order.user }}</td>
+
+                <td>{{ order.order_status }}</td>
+
+                <td>{{ order.total }} USD.</td>
+
+              </tr>
+
+              {% endfor %}
+
+            {% else %}
+
+              <p>No Orders Found!</p>
+
+            {% endif %}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+{% include 'buyingview/buying_footer.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="{% static 'js/earnings.js' %}"></script>
+
+<script>
+
+// earning amount
+
+const submitBtn = document.getElementById("amount_submit_btn");
+submitBtn.style.display = "none";
+
+function hello(){
+    const input = document.getElementById("inputnew1").value;
+    if(input>4){
+        submitBtn.style.display = "block";
+    }else{
+        submitBtn.style.display = "none";
+    }
+}
+
+
+
+</script>
+
+
+
+{% endblock %}
+
+
+

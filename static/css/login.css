@@ -1,0 +1,201 @@
+/* registration form */
+:root {
+    --error-message: #F64B4B;
+    --white-primary: #fff;
+}
+
+/* body{
+    background-image: url("../images/formbg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+} */
+body{
+    background-color: #f5f5f5;
+}
+/* .logo{
+    text-align: center;
+    font-family: 'robotomedium';
+    font-size: 25px;
+    color: #000;
+    padding: 10px;
+    text-transform: capitalize;
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    border-radius: 0;
+    position: relative;
+    width: 100%;
+} */
+
+/* .logo img{
+    max-width: 100%;
+} */
+
+#form__Errormessages {
+    /*background-color: rgba(246, 75, 75, 0.7);*/
+    color: var(--white-primary) !important;
+    padding: 6px;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* .top_pop{
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+} */
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 17px;
+}
+.passwordColumn{
+    margin-top: -10px;
+}
+.or-dev {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+.or-dev span {
+    display: inline-block;
+    background: #fff;
+    border: 1px #ddd solid;
+    border-radius: 30px;
+    padding: 5px 15px;
+    position: relative;
+    font-family: 'robotomedium';
+    color: #000;
+    font-size: 15px;
+}
+.or-dev:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    transform: translate(0,-50%);
+}
+.first-ui{
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-top: 22px;
+
+}
+.btn-primary {
+    background-color: #007bff;
+}
+.ui form h5{
+    width: 100%;
+    text-align: center;
+    font-family: 'robotomedium';
+    font-size: 22px;
+    color: #555;
+    padding: 0px 0px 10px 0px;
+    text-transform: capitalize;
+    display: inline-block;
+}
+.logInFooter p{
+    width: 100%;
+    text-align: center;
+    font-family: 'robotomedium';
+    font-size: 17px;
+    color: #555;
+    padding: 0px 0px 10px 0px;
+    display: inline-block;
+}
+.logInFooter p a{
+    color: #428ad3;
+}
+.socialIcon, .signupbtn{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.signupbtn{
+    margin-left: -2px;
+    background-color: #428ad3 !important;
+    transition: .2s ease-in-out;
+}
+.signupbtn:hover{
+    background: #2e57a5 !important;
+}
+.form-check p a{
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    margin-left: 137px;
+    text-decoration: none;
+}
+.fotgot{
+    float: right;
+}
+.checkBox label a{
+    text-decoration: none;
+    color: #1dbf73;
+}
+.total-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+@media (max-width:435px){
+    .socialIcon button{
+        font-size:18px;
+    }
+}
+@media (max-width:405px){
+    .socialIcon button{
+        font-size:16px;
+    }
+    .sign___up___link{
+        font-size: 13px;
+    }
+    .forget___link{
+        font-size: 12px;
+    }
+}
+@media (max-width:382px){
+    .socialIcon button{
+        font-size:14px;
+    }
+    .log____footer{
+        font-size: 16px;
+    }
+}
+@media (max-width:360px){
+    .socialIcon button{
+        font-size:12px;
+    }
+    .create{
+        font-size: 16px;
+    }
+}
+@media (max-width:345px){
+    .socialIcon button{
+        font-size:11px;
+    }
+}
+@media (max-width:320px){
+    .socialIcon button{
+        font-size:10px;
+    }
+}

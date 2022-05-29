@@ -1,0 +1,159 @@
+{% load static %}
+
+
+{% include 'buyingview/header.html' %}
+
+
+     <!-- google font -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/help-support.css' %}" />
+
+
+
+<!-- For heading  -->
+<div id="heading" class=" mt-5">
+    
+    <h1 class="text-warning bg-dark">What do you need help with?</h1>
+    <p class="text-white bg-dark">Take help from the pro</p>
+</div>
+
+<!-- selection section -->
+
+
+<div class="selection-area container">
+    <div class="inner-select-area mt-3">
+        <h1>how you want to get help ?</h1>
+        
+        
+    </div>
+</div>
+
+
+
+<!-- choose the subject section -->
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="selection-area container">
+        
+        
+        <div class="inner-select-area mt-3">
+            
+            
+            
+            
+            
+
+            <div class="text-area mb-4">
+                <label>Enter Email</label>
+                <input id="enter-mail" type="email" name="email" placeholder="Enter your email...." class="form-control col-sm-5" required>
+            </div>
+            
+            
+            
+            
+            <!-- <div class="text-area">
+                <label>Subject</label>
+                <input type="text" name="subject" placeholder="Enter your subject...." class="form-control">
+            </div> -->
+
+            <!-- <div class="text-area">
+                <label>Enter Email</label><br>
+                <input type="email" name="email" placeholder="Enter your email...." class="form-control"></br>
+            </div> -->
+            <div class="text-area">
+                <textarea name="description" id="description" cols="" rows="" placeholder="Write your problem" required></textarea>
+            </div>
+            
+            
+            <div class="text-area">
+                
+                <label for="file-up" id class="up-file w-100" style="cursor: pointer;">Upload Files</label>
+                <input onchange="ForFileName()" id="file-up" type="file" style="visibility: hidden;" name="attachment" placeholder="Only PDF, DOCX">
+                
+                <p id="file-name-showing"></p>
+                
+            </div>
+            </br>
+            
+            
+            
+            <div class="text-area">
+                
+                <label for="img-upload" class="up-file w-100 for-upload-img" style="cursor: pointer;">Upload Images</label>
+                <input onchange="ForImageUp()" id="img-upload" type="file" style="visibility: hidden;" name="image_attachment">
+                
+                <p id="image-name-showing"></p>
+                
+                
+            </div><br>
+            
+            
+            
+
+            <select class="select" name="subject" id="">
+                {% if support_category|length > 0 %}    
+                    {% for sc in support_category %}
+                        <option value="{{ sc.title }}">{{ sc.title }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="No Category Found">No Category Found</option>>
+                {% endif %}
+                
+            </select>
+
+
+            <div class="button mt-4">
+                <button class="send-msg">Send Message</button>
+            </div>
+            
+        </div>       
+
+
+    </div>
+</form>
+
+
+
+               
+         <!--for loading animation-->
+
+    <div class="main-loader-start">
+     <div class="main-loader">
+         <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+     </div>
+     </div>
+       
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/static/js/help-and-support.js"></script>
+
+{% include 'buyingview/buying_footer.html' %}

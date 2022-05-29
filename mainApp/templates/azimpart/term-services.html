@@ -1,0 +1,409 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+    <!-- css link file -->
+    <link rel="stylesheet" href="{% static 'css/term-of-services.css' %}">
+
+    <title>Terms Of Service</title>
+  </head>
+  <body>
+    {% include 'buyingview/header.html' %}
+    <br>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-9 main-part">
+          <div class="card">
+            <div class="card-body">
+             
+             
+             
+             <div class="ful___main__body" style="padding: 20px">
+                  <h3 class="fw-bold">Marketage Terms of Service</h3>
+              <p class="text-muted  text_____align">Last Update: August 2021 <br><br> 
+                <span class="fw-bold">Welcome to <a href="{% url 'get_landing_page' %}"> Marketage.io</a></span><br>
+                The following terms of service (these "Terms of Service"), govern your access to and use of the marketage website and mobile application, including any content, functionality and services offered on or through <a href="{% url 'get_landing_page' %}">www.marketage.io</a> or the marketage mobile application (the "Site") by Itna Global Ltd. <span class="fw-bold fs-6">2 Frederick Street, Kings Cross, London, United Kingdom, WC1X 0ND</span> and its subsidiaries: Itna Global Ltd. House 24,Road 1, Nikunja 2 Dhaka 1229 Khilkhet, as applicable and its subsidiaries are collectively referred hereto as <span class="fw-bold fs-6">"Marketage" "we"</span> or <span class="fw-bold fs-6">"us"</span> and <span class="fw-bold fs-6">“you”</span> or “user” means you as an user of the Site.
+                Please read the Terms of Service carefully before you start to use the Site. <span class="fw-bold fs-6">By using the Site, opening an account or by clicking to accept or agree to the Terms of Service when this option is made available to you, you accept and agree, on behalf of yourself or on behalf of your employer or any other entity (if applicable), to be bound and abide by these Terms of Service, Marketage Payment Terms, found <a href="{% url 'payment-term' %}">here</a></span> <span class="fw-bold fs-6">(“Payment Terms”), and our Privacy Policy, found <a href="{% url 'privacypolicy' %}">here</a>, each of which is incorporated herein by reference.</span> If you do not want to agree to these Terms of Service or the Privacy Policy, you must not access or use the Site. For more detailed policies surrounding the activity and usage on the Site, please access the designated articles herein.
+                This Site is offered and available to users who are 13 years of age or older. If you are under 13 you may not use this Site or the Marketage services. By using this Site, you represent and warrant that you are of legal age to form a binding contract and meet all of the foregoing eligibility requirements. If you do not meet all of these requirements, you must not access or use the Site.
+                Our Customer Support team is available 24/7 if you have any questions regarding the Site or Terms of Service. Contacting our Customer Support team can be performed by submitting a request <a href="#">here</a>.
+                The original language of these Terms of Service, as well as all other texts throughout the Site, is English. Marketage makes available this translation for convenience only. In case of conflicts between the original English version and any translation, the English version shall prevail.
+                </p>
+
+               <span class="fw-bold">Key Terms</span>
+               <p class="text-muted text_____align">Buyers are users who purchase services on marketage.<br>
+                <span class="fw-bold fs-6">Business Account</span> is a collaborative Buyer account, created via marketage Business, as detailed on Marketage Business Terms of Service (available <a href="#">here</a>).<br>
+                <span class="fw-bold fs-6">Business Account Team Member or Team Member</span> is any user that is invited or uses a Business Account.<br>
+                <span class="fw-bold fs-6">Custom Offers</span> are exclusive proposals that a Seller can create in response to specific requirements of a Buyer.<br>
+                <span class="fw-bold fs-6">Custom Orders</span> are requests made by a Buyer to receive a Custom Offer from a Seller.<br>
+                <span class="fw-bold fs-6">Offer Extras</span> are additional services offered on top of the Seller’s Offer for an additional price defined by the Seller.<br>
+                <span class="fw-bold fs-6">Offer Packages</span> allow Sellers to offer services in different formats and prices. Packages can include upgrades, which lets Sellers price their service for a basic price of over $5.<br>​
+                <span class="fw-bold fs-6">Offer Page</span> is where the Seller can describe their Offer and the Offer’s terms, and the Buyer can purchase the Offer and create an order.<br>
+                <span class="fe-bold fs-6">Offer / Offers</span> are services offered on marketage.<br>
+                <span class="fw-bold fs-6">Logo Design</span> is an original design for a logo uploaded by a Seller through the Marketage Logo Maker.<br>
+                <span class="fe-bold fs-6">Logo Maker</span> is the automated logo design tool offered by Marketage to users as further explained in these Terms of Service.<br>
+                <span class="fw-bold fs-6">Order Page</span> is where Buyers and Sellers communicate with each other in connection with an ordered Offer.<br>
+                <span class="fw-bold fs-6">Orders</span> are the formal agreements between a Buyer and Seller after a purchase was made from the Seller’s Offer Page.<br>
+                <span class="fw-bold fs-6">Sellers</span> are users who offer and perform services through Offer or through the Logo Maker on marketage.
+                </p>
+
+               <span class="fw-bold">Overview (Main terms, in a nutshell)</span>
+              <li class="text-muted text_____align">Only registered users may buy and sell on Marketage. Registration is free. In registering for an account, you agree to provide us with accurate, complete and updated information and must not create an account for fraudulent or misleading purposes. You are solely responsible for any activity on your account and for maintaining the confidentiality and security of your password. We are not liable for any acts or omissions by you in connection with your account.</li>
+              <li class="text-muted text_____align">offers on Marketage may be offered at a base starting price of $5. Some Offer are offered at a base price of more than $5 as determined by the Seller.</li>
+            <li class="text-muted text_____align">Buyers pay Marketage in advance to create an order (see <a href="{% url 'payment-term' %}">Payment Terms</a>).</li><br>
+            <li class="text-muted text_____align">Orders are purchased through the Order button found on a Seller’s Offer page or through a Custom Offer.</li><br>
+            <li class="text-muted text_____align">For fees and payments please read the <a href="{% url 'payment-term' %}">Payment Terms</a></li><br>
+            <li class="text-muted text_____align">Sellers must fulfill their orders, and may not cancel orders on a regular basis or without cause. Cancelling orders will affect Sellers’ reputation and status.</li><br>
+            <li class="text-muted text_____align">Sellers gain account statuses (Levels) based on their performance and reputation. Advanced levels provide their owners with benefits, including offering services for higher prices through Offer Extras, or selling their Offer in multiples.</li><br>
+            <li class="text-muted text_____align">Users may not offer or accept payments using any method other than placing an order through <a href="{% url 'get_landing_page'%}">Marketage.io</a>.</li><br>
+            <li class="text-muted text_____align">When purchasing a Offer, Buyers are granted all rights for the delivered work, unless otherwise specified by the Seller on their offer page. Note: some Offers charge additional payments (through Offer Extras) for Commercial Use License. See our <a href="#">“Ownership”</a> and “<a href="#">Commercial Use License</a>” sections below for more information.</li><br>
+            <li class="text-muted text_____align">Marketage retains the right to use all published delivered works and Logo Designs for marketage marketing and promotion purposes.</li><br>
+            <li class="text-muted text_____align">We care about your privacy. You can read our Privacy Policy <a href="{% url 'privacypolicy' %}">here</a>. The Privacy Policy is a part of these Terms of Service and incorporated herein by reference.</li><br>
+            <li class="text-muted text_____align">Users undertake to comply with Marketage’s Community Standards, which are a set of behavior <a href="#">rules and guidelines</a>, applicable to the Marketage community and marketplace in addition to these Terms of Service, as updated from time to time.</li><br>
+            <li class="text-muted text_____align">Marketage offers its users the Logo Maker, which allows certain Sellers to offer various original logo designs for Buyers to adjust and customize per their own specific needs, using special automated design tools. Through the Logo Maker, Buyers purchase full commercial use rights to the Logo Design embedded with their brand name.</li><br>
+            <li class="text-muted text_____align">Seller will start getting points after:-<br>
+            
+            <ul class="azimazim">
+                <li class="text-muted text_____align">Completing his full profile</li>
+                <li class="text-muted text_____align">After Completing 15 successful order seller will be updated to level 1,<br></li>
+                    <li class="text-muted text_____align">then, after completing 25 orders sellers will be updated to level 2, <br><li>
+                    <li class="text-muted text_____align">then, after completing 35 orders sellers will be updated to level 3, <br></li>
+                    <li class="text-muted text_____align">then, after completing 50 orders sellers will be updated to level 4, <br></li>
+                    <li class="text-muted text_____align">For becoming a marketage pro sellers will have to complete 50 orders and must complete all the tests.</li>
+            
+            </ul>
+            
+            </li><br>
+               <span class="seller fw-bold fs-2">SELLERS</span><br>
+               <span class="fw-bold">Basics</span>
+
+               <li class="text-muted text_____align">Sellers create Offers on Marketage to allow Buyers to purchase their services.</li><br>
+               <li class="text-muted text_____align">Sellers may also offer Custom Offers to Buyers in addition to their Offers.</li><br>
+               <li class="text-muted text_____align">Each Offer you sell and successfully complete, accredits your account with a revenue equal to 80% of the purchase amount.</li><br>
+               <li class="text-muted text_____align">Marketage accredits Sellers once an order is completed. See our "<a href="{% url 'manage-order' %}">Orders</a>" section below for a definition of a completed order.</li><br>
+               <li class="text-muted text_____align">For more information about receiving payments, fees and taxes see the <a href="{% url 'payment-term' %}">Payment Terms</a>.</li><br>
+               <li class="text-muted text_____align">Sellers may not promote their Offers or any Marketage content via the Google Ads platform.</li><br>
+               <li class="text-muted text_____align">The Seller's rating is calculated based on the order reviews posted by Buyers or Business Account Team Members. High ratings allow Sellers to obtain advanced Seller levels (see Levels below). In certain cases, exceedingly low ratings may lead to the suspension of the Seller’s account.</li><br>
+               <li class="text-muted text_____align">For security concerns, marketage may temporarily disable a Seller’s ability to withdraw revenue to prevent fraudulent or illicit activity. This may come as a result of security issues, improper behavior reported by other users, or associating multiple Marketage accounts to a single withdrawal provider.</li><br>
+               <li class="text-muted text_____align">Sellers are responsible for obtaining a general liability insurance policy with coverage amounts that are sufficient to cover all risks associated with the performance of their services.</li>
+               <br>
+
+               
+
+               
+
+               <span class="fw-bold">Levels</span>
+               <p class="text-muted">Marketage is all about helping Sellers leverage their skills. We seek to empower top performing Sellers with helpful tools to grow their business. Sellers who invest in self-promotion may achieve greater customer satisfaction. And, if they deliver on time and maintain high quality and ratings, Marketage may reward them with new statuses, special opportunities, benefits, and tools that come with it.
+              </p>
+              <li class="text-muted text_____align">Marketage Sellers can gain account Levels based on their activity, performance and reputation. The advancement criteria can be found here.</li><br>
+              <li class="text-muted text_____align">Advancement in Levels are updated periodically by an automated system.</li><br>
+              <li class="text-muted text_____align">The current Levels a Seller can achieve are, Level 1, 2, and Top Rated.</li><br>
+              <li class="text-muted text_____align">The current Levels a Seller can achieve are, Level 1, 2, and Top Rated.
+                Sellers who cannot maintain their high quality service, experience a severe drop in ratings, or stop delivering on time risk losing their Seller status and the benefits that come with it. For example, late deliveries, warnings to the Seller’s account and cancellations can cause a Seller to move to a different Level.
+                </li><br>
+              <li class="text-muted text_____align">Advanced levels provide their owners with additional benefits, including offering Offers for higher prices through Offer Extras, or selling their Offer in multiples.</li><br>
+
+               <span class="fw-bold">Top Rated Sellers</span>
+               <li class="text-muted text_____align">Top Rated Sellers are chosen manually by marketage editors through an ongoing review process based on seniority, volume of sales, extremely high ratings, exceptional customer care, high order completion rate and community leadership. Top Rated Sellers gain access to more extensive features than previous levels, including exclusive access to beta features and VIP support.</li><br>
+               <li class="text-muted text_____align">Top Rated eligibility is constantly evaluated by Marketage to ensure that the quality standards and expectations of the Top Rated selection is kept. Marketage retains the right to change a Top Rated Seller status in light of such evaluation. In addition, Top Rated Sellers who cannot maintain their high quality service through a severe drop in ratings, stop delivering on time, increased cancellation rate or violate our Terms of Service and/or our Community Standards, also risk losing their Top Rated status and the benefits that come with it.</li><br>
+
+               <span class="fw-bold">Pro Sellers</span>
+               <li class="text-muted text_____align">Pro Sellers are pre-verified professionals who undergo a vetting process by Marketage editors. Applying for Marketage Pro is open to everyone: professional freelancers who are new to Marketage, as well as existing Marketage Sellers.</li><br>
+               <li class="text-muted text_____align">Pro Sellers eligibility is constantly evaluated by Marketage to ensure that the quality standards and expectations of the Pro Seller selection is kept. Marketage retains the right to change a Pro Seller status in light of such evaluation. In addition, Pro Sellers who cannot maintain their high quality service through a severe drop in ratings, stop delivering on time, increased cancellation rate or violate our Terms of Service, also risk losing their Pro status and the benefits that come with it.</li><br>
+
+
+               <span class="fw-bold">Markeatge Business Catalog </span>
+               <p class="text-muted">Marketage Business is a freelance platform tailor-made for larger teams and businesses. Sellers on the Marketage Business catalog are required to comply with certain professional standards. Eligible Sellers whose Offers are included in the Marketage Business catalog will be regularly evaluated by Marketage to ensure their high-quality professionalism is kept. marketage reserves the right to remove Sellers and Offers from the marketage Business catalog.</p><br>
+
+
+               <span class="fw-bold">Seller Features</span>
+               <p class="text-muted">Marketage Sellers have access to several exclusive features that help customize the way their services can be offered.</p>
+               <span class="fw-bold fs-6">Custom Offer</span>
+               <li class="text-muted text_____align">Sellers can also send Custom Offers addressing specific requirements of a Buyer.</li><br>
+               <li class="text-muted text_____align">Custom Offers are defined by the Seller with the exact description of the service, the price and the time expected to deliver the service.</li><br>
+               <li class="text-muted text_____align">Custom Offers are sent from the conversation page.</li><br>
+               <li class="text-muted text_____align">Services provided through Custom Offers may not violate marketage’s Terms of Service and/or our Community Standards.</li><br>
+               <li class="text-muted text_____align">Project Milestones:</li><br>
+               <li class="text-muted text_____align">Custom Offers above $100 may include up to six project milestones, the minimum amount for each milestone is $50 and the project should include at least two milestones. Each milestone is paid and delivered separately in accordance with each Custom Offer’s description and timelines.</li><br>
+               <li class="text-muted text_____align">Once a milestone is delivered and marked as completed, Buyers may choose to either continue with the Order and pay for the next milestone, or to stop the Order. If Buyer does not pay for the next milestone within 10 days of acceptance of previous milestones, the Order under the next milestones will not start. A milestone will be automatically marked as complete if no acceptance or request for modification were submitted within 8 days after marked as Delivered, however, in such case the Order will be stopped and all further milestones will not start.</li><br>
+
+
+
+               <span class="fw-bold">Subscription</span>
+               <li class="text-muted text_____align">Sellers may offer Buyers a fixed term subscription for a specific Offer (the “Subscription”). During the Subscription period, Seller will deliver one Order of the same Offer  each month. Sellers may set a certain discount starting as of the second month.</li><br>
+               <li class="text-muted text_____align">Buyers may cancel future Orders under the Subscription before payment is made for such future Orders. In such case, the Orders under the Subscription will be cancelled, as applicable. Once payment is made, Marketage‘s Order Cancelation policy under the Payments Terms will apply.</li><br>
+               <li class="text-muted text_____align">Seller may cancel the Subscription up to 10 days before to the next consecutive Order. Otherwise, Marketage’s Order Cancelation policy under the Payments Terms will apply.</li><br>
+
+               <span class="fw-bold">Marketage Studios </span>
+                <li class="text-muted text_____align">A Marketage Studio allows certain Sellers to collaborate with each other and offer Buyers a multi-service Offer (a "Studio Offer").</li><br>
+                <li class="text-muted text_____align">Studio Lead: Certain selected Sellers may lead and operate Marketage Studios as Studio Leads. Studio Leads are chosen manually by Marketage editors through an ongoing review process based on seniority, volume of sales, high ratings, exceptional customer care, high order completion rate and more. The Studio Lead is responsible for inviting all Studio Members and managing all incoming Orders, from communicating with the Buyer, through handling any required revisions and until the final delivery. The Studio Lead can also remove Studio Members from Studio Offers at any time. With respect to open Orders, however, Studio Members can be removed by Customer Support only.</li><br>
+                <li class="text-muted text_____align">Studio Members: A Studio Lead can invite other Sellers who were also chosen by Marketage to be eligible for Studios collaboration (each, a "Studio Member") to join their Studio Offer and be assigned to a specific service. Studio Members can ask to be removed from a Studio Offer at any time.</li><br>
+                <li class="text-muted text_____align">Studio Offers: A Studio offer provides a bundle of services (from two services and up to five) within one Offer. A Studio Offer’s minimum price is US$100. As Studio Offer is comprised of several services, every service includes its own pricing, pricing factors, and a Studio Member / Lead that is accountable for such service, all of which is defined by the Studio Lead when creating the Studio Offer. Marketage Studios may also offer Custom Offers.</li><br>
+                <li class="text-muted text_____align">Limitations: Each Marketage Studio has one Studio Lead. Similarly, a Studio Lead may not operate more than one Marketage Studio. A Marketage Studio can offer up to five Studio Offers, each comprised of up to four Studio Members in addition to the Studio Lead. Studio Members may not be assigned to more than three Studio Offers. </li><br>
+                <li class="text-muted text_____align">Studio Offer Reviews: Studio Offer Buyers are able to leave a public review on the Studio Offer as if it were a regular Offer. The public buying rating & review is linked to and visible on the Studio Offer page, the Marketage Studio itself (studio page), as well as all Studio Members and Studio Lead of that Marketage Studio.</li><br>
+               
+          
+
+               <span class="fw-bold">Marketage Anywhere</span>
+                <li class="text-muted text_____align">Marketage Anywhere is a feature that allows Sellers to send Custom Offers outside of Marketage.</li><br>
+                <li class="text-muted text_____align">Services offered through Marketage Anywhere must comply with our Terms of Service and our Community Standards.</li><br>
+                <li class="text-muted text_____align">Users accessing and purchasing from a Marketage Anywhere offer that are not already members of Marketage, will be required to register with Marketage to create an Order.</li><br>
+                <li class="text-muted text_____align">Sellers are required to deliver proof of completion of services in the Order Page. Please see our Orders section for further details. </li><br>
+                <li class="text-muted text_____align">Communication for handling Orders should be performed on marketage, through the Order Page. Users who engage and communicate off of marketage will not be protected by our Terms of Service.</li><br>
+            
+
+
+
+               <span class="fw-bold">Terms For Buyers and Sellers</span>
+               {% comment %} <li class="text-muted text_____align">Eligible Offer have the option to use Stock Images.</li> {% endcomment %}
+<li class="text-muted text_____align">“Stock Images” is a Offer Extra that allows Sellers to choose from an exclusive catalog of images as part of the final delivery of work.</li>
+<li class="text-muted text_____align">Marketage will reduct 15% from Sellers after completing an order.</li>
+<li class="text-muted text_____align">Marketage will reduct 5% from Buyers when purchasing an offer.</li>
+<li class="text-muted text_____align">Important: Each selected Stock Image is authorized for a one time use. The selected image is integrated with the delivered work only and not as a stand-alone or for recurring use. Sellers are unauthorized to share the original image file with the Buyer or any third party.</li>
+<li class="text-muted text_____align">Important: If you cancel an Order that includes a Stock Image, the usage of that Stock Image will be cancelled as well and you will no longer be able to use the Stock Image Extra on the same Order.</li>
+<li class="text-muted text_____align">All Stock Images are licensed by Marketage, who has full ownership and copyrights to the Stock Images provided on Marketage and shall be responsible for all Stock Images and their quality.</li>
+<li class="text-muted text_____align">When using Stock Images, you represent and warrant the following: </li>
+<li class="text-muted text_____align">You may not sell, modify, re-use, re-sell, distribute, display, reproduce or make any other use of the Stock Images.</li>
+<li class="text-muted text_____align">Stock Image(s) may not be used:</li>
+<li class="text-muted text_____align">on a stand-alone basis with no other content;</li>
+<li class="text-muted text_____align">for pornographic, defamatory or other unlawful purposes;</li>
+<li class="text-muted text_____align">as templates used to create multiple copies of the same Offer;</li>
+<li class="text-muted text_____align">for the purpose of enabling file-sharing of the image file; or</li>
+<li class="text-muted text_____align">in logos, trademarks, service marks or any other branding or identifiers.</li>
+
+
+<li class="text-muted text_____align">No ownership or copyrights to Stock Images are granted to you.</li>
+<li class="text-muted text_____align">Users can contact Marketage r's customer support department for assistance here.</li><br>
+
+
+               <span class="fw-bold">Shipping Physical Deliverables</span>
+               <p class="text-muted">Some of the services on marketage are delivered physically (arts and crafts, collectable items, etc.). For these types of Offer, Sellers may decide to define a shipping pricing factor.
+                </p><br>
+                <li class="text-muted text_____align" >Offers that include a shipping pricing factor must have physical deliverables sent to Buyers.</li>
+<li class="text-muted text_____align">Shipping costs added to a offer only pertains to the cost Sellers require to ship physical items to Buyers.</li>
+<li class="text-muted text_____align">Important: Buyers who purchase Offers that require physical delivery, will be asked to provide a shipping address.</li>
+<li class="text-muted text_____align">Sellers are responsible for all shipping arrangements once the Buyer provides the shipping address.</li>
+<li class="text-muted text_____align">Marketage does not handle or guarantee shipping, tracking, quality, and condition of items or their delivery and shall not be responsible or liable for any damages or other problems resulting from shipping.</li>
+<li class="text-muted text_____align">A tracking number is a great way to avoid disputes related to shipping. We require entering the tracking number if available in the Order Page when delivering your work.</li>
+
+
+
+               <span class="fw-bold fs-2">BUYERS</span><br>
+               <span class="fw-bold">Basics</span>
+               <li class="text-muted text_____align">You may not offer direct payments to Sellers using payment systems outside of the Marketage platform.</li>
+               <li class="text-muted text_____align">Marketage retains the right to use all publicly published delivered works for Marketage marketing and promotional purposes.</li>
+               <li class="text-muted text_____align">Buyers may request a specific service from the Post a Request feature. Services requested on Marketage must be an allowed service on marketage. Please click here for guidelines on approved services. Users should refrain from using the Post a Request feature for any purpose other than looking for services on marketage.</li>
+           
+               <br>
+
+
+
+               <span class="fw-bold">Purchasing</span>
+               <li class="text-muted text_____align">Please refer to the Payment Terms for making Payments through the Marketage platform and to learn about fees and taxes.</li>
+               <li class="text-muted text_____align">In addition, Buyers can request a Custom Order which addresses specific Buyer requirements, and receive a Custom Offer from Sellers through the site or through Marketage Anywhere.</li>
+               <li class="text-muted text_____align">You may not offer Sellers to pay, or make payment using any method other than through the Marketage.io site. In case you have been asked to use an alternative payment method, please report it immediately to Customer Support here.</li>
+               <br>
+
+               <span class="fw-bold fs-2">ORDERS</span><br>
+               <span class="fw-bold">Basics</span>
+               <li class="text-muted text_____align">Once payment is confirmed, your order will be created and given a unique Marketage order number (#FO).</li>
+               <li class="text-muted text_____align">Sellers must deliver completed files and/or proof of work using the Deliver Work button (located on the Order page) according to the service that was purchased and advertised on their Offer.</li>
+               <li class="text-muted text_____align">The Deliver Work button may not be abused by Sellers to circumvent Order guidelines described in these Terms of Service. Using the “Deliver Work” button when an Order was not fulfilled may result in a cancellation of that Order after review, affect the Seller’s rating and result in a warning to Seller.</li>
+               <li class="text-muted text_____align">An Order is marked as Complete after it is marked as Delivered and then accepted by a Buyer. An Order will be automatically marked as Complete if not accepted and no request for modification was submitted within 3 days after the Order was marked as Delivered.</li>
+               <li class="text-muted text_____align">We encourage our Buyers and Sellers to try and settle conflicts amongst themselves. If for any reason this fails after using the Resolution Center or if you encounter non-permitted usage on the Site, users can contact Marketage 's Customer Support department for assistance here. For more information about disputes, Order cancellations and refunds please refer to the Payment Terms.</li>
+               <li class="text-muted text_____align">Orders through the Logo Maker are completed once payment is made by the Buyer.</li>
+               <li class="text-muted text_____align">A milestone (on an Order with milestones) is marked as Complete after it is delivered by the Seller and then accepted by the Buyer. A milestone will be automatically marked as complete if no acceptance or request for modification were submitted within 8 days after marked as Delivered, however, in such case the Order will be stopped and all further milestones will not start. Once a milestone is delivered and accepted, Buyers may choose to either continue with the Order and pay for the next milestone, or to stop the Order. If Buyer does not pay for the next milestone within 10 days of acceptance of previous milestones, the Order under the next milestones will not start. Please note that if you choose to stop the future milestones, the current ordered milestone will not be cancelled.</li>
+               <li class="text-muted text_____align">Buyers may purchase a fixed term Subscription to a specific Offer, if available on the Seller’s Offer page. During the Subscription period, a new Order of the same Offer will be automatically created each month. By purchasing a Subscription, you authorize us to automatically charge you for each Order under the Subscription from your Marketage Balance or saved payment method, as applicable. If you do not have any Marketage Balance or a saved payment method, you will be  requested to approve the payment prior to the next Order. In case a payment is not processed or  made by Buyer, for any other reason, the Orders under the Subscription will be cancelled. Buyer may also cancel future Orders under the Subscription before payment is made for such future Orders. Once payment is made, Marketage’s Order Cancelation policy under the Payments Terms will apply. Please note that Sellers can cancel future Orders under the Subscription 10 days prior to the next consecutive Order. </li>
+               <li class="text-muted text_____align">Certain Offer that offer local services might require Buyers and Sellers to meet in person in order for the Seller to perform the service. In such cases, users should note that Marketage does not guarantee the behavior, conduct, safety, suitability or ability of either Buyers or Sellers. Both Buyers and Sellers agree that the entire risk arising out of their meeting and/or their use or performance of local services remains solely with them, and Marketage has no responsibility or liability related to any local services provided by the Sellers. In the event that the service is performed on the Buyers’ premises, Buyers are encouraged to maintain proper insurance policies to cover their liability as the premise owner. marketage’s Terms of Service and Community Standards remain applicable to Orders that are performed outside of the marketplace (including, among others, the below restrictions on Unlawful Use, Inappropriate Behavior & Language, and Targeted Abuse).</li>
+              
+               <br>
+
+               <span class="fw-bold">Handling Orders</span>
+         
+               <li class="text-muted text_____align">When a Buyer orders a Offer, the Seller is notified by email as well as notifications on the site while logged into the account.</li>
+               <li class="text-muted text_____align">Sellers are required to meet the delivery time they specified when creating their Offers. Failing to do so will allow the Buyer to cancel the Order when an Order is marked as late and may harm the Seller's status.</li>
+               <li class="text-muted text_____align">Sellers must send completed files and/or proof of work using the Deliver Completed Work button (located on the Order page) to mark the Order as Delivered.</li>
+               <li class="text-muted text_____align">Users are responsible for scanning all transferred files for viruses and malware. Marketage will not be held responsible for any damages which might occur due to site usage, use of content or files transferred.</li>
+               <li class="text-muted text_____align">Buyers may use the "Request Revisions" feature located on the Order Page while an Order is marked as Delivered if the delivered materials do not match the Seller's description on their offer page or they do not match the requirements sent to the Seller at the beginning of the order process.</li>
+         
+               <br>
+
+               <span class="fw-bold">Reviews</span>
+           
+               <li  class="text-muted text_____align">Feedback reviews provided by Buyers while completing an Order are an essential part of Marketage's rating system. Reviews demonstrate the Buyer's overall experience with the Sellers and their service. Buyers are encouraged to communicate to the Seller any concerns experienced during their active order in regards to the service provided by the Seller.</li>
+               <li  class="text-muted text_____align">Leaving a Buyer's feedback is a basic prerogative of a Buyer. Feedback reviews will not be removed unless there are clear violations of our Terms of Service and/or our Community Standards.</li>
+               <li  class="text-muted text_____align">To prevent any misuse of our Feedback system, all feedback reviews must come from legitimate sales executed exclusively through the marketage platform from users within our Community. Purchases arranged, determined to artificially enhance Seller ratings, or to abuse the Marketage platform with purchases from additional accounts, will result in a permanent suspension of all related accounts.</li>
+               <li  class="text-muted text_____align">Feedback comments given by Buyers are publicly displayed on a Seller’s Offer page.</li>
+               <li  class="text-muted text_____align">Work Samples are the delivered images and videos sent to a Buyer in a delivery message. Work Samples are added to a Seller's Live Portfolio on their Offer page if the Buyer chooses to publish the Work Sample while providing a public feedback review.</li>
+               <li  class="text-muted text_____align">Withholding the delivery of services, files, or information required to complete the Offer’s service with the intent to gain favorable reviews or additional services is prohibited.</li>
+               <li  class="text-muted text_____align">Responding and posting a review: Once work is delivered, the Buyer has three days to respond. If no response is provided within the response period, the Order will be considered completed.</li>
+               <li  class="text-muted text_____align">Users are allowed to leave reviews on Orders up to 10 days after an Order is marked as complete. No new reviews may be added to an Order after 10 days.</li>
+               <li  class="text-muted text_____align">Sellers may not solicit the removal of feedback reviews from their Buyers through mutual cancellations.</li>
+               <li  class="text-muted text_____align">Once the Buyer submits his/her review, the Seller will receive a notification and will also have the opportunity to leave a review about working with the Buyer. Please Note: At this stage, Sellers cannot see the Buyer's review.</li>
+               <li  class="text-muted text_____align">Once both Seller and Buyer have completed their reviews, or the 10 days have passed, all posted reviews are made public.</li>
+               <li class="text-muted text_____align">Responding to a review: Once both reviews from the Buyer and Seller have been published, the Seller can reply to the Buyer’s review from the Order page, seen on the Seller’s Offer page, beneath the Buyer’s feedback.</li>
+               <li  class="text-muted text_____align">Feedback reviews are unavailable for orders made through the Logo Maker.</li>
+           
+           
+               <br>
+
+               <span class="fw-bold fs-2">Disputes and Cancellations</span>
+               <p class="text-muted">We encourage our Buyers and Sellers to try and settle conflicts amongst themselves. If for any reason this fails after using the Resolution Center or if you encounter non-permitted usage on the Site, users can contact Marketage's Customer Support department for assistance here. For more information about disputes, Order cancellations and refunds please refer to the Payment Terms.</p><br>
+
+               <span class="fw-bold fs-2">Marketage Logo Maker</span>
+               <p class="text-muted">Marketage Logo Maker allows certain Sellers to offer various original logo designs (each, a “Logo Design”) for Buyers to adjust and customize per their own specific needs, using special automated design tools. Through the Logo Maker, Buyers purchase full commercial use rights to the Logo Design embedded with their brand name.
+                Marketage Logo Maker Sellers are chosen manually by Marketage editors through an ongoing review process based on quality of designs, seniority, volume of sales, high ratings, exceptional customer care, high order completion rate and more.
+                </p><br>
+                <li  class="text-muted text_____align">By uploading a Logo Design to Marketage Logo Maker you represent and warrant that it is your original work, you exclusively own all rights to such design, and it does not infringe any third party rights. You further warrant that such design was never sold before to anyone and that you will not offer it for sale outside of Marketage Logo Maker. </li>
+<li  class="text-muted text_____align">We may use automated systems that analyze your uploaded Logo Design to help detect and prevent infringement or other illegal content.</li>
+<li  class="text-muted text_____align">We may limit the number of active Logo Designs you can offer.</li>
+
+                <br>
+
+               <span class="fw-bold">Logo Design Commercial use license</span>
+               <p class="text-muted">When an order through the Logo Maker is completed, and subject to payment, the Seller grants the Buyer a worldwide, royalty-free, non-sub licensable, non-exclusive, irrevocable license to use the Logo Design embedded with the Buyer’s brand name for any purpose, except for any illegal, immoral or defamatory purpose. There is no warranty, express or implied, with the grant of this license, including with respect to fitness for a particular purpose. Neither the Seller nor marketage will be liable for any claims, or incidental, consequential or other damages arising out of this license, the Logo Design or the Buyers use of the Logo Design. For the avoidance of doubt, the Seller retains all ownership rights to the Logo Design, and no ownership or copyrights are granted to the Buyer.</p><br>
+
+               <span class="fw-bold fw-2">User Conduct and Protection</span>
+               <p class="text-muted">Marketage enables people around the world to create, share, sell and purchase nearly any service they need at an unbeatable value. Services offered on Marketage reflect the diversity of an expanding Offer economy. Members of the Marketage community communicate and engage through orders, social media, and on marketage’s Community Forums.
+                Marketage maintains a friendly, community spirited, and professional environment. Users should keep to that spirit while participating in any activity or extensions of Marketage. This section relates to the expected conduct users should adhere to while interacting with each other on marketage.
+                To report a violation of our Terms of Service and/or our Community Standards, User Misconduct, or inquiries regarding your account, please contact our Customer Support team here. 
+                </p><br>
+
+               <span class="fw-bold">Basics</span>
+               <li class="text-muted text_____align">To protect our users' privacy, user identities are kept anonymous. Requesting or providing Email addresses, Skype/IM usernames, telephone numbers or any other personal contact details to communicate outside of marketage in order to circumvent or abuse the Marketage messaging system or Marketage platform is not permitted.</li>
+               <li class="text-muted text_____align">Any necessary exchange of personal information required to continue a service may be exchanged within the Order Page.</li>
+               <li class="text-muted text_____align">Marketage does not provide any guarantee of the level of service offered to Buyers. You may use the dispute resolution tools provided to you in the Order Page.</li>
+               <li class="text-muted text_____align">Marketage does not provide protection for users who interact outside of the Marketage platform.</li>
+               <li class="text-muted text_____align">All information and file exchanges must be performed exclusively on Marketage 's platform.</li>
+               <li class="text-muted text_____align">Rude, abusive, improper language, or violent messages will not be tolerated and may result in an account warning or the suspension/removal of your account. </li>
+               <li class="text-muted text_____align">Marketage is open to everyone. You undertake not to discriminate against any other user based on gender, race, age, religious affiliation, sexual orientation or otherwise and you acknowledge that such discrimination may result in the suspension/removal of your account.</li>
+               <li class="text-muted text_____align">Users may not submit proposals or solicit parties introduced through Marketage to contract, engage with, or pay outside of Marketage.</li>
+              
+               <br>
+               
+               <span class="fw-bold">Orders</span>
+               <li class="text-muted text_____align">Users with the intention to defame competing Sellers by ordering from competing services will have their reviews removed or further account status related actions determined by review by our Trust & Safety team.</li>
+               <li class="text-muted text_____align">Users are to refrain from spamming or soliciting previous Buyers or Sellers to pursue removing/modifying reviews or cancelling orders that do not align on Order Cancellation or Feedback policies.</li><br>
+
+               <span class="fw-bold">Offers</span>
+               <li class="text-muted text_____align">Users may report Offers to Customer Support that may be in violation of Marketage Terms of Service based on the reported Offer’s replicated similarity to pre-existing services (copycat Offers).</li>
+<li class="text-muted text_____align">Sellers warrant that any content included in their Offers shall be original work conceived by the Sellers and shall not infringe any third party rights, including, without limitation, copyrights, trademarks or service marks. In the event that certain music or stock-footage media are incorporated within the Offers, Sellers represent and warrant that they hold a valid license to use such music and/or footage and to include them in the Offers.</li>
+<li class="text-muted text_____align">Marketage will respond to clear and complete notices of alleged copyright or trademark infringement. Our Intellectual Property claims procedures can be reviewed here.</li><br>
+
+               <span class="fw-bold">Reporting Violations</span>
+               <p class="text-muted">If you come across any content that may violate our Terms of Service and/or our Community Standards, you should report it to us through the appropriate channels created to handle those issues as outlined in our Terms of Service. All cases are reviewed by our Trust & Safety team. To protect individual privacy, the results of the investigation are not shared. You can review our Privacy Policy for more information.</p><br>
+
+               <span class="fw-bold">Violations</span>
+               <p class="text-muted">Users may receive a warning to their account for violations of our Terms of Service and/or our Community Standards or any user misconduct reported to our Trust and Safety team. A warning will be sent to the user's email address and will be displayed for such user on the Site. Warnings do not limit account activity, but can lead to your account losing Seller statuses or becoming permanently disabled based on the severity of the violation.</p><br>
+
+               <span class="fw-bold">Non-Premitted Usage</span>
+               <p class="text-muted">Adult Services & Pornography - Marketage does not allow any exchange of adult oriented or pornographic materials and services.
+                Inappropriate Behavior & Language - Communication on Marketage should be friendly, constructive, and professional. Marketage condemns bullying, harassment, and hate speech towards others. We allow users a medium for which messages are exchanged between individuals, a system to rate orders, and to engage on larger platforms such as our Community Forum and Social Media pages.
+                Phishing and Spam - Members’ security is a top priority. Any attempts to publish or send malicious content with the intent to compromise another member’s account or computer environment is strictly prohibited. Please respect our member’s privacy by not contacting them with offers, questions, suggestions or anything which is not directly related to their Offers or orders.
+                Privacy & Identity - You may not publish or post other people's private and confidential information. Any exchange of personal information required for the completion of a service must be provided in the Order Page. Sellers further confirm that whatever information they receive from the Buyer, which is not public domain, shall not be used for any purpose whatsoever other than for the delivery of the work to the Buyer. Any users who engage and communicate off of marketage will not be protected by our Terms of Service.
+                Authentic Marketage Profile - You may not create a false identity on Marketage, misrepresent your identity, create a Marketage profile for anyone other than yourself (a real person), or use or attempt to use another user’s account or information; Your profile information, including your description, skills, location, etc., while may be kept anonymous, must be accurate and complete and may not be misleading, illegal, offensive or otherwise harmful. Marketage reserves the right to require users to go through a verification process in order to use the Site (whether by using ID, phone, camera, etc.).
+                Intellectual Property Claims - marketage will respond to clear and complete notices of alleged copyright or trademark infringement, and/or violation of third party’s terms of service. Our Intellectual Property claims procedures can be reviewed here.
+                Fraud / Unlawful Use - You may not use Marketage for any unlawful purposes or to conduct illegal activities.
+                </p><br>
+
+               <span class="fw-bold">Abuse and Spam</span>
+               <p class="text-muted">Multiple Accounts - To prevent fraud and abuse, users are limited to one active Marketage account and one active Marketage Business account. Any additional account determined to be created to circumvent guidelines, promote competitive advantages, or mislead the marketage community will be disabled. Mass account creation may result in disabling of all related accounts. Note: any violations of marketage’s Terms of Service and/or our Community Standards is a cause for permanent suspension of all accounts.
+                Targeted Abuse - We do not tolerate users who engage in targeted abuse or harassment towards other users on Marketage. This includes creating new multiple accounts to harass members through our message or ordering system.
+                Selling Accounts - You may not buy or sell Marketage accounts.
+                </p><br>
+
+               <span class="fw-bold">Proprietary Restrictions</span>
+               <p class="text-muted">The Site, including its general layout, look and feel, design, information, content and other materials available thereon, is exclusively owned by Marketage and protected by copyright, trademark, and other intellectual property laws. Marketage, Offer and Offers are all registered trademarks owned exclusively by Marketage. Users have no right, and specifically agree not to do the following with respect to the Site or any part, component or extension of the Site (including its mobile applications): (i) copy, transfer, adapt, modify, distribute, transmit, display, create derivative works, publish or reproduce it, in any manner; (ii) reverse assemble, decompile, reverse engineer or otherwise attempt to derive its source code, underlying ideas, algorithms, structure or organization; (iii) remove any copyright notice, identification or any other proprietary notices; (iv) use automation software (bots), hacks, modifications (mods) or any other unauthorized third-party software designed to modify the Site; (v) attempt to gain unauthorized access to, interfere with, damage or disrupt the Site or the computer systems or networks connected to the Site; (vi) circumvent, remove, alter, deactivate, degrade or thwart any technological measure or content protections of the Site; (vii) use any robot, spider, crawlers or other automatic device, process, software or queries that intercepts, “mines,” scrapes or otherwise accesses the Site to monitor, extract, copy or collect information or data from or through the Site, or engage in any manual process to do the same, (viii) introduce any viruses, trojan horses, worms, logic bombs or other materials that are malicious or technologically harmful into our systems, (ix) use the Site in any manner that could damage, disable, overburden or impair the Site, or interfere with any other users’ enjoyment of the Site or (x) access or use the Site in any way not expressly permitted by these Terms of Service. Users also agree not to permit or authorize anyone else to do any of the foregoing.
+Except for the limited right to use the Site according to these Terms of Service, Marketage owns all right, title and interest in and to the Site (including any and all intellectual property rights therein) and you agree not to take any action(s) inconsistent with such ownership interests. We reserve all rights in connection with the Site and its content (other than UGC) including, without limitation, the exclusive right to create derivative works.
+</p><br>
+               
+               <span class="fw-bold">Feedback Rights</span>
+               <p class="text-muted">To the extent that you provide Marketage with any comments, suggestions or other feedback regarding the Marketage platform or the Site as a whole, as well as other Marketage products or services (collective, the “Feedback”), you will be deemed to have granted Marketage an exclusive, royalty-free, fully paid up, perpetual, irrevocable, worldwide ownership rights in the Feedback. Marketage is under no obligation to implement any Feedback it may receive from users. </p><br>
+
+               <span class="fw-bold">Confidentially</span>
+               <p class="text-muted">Sellers should recognize that there might be a need for Buyers to disclose certain confidential information to be used by Sellers for the purpose of delivering the ordered work, and to protect such confidential information from unauthorized use and disclosure. Therefore, Sellers agree to treat any information received from Buyers as highly sensitive, top secret and classified material. Without derogating from the generality of the above, Sellers specifically agree to (i) maintain all such information in strict confidence; (ii) not disclose the information to any third parties; (iii) not use the information for any purpose except for delivering the ordered work; and (vi) not to copy or reproduce any of the information without the Buyer’s permission.</p><br>
+
+               <span class="fw-bold fs-4">General Terms</span>
+               <li ="text-muted text_____align">Marketage reserves the right to put any account on hold or permanently disable accounts due to breach of these Terms of Service and/or our Community Standards or due to any illegal or inappropriate use of the Site or services.</li>
+<li class="text-muted text_____align">Violation of Marketage 's Terms of Service and/or our Community Standards may get your account disabled permanently.</li>
+<li class="text-muted text_____align">Users with disabled accounts will not be able to sell or buy on Marketage.</li>
+<li class="text-muted text_____align">Users who have violated our Terms of Service and/or our Community Standards and had their account disabled may contact our Customer Support team for more information surrounding the violation and status of the account. </li>
+<li class="text-muted text_____align">Users have the option to enable account Security features to protect their account from any unauthorized usage.</li>
+<li class="text-muted text_____align">Users must be able to verify their account ownership through Customer Support by providing materials that prove ownership of that account.</li>
+<li class="text-muted text_____align">Disputes should be handled using Marketage 's dispute resolution tools ('Resolution Center' on the order page) or by contacting Marketage Customer Support.</li>
+<li class="text-muted text_____align">Marketage may make changes to its Terms of Service from time to time. When these changes are made, Marketage will make a new copy of the terms of service available on this page.</li>
+<li class="text-muted text_____align">You understand and agree that if you use marketage after the date on which the Terms of Service have changed, Marketage will treat your use as acceptance of the updated Terms of Service.</li><br>
+
+               <span class="fw-bold fs-4">User Generated Content</span>
+               <p class="text-muted">
+                User Generated Content ("UGC") refers to the content added by users as opposed to content created by the Site. All content uploaded to marketage by our users (Buyers and Sellers) is User Generated Content. Marketage does not check user uploaded/created content for appropriateness, violations of copyright, trademarks, other rights or violations and the user uploading/creating such content shall be solely responsible for it and the consequences of using, disclosing, storing, or transmitting it. By uploading to, or creating content on, the Marketage platform, you represent and  warrant that you own or have obtained all rights, licenses, consents, permissions, power and/or authority, necessary to use and/or upload such content and that such content or the use thereof in the Site does not and shall not (a) infringe or violate any intellectual property, proprietary or privacy, data protection or publicity rights of any third party; (b) violate any applicable local, state, federal and international laws, regulations and conventions; and/or (c) violate any of your or third party’s policies and/or terms of service. We invite everyone to report violations together with proof of ownership as appropriate. Reported violating content may be removed or disabled.
+                Furthermore, Marketage is not responsible for the content, quality or the level of service provided by the Sellers (even if they are Pro Sellers, Top Rated Sellers, offer Promoted offers or otherwise). We provide no warranty with respect to the Offers, their delivery, any communications between Buyers and Sellers, and the Logo Designs created through the Logo Maker. We encourage users to take advantage of our rating system, our community and common sense in choosing appropriate services.
+                By offering a service, the Seller undertakes that he/she has sufficient permissions, rights and/or licenses to provide, sell or resell the service that is offered on Marketage. Sellers advertising online their Offer or Logo Design created through the Logo Maker must comply with laws and terms of service of the advertising platform or relevant website used to advertise. Failing to do so may result in removal of the Offer or Logo Design from the Logo Maker, as applicable, and may lead to the suspension of Seller's account.
+                For specific terms related to Intellectual Property rights and for reporting claims of copyright infringement (DMCA notices) or trademark infringement - please see our Intellectual Property Claims Policy which forms an integral part of these Terms of Service. Note that it is our policy in appropriate circumstances to disable and/or terminate the accounts of users who are repeat infringers.
+                </p><br>
+
+               <span class="fw-bold">Ownership</span>
+               <p class="text-muted">
+                Ownership and limitations: When purchasing a Offer on Marketage, unless clearly stated otherwise on the Seller's Offer page/description, when the work is delivered, and subject to payment, the Buyer is granted all intellectual property rights, including but not limited to, copyright in the work delivered from the Seller, and the Seller waives any and all moral rights therein. Accordingly, the Seller expressly assigns to the Buyer the copyright in the delivered work. All transfer and assignment of intellectual property to the Buyer shall be subject to full payment for the offer, and the delivery may not be used if payment is cancelled for any reason. For removal of doubt, in custom created work (such as art work, design work, report generation etc.), the delivered work and its copyright shall be the exclusive property of the Buyer and, upon delivery, the Seller agrees that it thereby, pursuant to these Terms of Service, assigns all right, title and interest in and to the delivered work to the Buyer. Some Offers (including for custom created work) charge additional payments (through Offer Extras) for a Commercial Use License. This means that if you purchase the Offer for personal use, you will own all rights you require for such use, and will not need the Commercial Use License. If you intend to use it for any charge or other consideration, or for any purpose that is directly or indirectly in connection with any business, or other undertaking intended for profit, you will need to buy the Commercial Use License through a OfferExtra and will have broader rights that cover your business use.
+                For Voice Over offers, when the work is delivered, and subject to payment, the Buyer is purchasing basic rights, (which means the Buyer is paying a one time fee allowing them to use the work forever and for any purpose except for commercials, radio, television and internet commercial spots). If you intend to use the Voice Over to promote a product and/or service (with the exception of paid marketing channels), you will need to purchase the Commercial Rights (Buy-Out) through Offer Extra. If you intend to use the Voice Over in radio, television and internet commercials, you will need to purchase the Full Broadcast Rights (Buy-Out) through Offer Extra. For further information on the type of buy-outs, please read below.
+                Furthermore, users (both Buyers and Sellers) agree that unless they explicitly indicate otherwise, the content users voluntarily create/upload to Marketage, including offer texts, photos, videos, usernames, user photos, user videos and any other information, including the display of delivered work, may be used by Marketage for no consideration for marketing and/or other purposes.
+                </p><br>
+
+               <span class="fw-bold">Voice Over Commercial Buy-Out</span>
+               <p class="text-muted">When purchasing a Voice Over Offer, the Seller grants you a perpetual, exclusive, non-transferable, worldwide license to use the purchased Voice Over (except for commercials, radio, television and internet commercial spots).
+                By purchasing a Commercial Rights (Buy-Out) with your order, in addition to the basic rights, the Seller grants you with a license to use the Voice Over for any corporate, promotional and non-broadcast purposes. Corporate, promotional and non-broadcast purposes means any business related use for the creation of, or to promote a for-product profit or service (with the exception of paid marketing channels), such as (by way of example): explainer videos posted to company websites, social networks or email campaigns, audiobooks, podcast intros, and strictly excludes any illegal, immoral or defamatory purpose.
+                By purchasing a Full Broadcast Rights (Buy-Out) with your order, in addition to the Commercial Rights, the Seller grants you with a license for full broadcasting, which includes internet, radio, and TV "paid channels" including (by way of example): television commercials, radio commercials, internet radio, and music/video streaming platforms, and strictly excludes any illegal, immoral or defamatory purpose.
+                This Buy-Out is subject to Marketage’s Terms of Service. There is no warranty, express or implied, with the purchase of this delivery, including with respect to fitness for a particular purpose. Neither the Seller nor Marketage will be liable for any claims, or incidental, consequential or other damages arising out of this license, the delivery or your use of the delivery.
+                </p><br>
+
+               <span class="fw-bold">Offer Commercial Use License</span>
+               <p class="text-muted">By purchasing a “Commercial Use License” with your Offer Order, the Seller grants you a perpetual, exclusive, non-transferable, worldwide license to use the purchased delivery for Permitted Commercial Purposes. For the avoidance of doubt, the Seller retains all ownership rights. “Permitted Commercial Purposes” means any business related use, such as (by way of example) advertising, promotion, creating web pages, integration into product, software or other business related tools etc., and strictly excludes any illegal, immoral or defamatory purpose. This License is subject to Marketage’s Terms of Service. There is no warranty, express or implied, with the purchase of this delivery, including with respect to fitness for a particular purpose. Neither the Seller nor Marketage will be liable for any claims, or incidental, consequential or other damages arising out of this license, the delivery or your use of the delivery.</p><br>
+
+               <span class="fw-bold">Disclaimer of warranties</span>
+               <p class="text-uppercase new_____font"><span class="fw-bold text-uppercase new_____font">YOUR USE OF THE SITE, ITS CONTENT AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE SITE IS AT YOUR OWN RISK. THE SITE, ITS CONTENT AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE SITE ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. NEITHER marketage NOR ANY PERSON ASSOCIATED WITH marketage MAKES ANY WARRANTY OR REPRESENTATION WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY OR AVAILABILITY OF THE SITE.
+                THE FOREGOING DOES NOT AFFECT ANY WARRANTIES WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</span>
+                </p><br>
+
+               <span class="fw-bold">Limitation on Liability</span>
+               <p class="text-muted"><span class="fw-bold new_____font text-uppercase">IN NO EVENT WILL marketage, ITS AFFILIATES OR THEIR LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS, OFFICERS OR DIRECTORS BE LIABLE FOR DAMAGES OF ANY KIND, UNDER ANY LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH YOUR USE, OR INABILITY TO USE, THE SITE, ANY WEBSITES LINKED TO IT, ANY CONTENT ON THE SITE OR SUCH OTHER WEBSITES OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SITE OR SUCH OTHER WEBSITES, INCLUDING ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO, PERSONAL INJURY, PAIN AND SUFFERING, EMOTIONAL DISTRESS, LOSS OF REVENUE, LOSS OF PROFITS, LOSS OF BUSINESS OR ANTICIPATED SAVINGS, LOSS OF USE, LOSS OF GOODWILL, LOSS OF DATA, AND WHETHER CAUSED BY TORT (INCLUDING NEGLIGENCE), BREACH OF CONTRACT OR OTHERWISE, EVEN IF FORESEEABLE.
+                THE FOREGOING DOES NOT AFFECT ANY LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
+                </span>
+                The term “Affiliate” referred to herein, is an entity that, directly or indirectly, controls, or is under the control of, or is under common control with marketage, where control means having more than fifty percent (50%) voting stock or other ownership interest or the majority of voting rights of such entity.</p><br>
+
+               
+
+               <span class="fw-bold">Machine Translation</span>
+               <p class="text-muted">Certain user-generated content on the Site has been translated for your convenience using translation software powered by Amazon Translate. Reasonable efforts have been made to provide an accurate translation, however, no automated translation is perfect nor is it intended to replace human translators. Such translations are provided as a service to users of the Site, and are provided "as is". No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, or correctness of such translations made from English into any other language. Some user-generated content (such as images, videos, Flash, etc.) may not be accurately translated or translated at all due to the limitations of the translation software.
+                The official text is the English version of the Site. Any discrepancies or differences created in the translation are not binding and have no legal effect for compliance or enforcement purposes. If any questions arise related to the accuracy of the information contained in the translated content, please refer to the English version of the content which is the official version.
+                </p><br>
+
+                 </div>
+
+
+
+
+
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+     <!-- footer -->
+     {% include 'buyingview/buying_footer.html' %}
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

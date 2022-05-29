@@ -1,0 +1,126 @@
+{% load static %}
+
+
+<style>
+    .drop-down-for-notification{
+        display: none;
+        position: absolute;
+        padding: 20px 10px;
+        background: #fff;
+        width: 300px;
+        left: -260px;
+        top: 40px;
+        z-index: 100;
+        border: 1px solid #f9f9f9;
+        box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.16);
+-webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.16);
+-moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.16);
+    }
+    
+    .show-notification.active + .drop-down-for-notification{
+        display: block ;
+    }
+    
+    .not-hover a:hover{
+        background: #c3232a;
+    }
+</style>
+
+<script src="{% static 'js/admin-notification.js' %}" defer></script>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+    <div class="d-flex align-items-center">
+        <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+        <h2 class="fs-2 m-0">Dashboard</h2>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            
+            
+            <li class="nav-item dropdown d-flex">
+                
+                
+                <!--for notification icon-->
+                <div class="main-notification">
+                
+                
+                        
+                        <a class="nav-link second-text fw-bold show-notification" href="#" id="notification"
+                            role="button" data-dropdown-button >
+                            <i class="fas fa-bell"></i>&nbsp
+                            {% if nots %}
+                            <span class="badge bg-danger" style="font-size: 4px; color: red;">.</span>
+                            {% else %}{% endif %}
+                        </a>
+                        
+                        
+                        <!--for notification dropdown-->
+                        
+                        <div class="drop-down-for-notification" data-dropdown>
+                        {% if notifications %}
+                        {% for n in notifications %}
+                            
+                            
+                            <a href="url 'notificationView' n.id " class="not-hover">
+                                
+                                
+                                
+                                {% comment %} <a href="url 'notificationView' n.id " class="not-hover"> {% endcomment %}
+                                
+                                
+                                
+                                
+                                <h6>
+                                {% if n.has_checked == False %}
+                                <span class="badge bg-danger" style="font-size: 4px; color: red;">.</span>
+                                {% else %}{% endif %}
+                                &nbsp Title: {{ n.title }}</h6>
+                                
+                                
+                                <p>{{ n.content|safe }}</p>
+                                <hr>
+                                
+                            </a>
+                            
+                            
+                            
+                            
+                            
+                        {% endfor %}
+                        {% else %}<h5>No Notifcations yet!</h5>{% endif %}
+                            <a href="#" class="d-flex justify-content-center">View All</a>
+                        </div>
+                
+                </div>
+                
+                
+                
+                <!--for profile icon-->
+                <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user me-2"></i>{{ request.user }}
+                </a>
+                
+              
+                
+                
+                <!--for profile-->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'adminlogoutview' %}">Logout</a></li>
+                </ul>
+                
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+

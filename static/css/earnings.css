@@ -1,0 +1,234 @@
+*{box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+  }
+ body{
+     width: 100%;
+     background-color: #f5f5f5 !important;
+ } 
+ #div1{
+    color:red;
+    font-size: 14px;
+    margin-bottom: 13px;
+ }
+.container{
+    margin-top: 12px;
+}
+/* earnings header */
+.earning{
+    font-size:35px;
+}
+.earnings___header p{
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+.earnings___header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+}
+
+/* net income status */
+.net__income__status{
+    padding: 28px 37px 28px 37px;
+    margin-top: 12px;
+    background-color: #fff;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.net__income__status p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.amount{
+    font-size:24px;
+}
+.net__income__status a{
+    color: #000;
+}
+.net__income__status a:hover{
+    color: #428ad3;
+}
+
+/* net income part */
+.net__income{
+    padding-left: 20px;
+    padding-right: 52px;
+    display: inline-block;
+    border-right: 1px solid #777;
+    text-align: center;
+    margin: 10px;
+}
+.net__income:last-child{
+    border: none;
+}
+
+/* withdraw option */
+.withdraw__option{
+    display: flex;
+    margin-top: 15px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.withdraw__option p{
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin: 5px;
+}
+.withdraw__option a{
+    border: none;
+    padding: 4px 14px;
+    border-radius:4px;
+    background: #fff;
+}
+.ssl____commerz a{
+    color: #fff !important;
+    background-color: #428ad3 !important;
+}
+
+/* show option deopdowmn */
+.dropdown___button{
+    border: none;
+    padding: 8px 14px;
+    background: #fff;
+    border-radius: 4px;
+    transition: .2s ease-in-out;
+}
+.dropdown___button:hover{
+    color: #428ad3;
+}
+
+
+/* export to csv */
+.export__csv{
+    display: flex;
+    justify-content:flex-end;
+}
+/* transaction table */
+.transaction___table table th:last-child{
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+
+.transaction___table{
+    background-color: #fff;
+}
+.transaction___table table td:hover{
+    background-color: #f5f5f5;
+}
+
+/* paypent modal */
+.payment__option__button{
+    border: 1px solid #ced4da !important;
+    outline: none !important;
+    margin-left: 9px;
+}
+.submit__button{
+    border: 1px solid #428ad3 !important;
+    background-color: #428ad3;
+    color: #fff;
+    padding: 6px 42px;
+    border-radius:4px;
+    outline: none;
+    transition: .2s ease-in-out;
+}
+.submit__button:hover{
+    background-color: #2e57a5;
+}
+.main__content{
+    margin-top: 22px;
+}
+.amount__input{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.payment___drop, .amount__input{
+    padding: 10px;
+}
+.payment___drop{
+    display: flex;
+}
+.amount__input__style{
+    margin-left: 19px;
+}
+.bkash___number{
+    margin-left: 36px;
+}
+.paypal___number{
+    margin-left: 30px;
+}
+.nagad___number{
+    margin-left: 29px;
+}
+.amount__input__style1{
+    margin-left: 13px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.amount__input input::-webkit-outer-spin-button,
+.amount__input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.amount__input input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 990px){
+    .net__income__status{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+        justify-content: center;
+    }
+    .net__income{
+        text-align: center;
+    }
+    .net__income:nth-child(even){
+        border: none;
+    }
+    .export__csv{
+        display: flex;
+        justify-content:center;
+    }
+}
+@media (max-width: 750px){
+    .net__income__status{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+    }
+}
+@media (max-width: 650px){
+    .net__income__status{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+    }
+}
+@media (max-width: 450px){
+    .net__income__status{
+        display: grid;
+        grid-template-columns: auto;
+        padding: 10px;
+    }
+    .net__income{
+        border: none !important;
+    }
+    .withdraw__option{
+        display: flex;
+        margin-top: 15px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    list-style: none;
+    text-decoration: none !important;
+}
+
+body {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+
+/* package title */
+
+.package____title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* packages card */
+
+.main_____card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.package____card {
+    width: 259px;
+    height: 100%;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 18px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: .2s ease-in-out;
+}
+
+.package____card:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.packages___title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.price___amount {
+    font-weight: 600;
+    font-size: 40px;
+    color: #4f6bf2
+}
+
+.amount___bro {
+    color: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+}
+
+.inner___item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner___item {
+    margin-top: 25px;
+}
+
+.pri {
+    margin-top: 23px;
+}
+
+.inner___item p {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.buying__new___button {
+    border: none;
+    outline: none;
+    background-color: #4f6bf2;
+    color: #fff;
+    padding: 5px 56px;
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor: pointer;
+}
+
+.make___words {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bold____text {
+    padding: 0 0.3rem;
+}
+
+.packages___title {
+    background-color: #4f6bf2;
+    color: #fff;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding: 20px;
+}
+
+.buying___buttton {
+    margin-top: 37px;
+    margin-bottom: 27px;
+}
+
+.bronze {
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gold {
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+}
+
+.silver {
+    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+}
+
+.bold____text {
+    font-weight: 600;
+}

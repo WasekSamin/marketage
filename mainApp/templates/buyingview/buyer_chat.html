@@ -1,0 +1,539 @@
+{% extends "wasekPart/base.html" %}
+
+
+
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/chat_inbox.css' %}">
+
+
+
+<script src="{% static 'js/chat_inbox.js' %}" defer></script>
+
+{% include "buyingview/header.html" %}
+
+
+<style>
+    .msg__header,
+    .wasek__mobileNavbar {
+        display: none !important;
+    }
+</style>
+
+<div class="chat__inbox container">
+
+    <!-- Left side section starts -->
+
+    <div class="left__side">
+
+        <!-- Left side top section starts -->
+
+        <div class="left__topSection">
+
+            <!-- All conversation button dropdown section starts -->
+
+            <div class="dropdown user__dropdown">
+
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+
+                    aria-expanded="false">
+
+                    Search Profile
+
+                </button>
+                
+                {% comment %}
+                <ul class="dropdown-menu user__Alloptions" aria-labelledby="dropdownMenuButton1">
+
+                    <li><a class="dropdown-item" href="#">All Conversations</a></li>
+
+                    <li><a class="dropdown-item" href="#">Unread</a></li>
+
+                    <li><a class="dropdown-item" href="#">Starred</a></li>
+
+                    <li>
+
+                        <hr class="dropdown-divider">
+
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Archived</a></li>
+
+                    <li><a class="dropdown-item" href="#">Spam</a></li>
+
+                    <li>
+
+                        <hr class="dropdown-divider">
+
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Custom Offers</a></li>
+
+                    <li><a class="dropdown-item" href="#">Follow Up</a></li>
+
+                    <li><a class="dropdown-item" href="#">Nudge</a></li>
+
+                </ul>
+                {% endcomment %}
+            </div>
+
+            <!-- All conversation button dropdown section ends -->
+
+
+
+            <!-- Left side search icon section starts -->
+
+            <div class="left__searchBar">
+
+                <div class="searchbar">
+
+                    <span class="iconify" data-icon="bx:bx-search" data-inline="false"></span>
+
+                </div>
+
+            </div>
+
+            <!-- Left side search icon section ends -->
+
+
+
+            <!-- Search box section starts -->
+
+            <div class="seach__boxInput">
+
+                <input onkeyup="matchName(this)" type="text" class="form-control" placeholder="Search for a username...">
+
+                <div class="close__searchBar">
+
+                    <span class="iconify" data-icon="carbon:close-outline" data-inline="false"></span>
+
+                </div>
+
+            </div>
+
+            <!-- Search box section ends -->
+
+        </div>
+
+        <!-- Left side top section ends -->
+
+
+
+        <!-- Left main content section starts -->
+
+        <div class="user__chatGroup">
+
+            <ul class="list-group user__chatList">
+
+                {% for rm in all_rooms %}
+
+                <li class="list-group-item list-group-item-action user">
+
+                    <a class="user__chatInfo" href="{% url 'chatroom' rm.id rm.slug %}">
+
+                        <div class="left__userChat">
+
+                            <div class="user__chatImg">
+
+                                <span class="iconify star__icon text-muted" data-icon="ant-design:star-outlined" data-inline="false"></span>
+
+                                <img src="{{ rm.sellers.selleraccount.profile_picture.url }}" alt="">
+
+                                <div class="user__onlineDot"></div>
+
+                            </div>
+
+                            <div class="user__username">
+
+                                <!-- This should be truncate chars. Use django truncatechars -->
+
+                                <p class="fw-bold text-dark getChat__username">{{ rm.sellers.username|truncatechars:15 }}</p>
+
+                                <!-- This should be truncate chars. Use django truncatechars -->
+
+                                <small class="text-muted">Room: <span>{{ rm.room_name|truncatechars:15 }}</span></small>
+
+                            </div>
+
+                        </div>
+
+
+                        {% comment %}
+                        <div class="msg__timestamp">
+
+                            <small class="text-muted fw-bold">{{ rm.chatroom.sent_date }}</small>
+
+                            <div class="user__chooseIcons">
+
+                                <div class="make__fav">
+
+                                    <span class="iconify text-muted" data-icon="ant-design:star-outlined"
+
+                                        data-inline="false"></span>
+
+                                </div>
+
+                                <div class="mark__asUnread">
+
+                                    <span class="iconify text-muted" data-icon="line-md:email-opened"
+
+                                        data-inline="false"></span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    {% endcomment %}
+                    
+                    <input type="hidden" value="{{ rm.seen }}" class="play__audio" />
+                    
+                    {% if not rm.seen %}
+                    <div class="msg__timestamp">
+                        <span class="iconify fs-5" data-icon="carbon:notification-new"></span>
+                    </div>
+                    {% endif %}
+                    </a>
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Left main content section ends -->
+
+    </div>
+
+    <!-- Left side section ends -->
+
+
+
+    <!-- Middle side section starts -->
+
+    <div class="middle__side">
+
+        <!-- Middle side top section starts -->
+
+        {% if values|length > 0 %}
+
+        <div class="middle__topSection">
+
+            <span class="go__back">
+
+                <span class="iconify text-muted" data-icon="bx:bx-arrow-back" data-inline="false"></span>
+
+            </span>
+
+            <span class="iconify text-muted" data-icon="emojione-monotone:sleeping-face" data-inline="false"></span>
+
+            <span class="fw-bold">{{ request.user }}</span>
+
+            <div class="user__lastSeen">
+
+                <small class="text-muted">Last seen {{ ago }} ago | Local Time Aug 4, 4:30 PM</small>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        <!-- Middle side top section ends -->
+
+
+
+        <!-- Middle side main content section starts -->
+
+        <div class="middle__mainContent {% if values|length <= 0 %}d-flex align-items-center justify-content-center{% endif %}">
+
+            <div class="user__allChats">
+
+            <!-- Me -->
+
+            {% if values|length > 0 %}
+
+                {% for m in values %}
+
+                <div class="user__me">
+
+                    <div class="opposite__userImg">
+
+                        <img src="{{ m.sender.selleraccount.profile_picture.url }}" alt="">
+
+                    </div>
+
+                    <div class="chat__msg">
+
+                        <div class="chat__timestamp">
+
+                            <span class="fw-bold">{{ m.sender }}</span>
+
+                            <small class="text-muted">Jun 27, 2:40 PM</small>
+
+                        </div>
+
+                        <p>{{ m.msg }}</p>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+                {% else %}
+
+                <div class="h-100 d-flex flex-column justify-content-center align-items-center no__chatroomSelected">
+
+                    <span class="iconify" data-icon="cil:chat-bubble"></span>
+
+                    <p class="text-danger" id="no__chatText">No chatroom is selected!</p>
+
+                    <p class="fw-bold text-muted text-center" id="continue__chat">Please, select a chatroom to continue conversation.</p>
+
+                </div>
+
+                {% endif %}
+
+                <!-- Me -->
+
+               
+
+            </div>
+
+            <!-- User typing message section starts -->
+
+            {% if values|length > 0 %}
+
+            <div class="user__typeMsg">
+
+                <form action="" method="POST">
+
+                    {% csrf_token %}
+
+                    <input type="text" class="form-control" placeholder="Enter your message..." name="msg" required>
+
+                    <!-- <button type="submit">send</button> -->
+
+
+
+                    <div class="typing__icons">
+
+                        <div>
+
+                            <div class="happy__icon">
+
+                                <span class="iconify" data-icon="mdi:emoticon-happy-outline" data-inline="false"></span>
+
+                            </div>
+
+                            <div class="thunder__icon">
+
+                                <span class="iconify" data-icon="ant-design:thunderbolt-outlined"
+
+                                    data-inline="false"></span>
+
+                            </div>
+
+                            <div class="attachment__icon">
+
+                                <span class="iconify" data-icon="fluent:attach-16-regular" data-inline="false"></span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="send__icon">
+
+                            <button type="submit" style="background: none; border: none;"><span class="iconify" data-icon="bytesize:send" data-inline="false">send</span></button>
+
+                        </div>
+
+                
+
+                 </div>
+
+                </form>
+
+            </div>
+
+            {% endif %}
+
+            <!-- User typing message section ends -->
+
+        </div>
+
+        <!-- Middle side main content section ends -->
+
+    </div>
+
+    <!-- Middle side section ends -->
+
+
+
+    <!-- Right side section starts -->
+
+    {% if values|length > 0 %}
+
+    <div class="right__side">
+
+        <!-- Right side top section starts -->
+
+        <div class="right__topSection">
+
+            <div class="right__topDots">
+
+                <span class="iconify text-muted" data-icon="bi:three-dots" data-inline="false"></span>
+
+            </div>
+
+
+
+            <div class="right__alternateOptions">
+
+                <ul>
+
+                    <li>
+
+                        <span class="iconify text-muted" data-icon="ant-design:star-outlined" data-inline="false"></span> <span class="text-muted">|</span> 
+
+                    </li>
+
+                    <li>
+
+                        <span class="iconify text-muted" data-icon="line-md:email-opened" data-inline="false"></span>
+
+                    </li>
+
+                    <li>
+
+                        <span class="iconify text-muted" data-icon="ph:archive-tray-light" data-inline="false"></span>
+
+                    </li>
+
+                    <li>
+
+                        <span class="iconify text-muted" data-icon="codicon:trash" data-inline="false"></span> <span class="text-muted">|</span> 
+
+                    </li>
+
+                    <li>
+
+                        <span class="iconify text-muted" data-icon="bi:tag" data-inline="false"></span>
+
+                    </li>
+
+                </ul>
+
+
+
+                <ul>
+
+                    <li class="close__alternateOption">
+
+                        <span class="iconify" data-icon="gg:close-o" data-inline="false"></span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Right side top section ends -->
+
+
+
+        <!-- Right side main content section starts -->
+
+        <div class="right__mainContent">
+
+            <div>
+
+                <h5 class="mt-4 fw-bold">About</h5>
+
+                <div class="right__userImg">
+
+                    <img src="{{ chatroom.sellers.selleraccount.profile_picture.url }}" alt="">
+
+                    <p class="text-center fw-bold">{{ chatroom.sellers.username }}</p>
+
+                    <p class="new__seller text-muted text-center">Level {{ chatroom.sellers.selleraccount.level }}</p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="user__profileDetail mt-2">
+
+                <div>
+
+                    <p class="text-muted">Reviews</p>
+
+                    <!-- <p class="text-muted"><span class="iconify" data-icon="emojione:star" data-inline="false"></span> -->
+
+                        <!-- <span class="fw-bold text-dark">Coming Soon!</span> (2)</p> -->
+
+                        <p class="text-dark text-muted">Coming Soon!</p>
+
+                </div>
+
+                <div>
+
+                    <p class="text-muted">Avg. Response Time</p>
+
+                    <p class="fw-bold">1h</p>
+
+                </div>
+
+                <div>
+
+                    <p class="text-muted">From</p>
+
+                    <p class="fw-bold">{{ chatroom.buyer.selleraccount.country }}</p>
+
+                </div>
+
+                <!-- <div>
+
+                    <p class="text-muted">English</p>
+
+                    <p class="fw-bold">Native</p>
+
+                </div>
+
+                <div>
+
+                    <p class="text-muted">Urdu</p>
+
+                    <p class="fw-bold">Native</p>
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+        <!-- Right side main content section ends -->
+
+    </div>
+
+    {% endif %}
+    
+    <audio id="notify__audio" src="{% static 'music/notification_sound.wav' %}"></audio>
+
+</div>
+
+{% include 'buyingview/buying_footer.html' %}
+
+{% endblock %}

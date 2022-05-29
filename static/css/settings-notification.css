@@ -1,0 +1,133 @@
+body{
+    background-color: #F7F7F7;
+}
+.inner-setting{
+    margin-bottom: 100px;
+}
+.left-menu-list ul{
+    margin: 0;
+    padding: 0;
+}
+.left-menu-list ul li{
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+.left-menu-list ul li a{
+    text-decoration: none;
+    list-style: none;
+    color: rgb(138, 137, 137);
+    font-weight: 500;
+}
+.left-menu-list ul li a:hover{
+    color: rgb(37, 37, 37);
+}
+.upper-letter p{
+    text-align: right;
+}
+.upper-letter p a{
+    text-decoration: none;
+    color: #40CA89;
+    font-weight: 500;
+}
+.upper-letter p a:hover{
+    text-decoration: underline;
+}
+.active-page a{
+    color: #000 !important;
+    font-weight: 800 !important;
+}
+.right-details-card{
+    border: 1px solid rgb(221, 221, 221);
+    padding: 40px;
+    background-color: #fff;
+}
+.naming-details p{
+    display: inline-block;
+    width: 35%;
+    margin-bottom: 40px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.naming-details input{
+    width: 64%;
+    outline: none;
+    border: 1px solid rgb(177, 177, 177);
+    padding-left: 10px;
+}
+.inner-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.email, .mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.email input, .mobile input{
+    margin: 10px 0px 16px 0px;
+}
+.inner-audio{
+    display: flex;
+}
+.inner-audio p{
+    width: 50%;
+}
+.inner-audio-right{
+    width: 50%;
+}
+.hover{
+    color: #4A75EB;
+    font-weight: 600;
+    text-decoration: none;
+}
+.hover:hover{
+    text-decoration: underline;
+    color: #4A75EB;
+}
+.form-switch i{
+    margin-left: 3px;
+    font-size: 12px;
+}
+.save-changes{
+    float: right;
+    background-color: #1DBF73;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid #1DBF73;
+}
+.save-changes:hover{
+    border: 1px solid rgb(124, 124, 124);
+}
+
+/* responsive  */
+
+@media screen and (max-width: 991px) {
+    .type p{
+        font-size: 12px;
+    }   
+    .email input, .mobile input{
+        margin: 5px 0px 16px 0px;
+        align-self: center;
+    }
+    
+}
+@media screen and (max-width: 518px) {
+    h5{
+        font-size: 18px;
+    }
+    .notification p{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 400px) {
+    h5{
+        font-size: 15px;
+    }
+}

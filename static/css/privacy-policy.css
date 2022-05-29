@@ -1,0 +1,81 @@
+*{  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    width: 100%;
+    background-color: #f5f5f5 !important;
+}
+
+/* policy description */
+.helllllo{
+    text-align: justify;
+    list-style-type: disc !important;
+}
+
+
+/* more description */
+.description{
+    background-color: #fff !important;
+    padding: 15px !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.more-description{
+    background-color: #f0f4ff;
+    padding: 25px;
+    margin-top: 20px;
+}
+.more-description li{
+    padding: 10px;
+}
+.more-description li a{
+    text-decoration: none;
+}
+
+/* the short  description */
+
+.the-short-version{
+    margin-top: 20px;
+}
+.the-short-version p a, .information-we-collect p a, .how-we-collect p a, .third-parties p a, .Cookies p a, .do-not-track p a, .Contact-Us p a{
+    text-decoration: none;
+    color: #19a463;
+}
+/*  
+the longer version and information we collect */
+.the-longer-version, .information-we-collect, .how-we-collect, .how-use-information-collected, .keep-personal-information, .children-under-13, .third-parties, .store-personal-information, .Cookies, .do-not-track, .external-link, .Security, .eu-users, .california-resident, .updating-personal-information{
+    margin-top: 20px;
+}
+
+
+/* main privacy policy */
+.main-privvacy-policy{
+    padding: 26px;
+}
+
+/* footer */
+.footer{
+    background-color: #272727;
+    width: 100%;
+    padding-top: 42px;
+    padding-bottom: 20px;
+}
+.topFooter a{
+    text-decoration: none;
+    color: #fff;
+}
+.active{
+    color: #717171;
+}
+.topFooter a p:hover{
+    color:#7a85eb;
+}
+.topFooter a i:hover{
+    color:#f266e7;
+}
+.topFooter a p{
+    font-size: 13px;
+}
+

@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    width: 100%;
+}
+.terms_____condition{
+    text-decoration: none;
+}
+.nav___new___logo1{
+    font-weight: 700 !important;
+    font-family: 'Lobster', cursive !important;
+    letter-spacing: 2px;
+    font-size: 29px !important;
+    margin-top: -5px;
+    text-decoration: none;
+    color: #000 !important;
+  }
+.headerLogo img{
+    width: 129px;
+    height: 27px;
+    object-fit: cover;
+}
+.headerLogo{
+    padding: 25px;
+}
+.orderText1 a{
+    text-decoration: none;
+    color: #428ad3;
+  }
+.orderText a {
+    text-decoration: none;
+    color: #428ad3;
+}
+.orderText, .orderText1{
+    padding: 15px;
+}
+.orderText1{
+    color: #428ad3;
+    font-size: 18px;
+}
+.orderText{
+    color: #b5b6ba;
+    font-size: 18px;
+}
+
+
+/* main content */
+/* badge */
+.newbadge{
+    border-radius: 1.25rem;
+}
+
+/* paypalCheck */
+.paypalCheck a i{
+    font-size: 30px;
+}
+
+/* main card */
+.maincard{
+    background-color: #fafafa;
+}
+/* paymentDetails */
+.paymentDetails, .paypalCheck{
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/* payment icon */
+.paymentIcon i{
+    font-size: 21px;
+}
+/* firstrow */
+.firstrow, .secondrow, .lastCheckBox{
+    padding: 24px;
+}
+.toalinput{
+    padding: 10px;
+}
+/* paypaltext */
+.paymentLink{
+    text-decoration: none;
+}
+.paymentLink h6 i{
+    font-size: 17px;
+}
+.paymentOption{
+    display: inline-block;
+    padding: 15px;
+}
+.paypaltext{
+    color: #0e089c;
+}
+.paypaltext1{
+    color: #646ede;
+}
+.paypaltext2{
+    color: #072551;
+}
+.paypaltext3{
+    background-color: #2859a6;
+    padding: 2px;
+}
+.paypaltext4{
+    color: #4C4C4C;
+}
+.paypaltext4 span{
+    color: #f69400;
+}
+.paypaltext span{
+    color: #06aed4;
+}
+
+/* second card gig image */
+.gigimg img{
+    width: 100px;
+    height: 61px;
+}
+.gigimg{
+    display: flex;
+}
+
+/* gig details  */
+.gigDetails span{
+    display: inline-block;
+}
+.gigDetails p{
+    float: right;
+}
+
+/* services fee details */
+.services span{
+    display: inline-block;
+}
+.services p{
+    float: right;
+}
+/* total details */
+.ttt{
+    display: inline-block;
+}
+.ddd{
+    float: right;
+}
+/* button color */
+.confirm{
+    background-color: #428ad3;
+    border: none !important;
+    outline: none !important;
+    padding: 8px 12px;
+    color: #fff !important;
+    transition: .2s ease-in-out;
+    border-radius: 4px;
+}
+.confirm:hover{
+    background-color: #2859a6 !important;
+}
+/* half differnet color */
+
+.gigimg, .gigDetails{
+    background-color: #fafafa;
+}
+
+/* gigimg style */
+.gigimg{
+    padding: 20px;
+}
+.gigimg span{
+    padding-left: 20px;
+}
+
+/* gigDetails style */
+.gigDetails{
+    padding: 20px;
+}
+.gigDetalIocn{
+    padding: 10px;
+}
+.gigDetalIocn i{
+    padding: 8px;
+    color: #1dbf73;
+}
+
+/* promoCode serch option style */
+.promoCode{
+    padding: 20px;
+}
+.promoButton{
+    background-color: #6c757d;
+    color: #ffffff;
+}
+.promoButton:hover{
+    background-color: #3a4345;
+}
+/* services style */
+.services{
+    padding: 15px;
+}
+.newbadge{
+    border-radius: 10px;
+}
+
+/* total details style */
+.totalDetails{
+    padding: 20px;
+}
+
+/* button style */
+.confirmButton{
+    padding: 20px;
+}
+/* footer style */
+.secondCardFooter{
+    color: #ababab;
+}
+
+/* footer text style */
+.footerText{
+    color: #b5b6ba;
+}
+.footerText a{
+    text-decoration: none;
+}
+
+/* mobile view image */
+
+.mobileViewImg{
+    padding: 15px;
+}
+.mobileImg{
+    display: none;
+}
+
+@media (max-width: 990px){
+    .headerLogo{
+        display: none;
+    }
+    .mobileImg{
+        display: block;
+    }
+    .footerText span{
+        text-align: center;
+    }
+    .footerText a{
+        text-align: center;
+    }
+}
+@media (max-width: 389px){
+    .paymentOption{
+        display: inline-block;
+        padding: 6px;
+    }
+}
+@media (max-width: 330px){
+    .paymentOption{
+        display: inline-block;
+        padding: 0px;
+    }
+}

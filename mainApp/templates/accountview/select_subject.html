@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- google font -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="{% static 'css/pre_exam_submit.css' %}">
+     <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+    <title>Exam Subject</title>
+  </head>
+  <body>
+  {% include 'wasekPart/header.html' %}<br>
+        
+        <div class="main___select___class">
+           <div class="all___select___class">
+               <h4 class="text-center category___title">Select Your Subject</h4>
+
+              {% comment %} <form action="" method="POST">
+              {% csrf_token %} {% endcomment %}
+
+                    <div class="select___class">
+                    <label for="category" class="fw-bold fs-6">SELECT A SUBJECT FOR A TEST  :</label>
+                    <ul>
+                        {% for e in exam_subj %}
+                            <li><a href="{% url 'Exam' e.id %}">{{ e.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                        {% comment %} <select name="exam_subjects" class="main____category">
+                            <option value="select__category">Select Subject</option>
+                            {% for e in exam_subj %}
+                                <option value="{{ e.title }}">{{ e.title }}</option>
+                            {% endfor %}
+                            
+                        </select> {% endcomment %}
+                    </div>
+
+                <div class="new____submit___button d-flex justify-content-center">
+                    {% comment %} <button class="submit________button">Start</button> {% endcomment %}
+                   </div>
+                    
+                  {% comment %} </form> {% endcomment %}
+   
+               </div>
+            </div>
+            
+      
+  <br>{% include 'buyingview/buying_footer.html' %}
+        
+        
+        
+        <script>
+        
+        
+        </script>
+  </body>
+</html>

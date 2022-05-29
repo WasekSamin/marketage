@@ -1,0 +1,136 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/package.css' %}">
+    <title>Packages</title>
+</head>
+
+<body>
+{% include 'wasekPart/base.html' %}
+<br>
+    <div class="package____title">
+        <h1>Pick Your Packages</h1>
+
+        <div class="main_____card">
+        {% for p in p_pkgs %}
+            <div class="package____card">
+                <p class="packages___title bronze">{{ p.pkg_title }}</p>
+
+                <p class="pri">USD
+                    <span class="price___amount amount___bro">{{ p.price }}</span>
+                </p>
+
+                <p class="make___words"> <span class="iconify" data-icon="carbon:dot-mark" style="color: #f45f80;"></span>Make Your Profile <span class="bold____text"> BRONZE </span> For</p>
+
+                <div class="inner___item">
+                    <p>3 DAYS</p>
+                </div>
+
+                <div class="buying___buttton">
+                    <form action="{% url 'add_package_to_cart' %}" method="POST">
+                    {% csrf_token %}
+                        <input hidden type="text" value="{{ p.id }}" name="pkg_id">
+                        <button class="buying__new___button bronze" type="submit">BUY</button>
+                    </form>
+                </div>
+            </div>
+
+        {% endfor %}
+        {% for p in p_pkgs2 %}
+            <div class="package____card">
+                <p class="packages___title silver">{{ p.pkg_title }}</p>
+
+                <p class="pri">USD
+                    <span class="price___amount">{{ p.price }}</span>
+                </p>
+
+                <p class="make___words"> <span class="iconify" data-icon="carbon:dot-mark" style="color: #42ea81;"> </span> Make Your Profile <span class="bold____text"> SILVER </span> For</p>
+
+                <div class="inner___item">
+                    <p>7 DAYS</p>
+                </div>
+
+                <div class="buying___buttton">
+                    <form action="{% url 'add_package_to_cart' %}" method="POST">
+                    {% csrf_token %}
+                        <input hidden type="text" value="{{ p.id }}" name="pkg_id">
+                        <button class="buying__new___button silver" type="submit">BUY</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        {% for p in p_pkgs3 %}
+            <div class="package____card">
+                <p class="packages___title gold">{{ p.pkg_title }}</p>
+
+                <p class="pri">USD
+                    <span class="price___amount">{{ p.price }}</span>
+                </p>
+
+                <p class="make___words"> <span class="iconify" data-icon="carbon:dot-mark" style="color: #6693db;"></span>Make Your Profile <span class="bold____text"> GOLD </span> For</p>
+
+                <div class="inner___item">
+                    <p>1 MONTH</p>
+                </div>
+
+                <div class="buying___buttton">
+                    <form action="{% url 'add_package_to_cart' %}" method="POST">
+                    {% csrf_token %}
+                        <input hidden type="text" value="{{ p.id }}" name="pkg_id">
+                        <button class="buying__new___button gold" type="submit">BUY</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div><br>
+
+
+    {% include 'buyingview/buying_footer.html' %}
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% if p_pkgs %}
+    {%for p in p_pkgs%}
+        {{ p.pkg_title }}
+        {{ p.price }}
+        <form method="POST" action="{% url 'add_package_to_cart' %}">
+            {% csrf_token %}
+            <input type="text" value="{{ p.id }}" name="pkg_id">
+            <button type="submit">BUY NOW</button>
+        </form>
+    {% endfor %}
+{%  else %}
+    No PACKAGES ADDED
+{% endif %} -->
+
+
+

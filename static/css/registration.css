@@ -1,0 +1,189 @@
+/* registration form */
+/* body{
+    background-image: url("../images/formbg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+} */
+body{
+    background-color: #f5f5f5;
+}
+.inner-registration{
+    width: 40%;
+    margin: 0 auto;
+}
+
+
+
+/* .mainlogo img{
+    width: 89px;
+    height: 27px;
+}
+.logo{
+    text-align: center;
+    font-family: 'robotomedium';
+    font-size: 25px;
+    color: #000;
+    padding: 10px;
+    text-transform: capitalize;
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    border-radius: 0;
+    position: relative;
+    width: 100%;
+} */
+/* .logo img{
+    max-width: 100%;
+} */
+/*.top_pop{*/
+/*    display: inline-block;*/
+/*    width: 100%;*/
+/*    padding-bottom: 0px;*/
+/*    margin-bottom: 0px;*/
+/*    text-align: center;*/
+.passwordColumn{
+    margin-top: -10px;
+}
+.or-dev {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+.or-dev span {
+    display: inline-block;
+    background: #fff;
+    border: 1px #ddd solid;
+    border-radius: 30px;
+    padding: 5px 15px;
+    position: relative;
+    font-family: 'robotomedium';
+    color: #000;
+    font-size: 15px;
+}
+.or-dev:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    transform: translate(0,-50%);
+}
+.reg-ui{
+    padding: 83px;
+    display: inline-block;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+.btn-primary {
+    background-color: #007bff;
+}
+.ui form h5{
+    width: 100%;
+    text-align: center;
+    font-family: 'robotomedium';
+    font-size: 22px;
+    color: #555;
+    padding: 0px 0px 10px 0px;
+    text-transform: capitalize;
+    display: inline-block;
+}
+.ui form p{
+    width: 100%;
+    text-align: center;
+    font-family: 'robotomedium';
+    font-size: 17px;
+    color: #555;
+    padding: 0px 74px 0px 75px;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+.socialIcon, .signupbtn{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.signupbtn{
+    margin-left: -2px;
+    background-color: #1dbf73;
+}
+.total-reg{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+}
+@media (max-width: 750px){
+    .inner-registration{
+    width: 100%;
+    }
+}
+
+@media (max-width:435px){
+    .socialIcon button{
+        font-size:18px;
+    }
+}
+
+@media (max-width:415px){
+    .socialIcon button{
+        font-size:15px;
+    }
+}
+@media (max-width:405px){
+    .socialIcon button{
+        font-size:15px;
+    }
+}
+@media (max-width:382px){
+    .socialIcon button{
+        font-size:14px;
+    }
+}
+@media (max-width:360px){
+    .socialIcon button{
+        font-size:12px;
+    }
+    .create{
+        font-size: 16px;
+    }
+}
+@media (max-width:345px){
+    .socialIcon button{
+        font-size:11px;
+    }
+}
+@media (max-width:325px){
+    .socialIcon button{
+        font-size:9px;
+    }
+}
+
+
+
+/* @media (max-width: 992px){
+    .total-reg{
+        margin-top: 185px;
+    }
+}
+@media (max-width: 555px){
+    .total-reg{
+        margin-top: 185px;
+    }
+}
+@media (max-width: 547px){
+    .total-reg{
+        margin-top: 185px;
+    }
+} */

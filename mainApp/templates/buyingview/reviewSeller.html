@@ -1,0 +1,126 @@
+
+{% load static %}
+{% include 'wasekPart/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/reviewSeller.css' %}" />
+    
+    
+    
+    
+    <div class="tab-view container d-flex mt-5">
+
+        <p class="place-order">PLACED ORDER</p>
+  
+        <p class="ongoing-project">ONGOING PROJECTS</p>
+  
+      </div>
+  
+  
+  
+  <!-- for placed order -->
+    <div class="order-details-for-payment container for-placed-order">
+  
+      <div class="order-list table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="align-middle for-width">GIG TITLE</th>
+              <th scope="col" class="align-middle for-name">BUYER NAME</th>
+              <th scope="col" class="align-middle for-name">SELLER NAME</th>
+              <th scope="col" class="align-middle for-name">GRAND TOTAL</th>
+              <th scope="col" class="align-middle for-name text-center">ACTION</th>
+              <th scope="col" class="align-middle for-name"></th>
+            </tr>
+          </thead>
+  
+  
+          <tbody>
+            <tr>
+              <td scope="row" class="align-middle for-width for-name">i WILL CONVERT YOUR PSD TO HTML</td>
+              <td class="align-middle for-name">RABBITH ARKO</td>
+              <td class="align-middle for-name">RABBIT ARKO</td>
+              <td class="align-middle for-name">100$</td>
+              <td class="align-middle for-name">
+                <div class="button align-middle text-center for-name">
+                  <button class="">
+                    Make payment
+                  </button>
+                </div>
+              </td>
+  
+              <td class="align-middle for-name">
+                <div class="button text-center align-middle">
+                  <button class="review-button align-middle text-center ">
+                    Review
+                  </button>
+                </div>
+  
+              </td>
+            </tr>            
+          </tbody>  
+  <!-- last total amount -->
+         
+  
+  
+          
+               
+        
+  
+  
+  
+        </table>
+      </div>
+  
+    </div>
+  
+  
+  
+  <!-- for ongoing project -->
+  
+  
+  
+  <div class="order-details-for-payment container for-ongoing">
+  
+    <div class="order-list table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="align-middle for-width">GIG TITLE</th>
+            <th scope="col" class="align-middle for-name">BUYER NAME</th>
+            <th scope="col" class="align-middle for-name">SELLER NAME</th>
+            <th scope="col" class="align-middle for-name">GRAND TOTAL</th>
+            <th scope="col" class="align-middle for-name text-center">ACTION</th>
+            <th scope="col" class="align-middle for-name"></th>
+          </tr>
+        </thead>
+  
+  
+        <tbody>
+          <tr>
+            <td scope="row" class="align-middle for-width for-name">i WILL CONVERT YOUR PSD TO HTML</td>
+            <td class="align-middle for-name">RABBITH ARKO</td>
+            <td class="align-middle for-name">RABBIT ARKO</td>
+            <td class="align-middle for-name">100$</td>
+            <td class="align-middle for-name">
+              <div class="button align-middle text-center for-name">
+                <button class="view">
+                  View
+                </button>
+              </div>
+            </td>
+  
+            <td class="align-middle for-name">
+              <div class="button text-center align-middle">
+                <button class="review-button align-middle text-center ">
+                  Review
+                </button>
+              </div>
+  
+            </td>
+          </tr>            
+        </tbody>  
+      </table>
+    </div>
+  
+  </div>
+  

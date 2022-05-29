@@ -1,0 +1,105 @@
+{% load static %}
+{% comment %} After Submitting a file from seller buyer will recieve an email {% endcomment %}
+
+
+
+
+
+{% comment %} ARKO ADD DESIGN HERE AND FOLLOW THE TWO LINES ABOVE THIS LINE. {% endcomment %}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Email template</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+    <!-- font start -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- font end -->
+
+
+</head>
+
+
+<body style="background-color: #f3f3f3;">
+
+    <div class="container">
+        <div class="main-card">
+
+            <div class="col-md-8 m-auto d-block email-template p-4" style="background-color: #fff;">
+                <div class="email-template">
+
+                    <div class="logo-area text-center">
+                        <h2 style="font-family: 'Lobster', cursive;
+                        margin-bottom: 30px;">Marketage</h2>
+                    </div>
+
+                  
+
+                    <div class="confirm-email" style="text-align: center;
+                    margin-top: 40px;">
+                        
+                        
+                        <p style="font-weight: 500;">
+                            
+                           Your Order Has been Delivered please check!
+                  
+                        
+                        </p>
+                        
+                        <p style="font-weight: 500;">
+                            
+                          
+                            Your orderId:- {{ orderId }}
+                        
+                        </p>
+                      
+                    </div>
+
+                   
+
+                    <div class="support-area" style="text-align: left;">
+
+                        <div class="address" style="text-align: left;">
+                            <h6 class="text-center mt-5" style="font-size: 25px;
+                            font-weight: 500;
+                            margin-bottom: 15px;">Address:</h6>
+                            <p> <span style="font-size: 15px;
+                                font-weight: 500;">United Kingdom Office:</span> IGL located at 2 Frederick Street, Kings Cross, London, United Kingdom, WC1X 0ND </p>
+                            <p> <span> Bangladesh Office:</span>  Itna Global Limited, House 24, Road,1, Nikunja2, Dhaka 1229, Khilkhet, </p>
+                        </div>
+                    </div>
+
+                    <div class="copy-right" style="text-align: center;">
+                        <p style="font-size: 12px;
+                        font-weight: 500;">Copyright © 2021 Itna Global Ltd. All rights reserved.</p>
+                    </div>
+
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+</body>
+
+
+</html>

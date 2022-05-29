@@ -1,0 +1,149 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- google fonts -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+        <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+        
+
+        <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}"/>
+
+        
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <link rel="stylesheet" href="{% static 'css/buying_footer.css' %}">
+
+    <title>Footer</title>
+
+</head>
+
+<body>
+
+
+
+    <div class="footer">
+
+     <div class="main-footer">
+
+        <div class="two-colum">
+
+            <div class="first_column">
+
+                <h3 class="stay__inform">CONTACT INFO</h3><br>
+
+                <p class="slaes__support"><span class="iconify iconi___new____icon" data-icon="bx:bxs-contact" style="color: red;"></span>&nbsp;<a href="{% url 'helpSupport' %}">Contact Us</a></p>
+
+
+
+                <p class="fb-with-text"><span class="iconify iconi___new____icon" data-icon="akar-icons:facebook-fill" style="color: #4064ac;"></span><a href="https://www.facebook.com/marketagebd/">&nbsp; <span class="social-textfb">FACEBOOK</span></a></p>
+
+                <p><span class="iconify iconi___new____icon" data-icon="akar-icons:instagram-fill" style="color: #f716bf !important;"></span> <a href="https://www.instagram.com/marketagebd/">&nbsp; <span class="social-textin">INSTAGRAM</span></a></p>
+
+                <P class="fb-with-text"><span class="iconify iconi___new____icon" data-icon="akar-icons:twitter-fill" style="color: #31c6f7;"></span><a href="https://twitter.com/marketagebd">&nbsp; <span class="social-texttw">TWITTER</span></a></P>
+
+                <p class="fb-with-text"><span class="iconify iconi___new____icon" data-icon="entypo-social:linkedin-with-circle" style="color: #1b71b6;"></span><a href="https://www.linkedin.com/in/marketage-bd-b5202921b/">&nbsp; <span class="social-textln">LINKEDIN</span></a></p>
+
+                <p class="for____reibmle"> <img src="{% static 'images/new_reimble.png' %}">&nbsp; <a class="for____reibmle1" href="#">REIMBLE</a> </p>
+
+                
+
+            </div>
+
+            <div class="first_column">
+
+                <h3 class="stay__inform">CATEGORIES</h3><br>
+
+                <p><a class="new___link___style" href="{% url 'about-us' %}">About Us</a></p>
+
+                <p><a class="new___link___style" href="{% url 'helpSupport' %}">Help & Support</a></p>
+
+                <p><a class="new___link___style" href="{% url 'trustSafety' %}">Trust & Safety</a></p>
+
+                <p><a class="new___link___style" href="{% url 'termOfservices' %}">Term of Services</a></p>
+
+                <p><a class="new___link___style" href="{% url 'privacypolicy' %}">Privacy Policy</a></p>
+
+                <p><a class="new___link___style" href="{% url 'payment-term' %}">Payment Terms</a></p>
+
+            </div>
+
+          </div>
+
+            <div class="third-colum">
+
+                <div class="first_column">
+
+                    <h3 class="stay__inform">STAY INFORMED BY MARKETAGE</h3><br>
+
+                    <p>" Subscribe to our marketage to receive early discount offers. <br> updates and new products info. "</p>
+
+                   <!-- <div class="colum-input">
+
+                    <a href="#"><span class="iconify" data-icon="mdi:email-search" style="color: white;"></span></a>
+
+                    <input type="email" name="search" placeholder="&nbsp; Your email here...." required>
+
+                   </div> -->
+
+                   <form>
+
+                    <div class="searchbar__with__icon">
+
+                        <a class="search___icon" href="#"><span class="iconify icon" data-icon="mdi:email-search" style="color: #000;"></span></a>
+
+                    <input type="text" name="search" placeholder="Search..">
+
+                    </div>
+
+                  </form>
+
+                    
+
+                </div>
+
+            </div>
+
+     </div>
+
+     <div class="colum-img">
+
+        <a href="{% url 'buying_view' %}"><img src="{% static 'images/logo_white.png' %}" alt="logo"></a>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p><span>&copy; ITNA GLOBAL LTD</span> - 2021</p>
+
+       <div class="payment-img">
+
+        <img src="{% static 'images/gate1.png' %}" alt="">
+
+       </div>
+
+    </div>
+
+
+
+   
+
+    </div>
+
+
+
+</body>
+
+</html>

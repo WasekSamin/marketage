@@ -1,0 +1,79 @@
+{% extends "wasekPart/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/campaign.css' %}">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+{% comment %}Jquery CDN{% endcomment %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="{% static 'js/campaign.js' %}" defer></script>
+
+<!--seller_dashboard1.jpeg-->
+
+{% include "buyingview/header.html" %}
+
+<style>
+    .msg__header,
+    .wasek__mobileNavbar {
+        display: none !important;
+    }
+</style>
+
+<div>
+    {% comment %}Campaign banner section starts{% endcomment %}
+    <div class="campaign__banner">
+        {% for banner in campaign_banners %}
+            {% if banner.banner_img %}
+                <div class="campaign__bannerImg">
+                    <img src="{{ banner.banner_img.url }}" />
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% comment %}Campaign banner section ends{% endcomment %}
+    
+    <div class="campaign__content my-5">
+        <div class="campaign__header mb-4">
+            <h4 class="fw-bold text-center">All Campaigns</h4>
+        </div>
+        
+        {% comment %}Campaign card content section starts{% endcomment %}
+        <div class="campaign__cardContent container d-flex flex-wrap">
+            {% for campaign in campaigns %}
+                {% if campaign in seller_set %}
+                    <div>
+                        <div class="card">
+                            <div class="campaign__cardContentImg">
+                                {% if campaign.campaign_image %}
+                                    <img src="{{ campaign.campaign_image.url }}" />
+                                {% endif %}
+                            </div>
+                            <p class="fw-bold text-white text-center">Already Participated</p>
+                            <div id="campaign__overlay"></div>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{% url 'CampaignWiseQustion' campaign.id %}">
+                        <div class="card">
+                            <div class="campaign__cardContentImg">
+                                {% if campaign.campaign_image %}
+                                    <img src="{{ campaign.campaign_image.url }}" />
+                                {% endif %}
+                            </div>
+                            <p class="fw-bold text-white">{{ campaign.title }}</p>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% comment %}Campaign card content section ends{% endcomment %}
+    </div>
+    
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</div>
+{% include 'buyingview/buying_footer.html' %}
+
+{% endblock %}
